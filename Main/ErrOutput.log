@@ -1,0 +1,8 @@
+NAMEVALUEPAIR::Load() : Can not find file 'options.cfg'. 
+NAMEVALUEPAIR::Load() : Can not find file 'KeyBinding.cfg'. 
+initFunctions::initialization() : Configuration data can not be loaded.
+main::_tWinMain() : Initialization failed
+NAMEVALUEPAIR::Load() : Can not find file 'options.cfg'. 
+NAMEVALUEPAIR::Load() : Can not find file 'KeyBinding.cfg'. 
+initFunctions::initialization() : Configuration data can not be loaded.
+main::_tWinMain() : Initialization failed

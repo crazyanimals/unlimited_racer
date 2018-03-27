@@ -1,0 +1,281 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1250"/>
+	<link type="text/css" href="mainstyles.css" rel="stylesheet"/>
+	<title>Fyzikální engine</title>
+</head>
+
+<body>
+<h1 id="section0">3 Fyzikální engine</h1>
+<h2 id="section1">3.1 Seznámení s fyzikálním enginem</h2>
+<p> Na úplném začátku projektu jsme byli postaveni před rozhodnutí, jakým způsobem se budou řešit výpočty pozic objektů ve hře. Z několika možných přístupů jsme vybrali výpočty na základě fyzikálních zákonů. Toto rozhodnutí nám přineslo na jedné straně výhodu realistické interakce objektů ve scéně, na druhé straně určité problémy. Tyto problémy čase vyvolaly několik zásadních změn v samotném návrhu celého projektu.</p>
+<h3 id="section1.1">3.1.1 Vlastní implementace a problémy s ní spojené</h3>
+<p>Jak už jsme v úvodu zmínili, naše první kroky směřovaly k pokusu o implementaci vlastního fyzikálního enginu. Po nastudování příslušné dokumentace byl vytvořen návrh fyzikálního modulu. Ten je v podstatě totožný s tím, co obsahuje v současnosti. Později byly odstraněny pouze části týkající se kolizí objektů a samotného výpočtu, materiály byly vyčleněny zvlášť. V průběhu prací jsme došli k závěru, že doba potřebná na implementaci takto rozsáhlého řešení je mnohem delší, než jsme původně předpokládali.</p>
+<p>Navíc jsme si nemohli být jisti tím, že tento přístup bude správně a především dostatečně rychle pracovat. Zpoždění na fyzikálním modulu se vyvolalo kaskádový efekt a postupně se přeneslo i na další projekty závislé na fyzice a ty se také začínaly opožďovat. V této době jsme tak museli rozhodnout o tom, kterým směrem se náš projekt bude nadále ubírat. K dispozici jsme měli dvě možnosti - změnit pohled na fyzkální model nebo využít nějaký hotový fyzikální engine.</p>
+<dl>
+    <dt><strong>a) změna pohledu na fyzikálního modelu</strong></dt>
+        <dd>+ vlastní implementace a s tím spojena možnost kompletního ladění</dd>
+        <dd>- zjednodušení modelu - některé ústupky od specifikace</dd>  
+    <dt><strong>b) zachování stávajícího fyzikálního modelu</strong></dt>
+        <dd>+ dodržení specifikace projektu, větší hratelnost</dd>
+        <dd>+ fungující, dostatečně rychlý fyzikální engine</dd>
+        <dd>- závislost na cizím řešení se všemi výhodami a nevýhodami</dd>
+</dl>        
+<p>I přes rizika spojená s použitím cizího řešení jsme se rozhodli pro druhou možnost. Prošli jsme několik dostupných fyzikálních enginů. Nakonec jsme se rozhodli pro fyzikální engine <strong>Newton Game Dynamics<sup>TM</sup></strong>.</p>
+<h3 id="section1.2">3.1.2 Integrace nového fyzikálního enginu</h3>
+<p> <strong>Newton Game Dynamics<sup>TM</sup></strong> (dále jen <strong>NGD</strong>). Stránky tvůrců: <a href="http://www.newtondynamics.com">www.newtondynamics.com</a></p>
+<p>V této sekci se budeme zabývat lehkým seznámením s enginem, s tím jak probíhala jeho integrace a s problémy spojenými s používáním tohoto enginu. <strong>NGD</strong> je vcelku vyspělý fyzikální engine. Pro náš projekt byly obzvláště zajímavé tyto schopnosti:</p>
+<ul>
+    <li><strong>integrátor</strong> - ten obstarává výpočty fyziky</li>
+    <li><strong>detekce kolizí</strong> - mechanismus, bez kterého se žádná fyzikální simulace neobejde</li>
+    <li><strong>správa scény</strong> - přístupy umožňující snadnou manipulaci s objekty ve scéně</li>
+    <li><strong>kolizní obálky</strong> - bez nich by tělesa byla pouhé hmotné body, na těchto obálkách se detekují kolize</li>
+    <li><strong>tělesa</strong> - tělesa, která spravuje engine, na kterých provádí výpočty</li>
+    <li><strong>materiály</strong> - možnost definice různých materiálů pro zvýšení realističnosti simulace</li>
+    <li><strong>modul pro tvorbu auta</strong> - tento modul zjednodušuje tvorbu auta, jde o systém pružin a kol</li>
+</ul>
+<p>Při integraci <strong>NGD</strong> enginu jsme museli provést několik změn v našem dosavadním návrhu. Kosmetickými úpravami se zde nebudeme zabývat. Mezi nejvýznamnější změny patři přechod k používání transformačních matic v grafice a síti a vytvoření zvláštní materiálové třídy. V původním návrhu grafický modul pracoval tak, že nastavoval pozice a rotace objektů přímo pomocí vektorů a úhlů. S příchodem <strong>NGD</strong> bylo nutno přejít k používání transformačních matic. Část grafického enginu musela být patřičně upravena. Podobnými změnami jako grafický modul musela projít také daná část síťového modulu starající se o přenost těchto dat. Nutno poznamenat, že v tomto případě šlo spíše o drobnosti. Druhá významná změna se týkala materiálů. Pro jejich použití musela být vytvořena nová třída zajišťující jejich správnou funkčnost.</p>
+<h3 id="section1.3">3.1.3 Problémy spojené s přechodem</h3>
+<p>Přechod na <strong>NGD</strong> nepřinesl jenom klady. Objevilo se také několik velmi nepříjemných komplikací. Z možností nabízených <strong>NGD</strong> jsme museli vybrat jak budeme reprezentovat objekty ve scéně - přesněji řečeno jejich kolizní obálky. U dynamických objektů a aut padla volba na používání konvexních obálek (<a href="#section2.2.1"><strong>Convex Hull Collisions</strong></a>). Pro statické objekty a terén byly vybrány obálky pro tvorbu složitějších statických objektů (<a href="#section2.2.2"><strong>Tree Collision</strong></a>). Asi nejvíce času jsme strávili s pokusy přimět obálky <strong>Tree Collision</strong> fungovat. Hlavním problém bylo propadávání objektů - zde nedocházelo k vzájemné interakci obálek, případně nefungovala vždy správně. Hledáním příčiny této chyby jsme strávili poměrně značné množtví času. Nakonec jsme uspěli na stránkách oficiálního fóra <a href="http://www.newtongamedynamics.com/forum/">www.newtondynamics.com/forum/</a>. Šlo o správné pořadí zadávání vrcholů - proti směru hodinových ručiček. O této maličkosti se ovšem autoři v dokumentaci zapomněli zmínit.</p>
+<p>S propadáváním objektů "z neznámé příčiny" jsme se museli vypořádat ještě jednou při změnách měřítka objektů. Při použití odpovídající transformační matice sice došlo ke správné změně měřítka u kolizní obálky, objekt však s ostatními objekty neinteragoval. V takovém případě se musela nejdříve změnit velikost celé kolizní obálky už při její tvorbě. Dále se používala transformační matice bez změny měřítka - objekt už měl potřebnou velikost. Grafický engine potom tuto matici v případě potřeby přenásobil zleva maticí měnící měřítko.</p>
+<p>Několik nepříjemností bylo spojeno s používáním starší verze enginu. Zde šlo především o potíže s obálkou terénu (o tom se podrobněji pojednává v sekci zabývající se <a href="#section3.2">terénem</a>) a modulem pro tvorbu aut. Auta byla velmi nestabilní, maximální hmotnost byla maximálně 100 kg, kola často propadávala terénem. Nová verze enginu vyřešila většinu těchto problémů. Stále však čas od času dochází ke špatným kolizím kol.</p>
+<h2 id="section2">3.2 Fyzikální engine Newton Game Dynamics<sup>TM</sup></h2>
+<p> Smyslem tohoto oddílu není přesný popis všech součástí, spíše se jedná o výčet věcí, které považujeme z programátorského hlediska za nejvýznamnější. Případné zájemce o detailnější popis bychom odkázali na manuál dodávaný s enginem (ten je možné sehnat na stránkách autorů <a href="http://www.newtondynamics.com">www.newtondynamics.com</a>), případně na oficiální fórum <a href="http://www.newtondynamics.com/forum/">www.newtondynamics.com/forum/</a> (odkud jsme čerpali informace také my).</p>
+<h3 id="section2.1">3.2.1 Struktura NewtonWorld</h3>
+<p><strong>NewtonWorld</strong> je hlavní struktura v enginu <strong>NGD</strong>. <strong>NewtonWorld</strong> představuje svět z pohledu <strong>NGD</strong>, v jeho rámci pak probíhají výpočty. Všechny další nově vytvořené struktury přísluší nějakému světu.</p>
+<dl>
+    <dt><span>Výběr významných funkcí:</span></dt>
+        <dd><strong>NewtonSetSolverModel()</strong> - nastavení přesnosti a rychlosti integrátoru</dd>
+        <dd><strong>NewtonSetFrictionModel()</strong> - nastavení přesnosti modelu použitého při výpočtu tření</dd>
+        <dd><strong>NewtonUpdate()</strong> - provedení simulace za uživatelem zadaný časový interval</dd>
+        <dd><strong>NewtonSetWorldSize()</strong> - vymezení světa, veškeré simulace probíhají pouze v rámci takto vymezeného světa</dd>
+        <dd><strong>NewtonWorldRayCast()</strong> - vrhnutí paprsku z bodu do bodu, obsloužení uživatelem definovanou funkcí</dd>
+</dl>
+<h3 id="section2.2">3.2.2 Struktura NewtonCollision</h3>
+<p> Využití struktury <strong>NewtonCollision</strong> spočívá v reprezentaci kolizních obálky používaných enginem <strong>NGD</strong>. <strong>NGD</strong> umožňuje tvorbu několika typů obálek - konvexní obálky, obálky pro statické objekty a uživatelem definované obálky. My jsme používali první dva typy.</p>
+<h4 id="section2.2.1">3.2.2.1 Kolizní obálka typu Convex Hull Collision</h4>
+<p>Konvexní obálka se v <strong>NGD</strong> používá na dynamické objekty. V našem případě jsme zvolili možnost vytvoření konvexní obálky na základě skupiny vrcholů.</p>
+<dl>
+    <dt><span>Výběr významných funkcí:</span></dt>
+        <dd><strong>NewtonCreateConvexHull()</strong> - tvorba konvexní obálky na základě skupiny vrcholů</dd>
+        <dd><strong>NewtonConvexCollisionCalculateInertialMatrix()</strong> - výpočet momentů setrvačnosti a umístění těžiště</dd>
+</dl>
+<h4 id="section2.2.2">3.2.2.2 Kolizní obálka typu Tree Collision</h4>
+<p><strong>Tree Collision</strong> představuje preferovaný způsob tvorby kolizní obálky pro statické objekty. Tvorba probíhá přidáváním polygonů. U objektů, které používají tento typ obálky, je ignorována hmotnost ve všech dynamických výpočtech.</p>
+<dl>
+    <dt><span>Výběr významných funkcí:</span></dt>
+        <dd><strong>NewtonCreateTreeCollision()</strong> - tvorba obálky pro statické objekty</dd>
+        <dd><strong>NewtonTreeCollisionBeginBuild()</strong> - začátek tvorby obálky</dd>
+        <dd><strong>NewtonTreeCollisionAddFace()</strong> - přidání nového polygonu do obálky</dd>
+        <dd><strong>NewtonTreeCollisionEndBuild()</strong> - konec tvorby obálky</dd>
+</dl>
+<h3 id="section2.3">3.2.3 Struktura NewtonBody</h3>
+<p>Struktura <strong>NewtonBody</strong> reprezentuje tělesa, na kterých se provádějí fyzikální výpočty. Při tvorbě je takovému tělesu přiřazena kolizní obálka. <strong>NewtonBody</strong> umožňuje provádět velké množství operací např. manipulace se silami a momenty sil.</p>
+<dl>
+    <dt><span>Výběr významných funkcí:</span></dt>
+        <dd><strong>NewtonCreateBody()</strong> - tvorba nového tělesa, přiřazení kolizní obálky</dd>
+        <dd><strong>NewtonBodySetTransformCallback()</strong> - přiřazení obslužné funkce, je automaticky zavolána při změně polohy tělesa v průběhu výpočtu</dd>
+        <dd><strong>NewtonBodySetForceAndTorqueCallback()</strong> - přiřazení obslužné funkce, ta je volána v každém kroku výpočtu</dd>
+        <dd><strong>NewtonBodySet/GetMassMatrix()</strong> - nastavení/získání hmotnosti tělesa</dd>
+        <dd><strong>NewtonBodySet/GetMatrix()</strong> - nastavení/získání transformační matice tělesa</dd>
+        <dd><strong>NewtonBodySet/GetCentreOfMass()</strong> - nastavení/získání polohy těžiště tělesa</dd>
+        <dd><strong>NewtonBodySet/Add/GetForce()</strong> - nastavení/přidání/získání síly působící na těleso</dd>
+        <dd><strong>NewtonBodySet/Add/GetTorque()</strong> - nastavení/přidání/získání momentu sil působícího na těleso</dd>
+        <dd><strong>NewtonBodySet/GetMaterialGroupID()</strong> - nastavení/získání indexu materiálové skupiny</dd>
+</dl>
+<h3 id="section2.4">3.2.4 Struktura NewtonJoint</h3>
+<p> Klouby (spojení těles) jsou v enginu <strong>NGD</strong> tvořeny pomocí struktury <strong>NewtonJoint</strong>.  My jsme využili typ spojení v modulu pro tvorbu aut.</p>
+<dl>
+    <dt><span>Výběr významných funkcí:</span></dt>
+        <dd><strong>NewtonConstraintCreateVehicle()</strong> - vytvoření spojení bez kol, jde o zjednodušený model připojení kola k autu a tlumičů, kola se mohou otáčet</dd>
+        <dd><strong>NewtonVehicleSetTireCallback()</strong> - přiřazení obslužné funkce, je volána v každém kroku výpočtu</dd>
+        <dd><strong>NewtonVehicleAddTire()</strong> - přidání nového kola</dd>
+        <dd><strong>NewtonVehicleGetTireMatrix()</strong> - získání transformační matice kola</dd>
+        <dd><strong>NewtonVehicleSet/GetTireSteerAngle()</strong> - nastavení/získání úhlu kola - simulace zatáčení</dd>
+        <dd><strong>NewtonVehicleSetTireTorque()</strong> - nastavení momentu sil působícího na kolo</dd>
+        <dd><strong>NewtonVehicleGetTireOmega()</strong> - získání úhlové rychlosti působící na kolo</dd>
+</dl>
+<h3 id="section2.5">3.2.5 Struktura NewtonMaterial</h3>
+<p> Materiály jsou v enginu <strong>NGD</strong> simulovány pomocí grafu, kde vrcholy jsou jednotlivé materiály. Hrana mezi dvěma vrcholy představuje pár materiálů - struktura <strong>NewtonMaterial</strong>. Takto je umožněno nastavovat různé vlastnosti od pružnosti po koeficienty tření.</p>
+<dl>
+    <dt><span>Výběr významných funkcí:</span></dt>
+        <dd><strong>NewtonMaterialGetDefaultGroupID()</strong> - získání indexu základní materiálové skupiny</dd>
+        <dd><strong>NewtonMaterialCreateGroupID()</strong> - vytvoření materiálové skupiny</dd>
+        <dd><strong>NewtonMaterialSetDefaultCollidable()</strong> - nastavení vlastnosti kolize</dd>
+        <dd><strong>NewtonMaterialSetDefaultFriction()</strong> - nastavení koeficientů statického a dynamického tření</dd>
+        <dd><strong>NewtonMaterialSetDefaultElasticity()</strong> - nastavení pružnosti</dd>
+        <dd><strong>NewtonMaterialSetCollisionCallback()</strong> - přiřazení obslužné funkce, je volána při kontaktu dvou těles</dd>
+</dl>
+<h2 id="section3">3.3 Fyzikální engine pro hru Unlimited Racer</h2>
+<p>V této části dokumentace se budeme věnovat celkovému pohledu na fyzikální engine použitý ve hře. Popíšeme si věci, ze kterých se skládá fyzikální scéna, to jak fungují materiály a podíváme se na děje spojené s inicializací a samotným průběhem simulace. V závěru se budeme zabývat vnitřním objektovým návrhem fyzikálního modulu.</p>
+<p>Fyzikální scéna se skládá z několika částí. Nachází se zde <a href="#section3.1.1">statické</a> a <a href="#section3.1.2">dynamické</a> objekty. Dalším důležitým prvkem ve scéně je <a href="#section3.2">terén</a>. Terén se skládá z jednoho velkého, případně skupiny statických objektů - oba přístupy je možné použít. Posledním prvkem figurujícím ve fyzikální scéně jsou vozidla. Jedná se o speciální dynamický objekt skládající se z <a href="#section3.3.1">karoserie</a>, <a href="#section3.3.2">kol</a> a <a href="#section3.3.3">motoru</a>.</p>
+<h3 id="section3.1">3.3.1 Objekty</h3>
+<p>Objekty ve hře rozlišujeme na dva druhy - <a href="#section3.1.1">statické</a> a <a href="#section3.1.2">dynamické</a>. Existuje hned několik důvodu, proč je bylo nutné rozlišit. Dva hlavní důvody jsou odlišný způsob tvorby kolizní obálky a snížení výpočetní náročnosti fyzikální scény.</p>
+<h4 id="section3.1.1">3.3.1.1 Statické objekty</h4>
+<p>Statické objekty ve scéně zastupují nehybné objekty. Ve hře plní různé funkce - od překážek na ježdění (looping, různé rampy, klopené zatáčky) až po doplňkové objekty (billboardy, lampy). Uživateli zde byla ponechána značná volnost v tom, jaké objekty do hry umístí. Objektům je také možné přiřadit některý z uživatelem vytvořených materiálů. V případě, že žádný materiál není nastaven použije se základní materiál zabudovaný ve hře.</p>
+<p>Z pohledu fyzikálního enginu je statický objekt tvořen kolizní obálkou, jehož hmotnost je ignorována ve všech výpočtech. Tato obálka je nejčastěji vytvořena na základě modelu tělesa, které má reprezentovat. Tvorba kolizní obálky probíhá po jednotlivých polygonech - to je dáno díky vlastnostem <strong>NGD</strong> (používá se obálka typu <a href="#section2.2.2"><strong>Tree Collision</strong></a>).</p>
+<p class="center"><img src="images/TreeCollision.gif" width="417" height="204" alt="Tvorba kolizní obálky pro statické objekty"/></p>
+<p class="center"><strong>Obrázek 3.1: Tvorba kolizní obálky pro statické objekty</strong></p>
+<p>Jak už bylo řečeno dříve, u statických objektů se nebere v úvahu jejich hmotnost (proto ji není nutné uvádět). Díky tomu jsou mnohem méně náročné na výpočty. Navíc se pozice statických objektů určuje pouze jednou při inicializaci nové hry. Tím nezatěžují síťovou komunikace, protože se v průběhu simulace nepohybují.</p>
+<h4 id="section3.1.2">3.3.1.2 Dynamické objekty</h4>
+<p>Dynamické objekty se mohou v průběhu simulace pohybovat. Jejich funkce většinou spočívá v menších doplňkových objektech jako jsou různé kužely, barely nebo prkna. Podobně jako u statických objektů i zde je rozhodnutí zcela na uživateli - ať už jde o druh objektu nebo o materiál.</p>
+<p>Při tvorbě kolizních obálek se dynamické objekty odlišují hned v několika záležitostech. Obálka je vytvořena obvykle na základě modelu vygenerováním konvexního obalu (obálka typu <a href="#section2.2.1"><strong>Convex Hull Collision</strong></a>).</p>
+<p class="center"><img src="images/ConvexHullCollision.gif" width="512" height="206" alt="Tvorba kolizní obálky pro dynamické objekty"/></p>
+<p class="center"><strong>Obrázek 3.2: Tvorba kolizní obálky pro dynamické objekty</strong></p>
+<p>Zpracování velkého množství dynamických objektů významně zpomaluje jak fyzkální výpočty tak síťovou komunikaci. Tyto problémy řeší jejich rozdělení na dvě skupiny - aktivní a neaktivní. V praxi se to projevuje tak, že v každém kroku jsou do výpočtu zahrnuty pouze aktivní objekty. Objekty v průběhu simulace přecházejí mezi těmito dvěma stavy. Neaktivní stav je dosažen ustálením ve své poloze. Aktivaci může způsobit kolize s pohybujícím se objektem. Změnu stavu je samozřejmě možné ovlivnit i manuálně. Toto rozdělení urychluje výpočet. U neaktivních objektů pak odpadá nutnost neustálého posílání pozic.</p>
+<h3 id="section3.2">3.3.2 Terén</h3>
+<p>Terén je patrně nejdůležitější součást našeho herního světa. Veškeré dynamické objekty a vozidla téměř neustále kolidují s terénem. Budeme-li terén posuzovat z pohledu enginu <strong>NGD</strong>, jedná se o jeden velký statický objekt. Celý terén je složen ze skupiny čtvercových políček o délce strany 1000 jednotek (při současném nastavení je to přesně 10 metrů). Tato jednotlivá políčka jsou tvořena z předem vygenerovaných terénních plátů.</p>
+<p>Kolizní obálka terénu je založena na výše zmíněných terénních plátech. Velikost obálky (míněno co do počtu polygonů) se v průběhu projektu několikrát měnila. V první verzi byl terén vytvořen najednou - tedy jeden velký objekt. Ten vznikal tak, že se postupně procházela políčka na mapě. Pro každé políčko byl nalezen příslušný terénní plát a polygony, z kterých se skládal, byly přidány k obálce. V důsledku používání starší verze knihovny enginu <strong>NGD</strong> docházelo k problémům s pamětí a současně tvorba obálky měla větší časovou náročnost.</p>
+<p>V důsledku těchto problémů došlo k přepracování způsobu tvorby kolizní obálky. Původní koncepce založená na jednom velké objektu byla zahozena a přešlo se k používání menších kusů. Každé políčko na mapě představovalo jeden statický objekt - tj. mapa o velikosti 10 x 10 byla složena ze 100 statických objektů čtvercového půdorysu s délkou strany 10 metrů. Vytváření kolizní obálky pro každé políčko by zabralo poměrně hodně času. Aby se předešlo podobným problémům, byly nejprve vytvořeny obálky pro všechny typy terénních plátů používaných v nahrávané mapě. V dalším kroku už stačilo pouze vytvářet objekty a přiřazovat k nim odpovídající kolizní obálky. Nevýhoda tohoto přístupu spočívala ve vyšších paměťových nárocích. Ty byly způsobeny vnitřní režií <strong>NGD</strong>.</p>
+<p>Před poslední změna byla provedena na základě testování aut. Při jízdě docházelo k častému poskakování právě v místě přechodu mezi jednotlivými objekty tvořícími terén. Toto zjištění si vyžádalo přepracování tvorby terénu. Mapa byla rozdělena na několik čtvercových oblastí - skupin terénních plátů. Tím se snížil počet přechodů. Tvorba terénu probíhala procházením všech skupin v mapě a přidáváním terénních plátů do kolizní obálky skupiny (viz obrázek). Tento způsob tvořil jakýsi kompromis mezi oběma dříve použitými přístupy.</p>
+<p class="center"><img src="images/TerrainCreation.gif" width="711" height="216" alt="Způsob tvorby terénu pomocí skupin terénních plátů"/></p>
+<p class="center"><strong>Obrázek 3.3: Způsob tvorby terénu pomocí skupin terénních plátů</strong></p>
+<p>Poslední verze knihovny <strong>NGD</strong> opravila mnoho problémů týkajících se tvorby obálek statických objektů. Odpadly jak problémy s maximální velikostí obálky tak delší časy při jejich tvorbě. Tyto změny umožnily opět používat pro terén jednu velkou kolizní obálku. Díky používání skupin terénních plátů v posledním návrhu nebylo nutné provádět změny v algoritmu. Nyní probíhá tvorba terénu z jedné skupiny pokrývající celou mapu.</p>
+<h3 id="section3.3">3.3.3 Auta</h3>
+<p>Auta patří mezi pohyblivé objekty ve fyzikální scéně - mají většinu vlastností podobných jako dynamické objekty, současně se odlišují v celé řadě věcí. Geometrie vozidla se skládá ze dvou typů obálek - karoserie a kola. Karoserie s koly drží pohromadě speciální spoj s pružinou. Tímto způsobem je možno simulovat tlumiče, které se používají ve skutečných automobilech. Obálky karoserie a kol spolu vzájemně neinteragují. Vedle těchto částí obsahuje model auta ještě jeden objekt - motor. Z pohledu fyziky se jedná o čistě virtuální těleso, které nezasahuje do fyzikálních výpočtů, a jehož jediným účelem je simulace základních funkcí skutečného motoru.</p>
+<p></p>
+<h4 id="section3.3.1">3.3.3.1 Karoserie</h4>
+<p>Karoserii auta můžeme zařadit mezi dynamické objekty ve scéně. Obálka je vytvořena na základě modelu karoserie vygenerováním konvexního obalu (obálka typu <a href="#section2.2.1"><strong>Convex Hull Collision</strong></a>). Většinu parametrů určujících některé vlastosti dynamických objektů je nutné nastavit i v tomto případě. Vozidla jsou na rozdíl od dynamických objektů obvykle po celou dobu výpočtu v pohybu, proto bylo nutné zrušit schopnost vozidla přecházet mezi aktivním a neaktivním stavem.</p>
+<h4 id="section3.3.2">3.3.3.2 Kola</h4>
+<p>Kola vozidel jsou vytvářena automaticky enginem <strong>NGD</strong> na základě uživatelem zadaných hodnot - šířka a poloměr. Kolizní obálku vygeneruje engine a ta pak vyplňuje, případně lehce obaluje celé kolo. Podobně jako karoserie i kola můžeme považovat za dynamické objekty, které jsou stále aktivní. Jak už bylo řečeno dříve, kola jsou připojená ke karoserii pomocí pružin. Tyto pružiny jsou popsány pomocí těchto vlastností - délka, tuhost a útlum.</p>
+<p>Upevnění kol umožňuje celou řadu pohybů. Jedním z nich je posuvný pohyb podél osy definované pružinou. Okolo této osy je rovněž nastavováno zatočení kol kvůli změně směru jízdy. Nastavování úhlů kol je založena na principu tzv. Ackermanova řízení. Jedná se o přístup, kdy osy otáčení všech kol se protínají v jednom bodě - středu otáčení. Tímto způsobem je možné dosáhnou lepších vlastností vozidel při zatáčení.</p>
+<p class="center"><img src="images/Ackerman.gif" width="285" height="174" alt="Princip Ackermanova řízení"/></p>
+<p class="center"><strong>Obrázek 3.4: Princip Ackermanova řízení</strong></p>
+<p>Posledním pohybem kola je otáčení okolo osy kolmé na směr jízdy a osu pružiny. Kolo se kolem této osy může volně otáčet. Auto se uvádí do pohybu zvětšováním momentu sil působícím na kolo, obdobným způsobem je vyvoláno brždění.</p>
+<h4 id="section3.3.3">3.3.3.3 Motor</h4>
+<p>V naší hře je skutečný model zastoupen výrazně zjednodušenou verzí pracující na principu vyhledávání otáček na výkonové křivce. Při inicializace hry (závody) jsou z uživatelem nastavených hodnot zjištěny rychlostní stupně a jednotlivé body výkonové křivky. Vstupním parametrem pro určení odpovídajícího momentu sil je úhlová rychlost kol. Ta je převedena na počet otáček motoru za minutu. Každá nová hodnota je poupravena, pokud přesahuje maximální a minimální otáčky motoru. Aby se předešlo velkým výkyvům otáček motoru, je tato hodnota průměrována z několika po sobě jdoucích. Ve výkonové křivce se potom na základě otáček motoru za minutu vyhledá odpovídajicí moment sil, který je aplikován na kola.</p>
+<h3 id="section3.4">3.3.4 Materiály</h3>
+<p>Používání materiálů výrazně rozšiřuje možnosti fyzikálního enginu. Při troše experimentování lze docílit velmi zajímavých výsledků. Nejprve je nutné seznámit se s tím, jak k materiálům přistupuje engine <strong>NGD</strong>. Z jeho úhlu pohledu je to graf, kde vrcholy jsou jednotlivé typy materiálů. Vlastnosti - pružnost, měkkost, koeficienty statického a dynamického tření a schopnost kolize (přesněji - zda dva předměty nesoucí danou dvojici materiálů spolu kolidují, či nikoliv) - se pak nastavují vždy pro určitý pár materiálů. V praxi to pak vypadá tak, že se nejprve nastaví vlastnosti pro jeden základní materiál. To samé se potom provede s vybranými páry dalších materiálů. Není nutné definovat všechny možné dvojice, dokonce není třeba nastavit všechny vlastnosti. V takovém případě je využit základní materiál.</p>
+<p class="center"><img src="images/NewtonMaterials.gif" width="701" height="351" alt="Materiály z pohledu fyzikálního enginu Newton Game Dynamics TM"/></p>
+<p class="center"><strong>Obrázek 3.5: Materiály z pohledu fyzikálního enginu Newton Game Dynamics<sup>TM</sup></strong></p>
+<p id="section3.4.1">Poslední věc, kterou má <strong>NGD</strong> k dispozici pro práci s materiály, je možnost definování 3 obslužných funkcí (nazvěme je <strong>collisionBegin()</strong>, <strong>processContact()</strong>, <strong>collisionEnd()</strong>). Způsob jejich používání je spojen s tím, jakým způsobem <strong>NGD</strong> zpracovává kolize. Při překrytí AABB obálek (osově orientované obálky) dvou objektů se nejprve ověří, zda mezi nimi může dojít ke kolizi. To záleží na nastavení materiálů - kolize se může zpracovat a nebo také zahodit. Při zpracování se nejdříve zavolá collisionBegin(). V ní je možné rozhodnout o dalším pokračování. V kladném případě se provede výpočet, jsou nalezeny kontaktní body a na každý je zavolána funkce <strong>processContact()</strong>. Po zpracování všech kontaktů <strong>NGD</strong> zavolá funkci <strong>collisionEnd()</strong> - tím je ukončeno zpracování kolize. Na přiloženém diagramu je znázorněn průběh celého algoritmu.</p>
+<p class="center"><img src="images/CollisionAlgorithm.gif" width="653" height="256" alt="Průběh algoritmu, který zpracovává kolizi objektů"/></p>
+<p class="center"><strong>Obrázek 3.6: Průběh algoritmu, který zpracovává kolizi objektů</strong></p>
+<p>Náš přístup k materiálům je poněkud odlišný. Je založen na 4 druzích materiálových typů, tabulce materiálů a materiálové mapě pro terén.
+Při startu aplikace je načten soubor <a href="FileSystem.html#materials">"Data\Physics\materials"</a>. Ten obsahuje seznam všech použitých materiálů a uživatelem nadefinované kombinace různých materiálů. Tato data se uloží do dvourozměrné tabulky, kde každé pole představuje kombinaci dvou materiálů. Při spuštění hry je pro zadanou mapu vytvořena materiálová mapa. Každý terénní plát je pokryt <a href="FileSystem.html#PhTexture">fyzikální texturou</a> o velikosti 10 x 10 polí tvořenou indexy používaných materiálů. Při načítání objektů dojde k překrytí některých míst fyzikální texturou silnice.</p>
+<p class="center"><img src="images/PhysicalTexture.gif" width="644" height="228" alt="Příklad fyzikální textury terénu, silnice a jejich kombinace"/></p>
+<p class="center"><strong>Obrázek 3.7: Příklad fyzikální textury terénu, silnice a jejich kombinace</strong></p>
+<p>V průběhu hry jsou pak využívány pouze 4 druhy materiálových typů - <strong>Základní</strong>, <strong>Auto</strong>, <strong>Objekt</strong> a <strong>Terén</strong>. Jejich název určuje k jakému typu objektu ve scéně jsou přiřazeny. Fyzikální vlastnosti mezi těmito typy jsou definovány pouze na základním materiálovém typu. Typy se vzájemně liší pouze ve funkcích zpracovávajících jednotlivé kontakty. Jde o funkce typu <strong>processContact()</strong>. My využíváme 4 odlišné funkce (viz obrázek): <strong>Auto_Objekt_Kontakt</strong>, <strong>Auto_Terén_Kontakt</strong>, <strong>Objekt_Objekt_Kontakt</strong> a <strong>Objekt_Terén_Kontakt</strong>.</p>
+<p class="center"><img src="images/ProcessContactFunctions.gif" width="719" height="247" alt="Graf materiálových typů a funkcí typu processContact()"/></p>
+<p class="center"><strong>Obrázek 3.8: Graf materiálových typů a funkcí typu processContact()</strong></p>
+<p>Zpracování těchto funkcí je založeno na hledání v tabulce materiálů. Při neúspěchu jsou použity hodnoty definované pro dvojici základních materiálů. V průběhu volání funkce jsou získány dva indexy. Způsob určení indexu záleží na materiálovém typu. Objekty mají jeden index, u aut se vždy rozlišuje mezi karoserií a koly. Index pro terén se hledá v materiálové mapě. V případě úspěchu jsou nastaveny nové vlastnosti platné pro kolidující dvojici materiálů. Na obrázku je znázorněno volání funkce <strong>Auto_Terén_Kontakt</strong>.</p>
+<p class="center"><img src="images/Car_Terrain_Contact.gif" width="644" height="238" alt="Způsob volání funkce Auto_Terén_Kontakt"/></p>
+<p class="center"><strong>Obrázek 3.9: Způsob volání funkce Auto_Terén_Kontakt</strong></p>
+<h3 id="section3.5">3.3.5 Průběh výpočtu</h3>
+<p>Výpočet probíhá v rámci hlavní metody <strong>Update()</strong> třídy <strong>CPhysics</strong>. Tato metoda je volána v serveru v metodě <strong>CServer::updateGame()</strong>. Pomocí parametru je dodán časový interval. Ten je zajištěn pomocí časovače. Vše probíhá tak, že se vždy zjistí aktuální čas a ten se odečte od času začátku minulého výpočtu. Jejich rozdíl je předán metodě <strong>CPhysics::Update()</strong>. Aktuální čas je uložen a je použit v dalším volání. Tento časovač zasílá poměrně velké časové úseky (občas i v řádu sekund). Proto je tento interval rozdělen uvnitř metody <strong>CPhysics::Update()</strong> na větší počet časových úseků stejné délky. Na každý takový úsek je zavolána funkce enginu <strong>NGD</strong> <strong>NewtonUpdate()</strong>. Tím je docíleno toho, že výpočet fyziky probíhá stabilně po krocích stejné délky.</p>
+<p>Výpočet fyzikální simulace je zajišťován funkcí <strong>NewtonUpdate()</strong>. Každé volání je rozděleno do několika fází. Nejdříve proběhne detekce kolizí. Její průběh je podrobněji popsán v sekci <a href="#section3.4.1"><strong>Materiály</strong></a>. Nalezené kolize jsou vyřešeny. V další fázi jsou na každé aktivní těleso aplikovány obslužné funkce, které určí jaké síly a momenty sil v daném kroku na tělesa působí. U dynamických objektů se jedná o gravitační sílu, u aut se k tomu přidává například výpočet odporové síly vzduchu nebo výpočet výkonové křivky motoru. Na základě těchto nastavení jsou integrátorem spočítány nové pozice objektů. Na přiloženém obrázku je znázorněn průběh volání obslužné funkce pro auto.</p>
+<p class="center"><img src="images/CCar_ApplyForceAndTorque_Callback.gif" width="620" height="143" alt="Průběh volání obslužné funkce pro auto - CCar::ApplyForceAndTorque_Callback()"/></p>
+<p class="center"><strong>Obrázek 3.10: Průběh volání obslužné funkce pro auto - CCar::ApplyForceAndTorque_Callback()</strong></p>
+<p>Při tvorbě aplikace jsme se potýkali s různými problémy. Ať už šlo o propadávání objektů nebo špatné kolizní obálky, byl zde vždy problém jak tyto věci ladit. Jediným možným řešením bylo zavést zobrazování kolizních obálek všech objektů. jedná se čistě o ladicí informaci s jejíž pomocí si uživatel může prohlédnout, jakým způsobem jsou ve fyzikální scéně reprezentovány objekty. Zobrazování kolizní geometrie se nenacházelo v původních návrzích projektu a bylo přidáno do již fungující aplikace. Vedlejším efektem je poměrně značný pokles výkonu celé aplikace při jejich vykreslování. Při zpracování jednoho tělesa zde dochází k průchodu všech polygonů tvořících obálku a k předání jeho vrcholů grafickému enginu. To způsobuje značné zpomalení, protože grafika nemá přímý přístup ke geometrii těles.</p>
+<h2 id="section4">3.4 Přehled tříd</h2>
+<p>Programový modul fyziky tvoří objektovou nádstavbu enginu <strong>NGD</strong>. Je složen z několika tříd, jejichž vzájemný vztah je vidět na přiloženém diagramu.</p>
+<p class="center"><img src="images/Physics.gif" width="663" height="729" alt="Vztahy mezi třídami ve fyzikálním modulu"/></p>
+<p class="center"><strong>Obrázek 3.11: Vztahy mezi třídami ve fyzikálním modulu</strong></p>
+<dl>
+    <dt><strong>CPhysics</strong></dt>
+        <dd>
+            <ul>
+                <li>hlavní třída fyzikálního modulu, obsahuje ostatní třídy aktivní za běhu programu</li>
+                <li>komunikuje s ostatními moduly - jedná se o síťový modul (serverová část) a modul umělé inteligence</li>             
+                <li>stará se o inicializaci, běh a ukončení fyzikálního modulu</li>
+                <li>umožňuje provádět vykreslování kolizních obálek - voláním grafických metod</li>
+                <li>instance této třídy je aktivní po celou dobu běhu programu</li>
+            </ul>
+        </dd>
+    <dt><strong>CResources</strong></dt>
+        <dd>
+            <ul>
+                <li>obsahuje indexy do Resource Manageru všech načtených dat</li>
+                <li>při inicializaci hry obsahuje kolizní obálky všech dynamických a statických objektů a vozidel</li>
+                <li>načítá modely a vytváří jejich kolizní obálky</li>
+                <li>instance této třídy je aktivní po celou dobu běhu programu</li>
+            </ul>
+        </dd>
+    <dt><strong>CMaterials</strong></dt>
+        <dd>
+            <ul>
+                <li>obsahuje vlastnosti materiálů a tabulku materiálů</li>
+                <li>jsou zde definovány obslužné funkce volané při kolizi objektů</li>
+                <li>instance této třídy je aktivní po celou dobu běhu programu</li>
+            </ul>
+        </dd>
+    <dt><strong>CTerrain</strong></dt>
+        <dd>
+            <ul>
+                <li>reprezentuje terén ve fyzikální scéně</li>
+                <li>obsahuje materiálovou mapu terénu</li>
+                <li>obsahuje kolizní obálku pokrývající celou fyzikální scénu (objekt <strong>CPhysicsPlate</strong>)</li>                
+                <li>instance této třídy je aktivní za běhu hry</li>
+            </ul>
+        </dd>
+    <dt><strong>CPhysicsPlate</strong></dt>
+        <dd>
+            <ul>
+                <li>obsahuje kolizní obálku skupiny terénních plátů</li>
+                <li>s použitím <strong>CPhysicsSurface</strong> vytváří kolizní obálku</li>
+                <li>instance této třídy jsou aktivní při inicializaci hry</li>
+            </ul>
+        </dd>
+    <dt><strong>CPhysicsSurface</strong></dt>
+        <dd>
+            <ul>
+                <li>obsahuje geometrii jednoho terénního plátu</li>
+                <li>instance této třídy jsou aktivní při inicializaci hry</li>
+            </ul>
+        </dd>
+    <dt><strong>CRigidBody</strong></dt>
+        <dd>
+            <ul>
+                <li>tato třída je virtuální - jejími potomky jsou <strong>CWheel</strong>, <strong>CCar</strong> a <strong>CObject</strong></li>
+                <li>obsahuje všechny základní vlastnosti každého objektu ve fyzikální scéně</li>
+            </ul>
+        </dd>
+    <dt><strong>CWheel</strong></dt>
+        <dd>
+            <ul>
+                <li>reprezentuje kolo ve fyzikální scéně</li>
+                <li>obsahuje metody zajišťující funkčnost kola - zatáčení, brždění, odpor</li>
+                <li>instance této třídy jsou aktivní za běhu hry</li>
+            </ul>
+        </dd>
+    <dt><strong>CCar</strong></dt>
+        <dd>
+            <ul>
+                <li>reprezentuje auto ve fyzikální scéně</li>
+                <li>skládá se ze dvou významných tříd - <strong>CEngine</strong> a <strong>CWheel</strong></li>
+                <li>obsahuje metody zajišťující funkčnost celého vozidla</li>
+                <li>instance této třídy jsou aktivní za běhu hry</li>
+            </ul>
+        </dd>    
+    <dt><strong>CEngine</strong></dt>
+        <dd>
+            <ul>
+                <li>reprezentuje motor</li>
+                <li>obsahuje metody zajišťující funkčnost motoru - řazení, výkonovou křivku</li>
+                <li>instance této třídy jsou aktivní za běhu hry</li>
+            </ul>
+        </dd>
+    <dt><strong>CObject</strong></dt>
+        <dd>
+            <ul>
+                <li>tato třída je virtuální - jejími potomky jsou <strong>CStaticObject</strong> a <strong>CDynamicObject</strong></li>
+            </ul>
+        </dd>
+    <dt><strong>CDynamicObject</strong></dt>
+        <dd>
+            <ul>
+                <li>reprezentuje dynamický objekt ve fyzikální scéně</li>
+                <li>instance této třídy jsou aktivní za běhu hry</li>
+            </ul>
+        </dd>
+    <dt><strong>CStaticObject</strong></dt>
+        <dd>
+            <ul>
+                <li>reprezentuje statický objekt ve fyzikální scéně</li>
+                <li>instance této třídy jsou aktivní za běhu hry</li>
+            </ul>
+        </dd>                                                              
+</dl>
+</body>
+</html>

@@ -1,0 +1,417 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<link type="text/css" href="mainstyles.css" rel="stylesheet">
+</head>
+
+<body>
+
+<h1><a name="sec7">7 Další moduly</a></h1>
+
+<h2><a name="ResourceManager">7.1 Resource Manager</a></h2>
+	<p>Resource Manager (dále jen RM) zajišťuje nahrávání a správu dat používaných v Unlimited Raceru a Limited Editoru. Umožňuje ostatním částem projektu přístup k nahraným datům, zabraňuje opakovanému nahrávání stejných dat a uvolňuje nahraná data v případě, že již nejsou pro běh programu potřebná. Dále počítá kontrolní součty (CRC) vybraných dat, aby byla zajištěna jejich kompatibilita při síťové hře. RM využívá globální služby z projektu <strong>Globals</strong>.</p>
+	<p class="center"><img src="images\RMClasses.gif" /></p>
+	<p class="center"><strong>Obrázek 7.1: Schéma tříd v RM.</strong></p>
+
+	<h3><a name="sec7.1.1">7.1.1 CResourceManager</a></h3>
+	
+	<p><code>CResourceManager</code> je základní třída zapouzdřující celý RM, přes kterou probíhá veškerá komunkace s ostatními částmi programu. Obsahuje funkce pro nahrávání, uvolňování a správu dat, dále pak funkce pro získávání nahraných dat a jejich CRC součtů. U nahraných dat si RM pamatuje reference count, tedy kolikrát byla data nahrána. Díky tomu je možné se vyhnout opakovanému nahrávání stejných dat a uchovávat jednou nahraná data v paměti tak dlouho jak je potřeba. K nahrávání dat se používá funkce <code>LoadResource</code>. Její návratovou hodnotou je unikátní <code>RESOURCEID</code>, které jednoznačně identifikuje nahraná data a slouží k jejich přístupu přes funkce <code>GetResource</code> případně <code>GetXXX</code>, kde <code>XXX</code> je jméno datového typu používaného v RM (například <code>Texture</code>, <code>Map</code>, <code>XFile</code>, <code>VertexShader</code>, ... a další). V současné době umožňuje RM nahrávat přibližně 30 různých typů dat. Data se uvolňují funkcí <code>ReleaseResource</code>, přičemž platí, že každému volání funkce <code>LoadResource</code> musí odpovídat právě jedno volání funkce <code>ReleaseResource</code>. Po nahrátí datového typu se pomocí třídy <a href="#sec7.1.4"><code>CCrc32Static</code></a> spočítá jeho kontrolní součet (CRC). Ten se poté použije v projektu <strong>Server</strong> pro kontrolu, zda všichni klienti i server používají stejnou mapu, stejné objekty atd. </p>
+	<p>Nahraná data jsou "obalena" třídou <a href="#sec7.1.2"> <code>CResourceContainer</code></a> a spolu s informacemi o datech (struktura <code>ResourceInfo</code>) jsou uchována ve dvou hash tabulkách:</p>
+	<pre>
+  CReferenceVector < RESOURCEID, CResourceContainer > * DataHashTable;
+  CReferenceVector < CAtlString, ResourceInfo       > * ResourceInfoHashTable;</pre>
+	<p>Velikost hash tabulek lze nastavit při inicializaci RM, Reference counter a kolize v tabulkách jsou řešeny pomocí šablony <a href="#sec7.1.3"> <code>CReferenceVector</code></a>.</p>
+
+	<h3><a name="sec7.1.2">7.1.2 CResourceContainer</a></h3>
+	<p>Třída <code>CResourceContainer</code> se používá pro zapouzdření jednotlivých datových typů nahrávaných pomocí RM a jejich uložení v jednotné struktuře. Obsahuje <code>union</code> všech datových typů pro co nejmenší velikost. Její destruktor se stará o správné uvolnění nahraných dat, včetně tzv. Inherited Resources. Inherited Resources jsou data nahrávaná v rámci nahrávání jiných dat. Příkladem může být typ <code>XFile</code>, který obsahuje 3d model objektu a textury na něm použité. V rámci jeho nahrávání se tedy nahraje i několik textur (typ <code>Texture</code>) a jejich <code>RESOURCEID</code> se uloží v datové struktuře typu <code>XFile</code>.</p>
+
+	<h3><a name="sec7.1.3">7.1.3 CReferenceVector</a></h3>
+	<p>Původně se pro řešení kolizí používala šablona třídy <code>CBinaryTree</code>. Obsahovala plně funkční implementaci bináního stromu s automatickým vyvažováním. Použití hiearchické stromové struktury se později ukázalo být velmi nešťastné. Náš systém závislostí nahrávaných dat na jiných datech (Inherited Resources), spolu s dalšími vlastnostmi systému ukládání dat, způsoboval velké problémy při uvolňování dat, které ve speciálních případech vedly až k rozpadu celého binárního stromu. Tato chyba se navíc začala plně projevovat až při dostatečném počtu nahrávaných dat. V době odhalení bylo již nemožné jakkoliv měnit filozofii nahrávání dat a proto bylo nutné šablonu <code>CBinaryTree</code> nahradit jinou šablonou se stejnou funkčností a stejným rozhraním - tou je <code>CReferenceVector</code>.</p>
+	
+	<p><code>CReferenceVector</code> je šablona pro řešení kolizí hash tabulek použitých v třídě <a href="#sec7.1.1"><code>CResourceManager</code></a>. Šablona je parametrizována dvěma typy - <code>Key</code> a <code>Value</code>. <code>Key</code> je klíčem dat, používá se k jejich identifikaci a seřazení, <code>Value</code> jsou potom samotná data. Trojice [<code>Key</code>, <code>Value</code>, reference counter] je uložena v šabloně STL <code>vector</code>, navíc je seřazená podle klíče <code>Key</code> pro rychlejší vyhledávání. Při pokusu o přidání nového prvku s klíčem, který je shodný s klíčem prvku, který je zde již uložen, se u uloženého prvku zvýší reference counter o 1. Analogicky se při odebírání prvku s takovým klíčem sníží reference counter uloženého prvku o 1. Pokud je po tomto snížení reference counter rovný 0, prvek se odstraní z vectoru a uvolní z paměti.</p>
+	<p>Kromě funkcí na přidání a odebrání prvku obsahuje šablona také funkci na zjištění hodnoty <code>Value</code> asociované s klíčem <code>Key</code> a další funkce, které používá RM.</p>
+
+	<h3><a name="sec7.1.4">7.1.4 CCrc32Static</a></h3>
+	<p><code>CCrc32Static</code> je third-party třída pro výpočet CRC souborů. Obsahuje několik statických funkcí pro výpočet CRC, RM používá funkci FileCrc32Win3(). Více informací o této třídě (včetně zdrojových kódů) lze najít na adrese <a href="http://cgdev.iworld.com/Cpp/Cpp/algorithms/checksum/article.php/c5103/" target="_blank">http://cgdev.iworld.com/Cpp/Cpp/algorithms/checksum/article.php/c5103/</a>.</p>
+	<h3><a name="sec7.1.5">7.1.5 Přidání nového typu dat do RM</a></h3>
+	<p>Pro usnadnění přidávání nových typů dat do RM byla na mnoha místech použita makra. Tato makra velmi zjednodušují přidávání nových typů dat, ale poměrně dost znesnadňují čtení a ladění kódu, proto zde uvedeme jejich popis. Hlavní myšlenka těchto maker je jednoduchá - proč přidávat nový typ na několik míst (a potenciálně na některé z nich zapomenout), když ho lze přidat všechny automaticky? K tomu se používá makro <code>EXPAND</code>:</p>
+	<pre>    #define EXPAND(WHAT) \
+    WHAT( Typ1  )\
+    WHAT( Typ2  )\
+    WHAT( Typ3  )\
+    ...
+    WHAT( TypN  )</pre>
+  <p>Parametrem toho makra, je makro <code>WHAT</code>. <code>EXPAND(WHAT)</code> se tedy rozepíše na posloupnost maker <code>WHAT</code> aplikovaných na jednotlivé datové typy. Toho se využívá k zapsání opakujících se částí kódu, kde figurují jednotlivé datové typy. Zde je pár příkladů:</p>
+    <pre>    typedef struct __Typ1 {
+    /* data typu 1 */
+    } Typ1;
+        
+    typedef struct __Typ2 {
+    /* data typu 2 */
+    } Typ2;
+
+    ...
+
+    typedef struct __TypN {
+    /* data typu N */
+    } TypN;
+
+    #define RESOURCE_DATA_DECLARATOR(TYPE)   TYPE _##TYPE;
+
+    typedef union __ResourceData {
+        EXPAND(RESOURCE_DATA_DECLARATOR)
+    } ResourceData;</pre>
+	<p>Tento kus kódu bude po zpracování preprocesorem:</p>
+<pre>    typedef struct __Typ1 {
+    /* data typu 1 */
+    } Typ1;
+        
+    typedef struct __Typ2 {
+    /* data typu 2 */
+    } Typ2;
+
+    ...
+
+    typedef struct __TypN {
+    /* data typu N */
+    } TypN;
+
+    typedef union __ResourceData {
+    	Typ1 _Typ1;
+    	Typ1 _Typ2;
+	...
+    	Typ1 _TypN;
+    } ResourceData;</pre>
+	<p>Podobně je makro <code>EXPAND</code> použito i na dalších místech.</p>
+	<p>Pro přidání nového typu je nutné:</p>
+	<ul>
+		<li>
+			V souboru <code>RMDataStructs.h</code>  přiřadit novému typu identifikační číslo, například:<br>
+			<pre>#define RES_ZatimPosledniTyp   28
+#define RES_NovyTyp            29
+#define RESOURCE_CNT           30</pre>
+		</li>
+		<br>
+		<li>
+			V souboru <code>RMDataStructs.h</code> nastavit, zda se má pro nový datový typ počítat CRC:<br>
+<pre>const bool bCheckResourceCRC[RESOURCE_CNT] = \
+    false, /* RES_NoType           */\
+    true , /* RES_Typ1             */\
+    false, /* RES_Typ2             */\
+    ...
+    true , /* RES_ZatimPosledniTyp */\
+    false, /* RES_NovyTyp          */\
+};</pre>
+		</li>
+		<br>
+		<li>
+			V souboru <code>RMDataStructs.h</code> přidat nový typ do definice makra <code>EXPAND</code>, například:
+<pre>WHAT( ZatimPosledniTyp )\
+WHAT( NovyTyp          )</pre>
+		</li>
+		<br>
+		<li>
+			V souboru <code>RMDataStructs.h</code> přidat definici jména nového typu, například:<br>
+<pre>#define RES_NAME_ZatimPosledniTyp  "ZatimPosledniTyp"
+#define RES_NAME_NovyTyp           "TextureSet"</pre>
+		</li>
+		<br>
+		<li>
+			V souboru <code>RMDataStructs.h</code> přidat novou datovou strukturu k novému typu. Tato struktura musí mít unifikovanou deklaraci v tomto formátu:<br>
+			<pre>typedef struct __NovyTyp {
+/* data noveho typu */
+} NovyTyp;</pre>
+			Struktura <code>__NovyTyp</code> nesmí obsahovat instanci třídy, může však obsahovat ukazatel na ní. Pokud by ji obsahovala, vytvořil by se pro strukturu <code>__NovyTyp</code> konstruktor, který je ovšem nepřípustný díky použití této struktury v unionu <code>__ResourceData</code>.
+		</li>
+		<br>
+		<li>
+			Přidat novou funkci načítací funkci do souboru <code>LoadResource.cpp</code>. Tato funkce by měla použít unifikovanou hlavičku, respektovat nastavení nahrávání <code>bInheritedResources</code> a přidat všechny takto načtené datové typy do vektoru <code>pvInheritedResources</code>, například:
+<pre>LOAD_RESOURCE_HEADER(NovyTyp) {
+    NovyTyp _NovyTyp;
+    
+    /* vlastní načítání */
+    
+    rcX = CResourceContainer(this, sResourceName, _NovyTyp);
+    return RM_OK;
+}</pre>
+		</li>
+		<br>
+		<li>
+			Přidat do souboru <code>ResourceContainer.cpp</code> novou funkci s hlavičkou <code>DESTRUCTOR(NovyTyp)</code>. Tato funkce slouží k uvolnění nahraného datového typu a je automaticky volána z destruktoru třídy <a href="#sec7.1.2"><code>CResourceContainer</code></a>:
+<pre>DESTRUCTOR(NovyTyp) {
+    /* uvolnění načtených dat */
+}</pre>
+		</li>
+	</ul>
+	<p>Zbytek funkcí (včetně funkce <code>CResourceManager::GetNovyTyp()</code>) a načítacích mechanismů je tvořen automaticky pomocí makra <code>EXPAND</code>.</p>
+
+<h2><a name="TerrainGenerator">7.2 Terrain Generator</a></h2>
+	<p>TerrainGenerator je konzolový program pro generování ploch dle zadaných funkcí a jejich následný výstup do souboru. Generování je ovlivněno celou řadou parametrů, z nichž nejpodstatnější je možnost generování dle vstupního skriptu. Generátor samotný obsahuje 115 předdefinovaných funkcí - vzorů terénu, ale je možné využít skriptu pro vytvoření nového typu podle vlastní funkce. Program kromě souřadnic vrcholů plochy podmíněně generuje také normály povrchu ve vygenerovaných vrcholech a souřadnice případné mapované textury.</p>
+	<p>Plocha je generována jako množina funkčních hodnot v diskrétní pravoúhlé pravidelné mřížce. Rozestupy mezi jednotlivými body jsou definovány nepřímo - vychází z údaje o velikosti plochy a o počtu segmentů, ze kterých má  být plocha v daném směru složena. Důležitými údaji pro každý terén jsou také informace o jeho konvexitě a rovinnosti. Tyto údaje se však nepočítají, musí být specifikovány skriptem (případně jsou již pevně dány definicí typu terénu).</p>
+
+	<h3><a name="sec7.2.1">7.2.1 Výpočet normál</a></h3>
+		<p>Jedinou částí generátoru, která je hodna komentáře, je výpočet normál ve vrcholech generovaného terénu. Ten je prováděn na základě průměrování normál okolních plošek. Průměrování probíhá tak, že se každá ploška (tou je vždy čtverec díky charakteru použité sítě) rozdělí na dva trojúhelníky (u nichž je narozdíl od čtverců zaručeno, že budou rovinné) a každému z nich se spočítá normála jako vektorový součin dvou jeho stran. Takto spočtená normála se pak přiřadí všem vrcholům daného trojúhelníku. Při dělení čtverce na trojúhelníky se přiřadí některé vrcholy oběma trojúhelníkům a některé pouze jednomu z nich. To má za následek, že některé "obdrží" více normál. Z tohoto důvodu se přičítají některé normály dvakrát tak, aby každému vrcholu čtyřúhelníka byly přiřazeny právě dvě normály. Přiřazení normály pak obnáší přičtení přidávané normály k aktuálnímu součtu normál vrcholu a zvednutí čítače počtu normál. Na závěr se součty normál ve všech vrcholech podělí jejich čítačem, čímž získáme přibližnou normálu terénu v daném bodě.</p>
+		<p>Uvedený postup výpočtu normál je nutný z toho důvodu, že ne každý terén je zadáván derivovatelnou funkcí. Terén je také možné zadat pouze výškami v jednotlivých bodech sítě. V takovém případě by se musela nejdříve nalézt aproximující funkce a ta následně derivovat. Takový postup by byl výrazně složitější jak po stránce implementační, tak po stránce výpočetní, a výsledek by byl opět pouze přibližný.</p>
+	<h3><a name="sec7.2.2">7.2.2 Generování terénu skriptem</a></h3>
+		<p>V případě použití skriptu na generování terénu je daný skript interpretován knihovnou <a href="#ScriptInterpreter">Script Interpreter</a>. Syntaxe skriptů vychází ze syntaxe definované pro <strong>Script Interpreter</strong>, pouze pro generování terénů jsou definovány interní příkazy <strong>Terrain Generatoru</strong>, které jsou skriptem volány.</p>
+		<ul>
+			Příkazy Terrain Generatoru použitelné ve skriptech:
+				<li><strong>setFName ( string )</strong>: Nastaví jméno výstupního souboru.</li>
+				<li><strong>setType ( int )</strong>: Nastaví typ přeliefinovaného plátu.</li>
+				<li><strong>setHeight ( float )</strong>: Nastaví výšku plochy.</li>
+				<li><strong>setSegsX ( int )</strong>: Nastaví počet segmentů na ose X.</li>
+				<li><strong>setSegsZ ( int )</strong>: Nastaví počet segmentů na ose Z.</li>
+				<li><strong>setSizeX ( float )</strong>: Nastaví šířku plochy.</li>
+				<li><strong>setSizeZ ( float )</strong>: Nastaví hloubku plochy.</li>
+				<li><strong>setNormals ( int )</strong>: Pokud je parametr 1, pak nastaví generování normál na TRUE, jinak FALSE.</li>
+				<li><strong>setTextureCoords ( int )</strong>: Pokud je parametr 1, pak nastaví generování souřadnice textury na TRUE, jinak FALSE.</li>
+				<li><strong>mkdir ( dirName )</strong>: Příkaz mkDir vytvoří nový adresář zadaného jména či cesty.</li>
+				<li><strong>createSurfaceDef ( fileName, type, height, segsX, segsZ, sizeX, sizeZ, normals, texture )</strong>: Příkaz settings provede nastavení všech parametrů najednou. Typy parametrů i jejich význam je odpovídající jednotlivým předešlým příkazům.</li>
+				<li><strong>settings ( fileName, type, height, segsX, segsZ, sizeX, sizeZ, normals, texture )</strong>: Příkaz settings provede nastavení všech parametrů najednou. Typy parametrů i jejich význam je odpovídající jednotlivým předešlým příkazům.</li>
+				<li><strong>generate ()</strong>: Vygeneruje terén podle zadaných parametrů. Vrací 1 pokud nedošlo k chybě. Nedostává žádný parametr, vše musí být již nastaveno. Tento příkaz slouží k rychlému generování některého z prototypů. Není možné jej použít v případě vlastního plátu.</li>
+				<li><strong>init ()</strong>: Inicializuje struktury potřebné ke generování terénu. Vrací 1, pokud nedošlo k chybě. Struktury jsou vytvořeny na základě nastavení provedeného pomocí volání settings. Proto před voláním init musí být již vše nastaveno.</li>
+				<li><strong>computeY ( int X, int Z, float val )</strong>: Nastaví výšku (Y souřadnici) vrcholu v souřadnicích X,Z na hodnotu val. X a Z jsou souřadnice indexované segmenty, tedy v rozsahu <0,#segmentů>. Nic nevrací. Před voláním computeY musí být inicializovány některé struktury, tedy zavolán init.</li>
+				<li><strong>write ()</strong>: Zapisuje vytvořený terén do souboru. Využívá již nastavených parametrů a již vygenerovaného terénu. Opět je nutné, aby byl dříve zavolán init. Pokud nebyla data správně naplněna pomocí volání computeY, program to nepozná, pouze budou špatné výstupní hodnoty. Vrací 1 v případě úspěšného uložení.</li>
+				<li><strong>release ()</strong>: Uvolňuje dříve vytvořené struktury.</li>
+		</ul>
+		<p>Vedle stručných komentářů k příkazům bude vhodné uvést krátký příklad skriptu, který generuje jeden typ terénu:</p>
+		<pre>
+  #version 1 0
+  #cycleinoneblock 0
+  
+  var ret, size, segs, height, type, lodcount
+  var maindir, dir, plateFName, fileName
+  
+  height = 250
+  size = 1000
+  lodcount = 6
+  maindir = "Terrains"
+  plateFName = "normal.grPlate"
+  type = 1
+  
+  call mkdir: ret, maindir
+  
+  for ind, 115
+  {
+    type = ind - 1
+    segs = 1
+    dir = maindir."/Type".type
+    call mkdir: ret, dir
+    call createSurfaceDef: ret, dir."/".plateFName, type, "Type".type, lodcount
+   
+    for i,lodcount
+    {
+      fileName = dir."/".segs.".surface"
+      call settings: ret, fileName, type, height, segs, segs, size, size, 1, 1
+      call generate: ret
+      segs = segs * 2
+    }
+  }
+  
+  return ret</pre>
+
+<h2><a name="ScriptInterpreter">7.3 Script Interpreter</a></h2>
+	<p><strong>Script Interpreter</strong> je dynamická knihovna interpretující námi navržený skriptovací jazyk. Je využívána jednak dříve popsanou aplikací <a href="#TerrainGenerator">Terrain Generator</a> pro generování terénu podle libovolných funkcí, jednak ji využívá aplikace <strong>Graphic Test</strong> pro definování pohybu kamery scénou (slouží pro měření rychlosti grafického engine). Moduly <a href="graphics.html#GUI">Graphic</a> a <a href="arch_design.html#config_files">Globals</a> využívají pouze třídu <strong>CVariable</strong> pro jednoduchou práci s různými typy proměnných. Hlubší význam tato knihovna pro hru samotnou nemá, nicméně v případě přidávání dalších herních módů a modulů by se stala tato knihovna klíčovým prvkem pro snazší definování interaktivních prvků ve scéně.</p>
+	<h3><a name="sec7.3.1">7.3.1 Implementace</a></h3>
+		<p>Překlad skriptu je založen na převedení zdrojového kódu na tokeny, které jsou následně interpretovány podle syntaxe jazyka. Ta je velmi striktní a jednoduchá, takže nepřipouští žádné nejednoznačnosti. Jedinou výjimkou je kontextové chápání proměnných, které mohou obsahovat jak řetězcové, tak číselné hodnoty. </p>
+		<p>Jádrem interpreteru je třída <strong>CScript</strong>, která obsahuje metody na načtení a interpretaci skriptu. Obsahuje položky, do nichž se skript uloží v podobě seznamu řádek a jejich částí, a také položky, v nichž je uložen stav (nastavení) direktiv, zásobník programových bloků skriptu, strom proměnných atd. Podstatné struktury jsou reprezentovány objekty následujících tříd:</p>
+		<ul>
+			<li><strong>CVariable</strong> - reprezentuje jednu proměnnou použitou ve skriptu. Proměnná může být řetězec libovolné délky nebo číselo. Číslo je reprezentováno jednak jako celočíselná hodnota, jednak jako hodnota s plovoucí řádovou čárkou. Její interpretace záleží na kontextu, ve kterém se proměnná vyskytuje (především na použitém operátoru).</li>
+			<li><strong>CScriptLine</strong> - reprezentuje jednu řádku zdrojového kódu skriptu. Syntaxe je definována tak, že každý příkaz leží na samostatné řádce a ukončen je koncem řádky. <strong>CScriptLine</strong> tedy de facto reprezentuje jeden příkaz. Implementována je jako seznam tokenů (instancí třídy CToken).</li>
+			<li><strong>CToken</strong> - představuje jeden prvek skriptu. Skript je rozdělen do řádek (resp. příkazů) a každá řádka je posloupností tokenů. Tokenem může být číslo, identifikátor, operátor, ... Každý token má svůj typ a hodnotu. Při interpretaci skriptu se interpretují poslouponosti tokenů jako příkazy (náznak automatu, který přijímá pouze slova složená z tokenů dle pravidel gramatiky navrženého jazyka).</li>
+			<li><strong>OPERATOR</strong> - definuje operátor povolený v navrženém jazyce. Seznam operátorů je pevně definovaný, seznam instancí této třídy však umožňují snadnou práci při překladu - každý operátor má definovánu prioritu, asociativitu, řetězec, který jej reprezentuje v syntaxi jazyka.</li>
+			<li><strong>StackBlock</strong> - reprezentuje blok na zásobníku v době interpretace skriptu. Každý blok může mít definovány své lokální proměnné.</li>
+		</ul>
+		<p>Načtení skriptu ze souboru provádí metoda <strong>Load()</strong>, která načte zvolený soubor jako posloupnost řádek a na každou načtenou řádku volá metodu <strong>AddLine()</strong>. Ta provede předzpracování načtené řádky - vytvoří seznam tokenů, určí, jakého typu řádka je (zda je to příkaz, direktiva či komentář), přiřadí jí pořadové číslo, na které se dá odkazovat, a provede prvotní syntaktickou analýzu - kontrolu syntaktické správnosti dané řádky (bez ohledu na okolní kontext).</p>
+		<p>Načtený (a předzpracovaný) skript je možné interpretovat metodou <strong>InterpretBlock()</strong>, která má za úkol interpretovat jeden blok kódu. V tomto případě je zavolána na blok uzavírající celý skript. Vstupem této funkci je zásobník programových bloků, na jehož vrcholu leží blok určený ke zpracování. Block nese informace o tom, na které řádce začíná, kde končí, jaké jsou v něm definované proměnné. V případě uvedení návratové hodnoty může interpretace bloku navrátit hodnotu, toho se využívá u příkazu <strong>return</strong>, který ukončí interpretaci skriptu a vyvolá navrácení specifikované hodnoty volající funkci.</p>
+		<p>Vyhodnocování výrazů je prováděno voláním metod <strong>Evaluate()</strong>, <strong>EvaluateNonBracketed()</strong> a <strong>EvaluateFunction()</strong>. První jmenovaná přijme seznam tokenů určených k vyhodnocení a zásobník programových bloků (kontext programu), aby byla schopna určit, jaké proměnné jsou v daném místě kódu použitelné. Prvně však provede kontrolu závorkování a nalezení nejzanořenějšího výrazu bez závorek. Ten vyhodnotí voláním druhé zmíněné metody, která rekurzivně vyhodnocuje nezávorkované výrazy. Tím proběhne nahrazení podvýrazu hodnotou a odstraní se jeden pár závorek. Tento postup se opakuje, dokud výsledkem není jediná hodnota, která je navrácena. Při vyhodnocování triviálních výrazů je též použito poslední zmíněné metody (<strong>EvaluateFunction()</strong>), která vyhodnotí <a href="#sec7.3.3.4">built-in funkci</a>.</p>
+		
+	<h3><a name="sec7.3.2">7.3.2 Způsob užití</a></h3>
+		<p>V programu je třeba vytvořit instanci třídy CScript a pomocí funkce <strong>Load()</strong> načíst a předzpracovat skript ze zvoleného souboru skriptu. Poté je možné předefinovat nějaké parametry interpreteru, čímž lze potlačit parametry skriptu nastavené pomocí maker. Načtený skript se následně provede zavoláním metody <strong>Interpret()</strong>. Této metodě je nutné předat callback funkci, která je volána pro každý externí příkaz (tzv. External Function Call, dále jen EFC) použitý ve skriptu. O provedení příkazu se pak musí postarat volající aplikace v předané callback funkci. Tento přístup umožňuje jednotnou jednoduchou syntaxí docílit zcela odlišných efektů v různých programech díky volání jejich vlastních funkcí. Je samozřejmě nutné znát tyto příkazy. Můžeme zde uvést ukázku jednoduchého skriptu použitého v aplikaci Graphic Test pro opakované kroužení kamery scénou:</p>
+		<pre>
+  #version 1 0
+  #cycleinoneblock 1
+  
+  var ret, time, startTime, duration
+  var angle, radius, posX, posY, posZ
+  
+  angle = 0
+  duration = 20 * 1000 ; the demo lasts 20 seconds
+  radius = 7000
+  
+  call getTime: ret
+  startTime = time = ret
+  
+  call setLookAtVec: ret, 10000, 0, 10000
+  call setUpVec: ret, 0, 1, 0
+  
+  while time - startTime < duration
+  {
+    ; compute the position from actual angle
+    posY = 3000
+    posX = 10000 ++ radius ** cos(angle)
+    posZ = 10000 ++ radius ** sin(angle)
+    call setEyePtVec: ret, posX, posY, posZ
+    call render: ret, 1
+    call getTime: ret
+    time = ret
+    angle = (time - startTime) // 1000 ; compute the angle on the base of actual time
+  }
+  
+  return 0</pre>
+  
+  <p>Můžete si povšimnout volání externích funkcí <code>setEyePtVec</code> nebo <code>render</code>, které nejsou definovány syntaxí skriptovacího jazyka, ale definují příkazy pro daný program.</p>
+  
+	<h3><a name="sec7.3.3">7.3.3 Syntaxe jazyka</a></h3>
+		<p>V následujících odstavcích uvedeme plnou syntaxi navrženého skriptovacího jazyka.</p>
+		
+		<h4><a name="sec7.3.3.1">7.3.3.1 Syntaktické prvky jazyka</a></h4>
+			<ul>
+				<li><strong>Identifikátory</strong> - používané pro jména proměnných a pod., mají běžně užívanou syntax, tedy jsou složeny z malých a velkých písmen (case sensitive!), čísel a znaku podrtržítka (<code>_</code>), přičemž prvním znakem nesmí být číslo.</li>
+				<li><strong>Operátory</strong> - používané operátory viz odstavec <a href="#sec7.3.3.2">operátory</a>.</li>
+				<li><strong>Čísla</strong> - jsou zadávána posloupností cifer, které může předcházet jeden unární znaménkový operátor. V případě necelých čísel je možné užít desetinnou tečku, ta však musí být v čísle pouze jedna.</li>
+				<li><strong>Řetezce</strong> - jsou zapisovány pomocí úvozovek, tedy "řetězec". Uvnitř uvozovek je možné použít libovolný znak, až na úvozovku a zpětné lomítko, ty je třeba zadat escape sekvencí <strong><code>\"</code></strong>, rep. <strong><code>\\</code></strong>.</li>
+				<li><strong>Komentáře</strong> - existují jednak řádkové, tj. komentář od daného znaku do konce řádky, uvozené znakem středníku (<code>;</code>). Druhou volbou jsou komentáře blokové. Ty jsou ohraničeny pomocí sekvencí <code>;-</code> a <code>-;</code>. To je jediný případ, kde není středník chápán jako komentář do konce řádky. Blokové komentáře nejsou hierarchické (první <code>-;</code> ukončí všechny blokové komentáře).</li>
+				<li><strong>Direktivy</strong> - specifikují chování interpreteru při překladu. Více v samostatném odstavci <a href="#sec7.3.3.3">direktivy</a>.</li>
+				<li><strong>Symboly</strong> - závorky <strong><code>()</code></strong> s jejich běžnou funkcí a složené závorky <strong><code>{}</code></strong> definující blok programu. Každou složenou závorku je třeba brát jako příkaz, proto musí být na řádce sama. V některých příkazech jsou používány oddělovače <strong><code>,</code></strong> a <strong><code>:</code></strong>. Jakýkoli jiný symbol je interpreterem odmítnut a ohlášen jako chyba.</li>
+			</ul>
+
+		<h4><a name="sec7.3.3.2">7.3.3.2 Operátory</a></h4>
+			<ul>
+				<li><strong><code>+ - *</code></strong> : celočíselné binární operátory sčítání, odčítání a násobení</li>
+				<li><strong><code>/ %</code></strong> : celočíselné dělení a modulo</li>
+				<li><strong><code>^</code></strong> : celočíselné umocňování (x^y ~ x<sup>y</sup>)</li>
+				<li><strong><code>++ -- ** //</code></strong> : binární operátory nad čísly s plovoucí desetinnou čárkou</li>
+				<li><strong><code>.</code></strong> : spojování řetězců</li>
+				<li><strong><code>==</code></strong> : test na rovnost (vrací 1, pokud jsou si argumenty rovny)</li>
+				<li><strong><code>!=</code></strong> : nerovnost</li>
+				<li><strong><code>< > <= >=</code></strong> : další porovnávací operátory</li>
+				<li><strong><code>||</code></strong> : logické OR</li>
+				<li><strong><code>&&</code></strong> : logické AND</li>
+				<li><strong><code>!</code></strong> : logické NOT - unární</li>
+				<li><strong><code>+ -</code></strong> : unární znaménkové operátory</li>
+				<li><strong><code>=</code></strong> : operátor přiřazení - vrací hodnotu pravého operandu, zároveň však tuto hodnotu ukládá do levého, kterým musí být proměnná</li>
+			</ul>
+			<p>Všechny operátory, až na <strong><code>^</code></strong> a <strong><code>=</code></strong> jsou asociativní zleva. Všechny, až na <strong><code>+</code></strong>, <strong><code>-</code></strong> a <strong><code>!</code></strong> jsou binární. Pořadí vyhodnocování operátorů je následující:</p>
+			<ol>
+				<li><strong><code>^</code></strong></li>
+				<li><strong><code>! + -</code></strong> (unární)</li>
+				<li><strong><code>* / ** // %</code></strong></li>
+				<li><strong><code>+ - ++ -- .</code></strong></li>
+				<li><strong><code>< > <= >=</code></strong></li>
+				<li><strong><code>== !=</code></strong></li>
+				<li><strong><code>&&</code></strong></li>
+				<li><strong><code>||</code></strong></li>
+				<li><strong><code>=</code></strong></li>
+			</ol>
+
+		<h4><a name="sec7.3.3.3">7.3.3.3 Direktivy</a></h4>
+			<p>Direktivy jsou v našem jazyce uvozeny znakem <strong><code>#</code></strong> na začátku řádky, přesněji:  #identifikator [param1 [,param2 ... ]]. Direktiva ovlivňuje způsob interpretace programu. Některé direktivy jsou bezparametrové (pouze flag), jiné mají různý počet parametrů. Seznam direktiv následuje:</p>
+			<ul>
+				<li><strong>#version a b</strong> - udáva versi interpreteru, který je potřeba k přeložení daného skriptu.</li>
+				<li><strong>#cycleinoneblock a</strong> - parametr <strong>a</strong> musí být 1 či 0. Je-li 1, je nastaven flag "cycleinoneblock", který má ten význam, že cykly, jejichž tělem je blok příkazů (ne jediný příkaz), jsou prováděny v jednom bloku, tzn., že není vytvářen a dealokován blok s každým vstupem do těla cyklu. Je to rychlejší přístup, ale v případě, že je uvnitř bloku definována proměnná, dojde k zahlášení chyby "identifier already defined".</li>
+				<li><strong>#ignoreefcerror a</strong> - parametr je opět 1 či 0. Jde o flag, který říká, zda se mají ignorovat chyby externě volané funkce. Pokud je tedy tato direktiva nastavena, nedojde k ukončení skriptu při chybě v EFC, která může mít dopad na ceklové zpracování skriptu a následná volání EFC.</li>
+			</ul>
+	
+		<h4><a name="sec7.3.3.4">7.3.3.4 Built-in funkce</a></h4>
+			<p>Interpret jazyka nabízí několik předdefinovaných funkcí, které je možné použít ve všech skriptech. Jejich seznam následuje:</p>
+			<ul>
+				<li><strong>sin(x)</strong>, <strong>cos(x)</strong>, <strong>tg(x)</strong>, <strong>arcsin(x)</strong>, <strong>arccos(x)</strong>, <strong>arctg(x)</strong> - goniometrické funkce, parametr je zadáván v radiánech.</li>
+				<li><strong>min(a,b)</strong> - vrací hodnotu menšího z argumentů.</li>
+				<li><strong>max(a,b)</strong> - vrací hodnotu většího z argumentů.</li>
+				<li><strong>sqrt(a)</strong> - druhá odmocnina argumentu.</li>
+				<li><strong>length(s)</strong> - vrací délku řetězce.</li>
+				<li><strong>char(s,a)</strong> - vrací znak v zadané pozici řetězce (indexováno od nuly).</li>
+				<li><strong>find(s1,s2)</strong> - vrací pozici prvního výskytu podřetězce <strong>s1</strong> v řetězci <strong>s2</strong>, popřípadě -1, pokud se <strong>s1</strong> v <strong>s2</strong> nenachází.</li>
+				<li><strong>substr(s,a,b)</strong> - navrací podřetězec řetězce <strong>s</strong> o délce <strong>a</strong> počínající na pozici <strong>b</strong>.</li>
+			</ul>
+		
+		<h4><a name="sec7.3.3.5">7.3.3.5 Deklarace proměnných</a></h4>
+			<p>Vytváření proměnných se provádí příkazem <strong>var</strong> s následující syntaxí:</p>
+				<pre>
+  var jmena_prom
+
+  jmena_prom &rarr; jm_prom | jm_prom, jmena_prom | &lambda;
+  jm_prom &rarr; identifikator</pre>
+			<p>Proměnné jsou vždy inicializovány hodnotou "", tedy prázdným řetězcem, resp. číselnou hodnotou 0. Existence proměnné je v rámci jednoho bloku programu. S ukončením bloku je proměnná zapomenuta. Proměnné je možné i zastiňovat, ale pouze mezi různými bloky. Pokus o definici proměnné se stejným jménem, jaké má už jiná proměnná definovaná v tom samém bloku, vede k zahlášení chyby a ukončení interpretace. Jedinou výjimkou je definice proměnné v hlavičce cyklu, viz odstavec <a href="#sec7.3.3.7">for cyklus</a>.
+		
+		<h4><a name="sec7.3.3.6">7.3.3.6 Podmínka</a></h4>
+			<p>Podmínka má velice jednoduchou syntax:</p>
+			<pre>
+  IF_CLAUSE &rarr;
+  if expression
+  [THEN_CLAUSE]
+  [ELSE_CLAUSE]
+  
+  THEN_CLAUSE &rarr;  
+  then expression  
+  |  
+  then
+  {
+  commands
+  }
+  
+  ELSE_CLAUSE &rarr;
+  else expression
+  |
+  else
+  {
+  commands
+  }</pre>
+  		<p>Jak je vidět, libovolná ze sekcí then a else může chybět. Tedy i obě zároveň. V takovém případě se vyhodnotí pouze výraz v hlavičce podmínky a nic dalšího se neprovede. Je třeba zdůraznit, že <strong>expression</strong> je výraz, který vrací hodnotu. Není však příkazem. Proto není možné za then či else použít příkaz break, continue, return atp! Stejně tak {} jsou příkazem, tedy ani ty nelze použít těsně za then či else a musí být až na dalším řádku, to je však patrné z uvedené syntaxe.
+
+		<h4><a name="sec7.3.3.7">7.3.3.7 Cykly</a></h4>
+			<h5>For cyklus</h5>
+				<p>For cyklus, tedy cyklus s určeným počtem opakování, je zde značně zjednodušen co se týče svého zápisu. Je to proto, že z naší zkušenosti je drtivá většina cyklů prováděna od 0, případně od jedničky do nějakého vyššího čísla. Proto jsme chtěli zabránit zbytečnému psaní a for cyklus byl navržen takto:</p>
+				<pre>
+  [FOR] &rarr;
+  for jm_prom,count,expression
+  |
+  for jm_prom,count
+  {
+  commands
+  }
+  
+  jm_prom &rarr; identifier
+  count  &rarr; expression</pre>
+  			<p>V případě, že je aplikována první verse, je možné, stejně jako u podmínky, užít pouze výrazu, tedy ne příkazu. Takovýto for cyklus se provádí v tom bloku, v jakém je definován. Druhá verse for cyklu již vytváří nový blok. V obou případech je však vytvořena nová proměnná se jménem <strong>jm_prom</strong>, které je přiřazena hodnota 1. Pokud daná proměnná v daném bloku již existuje, je tato použita a předefinována. To je jediná výjimka, kde nedojde k zahlášení chyby "identifier already defined", a je tu z toho důvodu, aby bylo možné používat jednu proměnnou pro řízení více cyklů po sobě jdoucích. For cyklus je prováděn do té doby, dokud je <strong>jm_prom</strong> menší či rovno výrazu <strong>count</strong>. Proměnnou je uvnitř těla cyklu možno měnit, což bude mít samozřejmě vliv na celkový počet iterací. I když je použit druhý zápis, tedy tělo cyklu tvoří blok příkazů, je proměnná definována již v tom bloku, kde se for cyklus nachází. To má ten význam, že proměnná obsahuje svou hodnotu i poté, co je cyklus ukončen. V případě, že není ukončen jiným způsobem zevnitř, obsahuje hodnotu výrazu <strong>count</strong>. Pro přesnou představu bude dobré naznačit, jaké příkazy se vlastně provádí:</p>
+				<pre>
+  var jm_prom 	    ; pozor, zde nemusí dojít k vytvoření nové
+  {
+  jm_prom = 1
+  if jm_prom > count
+  then goto JUMP
+  command(s)
+  jm_prom = jm_prom + 1
+  @JUMP
+  }</pre>
+  			<p>V případě, že není nastavena direktiva <strong>cycleinoneblock</strong>, je tělo cyklu (je-li to blok příkazů) vytvářeno jako blok při každé iteraci znovu a na konci iterace je znovu zavírán a dealokován. Toto provádění je pomalejší, ale má ten důsledek, že uvnitř bloku může být i definice proměnné, neboť ta je vždy definována v novém bloku znovu. Defaultní nastavení direktivy je na 0.</p>
+			<h5>While cyklus</h5>
+				<p>While cyklus je cyklus s podmínkou na začátku. Jeho syntax je následující:</p>
+				<pre>
+  WHILE_CLAUSE  &rarr;
+  while exp1: exp2
+  |
+  while exp1
+  {
+  commands
+  }
+  
+  exp1 &rarr; expression
+  exp2 &rarr; expression</pre>
+  				<p>Význam je zřejmý. Dokud je <strong>exp1</strong> nenulový, prováděj <strong>exp2</strong>, resp. blok příkazů. Opět platí to, že <strong>exp2</strong> je pouze výraz, ne příkaz. A stejně jako u for cyklu, i zde záleží na nastavení direktivy <strong>cycleinoneblock</strong>, zda se bude vše provádět v jednom bloku či ne.</p>
+
+		<h4><a name="sec7.3.3.8">7.3.3.8 Externall Function Call</a></h4>
+			<p>EFC je reprezentováno příkazem <strong>call</strong>. Je to jediný způsob, jak komunikovat s volajícím programem za běhu skriptu (tedy ne pouze skrze návratovou hodnotu). Navíc bez tohoto příkazu není schopen skript dělat nic jiného, než vyhodnocovat pevně dané výrazy. Příkaz <strong>call</strong> má následující syntax:</p>
+			<pre>
+  CALL_COMMAND  &rarr;
+  call jm_func : jm_prom [param]
+  jm_func &rarr; identifier
+  jm_prom &rarr; identifier
+  param &rarr; expression [, param]</pre>
+  		<p>Příkaz <strong>call</strong> provede volání funkce, jejíž adresa byla předána interpreteru při volání funkce <strong>InterpretScript()</strong>. Tato se již musí postarat jednak o obsluhu daných parametrů, jednak o návratovou hodnotu. <strong>jm_func</strong> je předáno externí funkci jako řetězec označující jméno funkce, jež je volána. Je to pouze parametr, který může (a nemusí) definovat, co přesně po externě volané funkci chceme. Jak jej interpretuje externí program je již na něm. Povinná je proměnná <strong>jm_prom</strong>, do které bude uložen návratový kód externí funkce. Pokud při volání externí funkce dojde k chybě (tj. funkce navrátí nenulovou hodnotu interpreteru), interpreter by se měl zastavit a ukončit svou práci s chybou v EFC. To je však možné pozměnit direktivou <strong>ignoreefcerror</strong>. Pokud funkce proběhne v tomto smyslu bez chyby, tj. její návratová hodnota interpreteru je 0, je předána návratová hodnota provedeného příkazu do zadaného parametru. Tato návratová hodnota již může mít jakýkoli význam a je pouze na úrovni komunikace externího programu a skriptu. Opět může hlásit chybu, která kupříkladu zajistí správnou dealokaci atp.</p>
+			<p><strong>param</strong> jsou výrazy, které jsou předány dané EF jako parametry. Opět je pouze na externím programu jak se s nimi vypořádá. Těchto parametrů však nesmí být více než kolik uvádí makro <strong>SI_MAX_PARAM_COUNT</strong> definované v souboru ScriptInterpreter.h (prozatím 16, ale lze snadno změnit dle potřeb).</p>
+	
+</body>
+</html>

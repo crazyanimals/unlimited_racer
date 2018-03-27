@@ -1,0 +1,250 @@
+
+--Dialog
+<Dialog> 
+Dialog.Background.X =  
+Dialog.Background.Y = 
+Dialog.Background.Width = 
+Dialog.Background.Height = 
+
+</Dialog>
+--Image
+<Image>
+Image.Background.X = 
+Image.Background.Y = 
+Image.Background.Width  = 
+Image.Background.Height = 
+</Image>
+
+--ToolTip
+<ToolTip>
+ToolTip.TopLeft.X = 
+ToolTip.TopLeft.Y = 
+ToolTip.TopLeft.Width = 
+ToolTip.TopLeft.Height = 
+ToolTip.TopRight.X = 
+ToopTip.TopRight.Y = 
+ToolTip.TopRight.Width = 
+ToolTip.TopRight.Height = 
+ToolTip.BottomLeft.X = 
+ToolTip.BottomLeft.Y = 
+ToolTip.BottomLeft.Width = 
+ToolTip.BottomLeft.Height = 
+ToolTip.BottomRight.X = 
+ToopTip.BottomRight.Y = 
+ToolTip.BottomRight.Width = 
+ToolTip.BottomRight.Height = 
+ToolTip.HorizLine.X = 
+ToolTip.HorizLine.Y = 
+ToolTip.HorizLine.Width = 
+ToopTip.HorizLine.Height  = 
+ToolTip.VertLine.X = 
+ToolTip.VertLine.Y = 
+ToolTip.VertLine.Width = 
+ToolTip.VertLine.Height = 
+ToolTip.Background.X = 
+ToolTip.Background.Y = 
+ToolTip.Background.Width = 
+ToolTip.Background.Height = 
+</ToolTip>
+
+--Button
+<Button>
+Button.Up.X = 
+Button.Up.Y = 
+Button.Up.Width = 
+Button.Up.Height = 
+Button.Down.X = 
+Button.Down.Y = 
+Button.Down.Width = 
+Button.Down.Height = 
+</Button>
+
+--CheckBox
+<CheckBox>
+CheckBox.Unchecked.X = 
+CheckBox.Unchecked.Y = 
+CheckBox.Unchecked.Width = 
+CheckBox.Unchecked.Height = 
+CheckBox.Checked.X = 
+CheckBox.Checked.Y = 
+CheckBox.Checked.Width = 
+CheckBox.Checked.Height = 
+</CheckBox>
+
+--TrackBar
+<TrackBar>
+TrackBar.Track.X = 
+TrackBar.Track.Y = 
+TrackBar.Track.Width = 
+TrackBar.Track.Height = 
+TrackBar.Slider.X = 
+TrackBar.Slider.Y = 
+TrackBar.Slider.Width = 
+TrackBar.Slider.Height = 
+</TrackBar>
+
+--RadioButton
+<RadioButton>
+RadioButton.Unselected.X = 
+RadioButton.Unselected.Y = 
+RadioButton.Unselected.Width = 
+RadioButton.Unselected.Height  = 
+RadioButton.Selected.X = 
+RadioButton.Selected.Y = 
+RadioButton.Selected.Width = 
+RadioButton.Selected.Height  = 
+</RadioButton>
+
+--Edit
+<Edit>
+Edit.TopLeft.X = 
+Edit.TopLeft.Y = 
+Edit.TopLeft.Width = 
+Edit.TopLeft.Height = 
+Edit.TopRight.X = 
+Edit.TopRight.Y = 
+Edit.TopRight.Width = 
+Edit.TopRight.Height = 
+Edit.BottomLeft.X = 
+Edit.BottomLeft.Y = 
+Edit.BottomLeft.Width = 
+Edit.BottomLeft.Height = 
+Edit.BottomRight.X = 
+Edit.BottomRight.Y = 
+Edit.BottomRight.Width = 
+Edit.BottomRight.Height = 
+Edit.HorizLine.X = 
+Edit.HorizLine.Y = 
+Edit.HorizLine.Width = 
+Edit.HorizLine.Height = 
+Edit.VertLine.X = 
+Edit.VertLine.Y = 
+Edit.VertLine.Width = 
+Edit.VertLine.Height = 
+Edit.Background.X = 
+Edit.Background.Y = 
+Edit.Background.Width = 
+Edit.Background.Height = 
+
+</Edit>
+
+--ComboBox
+<ComboBox>
+Combo.Button.X = 
+Combo.Button.Y = 
+Combo.Button.Width = 
+Combo.Button.Height = 
+Combo.Background.X = 
+Combo.Background.Y = 
+Combo.Background.Width = 
+Combo.Background.Height = 
+Combo.ActiveBackground.X = 
+Combo.ActiveBackground.Y = 
+Combo.ActiveBackground.Width = 
+Combo.ActiveBackground.Height = 
+Combo.TopLeft.X = 
+Combo.TopLeft.Y = 
+Combo.TopLeft.Width = 
+Combo.TopLeft.Height = 
+Combo.TopRight.X = 
+Combo.TopRight.Y = 
+Combo.TopRight.Width = 
+Combo.TopRight.Height = 
+Combo.BottomLeft.X = 
+Combo.BottomLeft.Y = 
+Combo.BottomLeft.Width = 
+Combo.BottomLeft.Height = 
+Combo.BottomRight.X = 
+Combo.BottomRight.Y = 
+Combo.BottomRight.Width = 
+Combo.BottomRight.Height = 
+Combo.HorizLine.X = 
+Combo.HorizLine.Y = 
+Combo.HorizLine.Width = 
+Combo.HorizLine.Height = 
+Combo.VertLine.X = 
+Combo.VertLine.Y = 
+Combo.VertLine.Width = 
+Combo.VertLine.Height = 
+</ComboBox>
+
+--PopupMenu
+<PopupMenu>
+PopupMenu.Background.X = 
+PopupMenu.Background.Y = 
+PopupMenu.Background.Width = 
+PopupMenu.Background.Height = 
+PopupMenu.ActiveBackground.X = 
+PopupMenu.ActiveBackground.Y = 
+PopupMenu.ActiveBackground.Width = 
+PopupMenu.ActiveBackground.Height = 
+PopupMenu.TopLeft.X = 
+PopupMenu.TopLeft.Y = 
+PopupMenu.TopLeft.Width = 
+PopupMenu.TopLeft.Height = 
+PopupMenu.TopRight.X = 
+PopupMenu.TopRight.Y = 
+PopupMenu.TopRight.Width = 
+PopupMenu.TopRight.Height = 
+PopupMenu.BottomLeft.X = 
+PopupMenu.BottomLeft.Y = 
+PopupMenu.BottomLeft.Width = 
+PopupMenu.BottomLeft.Height = 
+PopupMenu.BottomRight.X = 
+PopupMenu.BottomRight.Y = 
+PopupMenu.BottomRight.Width = 
+PopupMenu.BottomRight.Height = 
+PopupMenu.HorizLine.X = 
+PopupMenu.HorizLine.Y = 
+PopupMenu.HorizLine.Width = 
+PopupMenu.HorizLine.Height = 
+PopupMenu.VertLine.X = 
+PopupMenu.VertLine.Y = 
+PopupMenu.VertLine.Width = 
+PopupMenu.VertLine.Height = 
+</PopupMenu>
+
+--ListBox
+<ListBox>
+ListBox.ButtonUp.X = 
+ListBox.ButtonUp.Y = 
+ListBox.ButtonUp.Width = 
+ListBox.ButtonUp.Height = 
+ListBox.ButtonDown.X = 
+ListBox.ButtonDown.Y = 
+ListBox.ButtonDown.Width = 
+ListBox.ButtonDown.Height = 
+ListBox.Background.X = 
+ListBox.Background.Y = 
+ListBox.Background.Width = 
+ListBox.Background.Height = 
+ListBox.ActiveBackground.X = 
+ListBox.ActiveBackground.Y = 
+ListBox.ActiveBackground.Width = 
+ListBox.ActiveBackground.Height = 
+ListBox.TopLeft.X = 
+ListBox.TopLeft.Y = 
+ListBox.TopLeft.Width = 
+ListBox.TopLeft.Height = 
+ListBox.TopRight.X = 
+ListBox.TopRight.Y = 
+ListBox.TopRight.Width = 
+ListBox.TopRight.Height = 
+ListBox.BottomLeft.X = 
+ListBox.BottomLeft.Y = 
+ListBox.BottomLeft.Width = 
+ListBox.BottomLeft.Height = 
+ListBox.BottomRight.X = 
+ListBox.BottomRight.Y = 
+ListBox.BottomRight.Width = 
+ListBox.BottomRight.Height = 
+ListBox.HorizLine.X = 
+ListBox.HorizLine.Y = 
+ListBox.HorizLine.Width = 
+ListBox.HorizLine.Height = 
+ListBox.VertLine.X = 
+ListBox.VertLine.Y = 
+ListBox.VertLine.Width = 
+ListBox.VertLine.Height = 
+</ListBox>
+

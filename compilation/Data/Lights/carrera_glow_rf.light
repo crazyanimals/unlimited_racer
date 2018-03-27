@@ -1,0 +1,7 @@
+x = 56
+y = 116
+z = 167
+Scale = 150.0
+type = 4
+Diffuse = 0xffffffff
+lightmap = glow.png

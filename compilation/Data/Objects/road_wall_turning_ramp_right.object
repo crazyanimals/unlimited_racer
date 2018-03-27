@@ -1,0 +1,60 @@
+Name = Road Wall Turning Ramp Right
+icon=road_wall_turning_ramp_right.bmp
+
+[object]
+Model = road_wall_turning_ramp_right.modelDef
+static = 1
+SizeX = 3
+SizeY = 3
+PosX = 0
+PosY = 0
+X = 1500
+Y = 0
+Z = 1500
+GrassAllowed = 0
+material = 6
+
+[waypoints]
+x = 500.0
+y = 100.0
+z = 0.0
+max_speed = 30
+
+x = 675.0
+y = 225.0
+z = 1000.0
+
+x = 1125.0
+y = 350.0
+z = 1875.0
+
+x = 2000.0
+y = 475.0
+z = 2325.0
+
+x = 3000.0
+y = 600.0
+z = 2500.0
+
+[waypoints]
+
+x = 3000.0
+y = 600.0
+z = 2500.0
+max_speed = 25
+
+x = 2000.0
+y = 475.0
+z = 2325.0
+
+x = 1125.0
+y = 350.0
+z = 1875.0
+
+x = 675.0
+y = 225.0
+z = 1000.0
+
+x = 500.0
+y = 100.0
+z = 0.0

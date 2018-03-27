@@ -1,0 +1,272 @@
+<Dialog>
+	X = 300
+	Y = 100
+	Width = 360
+	Height = 450
+	FontDeclaration = DialogBasic.font
+	BackgroundTexture = GUI\SteelDialogBackground.png
+	TextureDeclarations = GraphicTest.dlgDecl
+	Transparency = 0.25 ; value in range <0,1>, 0 means totally visible
+	ToolTipTransparency = 0.0
+	ControlsTransparency = 0.0
+	BasicTextColor = 0xffd86b1c
+	ActiveTextColor = 0xffffff00
+	Color = 0xff0000a0
+	SliderPosMin = 10
+	SliderPosMax = 109
+	ToolTipDelay = 1000
+</Dialog>
+
+<Control>
+	Name = CKSMainLabel
+	Type = label
+	X = 10
+	Y = 10
+	Width = 280
+	Height = 30
+	Value = ADVANCED KEY SETTINGS
+	FontDeclaration = DialogCaption.font
+	TextFormat = 68
+</Control>
+
+<Control>
+	Name = CKSKey1Label
+	Type = label
+	X = 10
+	Y = 60
+	Width = 160
+	Height = 30
+	Value = Key 1:
+	FontDeclaration = DialogCaption.font
+	TextFormat = 66
+</Control>
+
+<Control>
+	Name = CKSKey2Label
+	Type = label
+	X = 10
+	Y = 100
+	Width = 160
+	Height = 30
+	Value = Key 2:
+	FontDeclaration = DialogCaption.font
+	TextFormat = 66
+</Control>
+
+<Control>
+	Name = CKSKey3Label
+	Type = label
+	X = 10
+	Y = 140
+	Width = 160
+	Height = 30
+	Value = Key 3:
+	FontDeclaration = DialogCaption.font
+	TextFormat = 66
+</Control>
+
+<Control>
+	Name = CKSKey4Label
+	Type = label
+	X = 10
+	Y = 180
+	Width = 160
+	Height = 30
+	Value = Key 4:
+	FontDeclaration = DialogCaption.font
+	TextFormat = 66
+</Control>
+
+<Control>
+	Name = CKSKey5Label
+	Type = label
+	X = 10
+	Y = 220
+	Width = 160
+	Height = 30
+	Value = Key 5:
+	FontDeclaration = DialogCaption.font
+	TextFormat = 66
+</Control>
+
+<Control>
+	Name = CKSKey6Label
+	Type = label
+	X = 10
+	Y = 260
+	Width = 160
+	Height = 30
+	Value = Key 6:
+	FontDeclaration = DialogCaption.font
+	TextFormat = 66
+</Control>
+
+<Control>
+	Name = CKSKey7Label
+	Type = label
+	X = 10
+	Y = 300
+	Width = 160
+	Height = 30
+	Value = Key 7:
+	FontDeclaration = DialogCaption.font
+	TextFormat = 66
+</Control>
+
+<Control>
+	Name = CKSKey8Label
+	Type = label
+	X = 10
+	Y = 340
+	Width = 160
+	Height = 30
+	Value = Key 8:
+	FontDeclaration = DialogCaption.font
+	TextFormat = 66
+</Control>
+
+<Control>
+	Name = CKSKey1Edit
+	Type = edit
+	X = 180
+	Y = 60
+	Width = 130
+	Height = 32
+	MaxTextLength = 20
+	Value = 1
+	ToolTip = Type new key setting
+</Control>
+
+<Control>
+	Name = CKSKey2Edit
+	Type = edit
+	X = 180
+	Y = 100
+	Width = 130
+	Height = 32
+	MaxTextLength = 20
+	Value = 2
+	ToolTip = Type new key setting
+</Control>
+
+<Control>
+	Name = CKSKey3Edit
+	Type = edit
+	X = 180
+	Y = 140
+	Width = 130
+	Height = 32
+	MaxTextLength = 20
+	Value = 3
+	ToolTip = Type new key setting
+</Control>
+
+<Control>
+	Name = CKSKey4Edit
+	Type = edit
+	X = 180
+	Y = 180
+	Width = 130
+	Height = 32
+	MaxTextLength = 20
+	Value = 4
+	ToolTip = Type new key setting
+</Control>
+
+<Control>
+	Name = CKSKey5Edit
+	Type = edit
+	X = 180
+	Y = 220
+	Width = 130
+	Height = 32
+	MaxTextLength = 20
+	Value = 5
+	ToolTip = Type new key setting
+</Control>
+
+<Control>
+	Name = CKSKey6Edit
+	Type = edit
+	X = 180
+	Y = 260
+	Width = 130
+	Height = 32
+	MaxTextLength = 20
+	Value = 6
+	ToolTip = Type new key setting
+</Control>
+
+<Control>
+	Name = CKSKey7Edit
+	Type = edit
+	X = 180
+	Y = 300
+	Width = 130
+	Height = 32
+	MaxTextLength = 20
+	Value = 7
+	ToolTip = Type new key setting
+</Control>
+
+<Control>
+	Name = CKSKey8Edit
+	Type = edit
+	X = 180 
+	Y = 340
+	Width = 130
+	Height = 32
+	MaxTextLength = 20
+	Value = 8
+	ToolTip = Type new key setting
+</Control>
+
+<Control>
+	Name = CKSOk
+	Type = button
+	X = 40
+	Y = 400
+	Width = 120
+	Height = 30
+	Value = OK
+
+	Enabled = 1
+	Visible = 1
+	TabStop = 8
+	ZOrder = 10
+	AbsolutePosition = 0
+	Transparency = 0.0
+	FontDeclaration = DialogBasic.font
+	Color = 0xffffffff 
+	ToolTip = Confirms changes in graphic settings
+	TextFormat = 68
+</Control>
+
+<Control>
+	Name = CKSCancel
+	Type = button
+	X = 200
+	Y = 400
+	Width = 120
+	Height = 30
+	Value = CANCEL
+
+	Enabled = 1
+	Visible = 1
+	TabStop = 8
+	ZOrder = 10
+	AbsolutePosition = 0
+	Transparency = 0.0
+	FontDeclaration = DialogBasic.font
+	Color = 0xffffffff 
+	ToolTip = Cancels changes in graphic settings
+	TextFormat = 68
+</Control>
+
+
+
+
+
+
+
+

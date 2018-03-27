@@ -1,0 +1,69 @@
+<LOD0>
+	model = billboard_0.x
+	<textures>
+		ur_board.png = billboard_marlboro3.jpg
+	</textures>
+</LOD0>
+
+<LOD1>
+	model = billboard_0.x
+	<textures>
+		ur_board.png = billboard_marlboro3.jpg
+	</textures>
+</LOD1>
+
+<LOD2>
+	model = billboard_0.x
+	<textures>
+		ur_board.png = billboard_marlboro3.jpg
+	</textures>
+</LOD2>
+
+<LOD3>
+	model = billboard_0.x
+	<textures>
+		ur_board.png = billboard_marlboro3.jpg
+	</textures>
+</LOD3>
+
+<LOD4>
+	model = billboard_0.x
+	<textures>
+		ur_board.png = billboard_marlboro3.jpg
+	</textures>
+</LOD4>
+
+<LOD5>
+	model = billboard_0.x
+	<textures>
+		ur_board.png = billboard_marlboro3.jpg
+	</textures>
+</LOD5>
+
+<LOD6>
+	model = billboard_0.x
+	<textures>
+		ur_board.png = billboard_marlboro3.jpg
+	</textures>
+</LOD6>
+
+<LOD7>
+	model = billboard_0.x
+	<textures>
+		ur_board.png = billboard_marlboro3.jpg
+	</textures>
+</LOD7>
+
+<LOD8>
+	model = billboard_0.x
+	<textures>
+		ur_board.png = billboard_marlboro3.jpg
+	</textures>
+</LOD8>
+
+<LOD9>
+	model = billboard_0.x
+	<textures>
+		ur_board.png = billboard_marlboro3.jpg
+	</textures>
+</LOD9>

@@ -1,0 +1,60 @@
+icon = road_lamp.bmp
+
+[road]
+name = Road with lamp
+texture = road.png
+phtexture = road.phTexture
+
+[object]
+model = lamp.modelDef
+light = lamp.light
+light = lamp_glow.light
+static = 1
+SizeX = 1
+SizeY = 1
+PosX = 0
+PosY = 0
+x = 50
+y = 0
+z = 500
+rotation.y = 3.14
+scale.x = 1
+scale.y = 1
+scale.z = 1
+material = 6
+
+[waypoints]
+x = 500.0
+y = 100.0
+z = 0.0
+max_speed = 35
+
+x = 500.0
+y = 100.0
+z = 333.0
+
+x = 500.0
+y = 100.0
+z = 666.0
+
+x = 500.0
+y = 100.0
+z = 1000.0
+
+[waypoints]
+x = 500.0
+y = 100.0
+z = 1000.0
+max_speed = 35
+
+x = 500.0
+y = 100.0
+z = 666.0
+
+x = 500.0
+y = 100.0
+z = 333.0
+
+x = 500.0
+y = 100.0
+z = 0.0

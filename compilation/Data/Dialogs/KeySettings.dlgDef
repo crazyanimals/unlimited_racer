@@ -1,0 +1,358 @@
+<Dialog>
+	X = 300
+	Y = 100
+	Width = 550
+	Height = 400
+	FontDeclaration = DialogBasic.font
+	BackgroundTexture = GUI\SteelDialogBackground.png
+	TextureDeclarations = GraphicTest.dlgDecl
+	Transparency = 0.25 ; value in range <0,1>, 0 means totally visible
+	ToolTipTransparency = 0.0
+	ControlsTransparency = 0.0
+	BasicTextColor = 0xffd86b1c
+	ActiveTextColor = 0xffffff00
+	Color = 0xff0000a0
+	SliderPosMin = 10
+	SliderPosMax = 109
+	ToolTipDelay = 1000
+</Dialog>
+
+<Control>
+	Name = KSKeySettingsLabel
+	Type = label
+	X = 10
+	Y = 10
+	Width = 590
+	Height = 30
+	Value = KEY SETTINGS
+	FontDeclaration = DialogCaption.font
+	TextFormat = 68
+</Control>
+
+<Control>
+	Name = KSAccelerateLabel
+	Type = label
+	X = 10
+	Y = 50
+	Width = 590
+	Height = 30
+	Value = Accelerate:
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = KSDecelerateLabel
+	Type = label
+	X = 10
+	Y = 90
+	Width = 590
+	Height = 30
+	Value = Decelerate:
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = KSSteerLeftLabel
+	Type = label
+	X = 10
+	Y = 130
+	Width = 590
+	Height = 30
+	Value = Steer left:
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = KSSteerRightLabel
+	Type = label
+	X = 10
+	Y = 170
+	Width = 590
+	Height = 30
+	Value = Steer right:
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = KSBrakeLabel
+	Type = label
+	X = 10
+	Y = 210
+	Width = 590
+	Height = 30
+	Value = Hand brake:
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = KSShiftUpLabel
+	Type = label
+	X = 10
+	Y = 250
+	Width = 590
+	Height = 30
+	Value = Shift up:
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = KSShiftDownLabel
+	Type = label
+	X = 10
+	Y = 290
+	Width = 590
+	Height = 30
+	Value = Shift down:
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = KSChangeViewLabel
+	Type = label
+	X = 270
+	Y = 50
+	Width = 590
+	Height = 30
+	Value = Cycle view:
+	FontDeclaration = DialogCaption.font
+</Control>
+
+;<Control>
+;	Name = KSDriverViewLabel
+;	Type = label
+;	X = 270
+;	Y = 90
+;	Width = 590
+;	Height = 30
+;	Value = Driver view:
+;	FontDeclaration = DialogCaption.font
+;</Control>
+
+<Control>
+	Name = KSRestartLabel
+	Type = label
+	X = 270
+	Y = 90
+	Width = 590
+	Height = 30
+	Value = Restart car:
+	FontDeclaration = DialogCaption.font
+</Control>
+
+;<Control>
+;	Name = KSGamePauseLabel
+;	Type = label
+;	X = 270
+;	Y = 170
+;	Width = 590
+;	Height = 30
+;	Value = Pause game:
+;	FontDeclaration = DialogCaption.font
+;</Control>
+
+<Control>
+	Name = KSAccelerateEdit
+	Type = edit
+	X = 130
+	Y = 50
+	Width = 130
+	Height = 32
+	MaxTextLength = 20
+	Value = A
+	ToolTip = Type new key setting
+
+	; TextFormat
+</Control>
+
+<Control>
+	Name = KSDecelerateEdit
+	Type = edit
+	X = 130
+	Y = 90
+	Width = 130
+	Height = 32
+	MaxTextLength = 20
+	Value = A
+	ToolTip = Type new key setting
+
+	; TextFormat
+</Control>
+
+<Control>
+	Name = KSSteerLeftEdit
+	Type = edit
+	X = 130
+	Y = 130
+	Width = 130
+	Height = 32
+	MaxTextLength = 20
+	Value = A
+	ToolTip = Type new key setting
+
+	; TextFormat
+</Control>
+
+<Control>
+	Name = KSSteerRightEdit
+	Type = edit
+	X = 130
+	Y = 170
+	Width = 130
+	Height = 32
+	MaxTextLength = 20
+	Value = A
+	ToolTip = Type new key setting
+
+	; TextFormat
+</Control>
+
+<Control>
+	Name = KSBrakeEdit
+	Type = edit
+	X = 130
+	Y = 210
+	Width = 130
+	Height = 32
+	MaxTextLength = 20
+	Value = A
+	ToolTip = Type new key setting
+
+	; TextFormat
+</Control>
+
+<Control>
+	Name = KSShiftUpEdit
+	Type = edit
+	X = 130
+	Y = 250
+	Width = 130
+	Height = 32
+	MaxTextLength = 20
+	Value = A
+	ToolTip = Type new key setting
+
+	; TextFormat
+</Control>
+
+<Control>
+	Name = KSShiftDownEdit
+	Type = edit
+	X = 130
+	Y = 290
+	Width = 130
+	Height = 32
+	MaxTextLength = 20
+	Value = A
+	ToolTip = Type new key setting
+
+	; TextFormat
+</Control>
+
+<Control>
+	Name = KSChangeViewEdit
+	Type = edit
+	X = 400 
+	Y = 50
+	Width = 130
+	Height = 32
+	MaxTextLength = 20
+	Value = A
+	ToolTip = Type new key setting
+
+	; TextFormat
+</Control>
+
+;<Control>
+;	Name = KSDriverViewEdit
+;	Type = edit
+;	X = 400 
+;	Y = 90
+;	Width = 130
+;	Height = 32
+;	MaxTextLength = 20
+;	Value = A
+;	ToolTip = Type new key setting
+;
+	; TextFormat
+;</Control>
+
+<Control>
+	Name = KSRestartEdit
+	Type = edit
+	X = 400
+	Y = 90
+	Width = 130
+	Height = 32
+	MaxTextLength = 20
+	Value = A
+	ToolTip = Type new key setting
+
+	; TextFormat
+</Control>
+
+;<Control>
+;	Name = KSGamePauseEdit
+;	Type = edit
+;	X = 400
+;	Y = 170
+;	Width = 130
+;	Height = 32
+;	MaxTextLength = 20
+;	Value = A
+;	ToolTip = Type new key setting
+
+	; TextFormat
+;</Control>
+
+<Control>
+	Name = KSOk
+	Type = button
+	X = 70
+	Y = 350
+	Width = 160
+	Height = 30
+	Value = OK
+
+	Enabled = 1
+	Visible = 1
+	TabStop = 8
+	ZOrder = 10
+	AbsolutePosition = 0
+	Transparency = 0.0
+	FontDeclaration = DialogBasic.font
+	Color = 0xffffffff 
+	ToolTip = Confirms changes in graphic settings
+	
+	TextFormat = 68 ; left - 1, right - 2, center - 4, top - 16, bottom - 32, center - 64
+	
+</Control>
+
+<Control>
+	Name = KSCancel
+	Type = button
+	X = 320
+	Y = 350
+	Width = 160
+	Height = 30
+	Value = CANCEL
+
+	Enabled = 1
+	Visible = 1
+	TabStop = 8
+	ZOrder = 10
+	AbsolutePosition = 0
+	Transparency = 0.0
+	FontDeclaration = DialogBasic.font
+	Color = 0xffffffff 
+	ToolTip = Cancels changes in graphic settings
+	
+	TextFormat = 68 ; left - 1, right - 2, center - 4, top - 16, bottom - 32, center - 64
+</Control>
+
+
+
+
+
+
+
+

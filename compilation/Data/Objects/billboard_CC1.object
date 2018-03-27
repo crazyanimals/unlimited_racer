@@ -1,0 +1,12 @@
+Name = Billboard (Coca-Cola 1)
+Icon = billboard_CC1.bmp
+
+[object]
+Model = billboard_cc1.modelDef
+static = 1
+PosX = 0
+PosY = 0
+X = 500
+Y = 0
+Z = 500
+GrassAllowed = 1

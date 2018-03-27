@@ -1,0 +1,60 @@
+name = Road with cone
+icon = road_cone.bmp 
+
+
+[road]
+texture = road.png
+phtexture = road.phTexture
+
+
+[object]
+model = cone.modelDef
+static = 0
+mass = 3.0
+posX = 0
+posY = 0
+x = 200
+y = 16
+z = 500
+scale.x = 2
+scale.y = 2
+scale.z = 2
+GrassAllowed = 1
+material = 2
+
+[waypoints]
+x = 500.0
+y = 100.0
+z = 0.0
+max_speed = 50
+
+
+x = 500.0
+y = 100.0
+z = 333.0
+
+x = 500.0
+y = 100.0
+z = 666.0
+
+x = 500.0
+y = 100.0
+z = 1000.0
+
+[waypoints]
+x = 500.0
+y = 100.0
+z = 1000.0
+max_speed = 50
+
+x = 500.0
+y = 100.0
+z = 666.0
+
+x = 500.0
+y = 100.0
+z = 333.0
+
+x = 500.0
+y = 100.0
+z = 0.0

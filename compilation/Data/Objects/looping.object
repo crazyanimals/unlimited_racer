@@ -1,0 +1,18 @@
+Name = Looping
+icon=looping.bmp
+
+[object]
+Model = looping.modelDef
+static = 1
+SizeX = 2
+SizeY = 2
+PosX = 0
+PosY = 0
+X = 1000
+Y = 0
+Z = 1000
+Scale.X = 1.333
+Scale.Y = 1
+Scale.Z = 1
+GrassAllowed = 0
+material = 6

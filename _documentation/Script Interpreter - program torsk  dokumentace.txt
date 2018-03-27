@@ -1,0 +1,68 @@
+PROGRAMÁTORSKÁ DOKUMENTACE
+==========================
+
+ScriptInterpreter
+-----------------
+
+Tento projekt je sloen z více souborù:
+ScriptInterpreter.h		- slouí jako hlavièkovı soubor k exportu funkcí do dll a je nutnı pøi uívání knihovny
+ScriptInterpreter.cpp		- obsahuje definice exportovanıch funkcí, není nikterak rozsáhlı, veškerou interpretaci zajišuje tøída CScript, která je zde uita
+ScriptInterpreterTools.cpp (h)	- obsahuje definice základních prvkù skriptu, jako jsou CScriptLine, CToken èi OPERATOR
+Script.cpp (h)			- obsahuje definici tøídy CScript, která je jádrem celého interpreteru; ta má metody na naètení a zpracování skriptu
+Variables.cpp (h)		- definice tøídy CVariable, která slouí k popisu promìnnıch skriptu
+StackBlock.cpp (h)		- definice tøády CStackBlock, která reprezentuje jeden blok skriptu
+
+Základní jádrem je tedy tøída CScript, která obsahuje metody na naètení a interpretaci skriptu. Obsahuje poloky, do nich se skript uloí v podobì seznamu øádek a jejich èástí. Obsahuje také poloky, v nich je uloen stav (nastavení) direktiv, zásobník programovıch blokù skriptu, strom promìnnıch atd.
+
+Nejdùleitìjší je samozøejmì pøeklad, tedy metoda 
+	
+	HRESULT CScript::Interpret( HRESULT (CALLBACK *EFC) ( CString &, int, CString [] ), CString &returnVal );
+
+Tato metoda dostane jako parametr ukazatel na EF a vısledek skriptu vrací v parametru returnVal. Pokud dojde pøi interpretaci k chybì, její návratová hodnota je rùzná od nuly. Samotné tìlo je dosti chudé, obsahuje pouze vytvoøení nového programového bloku, kterı je nastaven tak, e obsahuje celı skript, a volání metody InterpretBlock, která danı blok kódu interpretuje. Tato volání je však moné provést teprve tehdy, kdy je skript naèten a pøeveden do vnitøních struktur tøídy, tedy a po zavolání metody
+	
+	HRESULT	CScript::Load( LPCTSTR fileName );
+
+Tato metoda provádí naèítání øádek skriptu a do konce souboru. Pro kadou naètenou øádku zavolá metodu AddLine(), která ji pøidá do seznamu øádek, popøípadì zahlásí chybu.
+
+	HRESULT CScript::AddLine( CString str, int LineNumber, bool &inComment );
+	
+tato metoda zkoumá jedinou øádku skriptu a urèuje její typ, tj. zda je to komentáø, cyklus, zaèátek bloku, return pøíkaz atp. Komentáøe se ihned odstraòují. Øádka je rozdìlena na tokeny, co jsou samostatnì oznaèitelné èásti (èísla, øetìzce, identifikátory, klíèová slova, symboly,...). Všechny mezery a tabulátory mezi tìmito èástmi jsou také vyjmuty. Øádka je pøitom podrobena prvotní kontrole správnosti, tj. zda je øetìzec na øádce ukonèen, zda je identifikátor platnı, zda desetinné èíslo neobsahuje dvì desetinné teèky... Schválená a prozkoumaná øádka je oèíslována pro potøeby identifikace místa chyby èi skokù, oznaèena svım typem a jako seznam tokenù, tj. instancí tøídy CToken reprezentující jednu její poloku, pøidána do seznamu øádek.
+
+Takto pøedpøipravenı skript je ji moné zpracovávat metodou
+
+	HRESULT	CScript::InterpretBlock(	BLOCKSSTACK &stack, 
+						HRESULT (CALLBACK *EFC) ( CString &, int, CString [] ),
+						UINT &uiExitType,
+						UINT uiDeepness,
+						CString &returnVal );
+						
+Tato metoda pøijímá jako parametr zásobník programovıch blokù. Na vrcholu zásobníku se nachází blok, kterı má sama interpretovat. Z informací v této instanci se dozví, na jakém øádku má zaèít, kde blok konèí, jaké promìnné jsou v bloku definovány. Na poèátku samozøejmì nejsou definovány ádné promìnné, ty teprve v prùbìhu interpretace mohou bıt definovány. Intepretace bloku vypadá jako velkı cyklus probíhající postupnì ødky bloku a obsahující velkı switch, kterı rozhoduje co se má provést na základì toho, jakého je øádka typu. Kupøíkladu, je-li øádka definicí nové promìnné, provede se následující: ètou se postupnì jména promìnnıch, které takto mají bıt definovány. Pro kadou se provádí test, zda je promìnná ji v daném bloku definována. Pokud ano, je zahlášena chyba a pøeklad se ukonèí. Pokud ne, je promìnná pøidána do vyhledávacího stromu podle svého jména a je jí pøiøazena hodnota "", tj. 0. Interpretace bloku konèí ve chvíli, kdy je zpracována poslední øádka, nebo kdy se objeví ukonèovací závorka bloku. Blok mùe navracet i hodnotu, ale zatím toho není vyuíváno jinım zpùsobem ne pro pøíkaz return. Parametrem metody je také uiExitType, kterı je naplnìn hodnotou øíkající, jakım zpùsobem byl blok ukonèen. V pøípadì pouití pøíkazu return èi break je toti èasto nutné vyskoèit z více ne jednoho programového bloku, tj. volání InterpretBlock.
+
+Pokud je nìkde oèekáván vıraz, je tento vıraz vyhodnocen metodou
+	
+	HRESULT CScript::Evaluate(	TOKENS &inTokens,
+					TOKENS_ITERATOR	i1,
+					TOKENS_ITERATOR	i2,
+					BLOCKSSTACK &stack,
+					CString &retVal );
+	
+Metoda Evaluate dostává jako parametr seznam tokenù libovolné øádky, je se mají vyhodnotit. K tomu také dostane zásobník programovıch blokù, aby byla schopná nalézt promìnné, je mohou bıt ve vırazu pouity. Návratová hodnota se pøenáší parametrem retVal. Metoda Evaluate nejdøíve zkontroluje správnost uzávorkování. To proto, aby pozdìji nemusela dìlat testy na kadém místì a mohla ji pøedpokládat, e uzávorkování bude vpoøádku. Po tomto testu se provádí cyklus, ve kterém jsou postupnì vyhodnocovány uzávorkované vırazy od toho nejzanoøenìjšího. To proto, e se pøedají další metodì (EvaluateNonBracketed), je vyhodnocuje vırazy bez závorek. Kadı takto vyhodnocenı podvıraz je vèetnì závorek, je ho obklopovaly, nahrazen jeho vıslednou hodnotou, take postupnì zkracuje celı vıraz na jedinı vısledek. Do hledání nejvnitønìjších závorek jsou zaøazeny i built-in funkce, které se takté vyhodnocují, tentokrát pomocí metody EvaluateFunction.
+
+	HRESULT	CScript::EvaluateNonBracketed(	TOKENS &inTokens, 
+						TOKENS_ITERATOR i1,
+						TOKENS_ITERATOR i2,
+						BLOCKSSTACK &stack, 
+						CString &retVal );
+						
+Tato metoda má stejné parametry jako Evaluate, ale poèítá ji s vırazem, kterı neobsahuje závorky, take si najde podle priorit a asociací operátorù ten, kterı se má zpracovat jako poslední a rozdìlí danı vıraz na dva podvırazy, které vyhodnotí voláním stejné metody a na vısledky pak aplikuje metodu ApplyBinaryOperator, nebo, jde-li o unární operátor, tak jej provede sama. Metoda má opìt samozøejìm rekurzivní charakter a jejím dnem je jedinı token, kterı je buïto promìnnou, je se nahradí svou hodnotou, nebo èíslem èi øetìzcem, je zùstane, jak je. Pouze operátor pøiøazení je zde odlišnı od ostatních, nebo kromì návratové hodnoty (jí je hodnota pravého operandu) musí provést také pøiøazení do levého operandu, jím tedy musí bıt promìnná.
+
+	HRESULT	CScript::EvaluateFunction(	CString func, 
+						CString &retVal,
+						UINT	paramCount,
+						CString param1, 
+						CString param2 = "", 
+						CString param3 = "" );
+
+Metoda EvaluateFunction vyhodnotí built-in funkci, tedy funkci, která je implementovaná pøímo ve script interpeteru. Jako parametr dostává jméno volané funkce, poèet parametrù, kterı je maximálnì 3, a hodnoty pøedávanıch parametrù. Vısledná spoèítaná hodnota je vrácena v parametru retVal.
+
+	

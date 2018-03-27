@@ -1,0 +1,189 @@
+Name = Inclined Turning
+Icon =inclined_turn.bmp
+
+; barrier
+
+[object]
+Model = barrier.modelDef
+static = 1
+SizeX = 5
+SizeY = 5
+PosX = 0
+PosY = 0
+X = 2540
+Y = 0
+Z = 2460
+Scale.Y = 1.6
+material = 6
+
+
+; straight road 
+
+[road]
+posX = 1
+posY = 0
+sizeX = 1
+sizeY = 1
+texture = road.png
+phtexture = road.phTexture
+GrassAllowed = 0
+
+
+; turning - 8 textures
+
+[road]
+posX = 1
+posY = 1
+sizeX = 1
+sizeY = 1
+texture = road_turn3_7.png
+phtexture = road_turn3_7.phTexture
+GrassAllowed = 0
+
+[road]
+posX = 2
+posY = 1
+sizeX = 1
+sizeY = 1
+texture = road_turn3_8.png
+phtexture = road_turn3_8.phTexture
+GrassAllowed = 0
+
+[road]
+posX = 1
+posY = 2
+sizeX = 1
+sizeY = 1
+texture = road_turn3_4.png
+phtexture = road_turn3_4.phTexture
+GrassAllowed = 0
+
+[road]
+posX = 2
+posY = 2
+sizeX = 1
+sizeY = 1
+texture = road_turn3_5.png
+phtexture = road_turn3_5.phTexture
+GrassAllowed = 0
+
+[road]
+posX = 3
+posY = 2
+sizeX = 1
+sizeY = 1
+texture = road_turn3_6.png
+phtexture = road_turn3_6.phTexture
+GrassAllowed = 0
+
+[road]
+posX = 1
+posY = 3
+sizeX = 1
+sizeY = 1
+texture = road_turn3_1.png
+phtexture = road_turn3_1.phTexture
+GrassAllowed = 1
+
+[road]
+posX = 2
+posY = 3
+sizeX = 1
+sizeY = 1
+texture = road_turn3_2.png
+phtexture = road_turn3_2.phTexture
+GrassAllowed = 0
+
+[road]
+posX = 3
+posY = 3
+sizeX = 1
+sizeY = 1
+texture = road_turn3_3.png
+phtexture = road_turn3_3.phTexture
+GrassAllowed = 0
+
+[road]
+posX = 1
+posY = 0
+sizeX = 1
+sizeY = 1
+texture = road.png
+phtexture = road.phTexture
+GrassAllowed = 0
+
+; straight road
+
+[road]
+posX = 4
+posY = 3
+sizeX = 1
+sizeY = 1
+Rotation.Y = 1.57
+texture = road.png
+phtexture = road.phTexture
+GrassAllowed = 0
+
+
+
+
+[waypoints]
+x = 1500.0
+y = 100.0
+z = 0.0
+max_speed = 20
+
+x = 1500.0
+y = 100.0
+z = 1000.0
+
+x = 1735.0
+y = 100.0
+z = 2000.0
+
+x = 2225.0
+y = 100.0
+z = 2775.0
+
+x = 3000.0
+y = 100.0
+z = 3265.0
+
+x = 4000.0
+y = 100.0
+z = 3500.0
+
+x = 5000.0
+y = 100.0
+z = 3500.0
+
+
+[waypoints]
+x = 5000.0
+y = 100.0
+z = 3500.0
+max_speed = 20
+
+x = 4000.0
+y = 100.0
+z = 3500.0
+
+x = 3000.0
+y = 100.0
+z = 3265.0
+
+x = 2225.0
+y = 100.0
+z = 2775.0
+
+x = 1735.0
+y = 100.0
+z = 2000.0
+
+x = 1500.0
+y = 100.0
+z = 1000.0
+
+x = 1500.0
+y = 100.0
+z = 0.0

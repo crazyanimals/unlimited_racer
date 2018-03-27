@@ -1,0 +1,175 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+	<link type="text/css" href="mainstyles.css" rel="stylesheet">
+	<title>Programátorská dokumentace pro Limited Editor</title>
+</head>
+<body>
+<h1>6 Limited editor</h1>
+
+<h2><a name="uvod">6.1 Úvod</a></h2>
+ 
+<p>   
+Limited editor je aplikace pro editaci map, terénů, herních překážek a dalších nastavení pro hru Unlimited Racer. Editor je okenní aplikace pro Windows naprogramována v C++ pomocí Microsoft Visual Studia 2005. Editor používá knihovny WIN32 API, MFC a některé funkce z <a href="others.html#ResourceManager">Resource Manageru</a>. Aplikace je psaná v architektuře dokument/pohled.  
+</p>
+        <p class="center"><img src="images/editorclassdiagram.gif"></p>
+        <p class="center"><strong>Obrázek 6.1: Základní model tříd editoru.</strong></p>
+
+
+<h2><a name="dokument">6.2 Dokument - data a jejich správa</a></h2>
+    
+<p>
+Objekt CMapEditorDoc obsahuje data pro editor. Stará se o jejich úpravu, načtení a uložení. Součástí jsou také informace o aktuální nastavení a stavu editoru.   
+</p> 
+    
+<div class=padleft>
+    <h3><a name="objekty">6.2.1 Objekty</a></h3>
+        
+        <p>Jednotlivé objekty, které se vkládají do mapy jsou uloženy v poli ukazatelů na CMainObject indexovaném názvem souboru <a href="FileSystem.html#Object">*.object</a>. Objekty se primárně načítají za pomoci resource manageru při nahrávání stromu objektů. Sekundárně se přidávají z načtené mapy nebo můžou být přidány uživatelem. Při prvním načtení objektu se vytvoří 2 masky pro daný objekt. První maska zobrazuje obsazení jednotlivých políček modely a texturami. Druhá maska zobrazuje políčka, na kterých je tráva.Také se zkontroluje, zda objekt má ikonu, pokud ikonu nemá, je mu vygenerovaná ikona obsahující stejná čísla, která určují pořadí objektu bez ikony.Číslo se zobrazí na každém políčku objektu, které je obsazeno texturou nebo modelem.</p>    
+    
+    <h3><a name="mapa">6.2.2 Mapa</a></h3>
+        
+        <p>Objekt CGameMap obsahuje data a metody týkající se mapy a terénu.         Místa uložení objektů v mapě a nastavení mapy se načítá za pomoci resource manageru ze souboru <a href="FileSystem.html#Urmap">*.urmap</a>. Tento soubor také obsahuje jméno souboru s příslušným terénem, který se načítá z <a href="FileSystem.html#Terrain">*.terrain</a>.</p> 
+        <div class=padleft>
+        <h4><a name="teraobj">6.2.2.1 Terén a objekty v mapě</a></h4>
+        
+            <p>Samotná mapa a terén je uložena jako pole objektů typu CMapObject. Každý CMapObject obsahuje především objekt, který je položen na daném políčku a informace o výšce terénu.</p>   
+             
+            <p>Při ukládání terénu je potřeba zjistit, jaké terénní pláty jsou na jednotlivých políčkách. Odlišujeme následující pláty: roh kopce, vnitřní roh kopce a stěna kopce. Aby přechody u kopců nebyly ostré, všechny pláty se ještě dělí na pláty: plát výšky 1, pata kopce, vršek kopce a střed kopce.  Každý tento plát může mít různého souseda a tak jsou ještě rozděleny, dle typů jejich hran. Pláty jsou vygenerované pomocí <a href="others.html#TerrainGenerator">Terrain Generatoru</a>.  
+            </p>
+            <dl>
+            <dt><strong>Algoritmus pro umístění plátu:</strong><dt>
+               <dl>
+               <dt>1. Prochází se mapa a okolí políček a zjišťuje se, zda na daném políčku se nenachází:</dt>
+               <dd> I. Roh kopce. </dd>
+                <dd>II. Stěna kopce.</dd>
+                <dd>III. Vnitřní roh kopce.</dd>
+               
+              
+            <dt>Pokud se nenachází na testovaném místě žádný z předchozím plátů, tak na políčku je rovina. Test určí i zda je plát vrchní, spodní, stěna, či výšky 1. Takto vytvořené kopce můžou mít v jistých situacích díry mezi sebou,proto ještě následující krok.</dt>
+            <dt>2. Projdu mapu ještě 4x a upravuji jednotlivé typy plátů podle jejich sousedů. Pláty upravuji v pořadí střední pláty,vrchní pláty,spodní pláty a nakonec pláty výšky 1. Díky tomuto pořadí jsou kopce více zakulacené.  </dt>
+                </dl>
+            </dl>
+            <p>
+            Pro každé políčko terénu se také uloží textura s náhodnou orientací, textury jsou definovaná v souboru <a href="FileSystem.html#Textset">*.Textset</a>. Pokud je v souboru definováno více textur, textury jsou rozmisťovány náhodně, dle pravděpodobností uložených též v souboru textureset. Podle umístěných objektů a vygenerované masky pro daný objekt se nastaví přítomnost trávy na dané políčko.
+            </p>
+        <h4><a name="zavtrat">6.2.2.2 Závodní trať</a></h4>
+        <p>Závodní trať je uložena jako seznam lineárních spojových seznamů objektů (CMapMainObject) umístěných v mapě. Pokud cesta nebyla editovaná uživatelem, vždy se při uložení pokusí map editor najít nejvhodnější cestu.</p> 
+        <p><b>Algoritmus hledání závodní tratě:</b><br>
+           <ol>
+            <li>Zjistí zda ve směru od startovní pozice není objekt s waypointy
+            <li> Vybere daný objekt na políčku pokud:<br>
+                a) V okolí posledního waypointu je jeden nejbližší waypoint. Okolí má velikosti půlky políčka.<br>
+                b) Objekt ještě nebyl vybrán.  
+            <li> Najde konec vybrané cesty, vybere okolní políčka a pokračuje v bodu 2., dokud se nezastaví. 
+           </ol> 
+            
+       <h4><a name="ostnastmap">6.2.2.3 Ostatní nastavení mapy</a></h4>
+            <p>Pro mapu se ukládají další nastavení jako je skysystem, standardní čas mapy, velikost mapy,barva ambientního světla v mapě, startovní pozice atd. Startovní pozice je speciální objekt v mapě. Do souboru se ukládá jako odkaz na soubor *.object (objekt obsahuje klíč startingposition=1), jeho otočení a pozice v mapě. V mapě startovní pozice musí být položena, jinak editor nedovolí mapu uložit. Od startovní pozice se automaticky dopočítává závodní trať (pokud nebyla definována uživatelem), jestliže se nepodaří zjistit ani jeden objekt ze závodního okruhu, editor nedovolí mapu uložit a vyzve uživatele k ručnímu nastavení okruhu.</p> 
+
+    </div>
+    
+    <h3><a name="stromobj">6.2.4 Strom objektů</a></h3>
+        <p>
+        Strom objektů uchovává seznam všech objektů použitelných v mapeditoru. Strom je odvozený od MFC třídy CTreeCtrl a je součástí objektu CEditorTree, který obsahuje funkce pro načtení, uložení stromu a práci se stromem. Struktura stromu je uložená v souboru <a href="FileSystem.html#Objects.tree">objects.tree</a>. Strom se načítá při spuštění aplikace. Pokud při načítání objekt neexistuje, nebude do stromu přidán. Při načítání mapy se objekty, které nejsou ve stromě obsaženy a jsou obsaženy v mapě, přidají do stromu. 
+        </p>
+                    
+            
+    <h3><a name="aktobj">6.2.5 Aktuální objekt a editační módy</a></h3>
+        
+        <p>CMapEditorDoc také ukládá aktuální objekt a jeho vlastnosti (rotaci pozici v mapě). Objekt se vybírá ze stromu objektů,či přímo z mapy. Objektu obsahuje taky v jakém editačním stavu se editor nachází a informace o změnách, které byly provedeny.</p> 
+</div>
+        
+<h2><a name="pohled">6.3 Pohled - zobrazení datových struktur</a></h2>
+    <p>Editor je rozložen do několika pohledů. Každý pohled zobrazuje data z (CMapEditorDoc) a umožňuje práci s nimi.</p>       
+<div class=padleft>
+    <h3><a name="pictureview">6.3.1 Pohled na vybraný objekt</a></h3>
+         
+<p>Pohled zobrazuje ikonu objektu, který je vybrán ve stromě objektů. Pohled obsahuje 2 tlačítka, které slouží k otáčení objektu. Na ikonu jsou dokresleny modrou čárou jeho waypointy.</p> 
+
+    <h3><a name="mapview">6.3.2 Pohled na mapu</a></h3>
+        <p>Map view zobrazuje pohled na mapu. Protože mapa je větší než samotný pohled, jsou použity posuvníky. Mapa se vykreslí nejdříve do bufferu o velikosti výřezu mapy, který je zrovna zobrazen. Pak je celý buffer okopírovaný na obrazovku. </p>
+    <div class=padleft>
+        <h4><a name="zobrter">6.3.2.1 Zobrazení terénu.</a></h4>
+            <p>Terén je zobrazen odstíny zelené barvy. Vyšší výškový stupeň je světlejší. Při spuštění map editoru se vygenerují bitmapy, které zobrazují přechody mezi jednotlivými výškovými stupni (stěna kopce, roh kopce). Bitmapa je čtvercová a každému vrcholu čtverce je na základě výšky vedlejšího políčka přiřazena barva. Políčko je pak vygenerováno pomocí cosinové interpolace (obr. 6.2). Při vykreslení mapy se zkontroluje okolí políčka a na základě okolních výškových stupňů se vybere a otočí správná bitmapa.</p>
+    <p class="center"><img src="images/terrain.gif"></p>
+    <p class="center"><strong>Obrázek 6.2: Kopec výšky jedna. Čísla zobrazují uložené výškové stupně políček.</strong></p>        
+            
+        <h4><a name="zobrobjmap">6.3.2.2 Zobrazení objektů v mapě.</a></h4>
+            <p>Objekt v mapě je zobrazen jako ikona. Jméno souboru s ikonou je uložen v souboru <a href="FileSystem.html#Object">*.object</a>. Ikona je zmenšená, či zvětšená do velikosti objektu pro zobrazení do mapy. Transparentní barva ikony má hodnotu #FA36C5. Na ikonu jsou modrou čarou zobrazeny jednotlivé cesty tvořené waypointy.    </p>
+            
+        <h4><a name="zobrzavtrat">6.3.2.3 Zobrazení závodní trati.</a></h4>
+        <p> 
+            Mainobjekty, které leží na trati jsou zvýrazněny modrou barvou. Každý začátek spojité cesty je označen číslem.</p> 
+    </div>
+    <h3><a name="treeview">6.3.3 Tree view</a></h3>
+    
+        <p>Pohled zobrazuje strom objektů, které můžou být přidány do mapy. Strom je složen z uzlů (skupina objektů) a z listů(jednotlivé objekty). Pohled na strom je odvozený od třídy CTreeView, která je součástí MFC.  </p>
+    
+    <h3><a name="dialogy">6.3.4 Dialogy</a></h3>
+        
+        Editor obsahuje 3 dialogy. 
+            <ol>
+            <li> Dialog pro novou hru, který se objeví při spuštění nové mapy, kde se nastavuje velikost mapy a její jméno. 
+            <li> Dialog s nastavením vlastnosti mapy, kde se nastavuje jméno mapy, čas, textury zdi, textury terénu, fyzikální textury, typ trávy a zvolený skysystem. 
+            <li> Dialog je určený pro editování konfiguračních souborů. Ve vrchním okně je uložena nápověda, která je uložena v souboru typsouboru.rtf. V pravém sloupci je list klíčů. Spodní okno je editační.      
+            </ol>
+</div>
+<h2><a name="editdat">6.4 Editace</a></h2>
+<div class=padleft>
+    <h3><a name="editter">6.4.1 Editace terenu</a></h3>
+        <p>Terén je matice políček, která obsahuje jednotlivé výšky. Terén se edituje zvyšováním nebo snižováním jednotlivých políček. Protože celý terén se skládá z vygenerovaných plátů, tak rozložení výšek terénu nemůže být libovolné a musí se řídit následujícími pravidly:</p>
+        <ul>
+        <li>a) Každé sousední políčko (sousední i přes diagonálu) může být maximálně o 1 vyšší nebo nižší.
+               <p class="center"><img src="images/terrainhill.gif"></p>  
+               <p class="center"><strong>Obrázek 6.3: Situace porušující pravidlo a jejich vyřešení při zvyšování terénu (číslo zobrazuje výšku políčka):</strong></p>
+        <li>b) Mezi každými 2 stejně vysokými políčky vzdálených od sebe 1 políčko musí existovat políčko stejné nebo vyšší výšky. 
+        </ul>
+ 
+        <p class="center"><img src="images/terrainhorse.gif"></p>
+        <p class="center"><img src="images/terraindiag.gif"></p>
+        <p class="center"><img src="images/terrainrow.gif"></p>
+<p class="center"><strong>Obrázek 6.4: Situace porušující pravidlo a jejich vyřešení při zvyšování terénu (číslo zobrazuje výšku políčka):</strong></p>
+
+
+        <b>Algoritmus zvýšení terénu:</b> 
+            <ol>
+            <li>Zvýším vybrané políčko
+            <li>Otestuji zda v okolí políčka není nějaké políčko, které odporuje pravidlu a) pokud ano rekurzivně ho zvýším (obr. 6.3).
+            <li>Zkontroluji pravidlo b). Hledám políčko vyšší a nebo stejně vysoké vzdálené přes 1 políčko. Pokud je u něj porušeno pravidlo b) rekurzivně zvýším políčko mezi nima. Pokud jsou tyto políčka dvě (obr. 6.4) rekurzivně zvýším pouze jedno.  
+            </ol>
+        <b>Snížení terénu:</b>
+            <ol>
+            <li>Snížím vybrané políčko
+            <li>Otestuji zda v okolí políčka není nějaké políčko, které odporuje pravidlu a), pokud ano rekurzivně ho snížím.
+            
+	        <li>Hledám začátek cesty, po které budu procházet jednotlivá okolní políčka. Cesta má tvar viz obr. 6.5. Může začínat na 4 přilehlých políčkách (podle otočení cesty). Cesta začíná na políčku s nejnižší výškou.
+	        <li> Vybraný políčko z cesty snížím a pokusím se ho zvednout(zavolám algoritmus pro zvýšení terénu), pokud zvednutím zvedne i políčko, které už bylo sníženo nechám ho snížené, jinak vrátím.
+             
+	        <li>Ukládám políčka z cesty ke snížení a pak na ně zavolám rekurzivně snížení.
+	        </ol>
+          <p class="center"><img src="images/terrainpath.gif"></p>
+          <p class="center"><strong>Obrázek 6.5: Čísla zobrazují jedno z možných pořadí, v kterém jsou vybírána jednotlivá pole ke snížení.</strong></p>
+    <h3><a name="editmap">6.4.2 Vkládání objektů do mapy</a></h3>
+        <p>Každý objekt má uloženou masku, která ukazuje, kde jsou položeny objekty a textury.Na každým místě v mapě může být umístění pouze jeden model nebo textura.
+        </p>   
+        
+    <h3><a name="editces">6.4.3 Editace závodní tratě</a></h3>
+        <p>
+        Uživatel má možnost nadefinovat si vlastní závodní trať. Trať se edituje v race course edit modu. Vždy když klikne na nějaký objekt v mapě editor se pokusí najít co nejdelší spojitou cestu od místa, kde je object umístěn. Viz algoritmus v kapitole 2.2.2. Pokud mu nevyhovuje tato cesta může kliknutím na objekt odmazat cestu až k tomuto objektu. Cesta může vést pouze přes objekty s waypointy. 
+        </p>
+    
+    <h3><a name="editstr">6.4.4 Editace stromu</a></h3>
+        <p>Strom se edituje přes kontextové menu, které se objeví po stisknutí pravého tlačítka. Ve stromu se dají vytvářet nové objekty můžou se vyjímat a vkládat celé větve. Pokud se přidá nová položka do stromu, tak se mu můžou přidat potomci - stane se uzlem a nebo se k němu přiřadí nějaký soubor *.object a v tom případě se stane listem a objektem, který lze umístit do mapy. 
+    
+    <h3><a name="editkon">6.4.5 Editace konfiguračních souboru</a></h3>
+        <p>Editor obsahuje pomocný nástroj pro editaci souborů. Dialog obsahuje 2 pomocná okna viz. 3.4.3 Obsah pravého okna je uložen v souboru *.dlghlp. Při poklepání se vloží text, který je definován v souboru pod daným návěštím(řádek začínající --). Pokud řádek obsahuje %%typ, vyvolá dialog načítací dialog pro daný typ a vrátí do editu jméno vybrané položky.</p> 
+        
+</div>
+        
+        
+    
+
+
+</body>

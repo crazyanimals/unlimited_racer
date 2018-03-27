@@ -1,0 +1,26 @@
+ TerrainGenerator
+==================
+
+	Program slouží ke generování ploch zadaných rovnicí. Podle vstupní funkce dvou promìnných
+(x, z) spoèítá hodnoty y (výška) v diskrétní pravidelné møížce. Spoèítá také normály v tìchto
+bodech a souøadnice ètvercové textury pokrývající celou plochu.
+	Má se jednat o konzolovou aplikaci, která však bude cílena na systém Windows.
+	Výstupem programu je soubor zvoleného jména, který obsahuje informace o vygenerované
+ploše v textové podobì.
+	Vstupem programu je soubor obsahující kód napsaný ve zvláštním skriptovacím jazyce.
+Program vypoèítá jednotlivé plochy podle kódu obsaženého uvnitø tohoto souboru.
+	
+	Interpret skriptovacího jazyka bude samostatnou èástí roèníkového projektu a bude
+vytvoøen jako dynamicky linkovatelná knihovna. Bude fungovat takovým zpùsobem, že sám od sebe
+bude znát syntaxi jazyka, jejíž souèástí bude také zvláštní volání (libovolné) externí funkce
+(dále jen VEF). Pøi požadavku na provedení nìjakého kódu (souboru) bude interpreteru zadána
+callbacková funkce, kterou interpret zavolá pro každé VEF s takovými parametry, jaké budou
+pøedány pomocí VEF uvnitø skriptu (pøíklad: call ExterniFce(a, 10) - zavolá callback s parametry
+"ExterniFce", val(a), "10"). Jiné, než externí funkce v syntaxi jazyka podporovány nebudou.
+Bude tam však:
+- cyklus s urèeným poètem opakování
+- podmínka
+- netypová promìnná
+- pøíkaz skoku (návìští)
+- nìkteré základní matematické fce (sin, cos, tg, cotg, sqr, sqrt)
+- bloky existence promìnných

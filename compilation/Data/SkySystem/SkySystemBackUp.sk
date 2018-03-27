@@ -1,0 +1,129 @@
+; Nastaveni sky systemu
+; barva molekul vzduchu - float - vsechny slozky mezi 0 a 1 
+; slouzi pro vypocet barvy oblohy
+MoleculeColor.r=0.5
+MoleculeColor.g=0.1
+MoleculeColor.b=0.7
+
+; barva aerosolu vzduchu - float - vsechny slozky mezi 0 a 1
+; slouzi pro vypocet barvy oblohy
+AerosolColor.r=0.1
+AerosolColor.g=0.1
+AerosolColor.b=0.7
+
+; jmeno textury slunce - string
+SunTexture = SkySun.tga
+
+; 24 polozek barvy slunce v jednotlivych hodinach po hodine - float - vsechny slozky mezi 0 a 1
+; slouzi pro vypocet barvy oblohy
+SunColor0.r=0.0
+SunColor0.g=0.0
+SunColor0.b=0.0
+
+SunColor1.r=0.0
+SunColor1.g=0.0
+SunColor1.b=0.0
+
+SunColor2.r=0.0
+SunColor2.g=0.0
+SunColor2.b=0.0
+
+SunColor3.r=0.0
+SunColor3.g=0.0
+SunColor3.b=0.0
+
+SunColor4.r=0.0
+SunColor4.g=0.0
+SunColor4.b=0.0
+
+SunColor5.r=0.2
+SunColor5.g=0.2
+SunColor5.b=0.2
+
+SunColor6.r=0.8
+SunColor6.g=0.1
+SunColor6.b=0.5
+
+SunColor7.r=0.5
+SunColor7.g=0.1
+SunColor7.b=0.8
+
+SunColor8.r=0.3
+SunColor8.g=0.1
+SunColor8.b=0.8
+
+SunColor9.r=0.3
+SunColor9.g=0.1
+SunColor9.b=0.8
+
+
+SunColor10.r=0.3
+SunColor10.g=0.1
+SunColor10.b=0.8
+
+SunColor11.r=0.3
+SunColor11.g=0.1
+SunColor11.b=0.8
+
+SunColor12.r=0.3
+SunColor12.g=0.1
+SunColor12.b=0.8
+
+SunColor13.r=0.3
+SunColor13.g=0.1
+SunColor13.b=0.8
+
+SunColor14.r=0.3
+SunColor14.g=0.1
+SunColor14.b=0.8
+
+SunColor15.r=0.3
+SunColor15.g=0.1
+SunColor15.b=0.8
+
+SunColor16.r=0.3
+SunColor16.g=0.1
+SunColor16.b=0.8
+
+SunColor17.r=0.5
+SunColor17.g=0.1
+SunColor17.b=0.8
+
+SunColor18.r=0.8
+SunColor18.g=0.1
+SunColor18.b=0.5
+
+SunColor19.r=0.2
+SunColor19.g=0.2
+SunColor19.b=0.2
+
+SunColor20.r=0.0
+SunColor20.g=0.0
+SunColor20.b=0.0
+
+SunColor21.r=0.0
+SunColor21.g=0.0
+SunColor21.b=0.0
+
+SunColor22.r=0.0
+SunColor22.g=0.0
+SunColor22.b=0.0
+
+SunColor23.r=0.0
+SunColor23.g=0.0
+SunColor23.b=0.0
+
+; MountainNorth - string - jmeno textury severni strany sky boxu
+MountainNorth = \SkyBox\U0.png
+
+; MountainWest - string - jmeno textury zapadni strany sky boxu
+MountainWest = \SkyBox\U1.png
+
+; MountainSouth - string - jmeno textury jizni strany sky boxu
+MountainSouth = \SkyBox\U2.png
+
+; MountainEast - string - jmeno textury vychodni strany sky boxu
+MountainEast = \SkyBox\U3.png
+
+; CloudTexture - string - jmeno textury mraku
+CloudTexture = \SkyBox\Cloud5.bmp

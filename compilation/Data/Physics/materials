@@ -1,0 +1,21 @@
+9
+default
+wood
+metal
+grass
+car
+tire
+concrete
+ghost
+worldbbox
+10
+metal wood 0.05 0.005 0.8 0.6 1 metWood.wav
+metal metal 1.0 0.2 1.5 1.2 1 metMet.wav
+metal grass 0.3 0.4 1.2 1.0 1 metGrass.wav
+metal concrete 0.3 0.7 1.6 1.35 1 metConcr.wav
+default default 1.0 0.7 0.5 0.2 1 defDef.wav
+metal worldbbox 1.0 1.0 0.1 0.1 1 metWorld.wav
+wood wood 0.3 0.4 1.3 1.0 1 woodWood.wav
+concrete concrete 0.3 0.4 1.3 1.0 1 concrConcr.wav
+wood concrete 0.3 0.4 1.3 1.0 1 woodConcr.wav
+wood grass 0.3 0.4 1.3 1.0 1 woodGrass.wav

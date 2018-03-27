@@ -1,0 +1,364 @@
+--Load texture
+%%text
+-------------Parametrs----------
+--MoleculeColor
+MoleculeColor.r  = 
+MoleculeColor.g  = 
+MoleculeColor.b = 
+
+--AerosolColor
+AerosolColor.r = 
+AerosolColor.g = 
+AerosolColor.b = 
+
+--SunColor0
+SunColor0.r = 
+SunColor0.g = 
+SunColor0.b = 
+
+--SunColor1
+SunColor1.r = 
+SunColor1.g = 
+SunColor1.b = 
+
+--SunColor2
+SunColor2.r = 
+SunColor2.g = 
+SunColor2.b = 
+
+--SunColor3
+SunColor3.r = 
+SunColor3.g = 
+SunColor3.b = 
+
+--SunColor4
+SunColor4.r = 
+SunColor4.g = 
+SunColor4.b = 
+
+--SunColor5
+SunColor5.r = 
+SunColor5.g = 
+SunColor5.b = 
+
+--SunColor6
+SunColor6.r = 
+SunColor6.g = 
+SunColor6.b = 
+
+--SunColor7
+SunColor7.r = 
+SunColor7.g = 
+SunColor7.b = 
+
+--SunColor8
+SunColor8.r = 
+SunColor8.g = 
+SunColor8.b = 
+
+--SunColor9
+SunColor9.r = 
+SunColor9.g = 
+SunColor9.b = 
+
+--SunColor10
+SunColor10.r = 
+SunColor10.g = 
+SunColor10.b = 
+
+--SunColor11
+SunColor11.r = 
+SunColor11.g = 
+SunColor11.b = 
+
+--SunColor12
+SunColor12.r = 
+SunColor12.g = 
+SunColor12.b = 
+
+--SunColor13
+SunColor13.r = 
+SunColor13.g = 
+SunColor13.b = 
+
+--SunColor14
+SunColor14.r = 
+SunColor14.g = 
+SunColor14.b = 
+
+--SunColor15
+SunColor15.r = 
+SunColor15.g = 
+SunColor15.b = 
+
+--SunColor16
+SunColor16.r = 
+SunColor16.g = 
+SunColor16.b = 
+
+--SunColor17
+SunColor17.r = 
+SunColor17.g = 
+SunColor17.b = 
+
+--SunColor18
+SunColor18.r = 
+SunColor18.g = 
+SunColor18.b = 
+
+--SunColor19
+SunColor19.r = 
+SunColor19.g = 
+SunColor19.b = 
+--SunColor20
+SunColor20.r = 
+SunColor20.g = 
+SunColor20.b = 
+--SunColor21
+SunColor21.r = 
+SunColor21.g = 
+SunColor21.b = 
+--SunColor22
+SunColor22.r = 
+SunColor22.g = 
+SunColor22.b = 
+--SunColor23
+SunColor23.r = 
+SunColor23.g = 
+SunColor23.b = 
+--MountainNorth
+MountainNorth =
+%%text
+--MountainWest
+MountainWest =
+%%text
+--MountainSouth
+MountainSouth =
+%%text
+--MountainEast
+MountainEast =
+%%text
+--CloudTexture
+CloudTexture =
+%%text
+--SunTexture
+SunTexture =
+%%text
+--------------------------------
+--All Colors
+MoleculeColor.r  = 
+MoleculeColor.g  = 
+MoleculeColor.b = 
+
+AerosolColor.r = 
+AerosolColor.g = 
+AerosolColor.b = 
+
+SunColor0.r = 
+SunColor0.g = 
+SunColor0.b = 
+
+SunColor1.r = 
+SunColor1.g = 
+SunColor1.b = 
+
+SunColor2.r = 
+SunColor2.g = 
+SunColor2.b = 
+
+SunColor3.r = 
+SunColor3.g = 
+SunColor3.b = 
+
+SunColor4.r = 
+SunColor4.g = 
+SunColor4.b = 
+
+SunColor5.r = 
+SunColor5.g = 
+SunColor5.b = 
+
+SunColor6.r = 
+SunColor6.g = 
+SunColor6.b = 
+
+SunColor7.r = 
+SunColor7.g = 
+SunColor7.b = 
+
+SunColor8.r = 
+SunColor8.g = 
+SunColor8.b = 
+
+SunColor9.r = 
+SunColor9.g = 
+SunColor9.b = 
+
+SunColor10.r = 
+SunColor10.g = 
+SunColor10.b = 
+
+SunColor11.r = 
+SunColor11.g = 
+SunColor11.b = 
+
+SunColor12.r = 
+SunColor12.g = 
+SunColor12.b = 
+
+SunColor13.r = 
+SunColor13.g = 
+SunColor13.b = 
+
+SunColor14.r = 
+SunColor14.g = 
+SunColor14.b = 
+
+SunColor15.r = 
+SunColor15.g = 
+SunColor15.b = 
+
+SunColor16.r = 
+SunColor16.g = 
+SunColor16.b = 
+
+SunColor17.r = 
+SunColor17.g = 
+SunColor17.b = 
+
+SunColor18.r = 
+SunColor18.g = 
+SunColor18.b = 
+
+SunColor19.r = 
+SunColor19.g = 
+SunColor19.b = 
+
+SunColor20.r = 
+SunColor20.g = 
+SunColor20.b = 
+
+SunColor21.r = 
+SunColor21.g = 
+SunColor21.b = 
+
+SunColor22.r = 
+SunColor22.g = 
+SunColor22.b = 
+
+SunColor23.r = 
+SunColor23.g = 
+SunColor23.b = 
+
+--All
+MoleculeColor.r  = 
+MoleculeColor.g  = 
+MoleculeColor.b = 
+
+AerosolColor.r = 
+AerosolColor.g = 
+AerosolColor.b = 
+
+SunColor0.r = 
+SunColor0.g = 
+SunColor0.b = 
+
+SunColor1.r = 
+SunColor1.g = 
+SunColor1.b = 
+
+SunColor2.r = 
+SunColor2.g = 
+SunColor2.b = 
+
+SunColor3.r = 
+SunColor3.g = 
+SunColor3.b = 
+
+SunColor4.r = 
+SunColor4.g = 
+SunColor4.b = 
+
+SunColor5.r = 
+SunColor5.g = 
+SunColor5.b = 
+
+SunColor6.r = 
+SunColor6.g = 
+SunColor6.b = 
+
+SunColor7.r = 
+SunColor7.g = 
+SunColor7.b = 
+
+SunColor8.r = 
+SunColor8.g = 
+SunColor8.b = 
+
+SunColor9.r = 
+SunColor9.g = 
+SunColor9.b = 
+
+SunColor10.r = 
+SunColor10.g = 
+SunColor10.b = 
+
+SunColor11.r = 
+SunColor11.g = 
+SunColor11.b = 
+
+SunColor12.r = 
+SunColor12.g = 
+SunColor12.b = 
+
+SunColor13.r = 
+SunColor13.g = 
+SunColor13.b = 
+
+SunColor14.r = 
+SunColor14.g = 
+SunColor14.b = 
+
+SunColor15.r = 
+SunColor15.g = 
+SunColor15.b = 
+
+SunColor16.r = 
+SunColor16.g = 
+SunColor16.b = 
+
+SunColor17.r = 
+SunColor17.g = 
+SunColor17.b = 
+
+SunColor18.r = 
+SunColor18.g = 
+SunColor18.b = 
+
+SunColor19.r = 
+SunColor19.g = 
+SunColor19.b = 
+
+SunColor20.r = 
+SunColor20.g = 
+SunColor20.b = 
+
+SunColor21.r = 
+SunColor21.g = 
+SunColor21.b = 
+
+SunColor22.r = 
+SunColor22.g = 
+SunColor22.b = 
+
+SunColor23.r = 
+SunColor23.g = 
+SunColor23.b = 
+
+MountainNorth =
+MountainWest =
+MountainSouth =
+MountainEast =
+CloudTexture =
+SunTexture =
+ 

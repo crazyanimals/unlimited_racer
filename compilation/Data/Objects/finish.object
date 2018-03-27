@@ -1,0 +1,58 @@
+Name = Finish
+Icon = finish.bmp
+
+[road]
+texture = road.png
+phtexture = road.phTexture
+
+
+[object]
+Model = finish.modelDef
+
+posX = 0
+posY = 0
+
+sizeX = 1
+sizeY = 1
+
+x = 500
+y = 0
+z = 500
+
+static = 1
+grassAllowed = 1
+material = 2
+
+[waypoints]
+x = 500.0
+y = 100.0
+z = 0.0
+
+x = 500.0
+y = 100.0
+z = 333.0
+
+x = 500.0
+y = 100.0
+z = 666.0
+
+x = 500.0
+y = 100.0
+z = 1000.0
+
+[waypoints]
+x = 500.0
+y = 100.0
+z = 1000.0
+
+x = 500.0
+y = 100.0
+z = 666.0
+
+x = 500.0
+y = 100.0
+z = 333.0
+
+x = 500.0
+y = 100.0
+z = 0.0

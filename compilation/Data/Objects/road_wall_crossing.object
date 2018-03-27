@@ -1,0 +1,90 @@
+Name = Road Wall Crossing
+icon=road_wall_crossing.bmp
+
+[object]
+Model = road_wall_crossing.modelDef
+static = 1
+SizeX = 1
+SizeY = 1
+PosX = 0
+PosY = 0
+X = 500
+Y = 0
+Z = 500
+GrassAllowed = 0
+material = 6
+
+[waypoints]
+x = 500.0
+y = 600.0
+z = 0.0
+max_speed = 10
+
+x = 500.0
+y = 600.0
+z = 333.0
+
+x = 500.0
+y = 600.0
+z = 666.0
+
+
+x = 500.0
+y = 600.0
+z = 1000.0
+
+
+[waypoints]
+x = 500.0
+y = 600.0
+z = 1000.0
+max_speed = 10
+
+x = 500.0
+y = 600.0
+z = 666.0
+
+x = 500.0
+y = 600.0
+z = 333.0
+
+
+x = 500.0
+y = 600.0
+z = 0.0
+
+[waypoints]
+x = 0.0
+y = 600.0
+z = 500.0
+max_speed = 10
+
+x = 333.0
+y = 600.0
+z = 500.0
+
+x = 666.0
+y = 600.0
+z = 500.0
+
+x = 1000.0
+y = 600.0
+z = 500.0
+
+[waypoints]
+x = 1000.0
+y = 600.0
+z = 500.0
+max_speed = 10
+
+x = 666.0
+y = 600.0
+z = 500.0
+
+x = 333.0
+y = 600.0
+z = 500.0
+
+x = 0.0
+y = 600.0
+z = 500.0

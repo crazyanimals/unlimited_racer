@@ -1,0 +1,36 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; terrain generating script used by TerrainGenerator v1.2
+; created 17.4.2006 by Roman Margold
+; generates all terrain types to directory structure
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+#version 1 0
+#cycleinoneblock 0
+
+var ret, size, segs, height, type, maindir, lodcount
+
+height = 250
+size = 1000
+lodcount = 6
+maindir = "Terrains"
+type = 1
+
+call mkdir: ret, maindir
+
+for ind,115
+{
+	type = ind - 1
+  segs = 1
+  call mkdir: ret, maindir."/Type".type
+  call createSurfaceDef: ret, maindir."/Type".type."/"."normal.grPlate", type, "Type".type, lodcount
+
+	for i,lodcount
+	{
+		call settings: ret, maindir."/Type".type."/".segs.".surface", type, height, segs, segs, size, size, 1, 1
+		call generate: ret
+		segs = segs * 2
+	}
+
+}
+
+return ret

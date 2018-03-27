@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; CHARSET=windows-1250">
+	<title>Unlimited Racer - dokumentace</title>
+	<link type="text/css" href="mainstyles.css" rel="stylesheet">
+</head>
+
+<body id="idBody">
+	<h2>Specifikace</h2>
+	<div class=paragraph>Jde o remake starodávné, sotva však zapomenuté hry. Stunts byla hra simulující závody silničních automobilů. Přestože závodů na tratích byla vždy celá řada, právě tato hra si dle našeho názoru vysloužila své nenahraditelné místo v „síni nezapomenutelných“. Nebylo to rozhodně svou grafikou, ale především neobvyklým druhem tratí a možností editovat si své vlastní. Hra byla založena na faktu, že téměř každý hráč má nejen chuť si ledasjakou hru zahrát, ale má především přímo potřebu také tvořit. Ať je hra jakkoli zajímavá, po čase omrzí. Avšak tato doba, po kterou je hra zajímavá, se dá prodloužit právě tím, že se dodá možnost tvorby vlastních postav, světů, příšer, levelů, či (stejně jako v tomto případě) tratí. Primitivní editor tratí s vestavěnou sestavou druhů záludností, překážek a scénických prvků byl v původní hře Stunts snadný na ovládání, narozdíl od složitých 3d studií dnes užívaných ve většině her, takže umožnil každému i méně zkušenému hráči poměrně rychle vytvořit zajímavou závodní trať, kterou si mohl jak sám vyzkoušet, tak v ní změřit síly s počítačem řízenými vozy.</div>
+	
+	<div class=vspace></div>
+
+	<div class=paragraph>Náš návrh projektu, stejně jako projekt celý, je založen právě na právě uvedeném. Chtěli bychom se pokusit využít dobrého nápadu a pro fanoušky této staré hry vytvořit její novou verzi, tj.převléct ji do nové grafiky s novými možnostmi a nápady. Toto bychom rádi provedli v prostředí Visual C++ a finální produkt je cílen pro systém Windows s užitím knihoven DirectX (minimálně verze 9).</div>
+
+	<div class=vspace></div>
+
+	<div class=paragraph>Vzhledem k myšlence projektu je samozřejmě první a nejdůležitější částí již zmíněný editor tratí. Půjde o okenní aplikaci, v níž se bude na dvojrozměrné ploše mírně editovat terén a především trať s různými překážkami. Součástí editoru bude samozřejmě také možnost „proletět“ se vytvořeným prostředím, aby hráč nemusel vždy trať testovat hrou. Teprve při ukládání tratě bude tato analyzována a převedena z jednoduché políčkové aproximace na reprezentaci sítí trojúhelníků.</div>
+
+	<div class=paragraph>Protože původní hra byla již vytvořena, je třeba jí dát novější kabát, tedy aplikovat ji na moderní grafické akcelerátory. Z hlediska grafiky bychom rádi implementovali osvětlení sluncem (i v různých denních dobách), případně pouličními lampami a reflektory aut, tj. dynamické počítání vržených stínů. Z hlediska optimalizace chceme celé scéně generovat hierarchii obálek jak pro vytváření kompaktnějších skupin objektů, tak především pro rychlejší detekci kolizí jednotlivých objektů (například aut). Také vzhledem k charakteru scén, které budou takřka libovolné, bude nutno dát uživateli možnost zvolit kvalitu zobrazení, zvláště pak její snížení závislé na vzdálenosti od polohy kamery (LOD).</div>
+
+	<div class=paragraph>Z hlediska hry samotné chceme utvořit možnost „single player“, tj. závody na zvolené či vytvořené trati s virtuálními protivníky ovládanými umělou inteligencí (základní charakteristiku jejich pohybu budou udávat automaticky generované waypointy), i „multiplayer“, tj. závody po síti s dalšími živými hráči u jiných počítačů. Síťové provedení bude typu client-server, a to i v případě spuštění v podobě single player, kdy se utvoří server na adrese localhosta.</div>
+
+	<div class=paragraph>Přidáním zajímavých a zábavných překážek na tratě vzniká samozřejmě nutnost vytvořit fyzikální model pohybu auta po různých plochách, či vzduchem při letu i volném pádu. Tento model bude zahrnovat řešení kolizí a jejich důsledků (např. odrazy, poškození aut a jejich následné upravené chování) i vznik smyků závislých na vlastnostech vozovky (či povrchu, po němž se auto pohybuje).</div>
+</body>
+</html>
+	
+Vývojový tým Crazy Animals je složen z následujících osob: 
+
+Pavel Celba, email: pavel.celbajr@celba.cz,
+Pavel Janda, email: malapanda@seznam.cz,
+Radim Krupička, email: radim.krupicka@seznam.cz,
+Roman Margold, email: tempicek@crazyanimals.net,
+Jiří Šofka, jirka_s@hotmail.com.
+

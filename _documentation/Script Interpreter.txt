@@ -1,0 +1,178 @@
+UIVATELSKÁ DOKUMENTACE
+=======================
+
+ScriptInterpreter
+-----------------
+	
+ScriptInterpreter je dynamická knihovna interpretující zvláštní skriptovací jazyk. K jejímu pouítí v programu je tøeba includovat soubor ScriptInterpreter.h. Exportovány jsou pouze dvì funkce a jedna tøída:
+
+HRESULT				InterpretScript( LPCTSTR fileName, EXTERNCALL ExternFunc, CString &returnVal );
+void				GetDLLVersion( int &major, int &minor, CString &descrip );
+extern CInterpretingError	InterpretingError;
+
+Funkce InterpretScript je hlavní funkcí knihovny. Jako parametr dostává jméno souboru se skriptem a adresu funkce, která má bıt pouita pro externí volání (pøíkaz call). Vısledná hodnota skriptu bude uloena do parametru returnVal. Návratová hodnota funkce je buïto 0, v pøípadì úspìchu, nebo nìkterı z chybovıch kódu definovanıch v ScriptInterpreter.h.
+V pøípadì chyby je moné získat o chybì podrobnìjší informace. Tyto informace jsou ukládány do instance tøídy CInterpretingError. Tato instance musí bıt však ve vašem programu vytvoøena! Pokud ji nevytvoøíte, linker zahlásí chybu.
+
+Funkce GetDLLVersion slouí k zjištìní verze knihovny, kterou váš program naèetl. Není nikterak stìejní, nebo zvláštní kontrola na verzi je provádìna uvnitø interpretace skriptu. Slouí pouze jako informativní poloka.
+
+Jazyk má velice pøísnou syntax. Kadı pøíkaz musí bıt psán na jediném øídku a kadı pøíkaz je ukonèen koncem øádku. Jazyk obsahuje promìnné, které je moné pouít jako øetìzec, celé èíslo, èi 4bytové èíslo s plovoucí desetinnou èárkou. Promìnné jsou netypové a jsou automaticky konvertovány dle jejich lokálního uití. Pokud je prázdná promìnná, èi promìnná obsahující øetìzec uita jako èíslo, je interpretována jako hodnota 0, resp. 0.0f. Jazyk obsahuje podmínky a cykly, neobsahuje však funkce. Pouze je moné uít externích volání. Ta jsou uiteèná pro komunikaci s programem, je tuto knihovnu naèetl a pøedevším dávají monost této knihovnì daleko širšího uplatnìní, ne jen pro pouhé vıpoèty a vyhodnocování vırazù.
+
+Seznam operátorù:
++ - *		celoèíselné binární operátory
+/ %		celoèíselné dìlení a modulo
+^		celoèíselné mocnìní 
+++ -- ** //	binární operátory nad èísly s plovoucí desetinnou èárkou
+.		spojování øetìzcù
+==		test na rovnost (vrací 1, pokud jsou si argumenty rovny)
+!=		nerovnost
+< > <= >=	zbylé porovnávací operátory
+||		logické OR
+&&		logické AND
++ -		unární znaménkové operátory
+!		logické NOT - unární
+=		operátor pøiøazení - vrací hodnotu pravého operandu, zároveò však tuto hodnotu ukládá do levého, kterım musí bıt promìnná
+
+Všechny operátory, a na ^ a = jsou asociativní zleva. Všechny, a na +,- a ! jsou binární.
+Poøadí vyhodnocování operátorù:
+^
+! + - (unární)
+* / ** // %
++ - ++ -- .
+< > <= >=
+== !=
+&&
+||
+=
+
+Identifikátory 
+pouívané pro jména promìnnıch a pod., mají bìnì uívanou syntax, tedy jsou sloeny z malıch a velkıch písmen (case sensitive!), èísel a znaku podrtrítka (_), pøièem prvním znakem nesmí bıt èíslo.
+
+Èísla
+jsou naproti tomu zadávána posloupností cifer, kterí mùe pøedcházet jeden unární znaménkovı operátor. V pøípadì necelıch èísel je moné uít desetinnou teèku, ta však musí bıt v èísle pouze jedna.
+
+Øetezce
+jsou zapisovány pomocí úvozovek, tedy "øetìzec". Uvnitø uvozovek je moné pouít libovolnı znak, a na úvozovku a zpìtné lomítko, ty je tøeba zadat escape sekvencí \", rep. \\.
+
+Komentáøe
+existují jednak øádkové, tj. komentáø od daného znaku do konce øádky, uvozené znakem støedníku (;). Druhou volbou jsou komentáøe blokové. Ty jsou ohranièeny pomocí sekvencí ;- a -;. To je jedinı pøípad, kde není støedník chápán jako komentáø do konce øádky. Blokové komentáøe nejsou hierarchické (první -; ukonèí všechny blokové komentáøe).
+
+Direktivy
+jsou uvozeny znakem # na zaèátku øádky, pøesnìji:  #identifikator [param1 [,param2 ... ]]. Direktiva ovlivòuje zpùsob interpretace programu. Nìkteré direktivy jsou bezparametrové (pouze flag), jiné mají rùznı poèet parametrù. Seznam direktiv následuje:
+	#version a b 		Udáva versi interpreteru, kterı je potøeba k pøeloení daného skriptu.
+	#cycleinoneblock a	Parametr a musí bıt 1 èi 0. Je-li 1, je nastaven flag "cycleinoneblock", kterı má ten vıznam, e cykly, jejich tìlem je blok pøíkazù (ne jedinı pøíkaz), jsou provádìny v jednom bloku, tzn., e není vytváøen a dealokován blok s kadım vstupem do tìla cyklu. Je to rychlejší pøístup, ale v pøípadì, e je uvnitø bloku definována promìnná, dojde k zahlášení chyby "identifier already defined".
+	#ignoreefcerror a	Parametr je opìt 1 èi 0. Jde o flag, kterı øíká, zda se mají ignorovat chyby externì volané funkce. Pokud je tedy tato direktiva nastavena, nedojde k ukonèení skriptu pøi chybì v EFC, která mùe mít dopad na ceklové zpracování skriptu a následná volání EFC.
+
+Dalšími symboly
+jazyka jsou závorky () s jejich bìnou funkcí a sloené závorky {} definující blok programu. Kadou sloenou závorku je tøeba brát jako pøíkaz, proto musí bıt na øádce sama. V nìkterıch pøíkazech jsou pouívány oddìlovaèe , a :. Jakıkoli jinı symbol je interpreterem odmítnut a ohlášen jako chyba.
+
+
+Vytváøení promìnnıch
+se provádí pøíkazem var s následující syntaxí:
+
+var jmena_prom
+
+jmena_prom  ->  jm_prom  |  jm_prom, jmena_prom   |  lambda
+jm_prom  ->  identifikator
+
+Promìnné jsou vdy inicializovány hodnotou "", tedy prázdnım øetìzcem, resp. èíselnou hodnotou 0. Existence promìnné je v rámci jednoho bloku programu. S ukonèením bloku je promìnná zapomenuta. Promìnné je moné i zastiòovat, ale pouze mezi rùznımi bloky. Pokus o definici promìnné se stejnım jménem jaké má u jiná promìnná definovaná v tom samém bloku vede k zahlášení chyby a ukonèení interpretace. Jedinou vıjimkou je definice promìnné v hlavièce cyklu, viz. for cyklus.
+
+Pøeddefinované funkce
+pøedstavují vydatnou pomoc pøi psaní skriptù. Jejich mnoina prozatím není pøíliš veliká, zde je jejich seznam:
+	sin(x), cos(x), tg(x), arcsin(x), arccos(x), arctg(x)	goniometrické funkce, parametr je zadáván v radiánech
+	min(a,b)	vrací hodnotu menšího z argumentù
+	max(a,b)	vrací hodnotu vìtšího z argumentù
+	sqrt(a)		druhá odmocnina argumentu
+	length(s)	vrací délku øetìzce
+	char(s,a)	vrací znak v zadané pozici øetìzce (indexováno od nuly)
+	find(s1,s2)	vrací pozici prvního vıskytu podøetìzce s1 v øetìzci s2, popøípadì -1, pokud se s1 v s2 nenachází
+	substr(s,a,b)	navrací podøetìzec øetìzce s o délce a poèínající na pozici b
+
+
+Podmínka
+má velice jednoduchou syntax:
+
+IF_CLAUSE  ->
+if expression
+[THEN_CLAUSE]
+[ELSE_CLAUSE]
+
+THEN_CLAUSE  ->  
+then expression  
+|  
+then
+{
+commands
+}
+
+ELSE_CLAUSE  ->
+else expression
+|
+else
+{
+commands
+}
+
+Jak je vidìt, libovolná ze sekcí then a else mùe chybìt. Tedy i obì zároveò. V takovém pøípadì se vyhodnotí pouze vıraz v hlavièce podmínky a nic dalšího se neprovede. Je patrnì tøeba zùdraznit, e expression je vıraz, kterı vrací hodnotu. Není však pøíkazem. Proto není moné za then èi else pouít pøíkaz break, continue, return atp! Stejnì tak {} jsou pøíkazem, tedy ani ty nelze pouít tìsnì za then èi else a musí bıt a na dalším øádku, to je však patrné z uvedené syntaxe.
+
+
+For cyklus,
+tedy cyklus s urèenım poètem opakování, je zde znaènì zjednodušen co se tıèe svého zápisu. Je to proto, e drtivá vìtšina cyklù je provádìna od 0, pøípadnì od jednièky do nìjakého vyššího èísla. Proto jsem chtìl zabránit zbyteènému psaní a for cyklus navrhl takto:
+
+[FOR]  ->
+for jm_prom,count,expression
+|
+for jm_prom,count
+{
+commands
+}
+
+jm_prom  ->  identifier
+count  ->  expression
+
+V pøípadì, e je aplikována první verse, je moné, stejnì jako u podmínky uít pouze vırazu, tedy ne pøíkazu. Takovıto for cyklus se provádí v tom bloku, v jakém je definován. Druhá verse for cyklu ji vytváøí novı blok. V obou pøípadech je však vytvoøena nová promìnná se jménem jm_prom, které je pøiøazena hodnota 1. Pokud daná promìnná v daném bloku ji existuje, je tato pouita a pøedefinována. To je jediná vıjimka, kde nedojde k zahlášení chyby "identifier already defined" a je tu z toho dùvodu, aby bylo moné pouívat jednu promìnnou pro øízení více cyklù po sobì jdoucích. For cyklus je provádìn do té doby, dokud je jm_prom menší èi rovno vırazu count. Promìnnou je uvnitø tìla cyklu mono mìnit, co bude mít samozøejmì vliv na celkovı poèet iterací. I kdy je pouit druhı zápis, tedy tìlo cyklu tvoøí blok pøíkazù, je promìnná definována ji v tom bloku, kde se forcyklus nachází. To má ten vıznam, e promìnná obsahuje svou hodnotu i poté, co je cyklus ukonèen. V pøípadì, e není ukonèen jinım zpùsobem zevnitø, obsahuje hodnotu vırazu count. Pro pøesnou pøedstavu bude dobré naznaèit, jaké pøíkazy se provádí vlastnì provádí:
+
+var jm_prom 	// pozor, zde nemusí dojít k vytvoøení nové
+{
+jm_prom = 1
+if jm_prom>count
+then goto JUMP
+command(s)
+jm_prom = jm_prom + 1
+@JUMP
+}
+
+V pøípadì, e není nastavena direktiva cycleinoneblock, je tìlo cyklu, v pøípadì, e je to blok pøíkazù, vytváøeno jako blok pøi kadé iteraci znovu a na konci iterace je znovu zavírán a dealokován. Toto provádìní je pomalejší, ale má ten dùsledek, e uvnitø bloku mùe bıt i definice promìnné, nebo ta je vdy definována v novém bloku znovu. Defaultní nastavení direktivy je na 0.
+
+
+While cyklus
+je cyklus s podmínkou na zaèátku. Jeho syntax je následující:
+
+WHILE_CLAUSE  ->
+while exp1: exp2
+|
+while exp1
+{
+commands
+}
+
+exp1  ->  expression
+exp2  ->  expression
+
+Vıznam je patrnì zøejmı. Dokud je exp1 nenulovı, provádìj exp2, resp. blok pøíkazù. Opìt platí to, e exp2 je pouze vıraz, ne pøíkaz. A stejnì jako u for cyklu, i zde záleí na nastavení direktivy cycleinoneblock, zda se bude vše provádìt v jednom bloku èi ne.
+
+
+Pøíkaz call
+je jedinı zpùsob, jak komunikovat s volajícím programem za bìhu skriptu (tedy ne pouze skrze návratovou hodnotu). Navíc bez tohoto pøíkazu není schopen skript dìlat nic jiného, ne vyhodnocovat pevnì dané vırazy. Pøíkaz call má následující syntax:
+
+CALL_COMMAND  ->
+call jm_func : jm_prom [param]
+jm_func  ->  identifier
+jm_prom  ->  identifier
+param  ->  expression [, param]
+
+Pøíkaz call provede volání funkce, její adresa byla pøedána interpreteru pøi volání funkce InterpretScript. Tato se ji musí postarat jednak o obsluhu danıch parametrù, jednak o návratovou hodnotu. jm_func je pøedáno externí funkci jako øetìzec oznaèující jméno funkce, je je volána. Je to pouze parametr, kterı mùe (a nemusí) definovat, co pøesnì po externì volané funkci chceme. Jak jej interpretuje externí (váš) program je ji na nìm. Povinná je promìnná jm_prom, do které bude uloen návratovı kód externí funkce. Pokud pøi volání externí funkce dojde k chybì (tj. funkce navrátí nenulovou hodnotu interpreteru), interpreter by se mìl zastavit a ukonèit svou práci s chybou v EFC (external function call). To je však moné pozmìnit direktivou ignoreefcerror. Pokud funkce probìhne v tomto smyslu bez chyby, tj. její návratová hodnota interpreteru je 0, je pøedána návratová hodnota provedeného pøíkazu do zadaného parametru. Tato návratová hodnota ji mùe mít jakıkoli vıznam a je pouze na úrovni komunikace externího programu a skriptu. Opìt mùe hlásit chybu, která kupøíkladu zajistí správnou dealokaci atp.
+param jsou vırazy, které jsou pøedány dané EF jako parametry. Opìt je pouze na externím programu jak se s nimi vypoøádá. Tìchto parametrù však nesmí bıt více ne kolik uvádí makro SI_MAX_PARAM_COUNT definované v souboru ScriptInterpreter.h (prozatím 16, ale lze snadno zmìnit dle vašich potøeb).
+
+
+
+

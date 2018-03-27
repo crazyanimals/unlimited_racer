@@ -1,0 +1,236 @@
+<Dialog>
+	Dialog.Background.X = 0
+	Dialog.Background.Y = 0
+	Dialog.Background.Width = 512
+	Dialog.Background.Height = 341
+	
+	<Image>
+		Image.Background.X = 10
+		Image.Background.Y = 10
+		Image.Background.Width = 100
+		Image.Background.Height = 100
+	</Image>
+
+	<ToolTip>
+		ToolTip.TopLeft.X = 290
+		ToolTip.TopLeft.Y = 381
+		ToolTip.TopLeft.Width = 4
+		ToolTip.TopLeft.Height = 4
+		ToolTip.TopRight.X = 316
+		ToolTip.TopRight.Y = 381
+		ToolTip.TopRight.Width = 4
+		ToolTip.TopRight.Height = 4
+		ToolTip.BottomLeft.X = 290
+		ToolTip.BottomLeft.Y = 402
+		ToolTip.BottomLeft.Width = 4
+		ToolTip.BottomLeft.Height = 4
+		ToolTip.BottomRight.X = 316
+		ToolTip.BottomRight.Y = 402
+		ToolTip.BottomRight.Width = 4
+		ToolTip.BottomRight.Height = 4
+		ToolTip.HorizLine.X = 294
+		ToolTip.HorizLine.Y = 381
+		ToolTip.HorizLine.Width = 4
+		ToolTip.HorizLine.Height = 4
+		ToolTip.VertLine.X = 290
+		ToolTip.VertLine.Y = 385
+		ToolTip.VertLine.Width = 4
+		ToolTip.VertLine.Height = 4
+		ToolTip.Background.X = 295
+		ToolTip.Background.Y = 386
+		ToolTip.Background.Width = 10
+		ToolTip.Background.Height = 10
+	</ToolTip>
+	
+	<Button>
+		Button.Up.X = 6
+		Button.Up.Y = 348
+		Button.Up.Width = 120
+		Button.Up.Height = 25
+		Button.Down.X = 130
+		Button.Down.Y = 348
+		Button.Down.Width = 120
+		Button.Down.Height = 25
+	</Button>	
+		
+	<CheckBox>
+		CheckBox.Unchecked.X = 6
+		CheckBox.Unchecked.Y = 381
+		CheckBox.Unchecked.Width = 25
+		CheckBox.Unchecked.Height = 25
+		CheckBox.Checked.X = 35
+		CheckBox.Checked.Y = 381
+		CheckBox.Checked.Width = 25
+		CheckBox.Checked.Height = 25
+	</CheckBox>
+		
+	<TrackBar>
+		TrackBar.Track.X = 70
+		TrackBar.Track.Y = 381
+		TrackBar.Track.Width = 120
+		TrackBar.Track.Height = 20
+		TrackBar.Slider.X = 200
+		TrackBar.Slider.Y = 381
+		TrackBar.Slider.Width = 20
+		TrackBar.Slider.Height = 20
+	</TrackBar>
+		
+	<RadioButton>
+		RadioButton.Unselected.X = 230
+		RadioButton.Unselected.Y = 381
+		RadioButton.Unselected.Width = 20
+		RadioButton.Unselected.Height = 20
+		RadioButton.Selected.X = 260
+		RadioButton.Selected.Y = 381
+		RadioButton.Selected.Width = 20
+		RadioButton.Selected.Height = 20
+	</RadioButton>
+		
+	<Edit>
+		Edit.TopLeft.X = 290
+		Edit.TopLeft.Y = 381
+		Edit.TopLeft.Width = 4
+		Edit.TopLeft.Height = 4
+		Edit.TopRight.X = 316
+		Edit.TopRight.Y = 381
+		Edit.TopRight.Width = 4
+		Edit.TopRight.Height = 4
+		Edit.BottomLeft.X = 290
+		Edit.BottomLeft.Y = 402
+		Edit.BottomLeft.Width = 4
+		Edit.BottomLeft.Height = 4
+		Edit.BottomRight.X = 316
+		Edit.BottomRight.Y = 402
+		Edit.BottomRight.Width = 4
+		Edit.BottomRight.Height = 4
+		Edit.HorizLine.X = 294
+		Edit.HorizLine.Y = 381
+		Edit.HorizLine.Width = 4
+		Edit.HorizLine.Height = 4
+		Edit.VertLine.X = 290
+		Edit.VertLine.Y = 385
+		Edit.VertLine.Width = 4
+		Edit.VertLine.Height = 4
+		Edit.Background.X = 295
+		Edit.Background.Y = 386
+		Edit.Background.Width = 10
+		Edit.Background.Height = 10
+	</Edit>
+		
+	<ComboBox>
+		Combo.Button.X = 260
+		Combo.Button.Y = 408
+		Combo.Button.Width = 250
+		Combo.Button.Height = 25
+		Combo.Background.X = 330
+		Combo.Background.Y = 381
+		Combo.Background.Width = 20
+		Combo.Background.Height = 20
+		Combo.ActiveBackground.X = 360
+		Combo.ActiveBackground.Y = 381
+		Combo.ActiveBackground.Width = 20
+		Combo.ActiveBackground.Height = 20
+		Combo.TopLeft.X = 290
+		Combo.TopLeft.Y = 381
+		Combo.TopLeft.Width = 4
+		Combo.TopLeft.Height = 4
+		Combo.TopRight.X = 316
+		Combo.TopRight.Y = 381
+		Combo.TopRight.Width = 4
+		Combo.TopRight.Height = 4
+		Combo.BottomLeft.X = 290
+		Combo.BottomLeft.Y = 402
+		Combo.BottomLeft.Width = 4
+		Combo.BottomLeft.Height = 4
+		Combo.BottomRight.X = 316
+		Combo.BottomRight.Y = 402
+		Combo.BottomRight.Width = 4
+		Combo.BottomRight.Height = 4
+		Combo.HorizLine.X = 294
+		Combo.HorizLine.Y = 381
+		Combo.HorizLine.Width = 4
+		Combo.HorizLine.Height = 4
+		Combo.VertLine.X = 290
+		Combo.VertLine.Y = 385
+		Combo.VertLine.Width = 4
+		Combo.VertLine.Height = 4
+	</ComboBox>
+		
+	<PopupMenu>
+		Popup.Background.X = 330
+		Popup.Background.Y = 381
+		Popup.Background.Width = 20
+		Popup.Background.Height = 20
+		Popup.ActiveBackground.X = 360
+		Popup.ActiveBackground.Y = 381
+		Popup.ActiveBackground.Width = 20
+		Popup.ActiveBackground.Height = 20
+		Popup.TopLeft.X = 290
+		Popup.TopLeft.Y = 381
+		Popup.TopLeft.Width = 4
+		Popup.TopLeft.Height = 4
+		Popup.TopRight.X = 316
+		Popup.TopRight.Y = 381
+		Popup.TopRight.Width = 4
+		Popup.TopRight.Height = 4
+		Popup.BottomLeft.X = 290
+		Popup.BottomLeft.Y = 402
+		Popup.BottomLeft.Width = 4
+		Popup.BottomLeft.Height = 4
+		Popup.BottomRight.X = 316
+		Popup.BottomRight.Y = 402
+		Popup.BottomRight.Width = 4
+		Popup.BottomRight.Height = 4
+		Popup.HorizLine.X = 294
+		Popup.HorizLine.Y = 381
+		Popup.HorizLine.Width = 4
+		Popup.HorizLine.Height = 4
+		Popup.VertLine.X = 290
+		Popup.VertLine.Y = 385
+		Popup.VertLine.Width = 4
+		Popup.VertLine.Height = 4
+	</PopupMenu>
+		
+	<ListBox>
+		ListBox.ButtonUp.X = 390
+		ListBox.ButtonUp.Y = 381
+		ListBox.ButtonUp.Width = 20
+		ListBox.ButtonUp.Height = 20
+		ListBox.ButtonDown.X = 420
+		ListBox.ButtonDown.Y = 381
+		ListBox.ButtonDown.Width = 20
+		ListBox.ButtonDown.Height = 20
+		ListBox.Background.X = 330
+		ListBox.Background.Y = 381
+		ListBox.Background.Width = 20
+		ListBox.Background.Height = 20
+		ListBox.ActiveBackground.X = 360
+		ListBox.ActiveBackground.Y = 381
+		ListBox.ActiveBackground.Width = 20
+		ListBox.ActiveBackground.Height = 20
+		ListBox.TopLeft.X = 290
+		ListBox.TopLeft.Y = 381
+		ListBox.TopLeft.Width = 4
+		ListBox.TopLeft.Height = 4
+		ListBox.TopRight.X = 316
+		ListBox.TopRight.Y = 381
+		ListBox.TopRight.Width = 4
+		ListBox.TopRight.Height = 4
+		ListBox.BottomLeft.X = 290
+		ListBox.BottomLeft.Y = 402
+		ListBox.BottomLeft.Width = 4
+		ListBox.BottomLeft.Height = 4
+		ListBox.BottomRight.X = 316
+		ListBox.BottomRight.Y = 402
+		ListBox.BottomRight.Width = 4
+		ListBox.BottomRight.Height = 4
+		ListBox.HorizLine.X = 294
+		ListBox.HorizLine.Y = 381
+		ListBox.HorizLine.Width = 4
+		ListBox.HorizLine.Height = 4
+		ListBox.VertLine.X = 290
+		ListBox.VertLine.Y = 385
+		ListBox.VertLine.Width = 4
+		ListBox.VertLine.Height = 4
+	</ListBox>
+</Dialog>

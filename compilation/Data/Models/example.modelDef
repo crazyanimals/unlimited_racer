@@ -1,0 +1,48 @@
+; use tags LOD0 - LOD9 to define specified LOD, where LOD0 is the most simple
+; missing LODs are defined as the LOD with highest number that is specified here
+; every LOD has to have a model property which defines which model file (.x) to use
+
+<LOD0>
+	model = cone_0.x 		; cone_0.x will be used as the most simple model for this object
+	<textures> 			; use this tag to redefine texture usage
+		kuza.jpg = test.jpg	; this redefines the model skin
+				   	; so wherever a kuze.jpg image is used in the model,
+					; now test.jpg will be used instead
+	</textures>
+</LOD0>
+
+<LOD1>
+	model = cone_0.x 		; cone_0.x will be used also for LOD1...
+</LOD1>
+
+<LOD2>
+	model = cone_1.x 		; and cone_1.x will be used for LOD2...
+</LOD2>
+
+<LOD3>
+	model = cone_1.x
+</LOD3>
+
+<LOD4>
+	model = cone_2.x
+</LOD4>
+
+<LOD5>
+	model = cone_2.x
+</LOD5>
+
+<LOD6>
+	model = cone_2.x
+</LOD6>
+
+<LOD7>
+	model = cone_3.x
+</LOD7>
+
+<LOD8>
+	model = cone_3.x
+</LOD8>
+
+<LOD9>
+	model = cone_3.x
+</LOD9>

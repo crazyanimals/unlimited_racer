@@ -1,0 +1,27 @@
+--Texture
+texture=
+%%text
+--Shrub
+File=
+%%shrub
+--Load shrub
+%%shrub
+
+--x & y & z
+X =
+Y =
+Z =
+--Rotation
+Rotation=
+--Scale
+Scale=
+--Item with parametrs
+<ITEM>
+	File = 
+%%shrub
+	X =
+	Y =
+	Z =
+	Rotation = 
+	Scale =
+</ITEM>

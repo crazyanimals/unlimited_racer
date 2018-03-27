@@ -1,0 +1,144 @@
+name = Road with barrel pyramid
+icon = road_pyramid.bmp 
+
+[road]
+texture = road.png
+phtexture = road.phTexture
+
+[object]
+Model = barrel.modelDef
+static = 0
+mass = 10.0
+SizeX = 1
+SizeY = 1
+PosX = 0
+PosY = 0
+X = 410
+Y = 0
+Z = 500
+Scale.X = 1.5
+Scale.Y = 1.5
+Scale.Z = 1.5
+GrassAllowed = 1
+material = 2 
+
+[object]
+Model = barrel.modelDef
+static = 0
+mass = 10.0
+SizeX = 1
+SizeY = 1
+PosX = 0
+PosY = 0
+X = 500
+Y = 0
+Z = 500
+Scale.X = 1.5
+Scale.Y = 1.5
+Scale.Z = 1.5
+GrassAllowed = 1
+material = 2 
+
+[object]
+Model = barrel.modelDef
+static = 0
+mass = 10.0
+SizeX = 1
+SizeY = 1
+PosX = 0
+PosY = 0
+X = 590
+Y = 0
+Z = 500
+Scale.X = 1.5
+Scale.Y = 1.5
+Scale.Z = 1.5
+GrassAllowed = 1
+material = 2 
+
+[object]
+Model = barrel.modelDef
+static = 0
+mass = 10.0
+SizeX = 1
+SizeY = 1
+PosX = 0
+PosY = 0
+X = 450
+Y = 100
+Z = 500
+Scale.X = 1.5
+Scale.Y = 1.5
+Scale.Z = 1.5
+GrassAllowed = 1
+material = 2 
+
+[object]
+Model = barrel.modelDef
+static = 0
+mass = 10.0
+SizeX = 1
+SizeY = 1
+PosX = 0
+PosY = 0
+X = 540
+Y = 100
+Z = 500
+Scale.X = 1.5
+Scale.Y = 1.5
+Scale.Z = 1.5
+GrassAllowed = 1
+material = 2 
+
+[object]
+Model = barrel.modelDef
+static = 0
+mass = 10.0
+SizeX = 1
+SizeY = 1
+PosX = 0
+PosY = 0
+X = 500
+Y = 200
+Z = 500
+Scale.X = 1.5
+Scale.Y = 1.5
+Scale.Z = 1.5
+GrassAllowed = 1
+material = 2 
+
+[waypoints]
+x = 500.0
+y = 100.0
+z = 0.0
+max_speed = 50
+
+x = 500.0
+y = 100.0
+z = 333.0
+
+x = 500.0
+y = 100.0
+z = 666.0
+
+x = 500.0
+y = 100.0
+z = 1000.0
+
+[waypoints]
+x = 500.0
+y = 100.0
+z = 1000.0
+max_speed = 50
+
+x = 500.0
+y = 100.0
+z = 666.0
+
+x = 500.0
+y = 100.0
+z = 333.0
+
+x = 500.0
+y = 100.0
+z = 0.0

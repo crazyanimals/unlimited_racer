@@ -1,0 +1,781 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+	<link type="text/css" href="mainstyles.css" rel="stylesheet">
+</head>
+
+<body>
+<h1><a name="sec5">5 Hra</a></h1>
+
+
+
+<h2><a name="sec5.1">5.1 Klient</a></h2>
+<h3><a name="sec5.1.1">5.1.1 Úvod</a></h3>
+<p>Klientem je každá jednotlivá koncová stanice hráčů. Klient zajišťuje především komunikaci se serverem a poskytuje ostatním 
+  částem projektu informace, které potřebují vědět. Klient je nadřazen 
+  grafickému renderovacímu systému, HUDu, hudebnímu systému a některým dalším 
+  méně významným částem. Služby klienta využívají zejména dialogy. Sám klient 
+  využívá služeb resource manageru, konfigurace a dalších částí poskytujících 
+  globální služby (projekt <strong>Globals</strong>).</p>
+<p class="center"><img src="images/ClientPosition.png" width="554" height="445"></p>
+<p class="center"><strong>Obrázek 5.1: Postavení klienta vůči ostatním částem aplikace</strong></p>
+<h3><a name="sec5.1.2">5.1.2 Implementace klienta</a></h3>
+<p>Implementace klienta se skládá z následujících částí:</p>
+<ol>
+  <li>Třída <strong>CClient </strong>- je jádrem implementace klienta. Uchovává 
+    stav (z množiny stavů, do kterých se klient může dostat), ve kterém se klient 
+    nachází. Pro každý stav má funkci, která slouží jako message handler (zpracovatel 
+    zpráv) zpráv přicházejících od serveru, které se pro daný stav nějakým způsobem 
+    vyhodnocují. Obsahuje síťové služby, hudbu, HUD, informační třídu <strong>CMultiplayerGameInfo</strong>.</li>
+  <li>Síťové služby v podobě tříd <strong>CNetMsg </strong>a <strong>CNetClient</strong>. 
+    Třída <strong>CNetMsg</strong> implementuje zprávy, které chodí po síti. Třída<strong>CNetClient</strong> 
+    zajišťuje příjem a posílání zpráv po síti a rozesílání a příjem broadcastu.</li>
+  <li>HUD (Head-up display) v podobě třídy <strong>CHUD</strong>, která zajišťuje 
+    informační interface pro hráče jako je ukazatel rychlosti, tabulka průběžného pořadí, atd...</li>
+  <li>Hudba v podobě třídy <strong>CSoundSystem</strong>, která zajišťuje přehrávání 
+    hudby.</li>
+  <li>Informace o jednotlivých hráčích, podstavech, nastavení konkrétní hry (mapa, 
+    auta, atd...), funkcí na nastavení jednotlivých typů zpráv, funkcí na &quot;rozbalení&quot; 
+    jednotlivých typů zpráv, atd... v podobě třídy <strong>CMultiplayerGameInfo</strong>.</li>
+  <li>Třídu <strong>CGameInfo</strong>, která zajišťuje funkce prohledávání adresářů 
+    pro seznam map, aut a hudby. Zajišťuje ukládání, nahrávání a přístup 
+    do traťových rekordů.</li>
+  <li>Soubory <strong>MapInit.h </strong>a <strong>MapInit.cpp</strong>, ve kterých 
+    jsou umístěny funkce pro nahrávání mapy a aut</li>
+</ol>
+<p class="center"><img src="images/ClientClass.png" width="512" height="447"></p>
+<p class="center"><strong>Obrázek 5.2: Jednotlivé součásti klienta</strong></p>
+<h3><a name="sec5.1.3">5.1.3 Jádro klienta - třída CClient</a></h3>
+<p>Klient se může nacházet v různých stavech. Podle stavu, ve kterém se nachází, 
+  se volá funkce sloužící jako message handler a zpracovávající zprávy přicházející 
+  ze serveru. Stav klienta se dá změnit voláním funkce <strong>ChangeState()</strong>. 
+  Stavy, ve kterých se klient může nacházet, jsou následující:</p>
+<ul>
+  <li> <strong>CS_NULL - </strong>Základní stav klienta, ve kterém nepřijímá žádné 
+    zprávy od serveru</li>
+  <li><strong>CS_SG_START - </strong>Stav nahrávání single playeru (hry jednoho 
+    hráče)</li>
+  <li><strong>CS_MG_ENUMERATE_HOSTS </strong>- Stav, kdy klient přijímá a vysílá 
+    broadcast, aby se dozvěděl o dostupných herních serverech naší aplikace na 
+    lokální síti</li>
+  <li><strong>CS_MG_START - </strong>Stav, kdy je klient připojen k serveru, hráč 
+    si vybírá auto, jméno, chatuje s ostatními hráči</li>
+  <li><strong>CS_MG_START_LOAD</strong> - Stav, kdy se nahrává multi player (hra 
+    pro více hráčů)</li>
+  <li><strong>CS_GAME_PLAY </strong>- Stav, kdy běží samotná hra</li>
+  <li><strong>CS_RACE_RESULT </strong>- Stav, kdy jsou hráčovi zobrazovány výsledky 
+    závodu</li>
+</ul>
+<p>Funkce <strong>ClientMessageHandler()</strong> podle stavu, ve kterém se klient 
+  nachází, zavolá příslušnou funkci message handleru, která se postará o výběr 
+  a zpracování zpráv od serveru. Jedná se o následující funkce:</p>
+<ul>
+  <li><strong>ClientMultiEnumMH() </strong>pro stav <strong>CS_MG_ENUMERATE_HOSTS</strong></li>
+  <li><strong>ClientMultiStartMH() </strong>pro stav <strong>CS_MG_START</strong></li>
+  <li><strong>ClientSingleStartMH() </strong>pro stav <strong>CS_SG_START</strong></li>
+  <li><strong>ClientGameMH() </strong>pro stav <strong>CS_GAME_PLAY</strong></li>
+  <li><strong>ClientMultiStartLoadMH() </strong>pro stav <strong>CS_MG_START_LOAD</strong></li>
+  <li><strong>ClientRaceResultsMH()</strong> pro stav <strong>CS_RACE_RESULT</strong></li>
+</ul>
+<p>Funkce <strong>ClientMessageHandler()</strong> se volá periodicky, aby byl 
+  zajištěn plynulý výběr zpráv od serveru. Postup komunikace mezi serverem a klientem 
+  je popsán dále v dokumentaci klienta.</p>
+<p>Třída <strong>CClient </strong>obsahuje také funkce, které spouští nahrávání 
+  hry pro single player i pro multiplayer na straně klienta. Pro single player 
+  se jedná o funkci <strong>ClientStartSingleiLoad()</strong>. Pro multiplayer 
+  se jedná o funkci <strong>ClientStartMultiLoad()</strong>. Postup nahrávání 
+  mapy a aut je popsán v dokumentaci klienta.</p>
+<p>Třída <strong>CClient</strong> obsahuje:</p>
+<ol>
+  <li>Třídu <strong>CHUD</strong> - Head-up display</li>
+  <li>Třídu <strong>CSoundSystem </strong>- hudba</li>
+  <li>Třídu <strong>CNetClient</strong> <strong>- </strong>síťová komunikace se 
+    serverem </li>
+</ol>
+<h3><a name="sec5.1.4">5.1.4 Postup nahrávání mapy a auta ze strany klienta</a></h3>
+<p>Mapa se nahrává pomocí funkce <strong>MapInit() </strong>implementované v souboru 
+  <strong>MapInit.cpp.</strong> Mapa se vždy nahrává před nahrátí aut hráčů. Postup nahrávání mapy je následující:</p>
+<ol>
+  <li><strong>Resource manager </strong>nahraje obsah souboru mapy i s dalšími 
+    závislými soubory na mapě.</li>
+  <li>Nahraje se grafická reprezentace terénu v třídě <strong>CScene</strong> 
+    proměnná <strong>Map </strong>- funkce <strong>Init() </strong>třídy <strong>CGrObjectTerrain</strong>.</li>
+  <li>Vytvoří se zeď kolem celé mapy - funkce <strong>InitBorders()</strong> třídy 
+    <strong>CGrObjectTerrain</strong>.</li>
+  <li>Nahraje se tráva - funkce <strong>InitGrass() </strong>implementovaná v 
+    souboru <strong>MapInit.cpp</strong>.</li>
+  <li>Nahraje se obloha - funkce <strong>Init() </strong>třídy <strong>CGrObjectSkySystem</strong>.</li>
+  <li>Do reprezentace scény se nastaví světlo od slunce a ambientní světlo.</li>
+  <li>Nahrají se jednotlivé objekty na mapě. Každý objekt se inicializuje pomocí 
+    funkce <strong>Init() </strong>třídy <strong>CGrObjectMesh</strong>. Každý 
+    objekt se správně natočí a přidá buď do seznamu statických (<strong>StaticObjects</strong>) 
+    nebo dynamických (<strong>DynamicObjects</strong>) objektů třídy <strong>CScene</strong>.</li>
+  <li>Jestliže je k objektu přiřazené světlo typu <strong>LT_LAMP</strong>, nahraje 
+    se a přidá se do seznamu světel <strong>Lights </strong>třídy <strong>CScene</strong>, 
+    navíc se indikuje příslušnému políčku mapy, že na něm stojí lampa. Jestliže 
+    je světlo typu <strong>LT_FOGLAMP</strong>, jedná se typicky o light glow 
+    billboard (průhlednou texturu nahrazující svit světla). V takovém případě 
+    se příslušné světlo s nahranou texturou přidá do seznamu <strong>TransparentObjects</strong> 
+    třídy <strong>CScene</strong>. Také se indikuje danému objektu, ke kterému 
+    světlo patří, že toto světlo vlastní.</li>
+  <li>Nahrají se textury silnic, správně se natočí a přiřadí se patřičnému políčku 
+    na mapě.</li>
+</ol>
+<p>Auto se nahrává pomocí funkce <strong>LoadCar() </strong>implementované v souboru 
+  <strong>MapInit.cpp</strong>. Jednotlivá auta se vždy nahrávají až po nahrání 
+  mapy. Postup nahrávání auta je následující:</p>
+<ol>
+  <li><strong>Resource manager </strong>nahraje obsah souboru auta i s dalšími 
+    závislými soubory.</li>
+  <li>Nahraje se grafická reprezentace auta - funkce <strong>Init() </strong>třídy 
+    <strong>CGrObjectCar</strong>.</li>
+  <li>Nahraje se světlo od auta typu <strong>LT_CARREFLECTOR</strong> (pakliže 
+    ho auto má). Přidá se k modelu auta.</li>
+  <li>Nahrají se světla typu <strong>LT_FOGLAMP. </strong>Přidají se do seznamu 
+    <strong>TransparentObjects</strong> třídy <strong>CScene</strong>. Indikuje 
+    se, že patří k danému autu.</li>
+  <li>Nastaví se startovní pozice auta podle pořadí nahrávaného auta - funkce 
+    <strong>SetCarPosition()</strong> implementovaná v <strong>MapInit.cpp</strong>.</li>
+  <li>Nahraje se grafická reprezentace kol od auta. Přidají se do seznamu <strong>DynamicObjects</strong> 
+    třídy <strong>CScene</strong>. Indikuje se, že kola patří k danému autu.</li>
+</ol>
+<h3><a name="sec5.1.5">5.1.5 Komunikace mezi serverem a klientem</a></h3>
+<p>Komunikace mezi serverem a klientem se děje pomocí třídy <strong>CNetClient</strong>. 
+  Komunikace se děje dvojím způsobem: </p>
+<ol>
+  <li><strong>Broadcast</strong> - je posílán všesměrově po lokální síti nespojovaně, 
+    nespolehlivě pomocí UDP datagramů</li>
+  <li><strong>Přímá komunikace </strong>- je prováděna spojovaně a spolehlivě 
+    přes protokol TCP/IP</li>
+</ol>
+<p>Třída<strong> CNetMsg</strong> implementuje síťovou komunikaci pomocí <strong>Windows 
+  Sockets 2</strong>. <strong>Broadcast </strong> se používá na to, aby se na 
+  lokální síti našly herní servery naší aplikace. Komunikace pomocí broadcastu 
+  probíhá implicitně na portu 58788. Číslo portu se dá změnit nastavením parametru 
+  <strong>NtBroadport</strong> v <strong>options.cfg</strong>. Posílání <strong>broadcastu 
+  </strong>je implementováno ve třídě <strong>CNetMsg</strong> třemi funkcemi 
+  <strong>StartBroadcast()</strong>, <strong>StopBroadcast()</strong>, <strong>SendBroadcastMsg()</strong>. 
+  <strong>Přímá komunikace </strong>se používá na veškerou komunikaci s konkrétním 
+  herním serverem. Na to slouží funkce <strong>SendMsg()</strong>. Jestliže nastane 
+  chyba v komunikaci se serverem nebo je jiným způsobem komunikace přerušena, 
+  je vyhlášena chyba a komunikace se serverem skončena. <strong>Přímá komunikace 
+  </strong>implicitně probíhá na portu 58787. Číslo portu se dá změnit nastavením 
+  parametru <strong>NtPort </strong>v <strong>options.cfg</strong>.</p>
+<p>Zprávy, které chodí mezi serverem a klientem představuje třída <strong>CNetMsg</strong>.<strong> 
+  </strong>Zprávy, které chodí mezi serverem a klientem jsou různých typů. Typy 
+  zpráv jsou následující:</p>
+<ul>
+  <li><strong>NETMSG_PING</strong> - Zpráva obsahující ping pro testování, jestli 
+    je spojení mezi serverem a klientem živé</li>
+  <li><strong>NETMSG_PING_BACK - </strong>Odpověď na zprávu typu <strong>NETMSG_PING. 
+    </strong>Tato zpráva je určena pro testování, jestli je spojení mezi serverem 
+    a klientem živé</li>
+  <li><strong>NETMSG_ACCEPTED </strong>- Zpráva říkající, že spojení se serverem 
+    bylo úspěšně navázáno</li>
+  <li><strong>NETMSG_PLAYER_MAP_NAME</strong> - Zpráva obsahující jméno mapy (včetně 
+    relativní cesty defaultně z adresáře <strong>Maps</strong>)</li>
+  <li><strong>NETMSG_PLAYER_ID</strong> - Zpráva obsahující ID, jedinečnou identifikaci 
+    klienta, kterou klientovi přiděluje server při připojení</li>
+  <li><strong>NETMSG_PLAYER_CRC</strong> - Zpráva obsahující seznam CRC (Cyclic 
+    redundancy check) součtů, které slouží ke kontrole, jestli jsou na všech stranách 
+    (klientů a serveru) stejné soubory</li>
+  <li><strong>NETMSG_PLAYER_CAR_NAMES</strong> - Zpráva obsahující seznam všech 
+    jmen souborů aut (včetně relativní cesty defaultně z adresáře <strong>Objects</strong>)</li>
+  <li><strong>NETMSG_PLAYER_STATUS</strong> - Zpráva obsahující stav hráče - ID, 
+    jméno hráče, jméno souboru auta hráče, je-li hráč připraven, je-li hráč aktivní</li>
+  <li><strong>NETMSG_MAP_SETTINGS </strong>- Zpráva obsahující údaje o nastavení 
+    mapy - doby hry, je-li zapnutý režim hry na kola, počet kol</li>
+  <li><strong>NETMSG_GAME_NAME </strong>- Zpráva obsahující jméno hry</li>
+  <li><strong>NETMSG_CHAT</strong> - Zpráva obsahující zprávu z chatu mezi hráči</li>
+  <li><strong>NETMSG_MULTIGAME_STARTLOAD </strong>- Zpráva indikující začátek 
+    nahrávání hry při multiplayeru</li>
+  <li><strong>NETMSG_PLAYER_LOADED</strong> - Zpráva oznamující, že hráč (klient) 
+    byl úspěšně nahrán</li>
+  <li><strong>NETMSG_STATIC_POSITION</strong> - Zpráva obsahující postavení všech 
+    statických objektů</li>
+  <li><strong>NETMSG_CAR_SPEED</strong> - Zpráva obsahující rychlost hráčova auta</li>
+  <li><strong>NETMSG_CAR_GEAR</strong> - Zpráva obsahující zařazený stupeň rychlosti 
+    auta </li>
+  <li><strong>NETMSG_CHECKPOINT_POSITION </strong>- Zpráva obsahující pozici kontrolního 
+    bodu na trati, kterým hráč musí projet</li>
+  <li><strong>NETMSG_LAPS_GONE</strong> - Zpráva obsahující počet odjetých kol</li>
+  <li><strong>NETMSG_RACE_POSITION</strong> - Zpráva obsahující průběžnou hráčovu 
+    pozici v závodě</li>
+  <li><strong>NETMSG_RETURNTOLOBBY </strong>- Zpráva indikující požadavek o návrat 
+    do lobby (tj. ukončením multiplayeru návratem do lobby)</li>
+  <li><strong>NETMSG_CAR_POSITION</strong> - Zpráva obsahující pozici auta</li>
+  <li><strong>NETMSG_OBJECT_POSITION</strong> - Zpráva obsahující pozici dynamického 
+    objektu</li>
+  <li><strong>NETMSG_CONTROLS</strong> - Zpráva obsahující informaci o stavu kláves</li>
+  <li><strong>NETMSG_BROADCAST_DEMAND</strong> - Zpráva sloužící jako žádost o 
+    vysílání broadcastu</li>
+  <li><strong>NETMSG_BROADCAST_SERVER_INFO</strong> - Zpráva obsahující identifikaci 
+    serveru v lokální síti</li>
+</ul>
+<p>Samotná zpráva třídy <strong>CNetMsg</strong> je potom sestavena z délky zprávy, 
+  typu zprávy a obsahu zprávy pomocí funkce <strong>SetNetMsg()</strong>.</p>
+<h4><a name="sec5.1.5.1">5.1.5.1 Postup při nahrávání single playeru</a></h4>
+<p>Nahrávání single playeru probíhá ve stavu klienta <strong>CS_SG_START</strong>. 
+  Nahrávání single playeru se spouští zavoláním funkce <strong>startSinglePlayer()</strong> 
+  implementované v <strong>InitFunctions.cpp</strong>. </p>
+<p>Postup nahrávání single playeru je následující:</p>
+<ol>
+  <li>Nahraje se server - funkce <strong>StartServerSingle()</strong> třídy <strong>CServer</strong>.</li>
+  <li>Nahraje se klient - funkce <strong>ClientStartSingleLoad()</strong>. </li>
+  <li>Klient naváže se serverem spojení.</li>
+  <li>Server se přepne do stavu <strong>SS_GAME_PLAY</strong>.</li>
+  <li>Server klientovi pošle pozice všech statických objektů na mapě - funkce 
+    <strong>SendAllStaticObjectsPositions(), </strong>zpráva <strong>NETMSG_STATIC_POSITION</strong>.</li>
+  <li>Server klientovi pošle pozice všech dynamických objektů na mapě - funkce 
+    <strong>SendAllDynamicObjectsPositions()</strong>, zpráva <strong>NETMSG_OBJECT_POSITION</strong>.</li>
+  <li>Pokud se jedná o mód hry na kola, pošle server klientovi pozici prvního 
+    checkpointu. Zpráva <strong>NETMSG_CHECKPOINT_POSITION</strong>.</li>
+  <li>Server klientovi pošle zprávu <strong>NETMSG_ACCEPTED</strong>.</li>
+  <li>Klient přijme všechny zprávy.</li>
+  <li>Klient se přepne do stavu <strong>CS_GAME_PLAY</strong>.</li>
+</ol>
+<h4><a name="sec5.1.5.2">5.1.5.2 Postup při lokalizaci herních serverů</a></h4>
+<p>Klient přijímá info o herním serveru pouze ve stavu <strong>CS_MG_ENUMERATE_HOSTS</strong>. 
+</p>
+<p>Celý postup je následující:</p>
+<ol>
+  <li>Přepnutím klienta do stavu <strong>CS_MG_ENUMERATE_HOSTS</strong> se nastartuje 
+    služba broadcastu voláním funkce <strong>StartBroadcast()</strong>.</li>
+  <li>Periodicky se posílá zpráva typu <strong>NETMSG_BROADCAST_DEMAND</strong> 
+    pomocí funkce <strong>SendServersInfoDemand()</strong>.</li>
+  <li>Jestliže se v lokální síti nachází nějaký herní server naší hry, odpoví 
+    zprávou typu <strong>NETMSG_BROADCAST_SERVER_INFO</strong>.</li>
+  <li>Zpráva typu <strong>NETMSG_BROADCAST_SERVER_INFO </strong>je přijata message 
+    handler funkcí <strong>ClientMultiEnumMH()</strong>.</li>
+  <li>Herní server je přidán do seznamu herních serverů pomocí funkce <strong>AddServer()</strong>.</li>
+  <li>Pokud je server určitou dobu neaktivní, je ze seznamu herních serverů zase 
+    vyřazen.</li>
+</ol>
+<h4><a name="sec5.1.5.3">5.1.5.3 Postup při připojování klienta na server</a></h4>
+<p>Jestliže se klient úspěšně připojí k serveru, skončí klient ve stavu <strong>CS_MG_START</strong> 
+  a informační stav třídy <strong>CMultiPlayerGameInfo </strong>skončí ve stavu 
+  <strong>PHASE_THREE</strong>.</p>
+<p>Postup připojení klienta k serveru je následující:</p>
+<ol>
+  <li>Klient se připojí k serveru - funkce <strong>ConnectToServer() </strong>třídy 
+    <strong>CClient</strong>. </li>
+  <li>Server přijme hráče. Jestliže server odmítne hráče, komunikace skončila 
+    a server hráče odpojí.</li>
+  <li>Server pošle klientovi zprávu, že byl přijat - zpráva <strong>NETMSG_ACCEPTED</strong>.</li>
+  <li>Server pošle klientovi jeho unikátní ID - zpráva <strong>NETMSG_PLAYER_ID</strong>.</li>
+  <li>Server pošle klientovi jméno hry - zpráva <strong>NETMSG_GAME_NAME</strong>.</li>
+  <li>Server pošle klientovi jméno mapy a příslušné kontrolní součty přiřazené 
+    k mapě. Zprávy <strong>NETMSG_PLAYER_MAP_NAME </strong>a <strong>NETMSG_PLAYER_CRC</strong>.</li>
+  <li>Server rozešle všem ostatním klientům zprávu o tom, že byl přijat nový klient.</li>
+  <li>Klient přijme zprávu <strong>NETMSG_ACCEPTED</strong> a nastaví stav informační 
+    třídy <strong>CMultiPlayerGameInfo</strong> na <strong>PHASE_ONE</strong>.</li>
+  <li>Klient přijme zprávu <strong>NETMSG_PLAYER_ID </strong>a zapamatuje si svoje 
+    ID - funkce <strong>SetID()</strong> třídy <strong>CMultiPlayerGameInfo</strong>.</li>
+  <li>Klient přijme zprávu <strong>NETMSG_GAME_NAME </strong>a zapamatuje si jméno 
+    hry - funkce <strong>SetGameName()</strong> třídy <strong>CMultiPlayerGameInfo</strong>.</li>
+  <li>Klient přijme zprávu <strong>NETMSG_PLAYER_MAP_NAME, </strong>zapamatuje 
+    si jméno mapy a spočítá kontrolní součty k mapě - funkce <strong>SetMapFileName()</strong> 
+    třídy <strong>CMultiPlayerGameInfo</strong>. Jestliže mapa na klientovi neexistuje, 
+    klient se odpojí a vyhlásí se chyba připojování k serveru.</li>
+  <li>Klient přijme zprávu <strong>NETMSG_PLAYER_CRC </strong>a porovná příchozí 
+    kontrolní součty k mapě s vlastoručně spočítanými kontrolními součty mapy. 
+    Jestliže se kontrolní součty liší, klient se odpojí a vyhlásí se chyba připojování 
+    k serveru. Klient se přepne do stavu <strong>PHASE_TWO</strong> třídy <strong>CMultiPlayerGameInfo.</strong></li>
+  <li>Klient pošle serveru seznam všech aut, které má a postupně jejich kontrolní 
+    součty. Zprávy <strong>NETMSG_PLAYER_CAR_NAMES</strong> a <strong>NETMSG_PLAYER_CRC</strong>.</li>
+  <li>Server přijme seznam jmen aut a jejich kontrolní součty.</li>
+  <li>Server spočítá množinu aut, která je společná všem klientům - funkce <strong>CompareCarsFileNames()</strong>.</li>
+  <li>Funkce rozešle tuto společnou množinu povolených aut všem klientům. Zprávy 
+    <strong>NETMSG_PLAYER_CAR_NAMES</strong>.</li>
+  <li>Klient přijme množinu všech povolených aut a zapamatuje si ji - funkce <strong>SetAllowedCarsFileNames()</strong> 
+    třídy <strong>CMultiPlayerGameInfo</strong>.</li>
+  <li>Klient se přepne informační stav třídy <strong>CMultiPlayerGameInfo</strong> 
+    do stavu <strong>PHASE_THREE</strong>.</li>
+</ol>
+<h4><a name="sec5.1.5.4">5.1.5.4 Komunikace klienta se serverem ve stavu připojení k serveru</a></h4>
+<p>Komunikace klienta se serverem ve stavu připojení k serveru probíhá ve stavu 
+  klienta <strong>CS_MG_START</strong>. </p>
+<p>Server zasílá klientovi podle potřeby následující informace:</p>
+<ul>
+  <li>Zprávu <strong>NETMSG_PLAYER_CAR_NAMES </strong>- obsahuje množinu použitelných 
+    aut pro závod</li>
+  <li>Zprávu <strong>NETMSG_MAP_SETTINGS </strong>- Nastavení mapy - počet kol, 
+    mód závodění na kola, denní dobu</li>
+  <li>Zprávu <strong>NETMSG_PLAYER_STATUS - </strong>Nastavení některého z ostatních 
+    klientů nebo hráče AI</li>
+  <li>Zprávu <strong>NETMSG_CHAT - </strong>Zpráva z chatu.</li>
+</ul>
+<p>Klient serveru zasílá následující informace podle potřeby:</p>
+<ul>
+  <li>Zprávu <strong>NETMSG_PLAYER_STATUS</strong> - nové nastavení hráče klienta 
+  </li>
+</ul>
+<p>&nbsp;</p>
+<h4><a name="sec5.1.5.5">5.1.5.5 Postup nahrávání klienta při nahrávání hry multiplayeru</a></h4>
+<p>Nahrávání klienta může začít pouze tehdy, je-li klient ve stavu <strong>CS_MG_START</strong> 
+  a informační stav třídy <strong>CMultiPlayerGameInfo</strong> je ve stavu <strong>PHASE_THREE</strong>. 
+  V průběhu nahrávání je klient ve stavu <strong>CS_MG_START_LOAD</strong> a stavu 
+  <strong>PHASE_FOUR </strong>informační třídy <strong>CMultiPlayerGameInfo</strong>. 
+  Jestliže nahrávání proběhne úspěšně, je stav informační třídy <strong>CMultiPlayerGameInfo 
+  </strong>nastaven na <strong>PHASE_FIVE</strong> a stav klienta je <strong>CS_GAME_PLAY</strong>.</p>
+<p>Postup nahrávání klienta při multiplayeru je následující:</p>
+<ol>
+  <li>Klient obdrží od serveru zprávu <strong>NETMSG_MULTIGAME_STARTLOAD</strong>, 
+    která indikuje začátek nahrávání.</li>
+  <li>Klient přepne informační stav do stavu <strong>PHASE_FOUR</strong>, čímž 
+    indikuje začátek nahrávání.</li>
+  <li>Zavolá se funkce <strong>ClientStartMultiLoad()</strong> třídy <strong>CClient</strong>. 
+    Změní se stav klienta na <strong>CS_MG_START_LOAD</strong>.</li>
+  <li>Klient nahraje se mapu a auta.</li>
+  <li>Klient pošle zprávu serveru <strong>NETMSG_PLAYER_LOADED</strong>.</li>
+  <li>Server si počká, než jsou všichni klienti nahráni - funkce <strong>CheckAllPlayersLoaded()</strong> 
+    třídy <strong>CServer</strong>.</li>
+  <li>Server klientovi pošle pozice všech statických objektů na mapě - funkce 
+    <strong>SendAllStaticObjectsPositions(), </strong>zpráva <strong>NETMSG_STATIC_POSITION</strong>.</li>
+  <li>Server klientovi pošle pozice všech dynamických objektů na mapě - funkce 
+    <strong>SendAllDynamicObjectsPositions()</strong>, zpráva <strong>NETMSG_OBJECT_POSITION</strong>.</li>
+  <li>Pokud se jedná o mód "hra na kola", pošle server klientovi pozici prvního 
+    checkpointu. Zpráva <strong>NETMSG_CHECKPOINT_POSITION</strong>.</li>
+  <li>Server pošle klientovi zprávu <strong>NETMSG_PLAYER_LOADED</strong>, čímž 
+    indikuje, že všichni klienti jsou nahráni.</li>
+  <li>Server se přepne do stavu <strong>SS_GAME_PLAY</strong> a stav informační 
+    třídy <strong>CMultiPlayerGameInfo </strong>nastaví na <strong>PHASE_FIVE</strong>.</li>
+  <li>Klient přijme všechny zprávy.</li>
+  <li>Klient se přepne do stavu <strong>CS_GAME_PLAY</strong> a stav informační 
+    třídy <strong>CMultiPlayerGameInfo </strong>nastaví na <strong>PHASE_FIVE</strong>.</li>
+</ol>
+<h4><a name="sec5.1.5.6">5.1.5.6 Komunikace mezi serverem a klientem při samotné hře</a></h4>
+<p>Komunikace mezi serverem a klientem při samotné hře probíhá při stavu klienta <strong>CS_GAME_PLAY</strong> a stavu serveru <strong>SS_GAME_PLAY</strong>. 
+  Klient posílá serveru info o stavu stisknutých kláves - zpráva <strong>NETMSG_CONTROLS</strong>. 
+  Server posílá klientovi změněné pozice aut a dynamických objektů - zprávy <strong>NETMSG_CAR_POSITION</strong> 
+  a <strong>NETMSG_OBJECT_POSITION</strong>. Navíc server posílá klientovi podle 
+  potřeby následující zprávy:</p>
+<ul>
+  <li><strong>NETMSG_CAR_GEAR - </strong>zpráva o tom, že se změnil rychlostní 
+    stupeň auta</li>
+  <li><strong>NETMSG_CAR_SPEED</strong> - zpráva o tom, že se změnila rychlost 
+    auta</li>
+  <li><strong>NETMSG_CHECKPOINT_POSITION </strong>- nová pozice checkpointu</li>
+  <li><strong>NETMSG_LAPS_GONE</strong> - zpráva o tom, že klient odjel kolo</li>
+  <li><strong>NETMSG_RACE_POSITION </strong>- průběžná pozice jednotlivých aut 
+    v závodě</li>
+  <li><strong>NETMSG_RETURNTOLOBBY </strong>- žádost o návrat do lobby</li>
+</ul>
+<h4><a name="sec5.1.5.7">5.1.5.7 Komunikace mezi serverem a klientem ve stavu výsledků závodu (race results)</a></h4>
+<p>Do stavu <strong>CS_RACE_RESULT </strong>se klient přepíná v případě, že je 
+  aktivován mód "závodění na kola" a klient dokončil závod. V tomto stavu může klient 
+  vyslat žádost k serveru o návrat do lobby, jedná-li se o hru multiplayeru - 
+  zpráva <strong>NETMSG_RETURNTOLOBBY</strong>. A potom čekat na potvrzení serveru 
+  o tom, že se navrátil do lobby - zpráva <strong>NETMSG_RETURNTOLOBBY</strong>.</p>
+<h3><a name="sec5.1.6">5.1.6 Pomocná informační třída CMultiPlayerGameInfo</a></h3>
+<p>Pomocná informační třída <strong>CMultiPlayerGameInfo </strong>slouží zejména 
+  k zapamatování momentálního nastavení single playeru a multiplayeru. Třídu 
+  <strong>CMultiPlayerGameInfo </strong> používá jak server, tak klient. Třída 
+  <strong>CMultiPlayerGameInfo</strong> obsahuje tedy funkce a informace, které 
+  používá server a klient společně, a navíc data, které využívá buď jenom 
+  server nebo jenom klient. Jedná se hlavně o nastavení jednotlivých klientů - 
+  jmen hráčů, aut hráčů, stavu klienta, stavu připravenosti k nahrávání. Třída si také ukládá jména hry a mapy a výpočet kontrolních součtů za 
+  pomoci <strong>Resource manageru</strong> a obsahuje funkce a informace pro výpočet společné množiny 
+  aut všech klientů a serveru, které je možné při společné hře použít. Ve třídě 
+  <strong>CMultiPlayerGameInfo </strong>jsou uložené informace o průběhu závodu, o stavu nahrávání hry serveru a klienta a 
+  funkce, které umí &quot;rozbalit&quot; a &quot;zabalit&quot; 
+  informace do zprávy třídy <strong>CNetMsg</strong>. </p>
+<p>Třída <strong>CMultiPlayerGameInfo </strong>obsahuje informační stav, který 
+  slouží jako jemnější rozdělení stavu pro připojování klienta k serveru a pro 
+  nahrávání serveru a klienta. Informační stav se dá získat pomocí funkce <strong>GetState()</strong>. 
+  Informační stav se dá nastavit pomocí funkce <strong>SetState()</strong>.</p>
+<p>Jsou možné následující informační stavy:</p>
+<ol>
+  <li><strong>PHASE_ZERO - </strong>Pro klienta znamená, že klient není připojen 
+    k serveru a ani se o to nepokouší. Pro server znamená, že není spuštěn.</li>
+  <li><strong>PHASE_ONE </strong>- Pro klienta znamená, že se pokouší o připojení 
+    k serveru. Tento stav začíná u klienta pokusem připojení k serveru a končí 
+    úplnou verifikací mapy - stejné jméno mapy, stejné kontrolní součty k mapě. 
+    Pro server tento stav nemá význam.</li>
+  <li><strong>PHASE_TWO </strong>- Pro klienta znamená, že se začíná verifikace 
+    možných aut. Tento stav končí tím, že ze serveru přijde klientovi množiny 
+    možných aut pro závod. Pro server tento stav nemá význam.</li>
+  <li><strong>PHASE_THREE </strong>- Pro klienta znamená, že je připojen k serveru. 
+    Pro server znamená, že je spuštěný.</li>
+  <li><strong>PHASE_FOUR </strong>- Pro klienta i pro server znamená začátek nahrávání 
+    samotné hry.</li>
+  <li><strong>PHASE_FIVE </strong>- Pro klienta i pro server znamená, že hra byla 
+    úspěšně nahraná.</li>
+</ol>
+<h3><a name="sec5.1.7">5.1.7 Třída CGameInfo</a></h3>
+<p>Třída <strong>CGameInfo </strong>zajišťuje funkce prohledávání adresářů, aby 
+  tak vytvořila seznam map, aut a hudby. Stará se o ukládání, nahrávání a 
+  o přistup do traťových rekordů. </p>
+<p>Vyhledávání souborů s mapou, autem a hudbou se děje při inicializaci třídy 
+  <strong>CGameInfo </strong>funkcí <strong>Init()</strong>. Prohledávají se adresáře 
+  nastavené v konfiguraci pro daný typ souboru s tím, že se prohledá i kompletní 
+  podadresářová struktura takových adresářů. Očekává se, že taková podadresářová 
+  struktura nebude příliš rozsáhlá. Výsledky hledání se potom ukládají do seznamů 
+  <strong>CarNames</strong>, <strong>MapNames</strong> a <strong>MusicNames</strong>, 
+  odkud jsou přístupné pro ostatní části programu, které je potřebují.</p>
+<p>Traťové rekordy jsou uloženy v souboru <strong>BestResults.dat</strong>. Třída 
+  <strong>CGameInfo </strong>je nahrává pomocí funkce <strong>LoadBestResults()</strong> 
+  a ukládá pomocí funkce <strong>SaveBestResults()</strong>. Přístupné jsou pak 
+  skrze seznam <strong>BestResults</strong> pro ostatní části programu, které 
+  je potřebují. Formát souboru <strong>BestResults.dat </strong> je popsaný v 
+  dokumentaci formátů souborů používaných v naší aplikaci.</p>
+  
+  <h2><a name="sec5.2">5.2 Server</a></h2>
+<h3><a name="sec5.2.1">5.2.1 Úvod</a></h3>
+<p>Server zajišťuje komunikaci s jednotlivými klienty. Pro každou, ať už síťovou 
+  (multiplayer) nebo lokální (singleplayer) hru, tu musí být server. Server volá 
+  výpočet fyziky a výsledky zprostředkovává jednotlivým klientům. 
+  Server také volá systém AI, který má za úkol počítačové řízení aut. Server je nadřazen fyzikálnímu enginu a systému AI (systém umělé inteligence). 
+  Využívá služeb Resource manageru, konfigurace a dalších částí 
+  poskytujících globální služby (projekt <strong>Globals</strong>). Informací 
+  ze serveru pak používají zejména Dialogy. Server může běžet buď na počítači, 
+  kde běží i klient nebo jako dedikovaný na samostatném počítači.</p>
+<p class="center"><img src="images/ServerPosition.png" width="399" height="420"></p>
+<p class="center"><strong>Obrázek 5.3: Postavení serveru vůči ostatním částem aplikace</strong></p>
+<h3><a name="sec5.2.2">5.2.2 Implementace serveru</a></h3>
+<p>Implementace serveru se skládá z následujících částí:</p>
+<ol>
+  <li>Třída <strong>CServer </strong> - je jádrem implementace serveru. Uchovává 
+    stav serveru, ve kterém se server nachází. Pro každý stav obsahuje funkci, 
+    která slouží jako message handler (zpracovatel zpráv) přicházejících od klientů. 
+    Zajišťuje volání počítání fyziky, AI a sama počítá waypointy (body, kterými 
+    musí hráč na trati projet) a průběžnou pozici hráčů v závodě. Obsahuje síťové 
+    služby v podobě tříd <strong>CNetServer </strong>a <strong>CNetMsg</strong>. 
+    Taktéž obsahuje informační třídu <strong>CMultiPlayerGameInfo</strong>.</li>
+  <li>Síťové služby v podobě tříd <strong>CNetServer </strong> a <strong>CNetClient</strong>. 
+    Třída <strong>CNetMsg </strong>implementuje zprávy, které chodí po síti. Třída 
+    <strong>CNetServer </strong>zajišťuje příjem a posílání zpráv jednotlivým 
+    klientům a rozesílá a příjem broadcastu. Typy zpráv a třída <strong>CNetMsg</strong> 
+    je popsána v dokumentaci klienta.</li>
+  <li>Informační třídu <strong>CMultiPlayerGameInfo</strong>. Slouží zejména jako 
+    třída pro uchovávání informací, jak pro server, tak pro klienta. Popis této 
+    třídy se nachází v dokumentaci ke klientovi a nebude v dokumentaci serveru 
+    popisována.</li>
+  <li>Soubory <strong>MapInit.h </strong> a <strong>MapInit.cpp</strong>, ve kterých 
+    jsou umístěny funkce pro nahrávání mapy a aut na serveru.</li>
+</ol>
+<p class="center"><img src="images/ServerClass.png" width="391" height="379"></p>
+<p class="center"><strong>Obrázek 5.4: Jednotlivé součásti serveru</strong></p>
+<h3><a name="sec5.2.3">5.2.3 Jádro serveru - třída CServer</a></h3>
+<p>Server se může nacházet v různých stavech. Podle stavu, ve kterém se 
+  nachází, se volá příslušná funkce sloužící jako message handler (zpracovatel 
+  zpráv) příchozích od klientů. Stav serveru se dá změnit voláním funkce <strong>ChangeServerState()</strong>. 
+  Stavy, ve kterých se server může nacházet jsou následující:</p>
+<ul>
+  <li><strong>SS_NULL - </strong>Server není spuštěn.</li>
+  <li><strong>SS_SG_START - </strong>Probíhá nahrávání hry na straně serveru pro 
+    singleplayer (hru jednoho hráče).</li>
+  <li><strong>SS_MG_START - </strong>Server je spuštěn pro multiplayer (hru více 
+    hráčů). Klienti se mohou připojovat k serveru.</li>
+  <li><strong>SS_MG_START_LOAD </strong>- Probíhá nahrávání hry na straně serveru 
+    pro multiplayer.</li>
+  <li><strong>SS_GAME_PLAY </strong>- Probíhá samotná hra. Na serveru se periodicky 
+    počítá fyzika, AI a jiné herní záležitosti.</li>
+</ul>
+<p>Funkce <strong>ServerGameMH()</strong> podle stavu, ve kterém se server nachází, 
+  zavolá příslušnou funkci message handleru, která se postará o výběr a zpracování 
+  zpráv od klientů. Jedná se o následující funkce:</p>
+<ul>
+  <li><strong>ServerSingleStartMH()</strong> pro stav <strong>SS_SG_START</strong></li>
+  <li><strong>ServerMultiStartMH()</strong> pro stav <strong>SS_MG_START</strong></li>
+  <li><strong>ServerMultiStartLoadMH </strong>pro stav <strong>SS_MG_START_LOAD</strong></li>
+  <li><strong>ServerGameMH() </strong>pro stav <strong>SS_GAME_PLAY</strong></li>
+</ul>
+<p>Funkce <strong>ServerGameMH()</strong> se volá periodicky, aby byl zajištěn 
+  výběr zpráv do klientů. </p>
+<p>Nejdůležitější funkcí třídy <strong>CServer </strong>je funkce <strong>updateGame(), 
+  </strong>která ve stavu hry <strong>SS_GAME_PLAY </strong>zajišťuje aktualizování 
+  fyziky, AI, průběžného pořadí v závodě atd. Ve funkci <strong>updateGame()</strong> 
+  se provedou následující úkony:</p>
+<ol>
+  <li>Zavolá se aktualizace fyziky - funkce <strong>Update() </strong>třídy <strong>CPhysics</strong>.</li>
+  <li>Zavolá se aktualizace AI - funkce <strong>Update() </strong>třídy <strong>CSteeringAI</strong>.</li>
+  <li>Zavolá se aktualizace stavu hry, která provede: 
+    <ol>
+      <li>Pošle všem klientům informaci o zařazené rychlosti a rychlosti auta 
+        - zprávy <strong>NETMSG_CAR_SPEED</strong> a <strong>NETMSG_CAR_GEAR</strong>.</li>
+      <li>Kontrolu, jestli některý klient neprojel checkpointem (kontrolním bodem 
+        na trati, kterým klient musí projet v případě, že se závodí v režimu závodu 
+        na kola). Jestliže některý klient vjel do oblasti checkpointu, pošle se 
+        mu pozice nového checkpointu - zpráva <strong>NETMSG_CHECKPOINT_POSITION</strong>.</li>
+      <li>Kontrolu, jestli některý klient nedokončil kolo. V takovém případě se 
+        klientovi pošle zpráva <strong>NETMSG_LAPS_GONE</strong>.</li>
+      <li>Výpočet průběžného pořadí na trati - funkce <strong>UpdateRacePositions()</strong>. 
+        Jestliže se průběžné pořadí změnilo, pošle se všem klientům ve zprávách 
+        <strong>NETMSG_RACE_POSITION</strong>.</li>
+    </ol>
+  </li>
+  <li>Pro každou změněnou polohu auta se pošle všem klientům zpráva <strong>NETMSG_CAR_POSITION</strong>.</li>
+  <li>Pro každou změněnou polohu dynamického objektu se pošle všem klientům zpráva 
+    <strong>NETMSG_OBJECT_POSITION</strong>.</li>
+</ol>
+<p>Popis typů zpráv a toho, co znamenají se nachází v dokumentaci klienta. Stejně 
+  tak je v dokumentaci klienta popis třídy <strong>CNetMsg</strong>, proto zde 
+  nebude popisována.</p>
+<p>Pozice checkpointů se počítají pomocí funkce <strong>ComputeCheckpointPositions()</strong> 
+  z waypointů (bodů, které používá AI na řízení aut řízených počítačem). Pozice 
+  checkpointů jsou umístěny přibližně 20 metrů od sebe a na objektech, které mají 
+  checkpoint povinný.</p>
+<h3><a name="sec5.2.4">5.2.4 Popis nahrávání mapy a auta na straně serveru</a></h3>
+<p>Mapa na straně serveru se nahrává pomocí funkce <strong>MapPhInit() </strong>implementované 
+  v souboru <strong>MapInit.cpp</strong>. Postup nahrávání mapy je následující:</p>
+<ol>
+  <li><strong>Resource manager </strong>nahraje obsah souboru mapy i s dalšími 
+    závislými soubory na mapě.</li>
+  <li>Fyzika nahraje terén - funkce <strong>LoadMap() </strong>třídy <strong>CPhysics</strong>.</li>
+  <li>Nahrají se jednotlivé objekty na mapě z hlediska fyziky a přidají se do seznamu 
+    statických nebo dynamických objektů fyziky <strong>staticObjects </strong>či 
+    <strong>dynamicObjects</strong>.</li>
+  <li>Pro silnice se nahraje fyzikální textura povrchu.</li>
+</ol>
+<p>Auto na straně serveru se nahrává pomocí funkce <strong>LoadPhCar()</strong> 
+  implementované v souboru <strong>MapInit.cpp</strong>. Postup nahrávání auta 
+  je následující:</p>
+<ol>
+  <li><strong>Resource manager </strong>nahraje obsah souboru auta i s dalšími 
+    závislými soubory na mapě.</li>
+  <li>Nahraje se auto v podobě třídy <strong>CCar </strong>a přidá se do seznamu 
+    aut fyziky <strong>cars</strong> třídy <strong>CPhysics</strong>.</li>
+</ol>
+<h3><a name="sec5.2.5">5.2.5 Třída CNetServer</a></h3>
+<p>Třída <strong>CNetServer</strong> slouží jako prostředek síťové komunikace 
+  mezi klientem a serverem na straně serveru. Třída <strong>CNetServer </strong>umí 
+  rozesílat všesměrové <strong>broadcast </strong>po lokální síti<strong> </strong>pomocí 
+  funkcí <strong>StartBroadCast()</strong>, <strong>StopBroadcast()</strong>, 
+  <strong>BindBroadcast()</strong>, <strong>SendBroadcastMsg()</strong>. <strong>Broadcast 
+  </strong>slouží k posílání informací o běžícím herním serveru naší hry. Standardně 
+   třída <strong>CNetServer</strong> komunikuje s klienty pomocí protokolu 
+  TCP/IP spolehlivě a spojovaně. Serverová strana síťové komunikace se spouští 
+  pomocí funkce <strong>HostSession()</strong> a vypíná pomocí <strong>StopSession()</strong>. 
+  Komunikace s jednotlivými klienty se potvrzuje pomocí funkce <strong>AcceptPlayer()</strong>. 
+  Funkce <strong>SendMsg()</strong> a <strong>SendMsgToSocket() </strong>slouží 
+  k posílání zpráv klientům. Funkce <strong>IsConnected()</strong> vrací stav 
+  připojení jednotlivých klientů. Třída <strong>CNetServer </strong>je implementována 
+  pomocí Windows Sockets 2.</p>
+<h4><a name="sec5.2.5.1">5.2.5.1 Známé chyby</a></h4>
+<p>Při posílání zprávy může nastat zablokování socketu. V tom případě se pokusí 
+  třída <strong>CNetServer </strong>počkat a zprávu odeslat později. To ovšem 
+  může zablokovat hru až na jednu vteřinu. Problém nastává díky jednothreadovému 
+  (jednovláknovému) řešení naší aplikace. Problém by se dal vyřešit pouštěním 
+  serveru na samostatném vláknu. Z časových důvodu tento problém nebyl odstraněn. 
+  Problém nastává zřídka, nejčastěji při náhlém a nestandardním odpojení některého 
+  z klientů od serveru.</p>
+<p></p>
+<h3><a name="sec5.2.6">5.2.6 Postup spuštění serveru pro multiplayer</a></h3>
+<p>Před spuštěním serveru je server ve stavu <strong>SS_NULL</strong>. Po spuštění 
+  serveru se server nachází ve stavu <strong>SS_MG_START</strong>. Spuštění serveru 
+  pro multiplayer probíhá pomocí funkce <strong>startServerMulti()</strong> implementované 
+  v <strong>InitFunctions.cpp</strong>. Postup spuštění serveru pro multiplayer 
+  je následující:</p>
+<ol>
+  <li>Nastaví se jméno hry (identifikace serveru) - funkce <strong>SetGameName()</strong> 
+    třídy <strong>CMultiPlayerGameInfo</strong>.</li>
+  <li>Nastaví se jméno mapy a spočítají se pro ni kontrolní součty - funkce <strong>SetMapFileName()</strong> 
+    třídy <strong>CMultiPlayerGameInfo</strong>.</li>
+  <li>Spustí se naslouchání serveru - funkce <strong>HostSession()</strong> třídy 
+    <strong>CNetServer</strong>.</li>
+  <li>Stav serveru se přepne do <strong>SS_MG_START</strong>.</li>
+  <li>Spustí se všesměrový broadcast serveru, aby mohl o sobě server podat zprávu 
+    ostatním klientům v lokální síti.</li>
+  <li>Jestliže server není dedikovaný, připojí se k serveru lokální klient.</li>
+</ol>
+
+
+
+
+<h2><a name="sec5.3">5.3 GUI (Graphic user interface)</a></h2>
+<p>Před spuštěním samotné hry závodů aut je nutné dát uživateli možnost navolit 
+  si různé její parametry, nastavit zobrazování, hudbu, klávesy, atd... Pro tyto 
+  účely bylo nutné implementovat grafické uživatelské rozhraní 
+  (GUI). Protože se v prostředí DirectX nedají použít dialogy a ovládací prvky 
+  Windows, rozhodli jsme se implementovat vlastní systém grafického uživatelského 
+  rozhraní. Náš systém grafického uživatelského rozhraní - dialogy je založen 
+  na vlastní implementaci potřebných ovládacích prvků, které jsou implementovány 
+  v grafické části. Celá implementace dialogů se nachází v souborech <strong>dialogs.h 
+  </strong>a <strong>dialogs.cpp</strong>. </p>
+<h3><a name="sec5.3.1">5.3.1 Implementace dialogů</a></h3>
+<p>Základem implementace dialogů je třída <strong>CMyDialogs</strong>, která obsahuje 
+  všechny ostatní třídy představující jednotlivé dialogy. Jednotlivé dialogy jsou 
+  potom odvozeny od třídy <strong>CMyDialog</strong>, která obsahuje společný 
+  základní interface pro všechny dialogy. Jednotlivé dialogy pak představují následující 
+  třídy:</p>
+<ul>
+  <li><strong>CDedicatedServerDialog</strong> - Třída představující dialog, který 
+    se zobrazuje při spuštění dedikovaného serveru</li>
+  <li><strong>CGraphicSettings </strong>- Třída představující dialog nastavení 
+    grafiky</li>
+  <li><strong>CInGameDialog</strong> - Třída představující dialog, který se zobrazuje 
+    při hraní samotné hry</li>
+  <li><strong>CKeySettingsDialog </strong>- Třída představující dialog nastavení 
+    kláves</li>
+  <li> <strong>CMainDialog</strong> - Třída představující hlavní dialog, hlavní 
+    nabídku, která se zobrazuje po spuštění hry</li>
+  <li><strong>CMessageBox </strong>- Třída představující message box (dialog podávající 
+    zprávu o něčem)</li>
+  <li><strong>CMultiCreateServerDialog</strong> - Třída představující dialog vytvoření 
+    serveru</li>
+  <li> <strong>CMultiPlayerDialog</strong> - Třída představující počáteční dialog 
+    multiplayeru nabízející možnosti připojení a vytvoření serveru</li>
+  <li><strong>CMultiPlayerSettingsDialog </strong>- Třída představující nastavení 
+    hráče pro multiplayer</li>
+  <li><strong>CMultiPlayerWaitDialog </strong>- Třída představující dialog čekání 
+    na připojení k serveru</li>
+  <li><strong>CMultiStartGameDialog </strong>- Třída představující multiplayer 
+    lobby - místo, kde se schází hráči připojení k serveru před započnutím samotné 
+    hry</li>
+  <li><strong>COpponentsDialog </strong>- Třída představující dialog určený k 
+    výběru oponentů</li>
+  <li><strong>CRaceResultDialog </strong>- Třída představující dialog výsledků 
+    závodu</li>
+  <li><strong>CSettingsDialog </strong>- Třída představující dialog nastavení, 
+    ze kterého se dá jít na dialogy nastavení pro grafiku, zvuk a ovládání</li>
+  <li><strong>CSinglePlayerDialog </strong>- Třída představující dialog nastavení 
+    hry pro jednoho hráče</li>
+  <li><strong>CSoundSettingsDialog </strong> - Třída představující dialog nastavení 
+    zvuku</li>
+  <li> <strong>CToLobbyWaitDialog </strong>- Třída představující dialog čekání 
+    na návrat do multiplayer lobby</li>
+  <li><strong>CWaitDialog </strong>- Třída představující dialog čekání při nahrávání 
+    samotné hry </li>
+</ul>
+<p class="center"><img src="images/DialogsClass.png" width="310" height="437"></p>
+<p class="center"><strong>Obrázek 5.5: Schéma propojení tříd dialogů</strong></p>
+<h3><a name="sec5.3.2">5.3.2 Třída CMyDialogs</a></h3>
+<p>Třída <strong>CMyDialogs </strong> v sobě obsahuje všechny třídy dialogů. Třída 
+  <strong>CMyDialogs </strong>umožňuje zobrazit a skrýt dialogy pomocí funkcí 
+  <strong>showDialog() </strong>a <strong>hideDialog()</strong>. Vždy může být 
+  zobrazen pouze jeden dialog. Je to dialog, na nějž ukazuje pointer <strong>pActDialog</strong>. 
+  Třída <strong>CMyDialogs </strong>zahajuje inicializaci jednotlivých dialogů 
+  - funkce <strong>init()</strong>.</p>
+<h3><a name="sec5.3.3">5.3.3 Třída CMyDialog</a></h3>
+<p>Třída <strong>CMyDialog </strong>obsahuje společný základní interface pro jednotlivé 
+  třídy dialogů. Jedná se o inicializaci (funkce <strong>init()</strong>) a funkce, 
+  které se volají při vstupu a odchodu z dialogu (funkce <strong>OnLeave() </strong>a 
+  <strong>OnEnter()</strong>). Inicializace dialogů se děje tak, že se nejprve 
+  nahrají jednotlivé ovládací prvky ze souboru, potom se přiřadí k jednotlivým 
+  proměnným konkrétního dialogu a nakonec se k jednotlivým prvků nastaví funkce 
+  volané na jednotlivé události (například stisknutí myši nad tlačítkem).</p>
+<p>Pro zjednodušení práce s dialogy byla zřízena následující makra:</p>
+<ul>
+  <li><strong>CHANGE_ACTDIALOG()</strong> - změní aktuální dialog na jiný</li>
+  <li><strong>CREATE_AND_INIT_DIALOG()</strong> - vytvoří dialog a zavolá jeho 
+    inicializaci</li>
+  <li><strong>GETDIALOGCONTROL()</strong>, <strong>GETDIALOGCONTROL2() </strong>- 
+    vyzvedne si ovládací prvek a přiřadí ho k proměnné dialogu</li>
+  <li><strong>SHOWMESSAGEBOX()</strong> - zobrazí dialog <strong>CMessageBox </strong>s 
+    příslušnou zprávou pro hráče</li>
+</ul>
+
+<h2><a name="sec5.4">5.4 HUD (Head-up display)</a></h2>
+<p>Každá závodní hra potřebuje mít svůj tachometr (ukazatel rychlosti), průběžnou 
+  tabulku pořadí, ... K tomuto slouží HUD (Head-up display), který &quot;navrch&quot; 
+  tyto informace ukazuje. Naše implementace HUDu se skládá ze čtyřech prvků tachometru 
+  - třída<strong> CSpeedometer</strong>, ukazatele zařazené rychlosti - třída 
+  <strong>CGear</strong>, tabulky průběžného pořadí - třída <strong>CPlaceList 
+  </strong>a informační tabulky o momentálně hrané hudební skladbě - třída<strong> 
+  CNowPlaying</strong>. Tyto čtyři třídy pak zastřešuje třída <strong>CHUD</strong>.</p>
+<p>Požadavky na HUD jsou následující:</p>
+<ol>
+  <li>Umět nahrát HUD ze souboru</li>
+  <li>Umožnit nastavení jednotlivých prvků HUDu</li>
+</ol>
+<p class="center"><img src="images/HUD.png" width="617" height="399"></p>
+<p class="center"><strong>Obrázek 5.6: Schéma HUDu a jeho propojení s grafickým jádrem</strong></p>
+<h5><a name="sec5.2.2.1">Třída CHUD</a></h5>
+<p>Třída <strong>CHUD </strong>zajišťuje pomocí funkce <strong>LoadHUD() </strong>nahrání 
+  jednotlivých prvků HUDu ze souboru typu <strong>*.HUD</strong>. Dokumentace 
+  obsahu souboru typu <strong>*.HUD</strong> se nachází v dokumentaci souborového 
+  systému. Funkce <strong>LoadHUD() </strong>nahraje nastavení HUDu ze souboru, 
+  pomocí <strong>Resouce Manageru </strong>nahraje potřebné textury a fonty a 
+  inicializuje jednotlivé prvky HUDu. Potom pomocí volání funkce <strong>Register() 
+  </strong>třídy <strong>CHUD </strong>se zaregistrují veškeré části HUDu do jádra 
+  HUDu. Tím jsou připraveny prvky HUDu k použití.</p>
+<h5><a name="sec5.2.2.2">Třída CSpeedometer</a></h5>
+<p>Třída <strong>CSpeedometer </strong>představuje tachometr (ukazatel rychlosti). 
+  Tachometr je umístěn v pravém dolním rohu obrazovky. Třída <strong>CSpeedometer 
+  </strong>umožňuje nastavit maximální rychlost (funkce <strong>SetMaxSpeed()</strong>) 
+  a momentální rychlost pomocí funkce <strong>SetSpeed()</strong>. Tato informace 
+  o rychlosti se potom zobrazuje, jak textově, tak vizuálně.</p>
+<h5><a name="sec5.2.2.3">Třída CGear</a></h5>
+<p>Třída <strong>CGear </strong>představuje ukazatel zařazené rychlosti a to je 
+  jediná zásadní věc, kterou tato třída umožňuje nastavit pomocí funkce <strong>SetGear()</strong>. 
+  Ukazatel rychlosti se nachází v levém dolním rohu obrazovky.</p>
+<h5><a name="sec5.2.2.4"><strong>Třída CPlaceList</strong></a></h5>
+<p>Třída <strong>CPlaceList </strong>představuje tabulku průběžného pořadí v závodu. 
+  Průběžné hráčů se nastavuje pomocí funkce <strong>SetRaceState(). </strong>Je 
+  zobrazováno vždy pořadí, jméno hráče a nakonec počet kol, které již odjel. Tabulka 
+  průběžného pořadí se nachází v levém horním rohu.</p>
+<h5><a name="sec5.2.2.5">Třída CNowPlaying</a></h5>
+<p>Třída <strong>CNowPlaying </strong>poskytuje informace o momentálně hrané písničce. 
+  Tyto informace se nastavují pomocí funkce <strong>SetNowPlayingText()</strong>. 
+  Jedná se o jméno písničky a název skupiny nebo zpěváka, který ji hraje. Toto 
+  info se objevuje v pravém horním rohu určitý časový interval po začátku písničky.</p>
+<h5><a name="sec5.2.2.6">Typický způsob práce s HUDem</a></h5>
+<ol>
+  <li>HUD se nahraje ze souboru pomocí funkce <strong>LoadHUD()</strong></li>
+  <li>HUD se zaregistruje v jádru HUDu pomocí funkce <strong>Register()</strong></li>
+  <li>Jednotlivé prvky HUDu se používají, nastavuje se u nich, co je potřeba</li>
+</ol>
+<p class="center"><img src="images/HUDWork.png" width="640" height="36"></p>
+<p class="center"><strong>Obrázek 5.7: Typický způsob použití HUDu</strong></p>
+<h5><a name="sec5.2.2.7">Co by se dalo zlepšit</a></h5>
+<p>Bohužel v momentální verzi HUDu není dovoleno hráči přeskupit si jednotlivé 
+  prvky HUDu podle jeho uvážení a to ani editací vstupního souboru nastavení HUDu. 
+  Vzhledem k objemu práce na projektu nebyl čas tuto vlastnost HUDu implementovat. 
+  Vyžaduje to implementaci abstraktní vrstvy do třídy <strong>CHUD</strong>, která 
+  se postará o správné provázání jednotlivých prvků HUDu a správné pořadí registrace 
+  do jádra HUDu.</p>
+  
+  <h2><a name="sec5.5">5.5 Hudba</a></h2>
+<p>Hudba podtrhuje celkový hráčův prožitek, zatahuje hráče více do hry, činí mu 
+  hraní příjemnější. S přihlédnutím, že s pomocí externích knihoven je dnes základní 
+  hudební systém poměrně snadné implementovat, rozhodli jsme se implementovat 
+  takový jednoduchý hudební systém i do naší hry. Použili jsme k tomu knihovnu 
+  FMOD Ex od společnosti Firelight Technologies, která je volně ke stažení pro 
+  nekomerční účely na <a href="www.FMOD.org">www.FMOD.org</a>.</p>
+<p>Hudební systém v naší aplikaci reprezentuje třída <strong>CSoundSystem</strong>, 
+  která je součástí klienta. </p>
+<p>Tato třída poskytuje následující možnosti:</p>
+<ol>
+  <li>Náhodné přehrávání hudby typu MP3 z předem nastaveného listu skladeb</li>
+  <li>Informace o protagonistovi a názvu právě hrané skladby</li>
+  <li>Možnost upozornění na to, že se hraje nová skladba a možnost upozornění 
+    N sekund po startu hraní dané skladby</li>
+</ol>
+<h5><a name="sec5.3.1">Náhodné přehrávání hudby typu MP3</a></h5>
+<p>Pomocí funkce <strong>SetMusicList() </strong>se nastaví seznam skladeb, které 
+  se mají v náhodném pořadí přehrávat. Poté se pomocí funkce <strong>PlayMusic() 
+  </strong>dá spustit samotné náhodné přehrávání skladeb. Pomocí funkce <strong>PauseMusic() 
+  </strong>se dá přehrávání v libovolné chvíli pozastavit či pokračovat v předem 
+  pozastaveném přehrávání hudby. Funkce <strong>Update() </strong>musí být periodicky 
+  volána, aby se zvukový záznam, který je přehrávaný stihl postupně updatovat 
+  do zvukového bufferu, z kterého se následně posílá hudba na reproduktory. Interně 
+  se o přehrávání stará knihovna FMOD Ex. Přehrává se zvukový záznam (stream). 
+  Jestliže nějakou skladbu z daného seznamu nelze přehrát, je ze seznamu hraných 
+  skladeb vyřazena. Seznam skladeb v naší aplikaci nastavuje <strong>Klient</strong> 
+  za pomocí třídy <strong>CGameInfo</strong>, která obsahuje seznam všech skladeb 
+  s příponou <strong>*.MP3</strong> v adresáři <strong>data/music </strong>a jejich 
+  podadresářích. </p>
+<h5><a name="sec5.3.2">Informace o protagonistovi a názvu hrané skladby</a></h5>
+<p>Informace o protagonistovi a názvu hrané skladby jsou k dispozici vždy k dané 
+  skladbě, která se právě hraje. Dají se získat pomocí volání funkcí <strong>GetTitle() 
+  </strong>a <strong>GetArtist()</strong>.</p>
+<h5><a name="sec5.3.3">Možnosti upozornění na událost začátku nové skladby a událost N sekund po 
+  začátku nové skladby</a></h5>
+<p>Tato možnost upozornění byla přidána zejména proto, aby bylo možné informovat 
+  hráče hrajícího hru o názvu a protagonistovi skladby.<strong> </strong>Tato 
+  možnost upozornění je implementována pomocí callback funkcí. Klient si zaregistruje 
+  dvě callback funkce. Jednu pro začátek nové skladby a druhou N sekund po začátku 
+  nové skladby. Klient pak při každém začátku nové skladby zobrazí prvek HUDu, 
+  který zobrazuje informace o protagonistovi a hrané skladbě. Po uplynutí určité 
+  doby se zavolá druhá callback funkce, kde klient zobrazené informace o skladbě 
+  zase skryje. Tím je zajištěno informování hráče o názvu a protagonistovi 
+  dané skladby. Callback funkce se registrují pomocí funkcí <strong>SetNewSongCallback()</strong> 
+  a <strong>SetNewSongSecondsCallback()</strong>.</p>
+<p class="center"><img src="images/SoundSystem.png" width="333" height="323"></p>
+<p class="center"><strong>Obrázek 5.8: Schéma propojení hudebního systému s aplikací</strong></p>
+
+
+</body>
+</html>

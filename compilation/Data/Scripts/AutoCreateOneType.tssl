@@ -1,0 +1,24 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; terrain generating script used by TerrainGenerator v1.2
+; created 23.5.2004 by Roman Margold
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+#version 1 0
+#cycleinoneblock 0
+
+var ret, size, segs, height, type
+
+height = 350
+size = 1000
+segs = 1
+type = 8
+
+
+for i,6
+{
+	
+	call settings: ret, segs.".surface", type, height, segs, segs, size, size, 1, 1
+	call generate: ret
+	segs = segs * 2
+}
+
+return ret

@@ -1,0 +1,49 @@
+Name = See-saw
+Icon = seesaw.bmp
+
+[object]
+Model = cylinder.modelDef
+static = 1
+SizeX = 1
+SizeY = 1
+PosX = 1
+PosY = 1
+X = 500
+Y = 0
+Z = 500
+Rotation.Y = 1.57
+GrassAllowed = 1
+material = 6
+
+[object]
+Model = board.modelDef
+static = 0
+mass = 1600.0
+SizeX = 3
+SizeY = 1
+PosX = 0
+PosY = 1
+X = 1530
+Y = 200
+Z = 500
+Scale.z = 2
+Rotation.Y = 1.57
+GrassAllowed = 1
+material = 1
+
+[object]
+Model = crate.modelDef
+static = 0
+mass = 50.0
+SizeX = 1
+SizeY = 1
+PosX = 2
+PosY = 1
+X = 400
+Y = 200
+Z = 400
+Scale.X = 1
+Scale.Y = 1
+Scale.Z = 1
+GrassAllowed = 1
+material = 1

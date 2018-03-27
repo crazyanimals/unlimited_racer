@@ -1,0 +1,122 @@
+<Unlimited Racer>
+<Football>
+<Solid>
+[football_asphalt.object]
+[football_asphalt_logo.object]
+[football_asphalt_logo_blue.object]
+[football_cement_logo_blue.object]
+[football_cement_logo.object]
+[football_asphalt_logo_red.object]
+[football_cement_logo_red.object]
+</Solid>
+<Transparent>
+[transparent_football_asphalt.object]
+[transparent_football_asphalt_logo.object]
+[transparent_football_asphalt_logo_blue.object]
+[transparent_football_cement_logo_blue.object]
+[transparent_football_cement_logo.object]
+[transparent_football_asphalt_logo_red.object]
+[transparent_football_cement_logo_red.object]
+</Transparent>
+</Football>
+[goalMouthNormal.object]
+<Starting positions>
+[starting_positions.object]
+</Starting positions>
+<Roads>
+[finish.object]
+<Jumpers>
+[jumper.object]
+[ramp.object]
+</Jumpers>
+<Asphalt place>
+[asphalt.object]
+[asphalt_way.object]
+[asphalt_edge_b.object]
+[asphalt_corner_lb.object]
+[asphalt_corner_rb.object]
+[asphalt_edge_l.object]
+[asphalt_edge_r.object]
+[asphalt_edge_t.object]
+[asphalt_corner_lt.object]
+[asphalt_corner_rt.object]
+[asphalt_blue.object]
+[asphalt_red.object]
+</Asphalt place>
+<Cement Ground>
+[cement_blue.object]
+[cement.object]
+[cement_line.object]
+[cement_red.object]
+</Cement Ground>
+<Crossroads>
+[road_cross.object]
+[road_Tcross.object]
+[road_Tcross_lamp.object]
+</Crossroads>
+<Road Wall>
+[road_wall_crossing.object]
+[road_wall_normal.object]
+[road_wall_ramp_long.object]
+[road_wall_ramp_short.object]
+[road_wall_tunnel.object]
+[road_wall_turning.object]
+[road_wall_turning_ramp_left.object]
+[road_wall_turning_ramp_right.object]
+</Road Wall>
+<Road with safety fence>
+[safety_fence_straight.object]
+[safety_fence_straight_start.object]
+[safety_fence_turning_2.object]
+[safety_fence_turning_3.object]
+</Road with safety fence>
+<Straight>
+[road.object]
+[panel.object]
+[road_barrel_pyramid.object]
+[road_cone.object]
+[road_lamp.object]
+</Straight>
+<Turns>
+[turning_inclined.object]
+[turning_small.object]
+[turning_small_lamp.object]
+[turning.object]
+[turning_lamp.object]
+</Turns>
+<Accessories>
+[barrel.object]
+[barrel_pyramid.object]
+[barrel_pyramid_big.object]
+[cone.object]
+[container.object]
+[container_board.object]
+[crate_pile.object]
+[crate_pyramid.object]
+[looping.object]
+[seesaw.object]
+[tunnel_bend.object]
+[tunnel_center.object]
+[tunnel_entrance.object]
+</Accessories>
+</Roads>
+<Environment>
+<Billbords>
+[billboard.object]
+[billboard_benetton1.object]
+[billboard_benetton2.object]
+[billboard_cc1.object]
+[billboard_cc2.object]
+[billboard_cc3.object]
+[billboard_marlboro1.object]
+[billboard_marlboro2.object]
+[billboard_marlboro3.object]
+[billboard_marlboro4.object]
+[billboard_newton.object]
+[billboard_vermeer.object]
+</Billbords>
+<Inanimate>
+[lamp.object]
+</Inanimate>
+</Environment>
+</Unlimited Racer>

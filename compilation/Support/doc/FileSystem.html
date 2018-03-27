@@ -1,0 +1,5004 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+	<link type="text/css" href="mainstyles.css" rel="stylesheet">
+</head>
+
+
+<body>
+
+<h1>Souborový systém</h1>
+
+<h2>úvod</h2>
+
+<p>Souborový systém obsahuje data,
+která se načítají v Unlimited raceru.
+Zde se nachází popis jednotlivých typů
+souborů.</p>
+
+<h2>Struktura souborového systému</h2>
+
+<p>Souborový systém
+začíná
+adresářem, kde je umístěný
+samotný
+UnlimitedRacer.exe a LimitedEditor.exe. Dále je
+souborový
+systém rozdělen podle
+následujícího stromu:</p>
+
+<ul>
+
+  <li><a href="#BestResults.dat">BestResults.dat</a></li>
+
+  <li><a href="#KeyBinding.cfg">KeyBinding.cfg</a></li>
+
+  <li><a href="#Options.cfg">options.cfg</a></li>
+
+  <li>\Data
+    <ul>
+
+      <li>\Dialogs
+        <ul>
+
+          <li><a href="#DlgDecl">*.dlgDecl</a></li>
+
+          <li><a href="#DlgDef">*.dlgDef</a></li>
+
+          <li><a href="#Cur">*.cur</a></li>
+
+        </ul>
+
+      </li>
+
+      <li>\Editor
+        <ul>
+
+          <li><a href="#Objects.tree">objects.tree</a></li>
+
+        </ul>
+
+\ Font
+        <ul>
+
+          <li><a href="#Font">*.font</a></li>
+
+        </ul>
+
+      </li>
+
+      <li>\HUD
+        <ul>
+
+          <li><a href="#HUD">*.HUD</a></li>
+
+        </ul>
+
+      </li>
+
+      <li>\Lights
+        <ul>
+
+          <li><a href="#Light">*.light</a></li>
+
+        </ul>
+
+      </li>
+
+      <li>\LODDefinitions
+        <ul>
+
+          <li><a href="#Lodmap">*.lodmap</a></li>
+
+        </ul>
+
+      </li>
+
+      <li>\Maps
+        <ul>
+
+          <li><a href="#Urmap">*.urmap</a></li>
+
+          <li><a href="#Terrain">*.terrain</a></li>
+
+        </ul>
+
+      </li>
+
+      <li>\Models
+        <ul>
+
+          <li><a href="#x">*.x</a></li>
+
+          <li><a href="#Modeldef">*.modelDef</a></li>
+
+          <li><a href="#Grass">*.grass</a></li>
+
+          <li><a href="#Shrub">*.shrub</a></li>
+
+        </ul>
+
+      </li>
+
+      <li>\Music
+        <ul>
+
+          <li><a href="#Mp3">*.mp3</a></li>
+
+        </ul>
+
+      </li>
+
+      <li>\Objects
+        <ul>
+
+          <li><a href="#Object">*.object</a></li>
+
+          <li><a href="#Car">*.car</a></li>
+
+        </ul>
+
+      </li>
+
+      <li>\Physics
+        <ul>
+
+          <li><a href="#PhTexture">*.phTexture</a></li>
+
+          <li><a href="#materials">materials</a></li>
+
+        </ul>
+
+      </li>
+
+      <li>\Shaders
+        <ul>
+
+          <li><a href="#Sh">*.sh</a></li>
+
+        </ul>
+
+      </li>
+
+      <li>\SkySystem
+        <ul>
+
+          <li><a href="#Sk">*.sk</a></li>
+
+        </ul>
+
+      </li>
+
+      <li>\Terrains
+        <ul>
+
+          <li>\Type*
+            <ul>
+
+              <li><a href="#Surface">*.surface</a></li>
+
+              <li><a href="#Normal.GrPlate">normal.grPlate</a></li>
+
+            </ul>
+
+          </li>
+
+        </ul>
+
+\Textures</li>
+
+      <li>\TextureSet
+        <ul>
+
+          <li><a href="#Textset">*.textset</a></li>
+
+        </ul>
+
+      </li>
+
+    </ul>
+
+  </li>
+
+</ul>
+
+<h2><a name="BestResults.dat">8.2 Soubor BestResults.dat</a></h2>
+
+<p>Soubor BestResults.dat uchovává
+nejlepší výsledky závodů.</p>
+
+<p><strong>Struktura souboru:</strong></p>
+
+<p>Řádkově orientovaný soubor. Co tučně
+napsaný řádek, to řádek v souboru.</p>
+
+<p>BestResutls.dat<br>
+
+<strong>Počet záznámů map</strong><br>
+
+[následují záznamy mapy]</p>
+
+<p>Pro každý záznam mapy:<br>
+
+<strong> Jméno mapy</strong><br>
+
+<strong> Jméno hráče s
+nejrychlejším časem na kolo<br>
+
+Čas nejrychlejšího kola v milisekundách<br>
+
+Počet záznamů závodů na kola<br>
+
+</strong>[následují záznamy
+závodů na kola]</p>
+
+<p>Pro každý záznam závodu na
+kola:<br>
+
+<strong>Počet kol závodu</strong><br>
+
+<strong>Jméno hráče s
+nejrychlejším celkovým časem<br>
+
+Nejrychlejší celkový čas v
+milisekundách</strong></p>
+
+<h2><a name="KeyBinding.cfg">8.3 Soubor KeyBinding.cfg</a></h2>
+
+<p>Soubor KeyBinding.cfg uchovává
+nastavení kláves.</p>
+
+<p><strong>Struktura souboru:</strong></p>
+
+<p>Řádkově orientovaný
+konfigurační soubor</p>
+
+<p>Možný obsah řádku:</p>
+
+<ol>
+
+  <li><strong>Klíč = hodnota </strong>-
+klíč a k němu přiřazená hodnota</li>
+
+  <li>; <strong>-</strong> komentář
+následující za středníkem</li>
+
+</ol>
+
+<p><strong>Seznam klíčů</strong>:</p>
+
+<p><strong>KeyForward </strong> <strong>= ; </strong>Klávesa
+pro pohyb kamery dopředu<br>
+
+<strong>KeyBackward </strong>= ; Klávesa pro
+pohyb kamery dozadu<br>
+
+<strong>KeyMoveLeft = ; </strong>Klávesa pro
+pohyb kamery do strany vlevo<br>
+
+<strong>KeyMoveRight = ; </strong>Klávesa pro
+pohyb kamery do strany vpravo<br>
+
+<strong>KeyTurnLeft = ; </strong>Klávesa pro
+otočení kamery vlevo<br>
+
+<strong>KeyTurnRight = ;</strong> Klávesa pro
+otočení kamery vpravo<br>
+
+<strong>KeyTurnUp = ;</strong> Klávesa pro
+otočení kamery nahoru<br>
+
+<strong>KeyTurnDown = ; </strong>Klávesa pro
+otočení kamery dolu<br>
+
+<strong>KeyMenu = ;</strong> Klávesa na
+vyvolání menu<br>
+
+<strong>KeyAccelerate = ;</strong> Klávesa pro
+přidání rychlosti u auta<br>
+
+<strong>KeyDecelerate = ; </strong>Klávesa pro
+brždění u auta<br>
+
+<strong>KeySteerLeft = ; </strong>Klávesa pro
+zatáčení vlevo u auta<br>
+
+<strong>KeySteerRight = ;</strong> Klávesa pro
+zatáčení vpravo u auta<br>
+
+<strong>KeyBrake = ; </strong>Klávesa pro
+ruční brzdu u auta<br>
+
+<strong>KeyShiftUp = ; </strong>Klávesa pro
+zařazení vyššího
+rychlostního stupně u auta<br>
+
+<strong>KeyShiftDown</strong> = ; Klávesa pro
+zařazení nižšího
+rychlostního stupně u auta<br>
+
+<strong>KeyChangeView </strong>= ; Klávesa pro
+změnu pohledu kamery<br>
+
+<strong>KeyDriverView </strong>= ; Klávesa pro
+změnu pohledu kamery na pohled řidiče<br>
+
+<strong>KeyRestart = ;</strong> Klávesa pro
+restartování pozice auta<br>
+
+<strong>KeyPause</strong> = ; Klávesa na
+pauznutí hry</p>
+
+<p><strong>Seznam možných hodnot:</strong></p>
+
+<p><strong>a - z, A - Z -</strong> Velká a
+malá písmena se nerozlišují<br>
+
+<strong>0 - 9 </strong>- číslice<strong><br>
+
+</strong><strong>NUMPAD0 - NUMPAD9 </strong>-
+číslice na numerické klávesnici<br>
+
+<strong>NUMPAD*, NUMPAD</strong>+<strong>, NUMPAD-,
+NUMPAD/, NUMPAD.</strong> - matematické operace na
+numerické klávesnici<br>
+
+<strong>F1 - F9 </strong>- klávesy F*<br>
+
+<strong>SPACE </strong>- mezera<br>
+
+<strong>DOWN ARROW, LEFT ARROW, RIGHT ARROW, UP ARROW </strong>-
+šipky<br>
+
+<strong>INSERT, DELETE, HOME, END, PAGE UP, PAGE DOWN - </strong>vložit,
+smazat, domů (na začátek), na konec, stránka
+nahoru, stránka dolu</p>
+
+<h2><a name="Options.cfg">8.4 Soubor Options.cfg</a></h2>
+
+<p>Soubor Options.cfg obsahuje nastavení aplikace. </p>
+
+<p><strong>Struktura souboru:</strong></p>
+
+<p>Řádkově orientovaný
+konfigurační soubor</p>
+
+<p>Možný obsah řádku:</p>
+
+<ol>
+
+  <li><strong>Klíč = hodnota </strong>-
+klič a k němu přiřazená hodnota</li>
+
+  <li><strong>[Blok] -</strong> blok
+konfiguračního souboru</li>
+
+  <li>; - komentář za středníkem</li>
+
+</ol>
+
+<p><strong>Seznam klíčů podle bloků:</strong></p>
+
+<p><strong>[ScreenResolution] </strong>; Blok
+rozlišení obrazovky<br>
+
+<strong>WindowWidth </strong>= <strong>; </strong>Horizontální
+rozlišení obrazovky,
+číselná hodnota v pixelech<br>
+
+<strong>WindowHeight = ;</strong>
+Vertikální rozlišení
+obrazovky, číselná hodnota v pixelech<br>
+
+<strong>ColorDepth = ; </strong>Barevné
+rozlišení, 16 nebo 32 (v bitech)<br>
+
+<strong>FullScreen = ; </strong>Renderovat na celou
+obrazovku, 0 - ne, 1 - ano</p>
+
+<p><strong>[RenderingSetting] ;</strong> Blok
+nastavení renderování<br>
+
+<strong>RenderStaticObjects = ; </strong>Renderovat
+statické objekty, 0 - ne, 1 - ano<br>
+
+<strong>RenderDynamicObjects = ; </strong>Renderovat
+dynamické objekty, 0 - ne, 1 - ano<br>
+
+<strong>RenderTerrain = ; </strong>Renderovat
+terén, 0 - ne, 1 - ano<br>
+
+<strong>MapDependentRendering = ; </strong>Renderování
+závislé na pozici v mapě - musí
+být 1<br>
+
+<strong>RenderDirectionalLight = ;</strong> Renderovat
+světlo od slunce, 0 - ne, 1 - ano<br>
+
+<strong>RenderAmbientLight = ; </strong>Renderovat
+globální světlo ve scéně, 0 - ne, 1 -
+ano<br>
+
+<strong>DynamicLights = ; </strong>Dynamická
+světla, 0 - ne, 1 - ano<br>
+
+<strong>RenderLightGlows = ;</strong> Renderovat billboardy
+nahrazující efekty světla, 0 - ne, 1 - ano<br>
+
+<strong>RenderSky = ; </strong>Renderovat oblohu, 0 - ne,
+1 - ano<br>
+
+<strong>RenderFarObjects = ; </strong>Renderovat
+vzdálené objekty, 0 - ne, 1 - ano<br>
+
+<strong>RenderHUD = ; </strong>Renderovat HUD (Head-up
+display), 0 - ne, 1 - ano<br>
+
+<strong>RenderGrass = ; </strong>Renderovat
+trávu, 0 - ne, 1 - ano<br>
+
+<strong>ShowFPS = ; </strong>Ukazovat počet
+renderovaných snímků za sekundu, 0 - ne, 1 - ano<br>
+
+<strong>ShowDebugMessages = ; </strong>Ukazovat
+ladící hlášky, 0 - ne, 1 -
+ano<br>
+
+<strong>WireFrameMode = ;</strong>
+Renderování v drátěném
+módu, 0 - ne, 1 - ano<br>
+
+<strong>RenderBoundingEnvelopes = ; </strong>Renderovat
+obálky objektů, 0 - ne, 1 - ano<br>
+
+<strong>GammaFactor</strong> = ; Hodnota gamma korekce,
+číselná hodnota s desetinnou čárkou,
+standardně 1<br>
+
+<strong>WaitVSync </strong>= ; Čekat na
+vertikální synchronizaci s monitorem, 0 - ne, 1 -
+ano<br>
+
+<strong>ShadowComplexity = ; </strong>Složitost
+stínů, 0 - žádné stíny, 2 -
+stíny, ostatní hodnoty nepoužity<br>
+
+<strong>GrassComplexity = ;</strong> Složitost
+tráva, číselná hodnota 0
+(nejnižší) - 4
+(nejvyšší) <br>
+
+<strong>ModelComplexity = ; </strong>Složitost objektů,
+číselná hodnota 0
+(nejnižší) - 4
+(nejvyšší)<br>
+
+<strong>LOD0TerrainTexWidth = </strong>;
+šířka textury pro terén
+celé mapy, celočíselná hodnota - 256,
+512, 1024, 2048<br>
+
+<strong>LOD0TerrainTexHeight = ;</strong>
+Výška textury pro terén mapy,
+celočíselná hodnota - 256, 512, 1024, 2048<br>
+
+<strong>AnisotropicFiltering = ; </strong>Filtrování
+vzdálených textur, číselná
+hodnota 0 - vypnuto, 1 - 16 různě stupně<br>
+
+<strong>Antialiasing = ;</strong>
+Vyhlazování obrazu, 0 - ne, 1 - ano<br>
+
+<strong>MultiSampleQuality = ; </strong>Kvalita
+vyhlazování obrazu, pokud je zapnuto, 0 - 3<br>
+
+<strong>CarPerPixelLight = ;</strong> Per pixel
+osvětlení auta, 0 - ne, 1 - ano</p>
+
+<p><strong>[GUI] ; </strong>Blok
+nastavení grafického uživatelského
+rozhranní<br>
+
+<strong>FontSize = </strong>; velikost fontu, v bodech (pt)<br>
+
+<strong>DebugFontSize = ;</strong> velikost fontu pro
+debugové hlášky, v bodech (pt)<br>
+
+<strong>FontColor = ; </strong>Barva fontu,
+hexadecimální číslo ve
+formátu: 0xAARRGGRR, kde AA je průhlednost, RR je
+červená složka barvy, GG je zelená složka barvy,
+BB je modrá složka barvy<br>
+
+<strong>DebugFontColor = ;</strong> Barva fontu pro
+debugové hlášky,
+hexadecimální číslo viz. FontColor<br>
+
+<strong>FontName = ; </strong>Název fontu, text<br>
+
+<strong>DebugFontName = ;</strong> Název fontu
+pro debugové hlášky, text</p>
+
+<p><strong>[OtherStuff] ; </strong>Blok
+ostatních nastavení<br>
+
+<strong>DebugLevel = ;</strong> úroveň
+výpisu debugovacích hlášek
+do souboru DebugOutput.log, 0 - vypnuto, 1
+(nejmenší) - 4 (největší)<br>
+
+<strong>PlayerName = ; </strong>Defaultní
+jméno hráče, text<br>
+
+<strong>Opponent1Car = ; </strong>Jméno souboru
+s autem 1. oponenta, text<br>
+
+<strong>Opponent2Car = ; </strong>Jméno souboru
+s autem 2. oponenta, text<br>
+
+<strong>Opponent3</strong><strong>Car = ; </strong>Jméno
+souboru s autem 3. oponenta, text<br>
+
+<strong>Opponent4Car = ; </strong>Jméno souboru
+s autem 4. oponenta, text<br>
+
+<strong>Opponent5Car = ; </strong>Jméno souboru
+s autem 5. oponenta, text<br>
+
+<strong>Opponent6Car = ; </strong>Jméno souboru
+s autem 6. oponenta, text <br>
+
+<strong>Opponent7Car = ; </strong>Jméno souboru
+s autem 7. oponenta, text </p>
+
+<p><strong>[Paths]</strong> ; Blok cest k souborům<br>
+
+<strong>DataPath= ;</strong> Cesta k hlavnímu
+datovému adresáři, text<br>
+
+<strong>NoRelativePaths = ; </strong>Jestliže je 1
+všechny cesty jsou absolutní, jinak pro
+nastavení 0 jsou relativní k DataPath<br>
+
+<strong>TexturesPath = ;</strong> Cesta k
+adresáři s texturami, text<br>
+
+<strong>SpritesPath = ; </strong>Cesta k
+adresáři se sprity, text<br>
+
+<strong>ModelsPath = ;</strong> Cesta k adresáři
+s modely, text<br>
+
+<strong>TerrainsPath = ; </strong>Cesta k
+adresáři s terény, text<br>
+
+<strong>DialogsPath = ;</strong> Cesta k
+adresáři s definicí dialogů, text<br>
+
+<strong>FontsPath = ;</strong> Cesta k adresáři
+s fonty, text<br>
+
+<strong>CursorsPath = ; </strong>Cesta k
+adresáři s definicí kurzoru, text<br>
+
+<strong>LODDefinitionsPath = ; </strong>Cesta k
+adresáři se soubory definujícími
+úroveň detailu, text<br>
+
+<strong>ShadersPath = ; </strong>Cesta k
+adresáři s programy pro grafickou kartu, text<br>
+
+<strong>MapsPath = ; </strong>Cesta k adresáři
+s mapamy, text<br>
+
+<strong>ObjectsPath = ; </strong>Cesta k
+adresáři s objekty, text<br>
+
+<strong>PhTexturesPath = ;</strong> Cesta k
+adresáři s fyzikálními texturami
+povrchu, text<br>
+
+<strong>LightsPath = ;</strong> Cesta k adresáři
+s definicí světel, text<br>
+
+<strong>EditorPath = ;</strong> Cesta k adresáři
+se soubory k editoru map, text<br>
+
+<strong>DemosPath = ; </strong>Cesta k adresáři
+s demy, text<br>
+
+<strong>SkySystemPath = ; </strong>Cesta k
+adresáři s definicí oblohy, text<br>
+
+<strong>HUDPath = ; </strong>Cesta k adresáři s
+definicí head-up displaye, text<br>
+
+<strong>MusicPath = ; </strong>Cesta k adresáři
+s hudbou, text<br>
+
+<strong>TextureSetPath = ; </strong>Cesta k
+adresáři se texturovými kolekcemi, text</p>
+
+<p><strong>[HUD] ; </strong>Blok s
+nastavením HUDu (Head-up displaye)<br>
+
+<strong>HUD = ; </strong>Soubor
+mající v sobě nastavení Head-up
+displaye, text</p>
+
+<p><strong>[Sound] ; </strong>Blok s
+nastavením zvuku<br>
+
+<strong>MusicVolume = ; </strong>Nastavení
+hlasitosti hudby, číselná hodnota s desetinnou
+čárkou od 0 (vypnuto) až po 1
+(maximální hlasitost)</p>
+
+<p><strong>[Physics] ;</strong> Blok
+nastavení fyziky<br>
+
+<strong>SolverModel = ; </strong>přesnost
+výpočtu fyziky, 0 - přesný výpočet, 1
+- adaptivní přesnost, 2 a více -
+postupné zlepšování
+přesnosti, n průchodů podle zadaného čísla<strong><br>
+
+FrictionModel = ;</strong> model tření, 0 -
+přesný výpočet, 1 - adaptivní přesnost</p>
+
+<p><strong>[Network] ; </strong>Blok
+síťového připojení<br>
+
+<strong>NtPort = ;</strong> port
+síťové komunikace, číslo od 1025 do
+65535<br>
+
+<strong>NtBroadPort = ; </strong>port komunikace po
+broadcastu, číslo od 1025 do 65535<br>
+
+</p>
+
+<p><strong>[AI] ; </strong> Blok nastavení AI<br>
+
+<strong>UpdateTimeClip = ; </strong> Pokud je update time větší než tato hodnota, ořízni ji. Číslo - počet sekund.<br>
+<strong>CarMaxSpeed = ; </strong> Defaultní maximální rychlost automobilu. Číslo - rychlost v m/s<br>
+<strong>CarSpeedTreshold = ; </strong> Pokud se auto pohybuje rychlostí menší než CarSpeedTreshold * CarMaxSpeed, automaticky jede dopředu a zrychluje. Číslo.<br>
+<strong>CarSpeedChangeProbability = ; </strong> Pravděpodobnost změny maximální rychlosti během updatu AI. Číslo 0.0 - 1.0<br>
+<strong>CarSpeedChange		= ; </strong> Velikost změny maximální rychlosti. 0.3 znamená změnu na 0.7 - 1.3 násobek původní maximální rychlosti.<br>
+<strong>MassAvoidanceCoef		= ; </strong> AI ignoruje kolize s objekty které mají MassAvoidanceCoef-krát menší hmostnost než autmobil. Číslo.<br>
+<strong>LeadTime				= ; </strong> Kolik sekund dopředu má AI predikovat jízdu po trati & kolize. Číslo, doporučená hodnota 0.5 - 2.0<br>
+<strong>CarTimeBeforeRestart	= ; </strong> Pokud se autmobil nepohne během "CarTimeBeforeRestart" sekund po trati o "CarTrackProgress" metrů, restartuje se. Číslo - počet sekund.<br>
+<strong>CarTrackProgress		= ; </strong> Viz CarTimeBeforeRestart<br>
+<strong>LeakThrough		    	= ; </strong> Pravděpodobnost použití ObstacleAvoidance místo PathFollowing při updatu. Číslo 0.0 - 1.0<br>
+<strong>DistanceTolerance		= ; </strong> Jak daleko může jet AI od waypointů, aby je stále mohla považovat za úspěšně projeté? Číslo - počet metrů.<br>
+<strong>MaxWaypointsMissed		= ; </strong> Kolik waypointů může AI přeskočit během jednoho updatu. Číslo - doporučená hodnota < 3.<br>
+<strong>MapToPathLocalDistance	= ; </strong> Jak daleko od posledně navštíveného waypointu hledáme nejbližší bod na trati od predikované pozice auta? Číslo - počet metrech. Vysoké hodnoty mohou způsobit zkracování trati, malé naopak špatné zatáčení.<br>
+<strong>DefaultRadius 			= ; </strong> Defaultní poloměr koule používané pro aproximaci obejktů. Číslo - počet metrech.<br>
+
+</p>
+
+<h2><a name="DlgDecl">Soubor typu *.DlgDecl</a></h2>
+
+<p>Soubot typu *.DlgDecl obsahuje nastavení
+oblastí obrázku, které se pak
+používají v jednotlivých
+částech nebo stavech ovládacích prvků.</p>
+
+<p><strong>Struktura souboru:</strong></p>
+
+<p>Řádkově orientovaný
+konfigurační soubor. Každý řádek může
+obsahovat:</p>
+
+<ol>
+
+  <li><strong>&lt;začátek objektu&gt;
+&lt;/konec objektu&gt;</strong> - konec a
+začátek objektu, každý objekt může být
+použit pouze jednou</li>
+
+  <li><strong>klíč objektu </strong>= <strong>hodnota
+    </strong>- klíč objektu a jeho hodnota,
+každý klíč objektu může být použit
+pouze jednou</li>
+
+  <li> ; - komentář
+následující za středníkem</li>
+
+</ol>
+
+<p><strong>Seznam objektů a jejich klíčů:</strong></p>
+
+<ul>
+
+  <li><strong>&lt;Dialog&gt;</strong> ;
+objekt dialogu
+    <ul>
+
+      <li><strong>Dialog.Background.X = ;</strong>
+Souřadnice X obdelníku vymezujícího
+texturu pozadí pro dialog, v pixelech<br>
+
+        <strong>Dialog.Background.Y = ;</strong> Souřadnice
+Y obdelníku vymezujícího texturu
+pozadí pro dialog, v pixelech<br>
+
+        <strong>Dialog.Background.Width = ;</strong>
+šířka obdelníku
+vymezujícího texturu pozadí pro
+dialog, v pixelech<br>
+
+        <strong>Dialog.Background.Height = ;</strong>
+Výška obdelníku
+vymezujícího texture pozadí pro
+dialog, v pixelech<br>
+
+        <br>
+
+        <strong>&lt;Image</strong><strong>&gt;</strong>
+        <ul>
+
+          <li><strong>Image.Background.X = ;</strong>
+Souřadnice X obdelníku vymezujícího
+texturu pozadí pro ovládací prvek
+Image, v pixelech</li>
+
+          <li><strong>Image.Background.Y = ;</strong>
+Souřadnice Y obdelníku vymezujícího
+texturu pozadí pro ovládací prvek
+Image, v pixelech</li>
+
+          <li><strong>Image.Background.Width = ;</strong>
+šířka obdelníku
+vymezujícího texturu pozadí pro
+ovládací prvek Image, v pixelech<br>
+
+            <strong>Image.Background.Height = ;</strong>
+Výška obdelníku
+vymezujícího texture pozadí pro
+ovládací prvek Image, v pixelech</li>
+
+        </ul>
+
+      </li>
+
+      <li><strong>&lt;/Image&gt;</strong> </li>
+
+      <li><br>
+
+        <strong>&lt;ToolTip&gt;</strong>
+        <ul>
+
+          <li><strong>ToolTip.TopLeft.X = ;</strong>
+Souřadnice X obdelníku vymezujícího
+texturu levého horního rohu
+ovládacího prvku ToolTip, v pixelech</li>
+
+          <li><strong>ToolTip.TopLeft.Y = ;</strong>
+Souřadnice Y obdelníku vymezujícího
+texturu levého horního rohu
+ovládacího prvku ToolTip, v pixelech</li>
+
+          <li><strong>ToolTip.TopLeft.Width = ;</strong>
+šířka obdelníku
+vymezujícího texturu levého
+horního rohu ovládacího prvku ToolTip,
+v pixelech</li>
+
+          <li><strong>ToolTip.TopLeft.Height = ;</strong>
+Výška obdelníku
+vymezujícího texturu levého
+horního rohu ovládacího prvku ToolTip,
+v pixelech<br>
+
+            <strong>ToolTip.TopRight.X = ;</strong>
+Souřadnice X obdelníku vymezujícího
+texturu pravého horního rohu
+ovládacího prvku ToolTip, v pixelech<br>
+
+            <strong>ToopTip.TopRight.Y = ; </strong>Souřadnice
+Y obdelníku vymezujícího texturu
+pravého horního rohu
+ovládacího prvku ToolTip, v pixelech<br>
+
+            <strong>ToolTip.TopRight.Width = ; </strong>šířka
+obdelníku vymezujícího texturu
+pravého horního rohu
+ovládacího prvku ToolTip, v pixelech<br>
+
+            <strong>ToolTip.TopRight.Height = ; </strong>Výška
+obdelníku vymezujícího texturu
+pravého horního rohu
+ovládacího prvku ToolTip, v pixelech<br>
+
+            <strong>ToolTip.BottomLeft.X = ;</strong>
+Souřadnice X obdelníku vymezujícího
+texturu levého dolního rohu
+ovládacího prvku ToolTip, v pixelech<br>
+
+            <strong>ToolTip.BottomLeft.Y = ;</strong>
+Souřadnice Y obdelníku vymezujícího
+texturu levého dolního rohu
+ovládacího prvku ToolTip, v pixelech<br>
+
+            <strong>ToolTip.BottomLeft.Width = ;</strong>
+šířka obdelníku
+vymezujícího texturu levého
+dolního rohu ovládacího prvku ToolTip,
+v pixelech<br>
+
+            <strong>ToolTip.BottomLeft.Height = ;</strong>
+Výška obdelníku
+vymezujícího texturu levého
+dolního rohu ovládacího prvku ToolTip,
+v pixelech<br>
+
+            <strong>ToolTip.BottomRight.X = ;</strong>
+Souřadnice X obdelníku vymezujícího
+texturu pravého dolního rohu
+ovládacího prvku ToolTip, v pixelech<br>
+
+            <strong>ToopTip.BottomRight.Y = ;</strong>
+Souřadnice Y obdelníku vymezujícího
+texturu pravého dolního rohu
+ovládacího prvku ToolTip, v pixelech<br>
+
+            <strong>ToolTip.BottomRight.Width = ;</strong>
+šířka obdelníku
+vymezujícího texturu pravého
+dolního rohu ovládacího prvku ToolTip,
+v pixelech<br>
+
+            <strong>ToolTip.BottomRight.Height = ;</strong>
+Výška obdelníku
+vymezujícího texturu pravého
+dolního rohu ovládacího prvku ToolTip,
+v pixelech<br>
+
+            <strong>ToolTip.HorizLine.X = ;</strong>
+Souřadnice X obdelníku vymezujícího
+texturu horizontálních okrajů
+ovládacího prvku ToolTip, v pixelech<br>
+
+            <strong>ToolTip.HorizLine.Y = ;</strong>
+Souřadnice Y obdelníku vymezujícího
+texturu horizontálních okrajů
+ovládacího prvku ToolTip, v pixelech<br>
+
+            <strong>ToolTip.HorizLine.Width = ;</strong>
+šířka obdelníku
+vymezujícího texturu
+horizontálních okrajů
+ovládacího prvku ToolTip, v pixelech<br>
+
+            <strong>ToopTip.HorizLine.Height = ;</strong>
+Výška obdelníku
+vymezujícího texturu
+horizontálních okrajů
+ovládacího prvku ToolTip, v pixelech<br>
+
+            <strong>ToolTip.VertLine.X = ;</strong>
+Souřadnice X obdelníku vymezujícího
+texturu vertikálních okrajů
+ovládacího prvku ToolTip, v pixelech<br>
+
+            <strong>ToolTip.VertLine.Y = ; </strong>Souřadnice
+Y obdelníku vymezujícího texturu
+vertikálních okrajů
+ovládacího prvku ToolTip, v pixelech<br>
+
+            <strong>ToolTip.VertLine.Width = ;</strong>
+šířka obdelníku
+vymezujícího texturu
+vertikálních okrajů
+ovládacího prvku ToolTip, v pixelech<br>
+
+            <strong>ToolTip.VertLine.Height = ;</strong>
+Výška obdelníku
+vymezujícího texturu
+vertikálních okrajů
+ovládacího prvku ToolTip, v pixelech<br>
+
+            <strong>ToolTip.Background.X = ;</strong>
+Souřadnice X obdelníku vymezujícího
+texturu pozadí ovládacího prvku
+ToolTip, v pixelech<br>
+
+            <strong>ToolTip.Background.Y = ;</strong> <strong>
+            </strong>Souřadnice Y obdelníku
+vymezujícího texturu pozadí
+ovládacího prvku ToolTip, v pixelech<br>
+
+            <strong> ToolTip.Background.Width = ; </strong>šířka
+obdelníku vymezujícího texturu
+pozadí okrajů ovládacího prvku
+ToolTip, v pixelech<strong><br>
+
+ToolTip.Background.Height = ;</strong>
+Výška obdelníku
+vymezujícího texturu pozadí okrajů
+ovládacího prvku ToolTip, v pixelech</li>
+
+        </ul>
+
+      </li>
+
+      <li><strong>&lt;/ToolTip&gt;</strong> </li>
+
+      <li><strong><br>
+
+&lt;Button&gt;</strong>
+        <ul>
+
+          <li><strong>Button.Up.X = ;</strong>
+Souřadnice X obdelníku vymezujícího
+texturu stavu nahoře ovládacího prvku Button, v
+pixelech<br>
+
+            <strong>Button.Up.Y = ;</strong> Souřadnice Y
+obdelníku vymezujícího texturu stavu
+nahoře ovládacího prvku Button, v pixelech<br>
+
+            <strong>Button.Up.Width = ;</strong>
+šířka
+obdelníku vymezujícího texturu stavu
+nahoře
+ovládacího prvku Button, v pixelech<br>
+
+            <strong>Button.Up.Height = ;</strong>
+Výška
+obdelníku vymezujícího texturu stavu
+nahoře
+ovládacího prvku Button, v pixelech<strong><br>
+
+Button.Down.X = ;</strong>&nbsp;Souřadnice X
+obdelníku
+vymezujícího texturu stavu dole
+ovládacího
+prvku Button, v pixelech<br>
+
+            <strong>Button.Down.Y = ;</strong>&nbsp;Souřadnice
+Y
+obdelníku vymezujícího texturu stavu
+dole
+ovládacího prvku Button, v pixelech<br>
+
+            <strong>Button.Down.Width = ;</strong>&nbsp;šířka
+obdelníku vymezujícího texturu stavu
+dole
+ovládacího prvku Button, v pixelech<br>
+
+            <strong>Button.Down.Height = ;</strong>&nbsp;Výška
+obdelníku vymezujícího texturu stavu
+dole
+ovládacího prvku Button, v pixelech<strong><br>
+
+            </strong></li>
+
+        </ul>
+
+      </li>
+
+      <li><strong>&lt;/Button&gt;</strong></li>
+
+      <li><br>
+
+        <strong>&lt;CheckBox&gt;</strong>
+        <ul>
+
+          <li> <strong>CheckBox.Unchecked.X = ;</strong>&nbsp;Souřadnice
+X obdelníku vymezujícího texturu stavu
+nezaškrtnuto ovládacího prvku
+CheckBox, v pixelech<br>
+
+            <strong>CheckBox.Unchecked.Y = ;&nbsp;</strong>Souřadnice
+Y obdelníku vymezujícího texturu stavu
+nezaškrtnuto ovládacího prvku
+CheckBox, v pixelech<br>
+
+            <strong>CheckBox.Unchecked.Width = ;</strong>
+šířka obdelníku
+vymezujícího texturu
+stavu nezaškrtnuto ovládacího prvku
+CheckBox, v
+pixelech<br>
+
+            <strong>CheckBox.Unchecked.Height = ;</strong>
+Výška obdelníku
+vymezujícího texturu
+stavu nezaškrtnuto ovládacího prvku
+CheckBox, v
+pixelech<br>
+
+            <strong>CheckBox.Checked.X = ;</strong>&nbsp;Souřadnice
+X
+obdelníku vymezujícího texturu
+stavu&nbsp;zaškrtnuto ovládacího
+prvku CheckBox, v
+pixelech<br>
+
+            <strong>CheckBox.Checked.Y = ;&nbsp;</strong>Souřadnice
+Y obdelníku vymezujícího texturu
+stavu&nbsp;zaškrtnuto ovládacího
+prvku CheckBox, v
+pixelech<br>
+
+            <strong>CheckBox.Checked.Width = ;</strong>&nbsp;šířka
+obdelníku vymezujícího texturu
+stavu&nbsp;zaškrtnuto ovládacího
+prvku CheckBox, v
+pixelech<br>
+
+            <strong>CheckBox.Checked.Height = ;</strong>&nbsp;Výška
+obdelníku vymezujícího texturu
+stavu&nbsp;zaškrtnuto ovládacího
+prvku CheckBox, v
+pixelech </li>
+
+        </ul>
+
+      </li>
+
+      <li><strong>&lt;/CheckBox&gt;</strong></li>
+
+      <li><br>
+
+        <strong>&lt;TrackBar&gt;</strong>
+        <ul>
+
+          <li><strong>TrackBar.Track.X = ;</strong>&nbsp;Souřadnice
+X
+obdelníku vymezujícího texturu
+dráhy pro
+posuvník ovládacího prvku TrackBar, v
+pixelech<br>
+
+            <strong>TrackBar.Track.Y = ;</strong>&nbsp;Souřadnice
+Y
+obdelníku vymezujícího texturu
+dráhy pro
+posuvník ovládacího prvku TrackBar, v
+pixelech<br>
+
+            <strong>TrackBar.Track.Width = ;</strong>
+šířka obdelníku
+vymezujícího texturu
+dráhy pro posuvník
+ovládacího prvku
+TrackBar, v pixelech<br>
+
+            <strong>TrackBar.Track.Height = ;</strong>
+Výška obdelníku
+vymezujícího texturu
+dráhy pro posuvník
+ovládacího prvku
+TrackBar, v pixelech<br>
+
+            <strong>TrackBar.Slider.X = ; </strong>Souřadnice
+X
+obdelníku vymezujícího texturu
+posuvníku
+ovládacího prvku TrackBar, v pixelech<br>
+
+            <strong>TrackBar.Slider.Y = ;&nbsp;</strong>Souřadnice
+Y obdelníku vymezujícího texturu
+posuvníku
+ovládacího prvku TrackBar, v pixelech<br>
+
+            <strong>TrackBar.Slider.Width = ;</strong>&nbsp;šířka
+obdelníku vymezujícího texturu
+posuvníku
+ovládacího prvku TrackBar, v pixelech<br>
+
+            <strong>TrackBar.Slider.Height = ;</strong>
+Výška
+obdelníku vymezujícího texturu
+posuvníku
+ovládacího prvku TrackBar, v pixelech<br>
+
+          </li>
+
+        </ul>
+
+      </li>
+
+      <li><strong>&lt;/TrackBar&gt;</strong></li>
+
+      <li><br>
+
+        <strong>&lt;RadioButton&gt;</strong>
+        <ul>
+
+          <li><strong>RadioButton.Unselected.X = ;</strong>&nbsp;Souřadnice
+X obdelníku vymezujícího texturu stavu
+nevybráno ovládacího prvku
+RadioButton, v pixelech<br>
+
+            <strong>RadioButton.Unselected.Y = ;</strong>&nbsp;Souřadnice
+Y obdelníku vymezujícího texturu stavu
+nevybráno ovládacího prvku
+RadioButton, v pixelech<br>
+
+            <strong>RadioButton.Unselected.Width = </strong><strong>;
+            </strong>šířka
+obdelníku vymezujícího texturu stavu
+nevybráno ovládacího prvku
+RadioButton, v pixelech<br>
+
+            <strong>RadioButton.Unselected.Height = ;</strong>
+Výška obdelníku
+vymezujícího texturu
+stavu nevybráno ovládacího prvku
+RadioButton, v
+pixelech<br>
+
+            <strong>RadioButton.Selected.X = ;</strong>&nbsp;Souřadnice
+X obdelníku vymezujícího texturu
+stavu&nbsp;vybráno ovládacího
+prvku RadioButton, v
+pixelech<br>
+
+            <strong>RadioButton.Selected.Y = ;&nbsp;</strong>Souřadnice
+Y obdelníku vymezujícího texturu
+stavu&nbsp;vybráno ovládacího
+prvku RadioButton, v
+pixelech<br>
+
+            <strong>RadioButton.Selected.Width = ;</strong>
+šířka obdelníku
+vymezujícího texturu
+stavu&nbsp;vybráno ovládacího
+prvku RadioButton, v
+pixelech<br>
+
+            <strong>RadioButton.Selected.Height = ; </strong>Výška
+obdelníku vymezujícího texturu
+stavu&nbsp;vybráno ovládacího
+prvku RadioButton, v
+pixelech<br>
+
+          </li>
+
+        </ul>
+
+      </li>
+
+      <li><strong>&lt;/RadioButton&gt;</strong></li>
+
+      <li><strong><br>
+
+&lt;Edit&gt;</strong>
+        <ul>
+
+          <li><strong>Edit.TopLeft.X = ;</strong>&nbsp;Souřadnice
+X
+obdelníku vymezujícího texturu
+levého
+horního rohu ovládacího prvku Edit, v
+pixelech <br>
+
+            <strong>Edit.TopLeft.Y = ;&nbsp;</strong>Souřadnice
+Y
+obdelníku vymezujícího texturu
+levého
+horního rohu ovládacího prvku Edit, v
+pixelech <br>
+
+            <strong>Edit.TopLeft.Width = ;</strong>
+šířka<strong> </strong>obdelníku
+vymezujícího texturu levého
+horního rohu
+ovládacího prvku Edit, v pixelech <br>
+
+            <strong>Edit.TopLeft.Height = ; </strong>Výška
+obdelníku vymezujícího texturu
+levého
+horního rohu ovládacího prvku Edit, v
+pixelech <br>
+
+            <strong>Edit.TopRight.X = ; </strong>Souřadnice
+X
+obdelníku vymezujícího texturu
+pravého
+horního rohu ovládacího prvku Edit, v
+pixelech<br>
+
+            <strong>Edit.TopRight.Y = ;&nbsp;</strong>Souřadnice
+Y obdelníku vymezujícího texturu
+pravého
+horního rohu ovládacího prvku Edit, v
+pixelech<br>
+
+            <strong>Edit.TopRight.Width = ;</strong>
+šířka
+obdelníku vymezujícího texturu
+pravého
+horního rohu ovládacího prvku Edit, v
+pixelech<br>
+
+            <strong>Edit.TopRight.Height = ; </strong>Výška
+obdelníku vymezujícího texturu
+pravého
+horního rohu ovládacího prvku Edit, v
+pixelech<br>
+
+            <strong>Edit.BottomLeft.X = ;</strong>
+Souřadnice X obdelníku vymezujícího
+texturu
+levého dolního rohu
+ovládacího prvku Edit,
+v pixelech<br>
+
+            <strong>Edit.BottomLeft.Y = ;&nbsp;</strong>Souřadnice
+Y
+obdelníku vymezujícího texturu
+levého
+dolního rohu ovládacího prvku Edit, v
+pixelech<br>
+
+            <strong>Edit.BottomLeft.Width = ; </strong>šířka
+obdelníku vymezujícího texturu
+levého
+dolního rohu ovládacího prvku Edit, v
+pixelech<strong><br>
+
+Edit.BottomLeft.Height = ;</strong> Výška
+obdelníku vymezujícího texturu
+levého
+dolního rohu ovládacího prvku Edit, v
+pixelech<br>
+
+            <strong>Edit.BottomRight.X = ;</strong>&nbsp;Souřadnice
+X
+obdelníku vymezujícího texturu
+pravého
+dolního rohu ovládacího prvku Edit, v
+pixelech<br>
+
+            <strong>Edit.BottomRight.Y = ;</strong>&nbsp;Souřadnice
+Y
+obdelníku vymezujícího texturu
+pravého
+dolního rohu ovládacího prvku Edit, v
+pixelech<br>
+
+            <strong>Edit.BottomRight.Width = ;</strong>
+šířka obdelníku
+vymezujícího texturu
+pravého dolního rohu
+ovládacího prvku Edit,
+v pixelech<br>
+
+            <strong>Edit.BottomRight.Height = ;</strong>
+Výška obdelníku
+vymezujícího texturu
+pravého dolního rohu
+ovládacího prvku Edit,
+v pixelech<br>
+
+            <strong>Edit.HorizLine.X = ;</strong>
+Souřadnice X
+obdelníku vymezujícího texturu
+horizontálních okrajů
+ovládacího prvku
+Edit, v pixelech<br>
+
+            <strong>Edit.HorizLine.Y = ;</strong>&nbsp;Souřadnice
+Y
+obdelníku vymezujícího texturu
+horizontálních okrajů
+ovládacího prvku
+Edit, v pixelech<br>
+
+            <strong>Edit.HorizLine.Width = ;</strong>
+šířka obdelníku
+vymezujícího texturu
+horizontálních okrajů
+ovládacího prvku
+Edit, v pixelech<br>
+
+            <strong>Edit.HorizLine.Height = ; </strong>Výška
+obdelníku vymezujícího texturu
+horizontálních okrajů
+ovládacího prvku
+Edit, v pixelech<br>
+
+            <strong>Edit.VertLine.X = ;</strong> Souřadnice
+X
+obdelníku vymezujícího texturu
+vertikálních okrajů
+ovládacího prvku Edit,
+v pixelech<br>
+
+            <strong>Edit.VertLine.Y = ;</strong>&nbsp;Souřadnice
+Y
+obdelník vymezujícího texturu
+vertikálních okrajů
+ovládacího prvku Edit,
+v pixelech<br>
+
+            <strong>Edit.VertLine.Width = ; </strong>šířka
+obdelníku vymezujícího texturu
+vertikálních okrajů
+ovládacího prvku Edit,
+v pixelech<br>
+
+            <strong>Edit.VertLine.Height = ;</strong>
+Výška obdelníku
+vymezujícího texturu
+vertikálních okrajů
+ovládacího prvku Edit,
+v pixelech<br>
+
+            <strong>Edit.Background.X = ; </strong>Souřadnice
+X obdelníku vymezujícího texturu
+pozadí ovládacího prvku Edit, v
+pixelech<br>
+
+            <strong>Edit.Background.Y = ;&nbsp;</strong>Souřadnice
+Y obdelníku vymezujícího texturu
+pozadí ovládacího prvku Edit, v
+pixelech<br>
+
+            <strong>Edit.Background.Width = ;</strong>&nbsp;šířka
+obdelníku vymezujícího texturu
+pozadí
+ovládacího prvku Edit, v pixelech<br>
+
+            <strong>Edit.Background.Height = ;</strong>&nbsp;Výška
+obdelníku vymezujícího texturu
+pozadí
+ovládacího prvku Edit, v pixelech</li>
+
+        </ul>
+
+      </li>
+
+      <li><strong>&lt;/Edit&gt;</strong></li>
+
+      <li><strong><br>
+
+&lt;ComboBox&gt;</strong>
+        <ul>
+
+          <li><strong>Combo.Button.X = ;&nbsp;</strong>Souřadnice
+X
+obdelníku vymezujícího texturu
+tlačítka
+ovládacího prvku ComboBox, v pixelech<br>
+
+            <strong>Combo.Button.Y = ;</strong>&nbsp;Souřadnice
+Y obdelníku vymezujícího texturu
+tlačítka
+ovládacího prvku ComboBox, v pixelech<br>
+
+            <strong>Combo.Button.Width = ;</strong>&nbsp;šířka
+obdelníku vymezujícího texturu
+tlačítka
+ovládacího prvku ComboBox, v pixelech<br>
+
+            <strong>Combo.Button.Height = ;</strong>&nbsp;Výška
+obdelníku vymezujícího texturu
+tlačítka
+ovládacího prvku ComboBox, v pixelech<br>
+
+            <strong>Combo.Background.X = ;</strong>&nbsp;Souřadnice
+X obdelníku vymezujícího texturu
+pozadí
+ovládacího prvku ComboBox, v pixelech<br>
+
+            <strong>Combo.Background.Y = ;</strong>&nbsp;Souřadnice
+Y
+obdelníku vymezujícího texturu
+pozadí
+ovládacího prvku ComboBox, v pixelech<br>
+
+            <strong>Combo.Background.Width = ;</strong>
+šířka obdelníku
+vymezujícího texturu
+pozadí ovládacího prvku ComboBox, v
+pixelech<br>
+
+            <strong>Combo.Background.Height = ;</strong>
+Výška obdelníku
+vymezujícího texturu
+pozadí ovládacího prvku ComboBox, v
+pixelech<br>
+
+            <strong>Combo.ActiveBackground.X = ;</strong>&nbsp;Souřadnice
+X obdelníku vymezujícího texturu
+zvolené
+řádky ovládacího prvku ComboBox, v
+pixelech<br>
+
+            <strong>Combo.ActiveBackground.Y = ;</strong>&nbsp;Souřadnice
+Y obdelníku vymezujícího texturu
+zvolené
+řádky ovládacího prvku ComboBox, v
+pixelech<br>
+
+            <strong>Combo.ActiveBackground.Width = ;</strong>
+šířka obdelníku
+vymezujícího texturu
+zvolené řádky ovládacího
+prvku ComboBox, v
+pixelech<br>
+
+            <strong>Combo.ActiveBackground.Height = ; </strong>Výška
+obdelníku vymezujícího texturu
+zvolené
+řádky ovládacího prvku ComboBox, v
+pixelech<br>
+
+            <strong>Combo.TopLeft.X = ;</strong>&nbsp;Souřadnice
+X
+obdelníku vymezujícího texturu
+levého
+horního rohu ovládacího prvku
+ComboBox, v pixelech<br>
+
+            <strong>Combo.TopLeft.Y = ;</strong>&nbsp;Souřadnice
+Y
+obdelníku vymezujícího texturu
+levého
+horního rohu ovládacího prvku
+ComboBox, v pixelech<br>
+
+            <strong>Combo.TopLeft.Width = ;</strong>
+šířka obdelníku
+vymezujícího texturu
+levého horního rohu
+ovládacího prvku
+ComboBox, v pixelech<br>
+
+            <strong>Combo.TopLeft.Height = ; </strong>Výška
+obdelníku vymezujícího texturu
+levého
+horního rohu ovládacího prvku
+ComboBox, v pixelech<br>
+
+            <strong>Combo.TopRight.X = ;</strong>&nbsp;Souřadnice
+X
+obdelníku vymezujícího texturu
+pravého
+horního rohu ovládacího prvku
+ComboBox, v pixelech<br>
+
+            <strong>Combo.TopRight.Y = ;</strong>&nbsp;Souřadnice
+Y
+obdelníku vymezujícího texturu
+pravého
+horního rohu ovládacího prvku
+ComboBox, v pixelech<br>
+
+            <strong>Combo.TopRight.Width = ;</strong>
+šířka obdelníku
+vymezujícího texturu
+pravého horního rohu
+ovládacího prvku
+ComboBox, v pixelech<br>
+
+            <strong>Combo.TopRight.Height = ;</strong>
+Výška obdelníku
+vymezujícího texturu
+pravého horního rohu
+ovládacího prvku
+ComboBox, v pixelech<br>
+
+            <strong>Combo.BottomLeft.X = ;</strong>&nbsp;Souřadnice
+X
+obdelníku vymezujícího texturu
+levého
+dolního rohu ovládacího prvku
+ComboBox, v pixelech<br>
+
+            <strong>Combo.BottomLeft.Y = ;</strong>&nbsp;Souřadnice
+Y
+obdelníku vymezujícího texturu
+levého
+dolního rohu ovládacího prvku
+ComboBox, v pixelech<br>
+
+            <strong>Combo.BottomLeft.Width = ;</strong>
+šířka obdelníku
+vymezujícího texturu
+levého dolního rohu
+ovládacího prvku
+ComboBox, v pixelech<br>
+
+            <strong>Combo.BottomLeft.Height = ;</strong>
+Výška obdelníku
+vymezujícího texturu
+levého dolního rohu
+ovládacího prvku
+ComboBox, v pixelech<br>
+
+            <strong>Combo.BottomRight.X = ;</strong>&nbsp;Souřadnice
+X obdelníku vymezujícího texturu
+pravého
+dolního rohu ovládacího prvku
+ComboBox, v pixelech<br>
+
+            <strong>Combo.BottomRight.Y = ;&nbsp;</strong>Souřadnice
+Y obdelníku vymezujícího texturu
+pravého
+dolního rohu ovládacího prvku
+ComboBox, v pixelech<br>
+
+            <strong>Combo.BottomRight.Width = ;</strong>
+šířka obdelníku
+vymezujícího texturu
+pravého dolního rohu
+ovládacího prvku
+ComboBox, v pixelech<br>
+
+            <strong>Combo.BottomRight.Height = ; </strong>Výška
+obdelníku vymezujícího texturu
+pravého
+dolního rohu ovládacího prvku
+ComboBox, v pixelech<br>
+
+            <strong>Combo.HorizLine.X = ;</strong>&nbsp;Souřadnice
+X
+obdelníku vymezujícího texturu
+horizontálních okrajů
+ovládacího prvku
+ComboBox, v pixelech<br>
+
+            <strong>Combo.HorizLine.Y = ;</strong>&nbsp;Souřadnice
+Y
+obdelníku vymezujícího texturu
+horizontálních okrajů
+ovládacího prvku
+ComboBox, v pixelech<br>
+
+            <strong>Combo.HorizLine.Width = ;</strong>
+šířka obdelníku
+vymezujícího texturu
+horizontálních okrajů
+ovládacího prvku
+ComboBox, v pixelech<br>
+
+            <strong>Combo.HorizLine.Height = ;</strong>
+Výška obdelníku
+vymezujícího texturu
+horizontálních okrajů
+ovládacího prvku
+ComboBox, v pixelech<br>
+
+            <strong>Combo.VertLine.X = ;</strong>&nbsp;Souřadnice
+X
+obdelníku vymezujícího texturu
+vertikálních okrajů
+ovládacího prvku
+ComboBox, v pixelech<br>
+
+            <strong>Combo.VertLine.Y = ;</strong>&nbsp;Souřadnice
+Y
+obdelníku vymezujícího texturu
+vertikálních okrajů
+ovládacího prvku
+ComboBox, v pixelech<br>
+
+            <strong>Combo.VertLine.Width = ;</strong>
+šířka obdelníku
+vymezujícího texturu
+vertikálních okrajů
+ovládacího prvku
+ComboBox, v pixelech<br>
+
+            <strong>Combo.VertLine.Height = ; </strong>Výška
+obdelníku vymezujícího texturu
+vertikálních okrajů
+ovládacího prvku
+ComboBox, v pixelech</li>
+
+        </ul>
+
+      </li>
+
+      <li><strong>&lt;/ComboBox&gt;</strong></li>
+
+      <li><br>
+
+        <strong>&lt;PopupMenu&gt;</strong>
+        <ul>
+
+          <li><strong>PopupMenu.Background.X = ;</strong>&nbsp;Souřadnice
+X obdelníku vymezujícího texturu
+pozadí
+ovládacího prvku PopupMenu, v pixelech<br>
+
+            <strong>PopupMenu.Background.Y = ;</strong>&nbsp;Souřadnice
+Y obdelníku vymezujícího texturu
+pozadí
+ovládacího prvku PopupMenu, v pixelech<br>
+
+            <strong>PopupMenu.Background.Width = ;</strong>
+šířka obdelníku
+vymezujícího texturu
+pozadí ovládacího prvku PopupMenu, v
+pixelech<br>
+
+            <strong>PopupMenu.Background.Height = ;</strong>
+Výška obdelníku
+vymezujícího texturu
+pozadí ovládacího prvku PopupMenu, v
+pixelech<br>
+
+            <strong>PopupMenu.ActiveBackground.X = ;</strong>&nbsp;Souřadnice
+X obdelníku vymezujícího texturu
+zvolené
+řádky ovládacího prvku PopupMenu, v
+pixelech<br>
+
+            <strong>PopupMenu.ActiveBackground.Y = ;&nbsp;</strong>Souřadnice
+Y obdelníku vymezujícího texturu
+zvolené
+řádky ovládacího prvku PopupMenu, v
+pixelech<br>
+
+            <strong>PopupMenu.ActiveBackground.Width = ;</strong>
+šířka obdelníku
+vymezujícího texturu
+zvolené řádky ovládacího
+prvku PopupMenu, v
+pixelech<br>
+
+            <strong>PopupMenu.ActiveBackground.Height = ;</strong>
+Výška obdelníku
+vymezujícího texturu
+zvolené řádky ovládacího
+prvku PopupMenu, v
+pixelech<br>
+
+            <strong>PopupMenu.TopLeft.X = ;</strong>&nbsp;Souřadnice
+X obdelníku vymezujícího texturu
+levého
+horního rohu ovládacího prvku
+PopupMenu, v pixelech<br>
+
+            <strong>PopupMenu.TopLeft.Y = ;</strong>&nbsp;Souřadnice
+Y obdelníku vymezujícího texturu
+levého
+horního rohu ovládacího prvku
+PopupMenu, v pixelech<br>
+
+            <strong>PopupMenu.TopLeft.Width = ;</strong>
+šířka obdelníku
+vymezujícího texturu
+levého horního rohu
+ovládacího prvku
+PopupMenu, v pixelech<br>
+
+            <strong>PopupMenu.TopLeft.Height = ;</strong>
+Výška obdelníku
+vymezujícího texturu
+levého horního rohu
+ovládacího prvku
+PopupMenu, v pixelech<br>
+
+            <strong>PopupMenu.TopRight.X = ;&nbsp;</strong>Souřadnice
+X obdelníku vymezujícího texturu
+pravého
+horního rohu ovládacího prvku
+PopupMenu, v pixelech<br>
+
+            <strong>PopupMenu.TopRight.Y = ;</strong>&nbsp;Souřadnice
+Y obdelníku vymezujícího texturu
+pravého
+horního rohu ovládacího prvku
+PopupMenu, v pixelech<br>
+
+            <strong>PopupMenu.TopRight.Width = ;&nbsp;</strong>šířka
+obdelníku vymezujícího texturu
+pravého
+horního rohu ovládacího prvku
+PopupMenu, v pixelech<br>
+
+            <strong>PopupMenu.TopRight.Height = ;&nbsp;</strong>Výška
+obdelníku vymezujícího texturu
+pravého
+horního rohu ovládacího prvku
+PopupMenu, v pixelech<br>
+
+            <strong>PopupMenu.BottomLeft.X = ;</strong>&nbsp;Souřadnice
+X obdelníku vymezujícího texturu
+levého
+dolního rohu ovládacího prvku
+PopupMenu, v pixelech<br>
+
+            <strong>PopupMenu.BottomLeft.Y = ;&nbsp;</strong>Souřadnice
+Y obdelníku vymezujícího texturu
+levého
+dolního rohu ovládacího prvku
+PopupMenu, v pixelech<br>
+
+            <strong>PopupMenu.BottomLeft.Width = ;</strong>
+šířka obdelníku
+vymezujícího texturu
+levého dolního rohu
+ovládacího prvku
+PopupMenu, v pixelech<br>
+
+            <strong>PopupMenu.BottomLeft.Height = ; </strong>Výška
+obdelníku vymezujícího texturu
+levého
+dolního rohu ovládacího prvku
+PopupMenu, v pixelech<br>
+
+            <strong>PopupMenu.BottomRight.X = ;</strong>
+Souřadnice X obdelníku vymezujícího
+texturu
+pravého dolního rohu
+ovládacího prvku
+PopupMenu, v pixelech<br>
+
+            <strong>PopupMenu.BottomRight.Y = ;&nbsp;</strong>Souřadnice
+Y obdelníku vymezujícího texturu
+pravého
+dolního rohu ovládacího prvku
+PopupMenu, v pixelech<br>
+
+            <strong>PopupMenu.BottomRight.Width = ;</strong>
+šířka obdelníku
+vymezujícího texturu
+pravého dolního rohu
+ovládacího prvku
+PopupMenu, v pixelech<strong><br>
+
+PopupMenu.BottomRight.Height = ;</strong>
+Výška
+obdelníku vymezujícího texturu
+pravého
+dolního rohu ovládacího prvku
+PopupMenu, v pixelech<br>
+
+            <strong>PopupMenu.HorizLine.X = ;</strong>
+Souřadnice X
+obdelníku vymezujícího texturu
+horizontálních okrajů
+ovládacího prvku
+PopupMenu, v pixelech<strong><br>
+
+PopupMenu.HorizLine.Y = ; </strong>Souřadnice Y
+obdelníku
+vymezujícího texturu
+horizontálních okrajů
+ovládacího prvku PopupMenu, v pixelech<strong><br>
+
+            </strong><strong>PopupMenu.HorizLine.Width = ;</strong>
+šířka obdelníku
+vymezujícího texturu
+horizontálních okrajů
+ovládacího prvku
+PopupMenu, v pixelech<strong><br>
+
+            </strong><strong>PopupMenu.HorizLine.Height = ;</strong>
+Výška obdelníku
+vymezujícího texturu
+horizontálních okrajů
+ovládacího prvku
+PopupMenu, v pixelech<strong><br>
+
+            </strong><strong>PopupMenu.VertLine.X = ; </strong>Souřadnice
+X obdelníku vymezujícího texturu
+vertikálních okrajů
+ovládacího prvku
+PopupMenu, v pixelech<strong><br>
+
+            </strong><strong>PopupMenu.VertLine.Y =
+;&nbsp;</strong>Souřadnice
+Y obdelníku vymezujícího texturu
+vertikálních okrajů
+ovládacího prvku
+PopupMenu, v pixelech<br>
+
+            <strong>PopupMenu.VertLine.Width = ;</strong>&nbsp;šířka
+obdelníku vymezujícího texturu
+vertikálních okrajů
+ovládacího prvku
+PopupMenu, v pixelech<br>
+
+            <strong>PopupMenu.VertLine.Height = ;</strong>
+Výška
+obdelníku vymezujícího texturu
+vertikálních okrajů
+ovládacího prvku
+PopupMenu, v pixelech<strong><br>
+
+            </strong></li>
+
+        </ul>
+
+      </li>
+
+      <li><strong>&lt;/PopupMenu</strong><strong>&gt;</strong></li>
+
+      <li><br>
+
+        <strong>&lt;ListBox&gt;</strong>
+        <ul>
+
+          <li><strong>ListBox.ButtonUp.X = ;&nbsp;</strong>Souřadnice
+X obdelníku vymezujícího texturu
+tlačítka
+nahoru ovládacího prvku ListBox, v pixelech<br>
+
+            <strong>ListBox.ButtonUp.Y = ;&nbsp;</strong>Souřadnice
+Y
+obdelníku vymezujícího texturu
+tlačítka
+nahoru ovládacího prvku ListBox, v pixelech<br>
+
+            <strong>ListBox.ButtonUp.Width = ;</strong>
+šířka obdelníku
+vymezujícího texturu
+tlačítka nahoru ovládacího prvku
+ListBox, v
+pixelech<br>
+
+            <strong>ListBox.ButtonUp.Height = ;</strong>
+Výška obdelníku
+vymezujícího texturu
+tlačítka nahoru ovládacího prvku
+ListBox, v
+pixelech<br>
+
+            <strong>ListBox.ButtonDown.X = ;&nbsp;</strong>Souřadnice
+X obdelníku vymezujícího texturu
+tlačítka
+dolu ovládacího prvku ListBox, v pixelech<br>
+
+            <strong>ListBox.ButtonDown.Y = ;</strong>&nbsp;Souřadnice
+Y obdelníku vymezujícího texturu
+tlačítka
+dolu ovládacího prvku ListBox, v pixelech<strong><br>
+
+ListBox.ButtonDown.Width = ;</strong>&nbsp;šířka
+obdelníku vymezujícího texturu
+tlačítka
+dolu ovládacího prvku ListBox, v pixelech<strong><br>
+
+ListBox.ButtonDown.Height = ;&nbsp;</strong>Výška
+obdelníku vymezujícího texturu
+tlačítka
+dolu ovládacího prvku ListBox, v pixelech<br>
+
+            <strong>ListBox.Background.X = ;&nbsp;</strong>Souřadnice
+X obdelníku vymezujícího texturu
+pozadí
+ovládacího prvku ListBox, v pixelech<br>
+
+            <strong>ListBox.Background.Y = ;&nbsp;</strong>Souřadnice
+Y obdelníku vymezujícího texturu
+pozadí
+ovládacího prvku ListBox, v pixelech<br>
+
+            <strong>ListBox.Background.Width = ;</strong>
+šířka obdelníku
+vymezujícího texturu
+pozadí ovládacího prvku ListBox, v
+pixelech<br>
+
+            <strong>ListBox.Background.Height = ; </strong>Výška
+obdelníku vymezujícího texturu
+pozadí
+ovládacího prvku ListBox, v pixelech<br>
+
+            <strong>ListBox.ActiveBackground.X = ;</strong>&nbsp;Souřadnice
+X obdelníku vymezujícího texturu
+zvolené
+řádky ovládacího prvku ListBox, v
+pixelech<br>
+
+            <strong>ListBox.ActiveBackground.Y = ;</strong>&nbsp;Souřadnice
+Y obdelníku vymezujícího texturu
+zvolené
+řádky ovládacího prvku ListBox, v
+pixelech<br>
+
+            <strong>ListBox.ActiveBackground.Width = ;</strong>
+šířka obdelníku
+vymezujícího texturu
+zvolené řádky ovládacího
+prvku ListBox, v
+pixelech<br>
+
+            <strong>ListBox.ActiveBackground.Height = ;</strong>
+Výška obdelníku
+vymezujícího texturu
+zvolené řádky ovládacího
+prvku ListBox, v
+pixelech<br>
+
+            <strong>ListBox.TopLeft.X = ;&nbsp;</strong>Souřadnice
+X
+obdelníku vymezujícího texturu
+levého
+horního rohu ovládacího prvku ListBox,
+v pixelech<br>
+
+            <strong>ListBox.TopLeft.Y = ;&nbsp;</strong>Souřadnice
+Y obdelníku vymezujícího texturu
+levého
+horního rohu ovládacího prvku ListBox,
+v pixelech<br>
+
+            <strong>ListBox.TopLeft.Width = ;</strong>&nbsp;šířka
+obdelníku vymezujícího texturu
+levého
+horního rohu ovládacího prvku ListBox,
+v pixelech<br>
+
+            <strong>ListBox.TopLeft.Height = ;</strong>&nbsp;Výška
+obdelníku vymezujícího texturu
+levého
+horního rohu ovládacího prvku ListBox,
+v pixelech<br>
+
+            <strong>ListBox.TopRight.X = ;</strong>&nbsp;Souřadnice
+X obdelníku vymezujícího texturu
+pravého
+horního rohu ovládacího prvku ListBox,
+v pixelech<br>
+
+            <strong>ListBox.TopRight.Y = ;&nbsp;</strong>Souřadnice
+Y obdelníku vymezujícího texturu
+pravého
+horního rohu ovládacího prvku ListBox,
+v pixelech<br>
+
+            <strong>ListBox.TopRight.Width = ; </strong>šířka
+obdelníku vymezujícího texturu
+pravého
+horního rohu ovládacího prvku ListBox,
+v pixelech<br>
+
+            <strong>ListBox.TopRight.Height = ; </strong>Výška
+obdelníku vymezujícího texturu
+pravého
+horního rohu ovládacího prvku ListBox,
+v pixelech<br>
+
+            <strong>ListBox.BottomLeft.X = ;&nbsp;</strong>Souřadnice
+X obdelníku vymezujícího texturu
+levého
+dolního rohu ovládacího prvku ListBox,
+v pixelech<br>
+
+            <strong>ListBox.BottomLeft.Y = ;</strong>&nbsp;Souřadnice
+Y obdelníku vymezujícího texturu
+levého
+dolního rohu ovládacího prvku ListBox,
+v pixelech<br>
+
+            <strong>ListBox.BottomLeft.Width = ;</strong>&nbsp;šířka
+obdelníku vymezujícího texturu
+levého
+dolního rohu ovládacího prvku ListBox,
+v pixelech<br>
+
+            <strong>ListBox.BottomLeft.Height = ;</strong>&nbsp;Výška
+obdelníku vymezujícího texturu
+levého
+dolního rohu ovládacího prvku ListBox,
+v pixelech<br>
+
+            <strong>ListBox.BottomRight.X = ;</strong>&nbsp;Souřadnice
+X obdelníku vymezujícího texturu
+pravého
+horního rohu ovládacího prvku ListBox,
+v pixelech<br>
+
+            <strong>ListBox.BottomRight.Y = ;&nbsp;</strong>Souřadnice
+Y obdelníku vymezujícího texturu
+pravého
+horního rohu ovládacího prvku ListBox,
+v pixelech<br>
+
+            <strong>ListBox.BottomRight.Width = ;</strong>
+šířka obdelníku
+vymezujícího texturu
+pravého horního rohu
+ovládacího prvku
+ListBox, v pixelech<br>
+
+            <strong>ListBox.BottomRight.Height = ;</strong>
+Výška obdelníku
+vymezujícího texturu
+pravého horního rohu
+ovládacího prvku
+ListBox, v pixelech<br>
+
+            <strong>ListBox.HorizLine.X = ;&nbsp;</strong>Souřadnice
+X obdelníku vymezujícího texturu
+horizontálních okrajů
+ovládacího prvku
+ListBox, v pixelech<br>
+
+            <strong>ListBox.HorizLine.Y = ;</strong>&nbsp;Souřadnice
+Y obdelníku vymezujícího texturu
+horizontálních okrajů
+ovládacího prvku
+ListBox, v pixelech<br>
+
+            <strong>ListBox.HorizLine.Width = ;</strong>&nbsp;šířka
+obdelníku vymezujícího texturu
+horizontálních okrajů
+ovládacího prvku
+ListBox, v pixelech<br>
+
+            <strong>ListBox.HorizLine.Height = ;</strong>&nbsp;Výška
+obdelníku vymezujícího texturu
+horizontálních okrajů
+ovládacího prvku
+ListBox, v pixelech<br>
+
+            <strong>ListBox.VertLine.X = ;</strong>&nbsp;Souřadnice
+X obdelníku vymezujícího texturu
+vertikálních okrajů
+ovládacího prvku
+ListBox, v pixelech<br>
+
+            <strong>ListBox.VertLine.Y = ;</strong>&nbsp;Souřadnice
+Y
+obdelníku vymezujícího texturu
+vertikálních okrajů
+ovládacího prvku
+ListBox, v pixelech<br>
+
+            <strong>ListBox.VertLine.Width = ;</strong>
+šířka obdelníku
+vymezujícího texturu
+vertikálních okrajů
+ovládacího prvku
+ListBox, v pixelech<br>
+
+            <strong>ListBox.VertLine.Height = ;</strong>
+Výška obdelníku
+vymezujícího texturu
+vertikálních okrajů
+ovládacího prvku
+ListBox, v pixelech </li>
+
+        </ul>
+
+      </li>
+
+      <li><strong>&lt;/ListBox&gt;</strong></li>
+
+    </ul>
+
+  </li>
+
+  <li><strong>&lt;/Dialog&gt;</strong></li>
+
+</ul>
+
+<h2><a name="DlgDef">8.6 Soubor typu *.dlgDef</a></h2>
+
+Soubor typu *.dlgDef obsahuje definici ovládacích
+prvků dialogu.<br>
+
+<br>
+
+<strong>Struktura souboru:<br>
+
+</strong>
+<p>Řádkově orientovaný
+konfigurační soubor. Každý řádek může
+obsahovat:</p>
+
+<ol>
+
+  <li><strong>&lt;začátek objektu&gt;
+&lt;/konec objektu&gt;</strong> - konec a
+začátek objektu</li>
+
+  <li><strong>klíč objektu </strong>= <strong>hodnota
+    </strong>- klíč objektu a jeho hodnota,
+každý klíč objektu může být použit
+pouze jednou pro konkrétní objekt</li>
+
+  <li> ; - komentář
+následující za středníkem</li>
+
+</ol>
+
+<strong>Seznam objektů a jejich klíčů:<br>
+
+<br>
+
+</strong>
+<ul>
+
+  <li><strong>&lt;Dialog&gt;</strong> ;
+nastavuje vlastnosti celého
+dialogu, některé vlastnosti definované v tomto
+objektu
+jsou zděděny do všech objektů &lt;control&gt;,
+jestliže nejsou
+redefinovány, object &lt;Dialog&gt; může
+být použit pouze
+jednou</li>
+
+  <ul>
+
+    <li><strong>X = </strong>; Souřadnice X dialogu,
+v pixelech</li>
+
+    <li><strong>Y = </strong>; Souřadnice Y dialogu,
+v pixelech</li>
+
+    <li><strong>Width </strong>=
+; šířka dialogu</li>
+
+    <li><strong>Height = </strong>;
+Výška dialogu</li>
+
+    <li><strong>FontDeclaration
+= </strong>; Jméno souboru fontu, *.font, je děděno
+do objektů&nbsp;&lt;control&gt;</li>
+
+    <li><strong>BackgroundTexture </strong>= ;
+Jméno souboru textury skinu dialogu,&nbsp;je děděno do
+objektů&nbsp;&lt;control&gt;</li>
+
+    <li><strong>TextureDeclarations </strong>= ;
+Jméno souboru deklarace dialogu, *.dlgDecl,&nbsp;je
+děděno do objektů&nbsp;&lt;control&gt;</li>
+
+    <li><strong> </strong><strong>Transparency
+      </strong>= ; Průhlednost dialogu, číslo s
+desetinnou čárkou mezi 0 (úplně
+průsvitná) a 1 (neprůsvitná)</li>
+
+    <li><strong>ToolTipTransparency </strong>= ;
+Průhlednost dialogu, číslo s desetinnou čárkou
+mezi 0 (úplně průsvitna) a 1 (neprůsvitná)</li>
+
+    <li><strong> </strong><strong>ControlsTransparency</strong>=
+;
+Průhlednost dialogu, číslo s desetinnou čárkou
+mezi 0
+(úplně průsvitná) a 1
+(neprůsvitná),&nbsp;je
+děděno do objektů&nbsp;&lt;control&gt; jako položka
+Transparency</li>
+
+    <li><strong>BasicTextColor </strong>= ;
+Základní barva textu,
+hexadecimální číslo ve
+formátu barvy:
+0xAARRGGBB, kde AA je průhlednost, RR je červená složka
+barvy,
+GG je zelená složka barvy a BB je modrá složka
+barvy,&nbsp;je děděno do objektů&nbsp;&lt;control&gt;</li>
+
+    <li><strong> </strong><strong>ActiveTextColor
+= ;&nbsp;</strong>Aktivní
+barva textu, hexadecimální číslo ve
+formátu
+barvy, viz. BasicTextColor,&nbsp;je děděno do
+objektů&nbsp;&lt;control&gt;</li>
+
+    <li><strong>SliderPosMin </strong>= ;
+Minimální pozice posuvníku, v
+pixelech,&nbsp;je děděno jenom do objektu &lt;control&gt;
+typu TrackBar</li>
+
+    <li><strong> </strong><strong>SliderPosMax
+= ;&nbsp;</strong>Maximální pozice
+posuvníku, v pixelech, je děděno jenom do objektu
+&lt;control&gt; typu TrackBar</li>
+
+    <li><strong>ToolTipDelay </strong>= ; Doba
+zdržení před tím, než je
+ukázána tooltip nápověda, v
+milisekundách</li>
+
+  </ul>
+
+  <li><strong>&lt;/Dialog&gt;</strong></li>
+
+  <li><strong><br>
+
+    </strong><strong>&lt;Control&gt;</strong></li>
+
+  <ul>
+
+    <li><strong>Name = ;&nbsp;</strong>Jméno
+ovládacího prvku</li>
+
+    <li><strong>Type = </strong>; Typ
+ovládacího prvku, může
+být Image, Button, CheckBox, TrackBar, RadioButton, Edit,
+Combo,
+ListBox, PopupMenu</li>
+
+    <li><strong> </strong><strong>X =
+;&nbsp;</strong>Souřadnice X pozice
+ovládacího prvku, v pixelech</li>
+
+    <li><strong>Y = ;&nbsp;</strong>Souřadnice Y
+pozice ovládacího prvku, v pixelech</li>
+
+    <li><strong>Width = </strong>;
+šířka ovládacího prvku, v
+pixelech</li>
+
+    <li><strong> </strong><strong>Height</strong>
+= ; Výška ovládacího prvku,
+v pixelech</li>
+
+    <li><strong>Value</strong>= ; Hodnota
+ovládacího prvku, závisí na
+typu
+ovládacího prvku, pro CheckBox, RadioButton je to
+0&nbsp;nebo 1, pro TrackBar je to hodnota mezi 0 a 1, pro Button,
+Edit
+je to text, pro ListBox a ComboBox nemá význam,
+pro Image
+je to jméno souboru obrázku</li>
+
+    <li><strong> </strong><strong>Enable </strong>=
+; 0 pro nepovolit, 1 pro povolit ovládací prvek</li>
+
+    <li><strong> </strong><strong>Visible </strong>=
+; 0 pro neviditelný, 1 pro viditelný
+ovládací prvek</li>
+
+    <li><strong> </strong><strong>TabStop </strong>=
+; Pořadí zastávek tabulátoru,
+kladné celé číslo</li>
+
+    <li><strong>Zorder </strong>=
+; Pořadí hloubky ovládacích prvků,
+kladné celé číslo</li>
+
+    <li><strong>AbsolutePosition </strong>= ; 0 pro
+relativní pozici ovládacího prvku vůči
+dialogu, 1 pro absolutní pozici na obrazovce</li>
+
+    <li><strong> </strong><strong>BackgroundTexture
+      </strong>= ; Jméno souboru s texturou skinu
+dialogu</li>
+
+    <li><strong> </strong><strong>FontDeclaration
+      </strong>= ; Jméno souboru fontu,
+mající *.font formát</li>
+
+    <li><strong> </strong><strong>BasicTextColor
+      </strong>= ; Základní barva textu,
+hexadecimální číslo ve
+formátu barvy, viz
+BasicTextColor v dialog objektu</li>
+
+    <li><strong>ActiveTextColor </strong>=
+;&nbsp;Aktivní barva textu,
+hexadecimální číslo ve
+formátu barvy, viz.
+BasicTextColor v dialog objektu</li>
+
+    <li><strong> </strong><strong>ToolTip </strong>=
+; Text tooltipu</li>
+
+  </ul>
+
+  <ul>
+
+    <li><strong>TextFormat </strong>= ;
+Formát textu ovládacího
+prvku,&nbsp;suma výběru
+z&nbsp;následujících hodnot</li>
+
+    <li>; 1 - zarovnání textu vlevo</li>
+
+    <li>; 2 - zarovnání textu vpravo</li>
+
+    <li>; 4 - zarovnání textu na střed</li>
+
+    <li>; 16 - zarovnání textu nahoru</li>
+
+    <li>; 32 - zarovnání textu dolu</li>
+
+    <li>; 64 - zarovnání textu na
+vertikální střed</li>
+
+    <li><strong>LineHeight
+= </strong>; Výška jedné
+řádky v pixelech</li>
+
+    <li><strong>RadioGroup </strong>= ;
+Číslo skupiny RadioButton tlačítek,
+kladné celé číslo, jenom pro
+RadioButton</li>
+
+    <li><br>
+
+      <strong> </strong><strong>&lt;BackgroundTexDecl&gt;
+      </strong>; pro Image, Edit, ComboBox, PopupMenu, ListBox,
+Dialog, předefinovává deklaraci dialogu pro
+daný objekt</li>
+
+    <ul>
+
+      <li><strong>X
+= ;&nbsp;</strong>Souřadnice X obdelníku
+vymezujícího texturu pozadí</li>
+
+      <li><strong>Y
+= ;&nbsp;</strong>Souřadnice Y obdelníku
+vymezujícího texturu pozadí</li>
+
+      <li><strong><strong> </strong>Width
+= ;&nbsp;</strong>šířka
+obdelníku vymezujícího texturu
+pozadí</li>
+
+      <li><strong>Height </strong>= ;
+Výška obdelníku
+vymezujícího texturu pozadí</li>
+
+    </ul>
+
+    <li><strong> </strong><strong>&lt;/BackgroundTexDecl&gt;</strong></li>
+
+    <li><strong><br>
+
+      </strong><strong>&lt;TopLeftTexDecl&gt; </strong>;
+pro Edit, ComboBox, PopupMenu, ListBox,
+předefinovává deklaraci dialogu pro
+daný objekt</li>
+
+    <ul>
+
+      <li><strong> </strong><strong>X
+= ;&nbsp;</strong>Souřadnice X obdelníku
+vymezujícího texturu levého
+horního rohu</li>
+
+      <li><strong>Y
+= ;&nbsp;</strong>Souřadnice Y obdelníku
+vymezujícího texturu levého
+horního rohu</li>
+
+      <li><strong><strong> </strong>Width
+= ; </strong>šířka obdelníku
+vymezujícího texturu levého
+horního rohu</li>
+
+      <li><strong><strong> </strong>Height
+= </strong>; Výška obdelníku
+vymezujícího texturu levého
+horního rohu</li>
+
+    </ul>
+
+    <li><strong>&lt;/TopLeftTexDecl&gt;</strong></li>
+
+    <li><strong><br>
+
+      </strong><strong>&lt;TopRightTexDecl&gt; ; </strong>pro
+Edit, ComboBox, PopupMenu, ListBox, předefinovává
+deklaraci dialogu pro daný objekt</li>
+
+    <ul>
+
+      <li><strong> </strong><strong>X
+= ;&nbsp;</strong>Souřadnice X obdelníku
+vymezujícího texturu pravého
+horního rohu</li>
+
+      <li><strong><strong> </strong>Y
+= ;&nbsp;</strong>Souřadnice Y obdelníku
+vymezujícího texturu pravého
+horního rohu</li>
+
+      <li><strong>Width
+= ; </strong>šířka obdelníku
+vymezujícího texturu pravého
+horního rohu</li>
+
+      <li><strong>Height
+= </strong>; Výška obdelníku
+vymezujícího texturu pravého
+horního rohu</li>
+
+    </ul>
+
+    <li><strong>&lt;/TopRightTexDecl&gt;</strong></li>
+
+    <li><strong><br>
+
+      </strong><strong><strong> </strong>&lt;BottomLeftTexDecl&gt;
+      </strong><strong>; </strong>pro Edit,
+ComboBox, PopupMenu, ListBox, předefinovává
+deklaraci dialogu pro daný objekt</li>
+
+    <ul>
+
+      <li><strong>X
+= ;&nbsp;</strong>Souřadnice X obdelníku
+vymezujícího texturu levého
+dolního rohu</li>
+
+      <li><strong>Y
+= ;&nbsp;</strong>Souřadnice Y obdelníku
+vymezujícího texturu levého
+dolního rohu</li>
+
+      <li><strong><strong> </strong>Width
+= ; </strong>šířka obdelníku
+vymezujícího texturu levého
+dolního rohu</li>
+
+      <li><strong>Height
+= </strong>; Výška obdelníku
+vymezujícího texturu levého
+dolního rohu</li>
+
+    </ul>
+
+    <li><strong> </strong><strong>&lt;/BottomLeftTexDecl&gt;</strong></li>
+
+    <li><strong><br>
+
+      </strong><strong>&lt;BottomRightTexDecl&gt; </strong>;
+      <strong> </strong>pro Edit, ComboBox, PopupMenu,
+ListBox, předefinovává deklaraci dialogu pro
+daný objekt</li>
+
+    <ul>
+
+      <li><strong> </strong><strong>X
+= ;&nbsp;</strong>Souřadnice X obdelníku
+vymezujícího texturu pravého
+dolního rohu</li>
+
+      <li><strong>Y
+= ;&nbsp;</strong>Souřadnice Y obdelníku
+vymezujícího texturu pravého
+dolního rohu</li>
+
+      <li><strong>Width
+= ; </strong>šířka obdelníku
+vymezujícího texturu pravého
+dolního rohu</li>
+
+      <li><strong>Height
+= </strong>; Výška obdelníku
+vymezujícího texturu pravého
+dolního rohu</li>
+
+    </ul>
+
+    <li><strong> </strong><strong>&lt;/BottomRightTexDecl&gt;</strong></li>
+
+    <li><strong><br>
+
+      </strong><strong>&lt;HorizLineTexDecl&gt; </strong>;
+      <strong> </strong>pro Edit, ComboBox, PopupMenu,
+ListBox, předefinovává deklaraci dialogu pro
+daný objekt</li>
+
+    <ul>
+
+      <li><strong> </strong><strong>X
+= ;&nbsp;</strong>Souřadnice X obdelníku
+vymezujícího texturu
+horizontálních okrajů</li>
+
+      <li><strong><strong> </strong>Y
+= ;&nbsp;</strong>Souřadnice Y obdelníku
+vymezujícího texturu
+horizontálních okrajů</li>
+
+      <li><strong><strong> </strong>Width
+= ; </strong>šířka obdelníku
+vymezujícího texturu
+horizontálních okrajů</li>
+
+      <li><strong>Height
+= </strong>; Výška obdelníku
+vymezujícího texturu
+horizontálních okrajů</li>
+
+    </ul>
+
+    <li><strong>&lt;/HorizLineTexDecl&gt;</strong></li>
+
+    <li><strong><br>
+
+      </strong><strong><strong> </strong>&lt;VertLineTexDecl&gt;
+      </strong>; <strong> </strong>pro Edit,
+ComboBox, PopupMenu, ListBox, předefinovává
+deklaraci dialogu pro daný objekt</li>
+
+    <ul>
+
+      <li><strong> </strong><strong>X
+= ;&nbsp;</strong>Souřadnice X obdelníku
+vymezujícího texturu
+vertikálních okrajů</li>
+
+      <li><strong><strong> </strong>Y
+= ;&nbsp;</strong>Souřadnice Y obdelníku
+vymezujícího texturu
+vertikálních okrajů</li>
+
+      <li><strong><strong> </strong>Width
+= ; </strong>šířka obdelníku
+vymezujícího texturu
+vertikálních okrajů</li>
+
+      <li><strong><strong> </strong>Height
+= </strong>; Výška obdelníku
+vymezujícího texturu
+vertikálních okrajů</li>
+
+    </ul>
+
+    <li><strong> </strong><strong>&lt;/VertLineTexDecl&gt;</strong></li>
+
+    <li><strong><br>
+
+      </strong><strong><strong> </strong>&lt;UpTexDecl&gt;
+; </strong>pro Button, předefinovává
+deklaraci dialogu pro daný objekt</li>
+
+    <ul>
+
+      <li><strong>X
+= ;&nbsp;</strong>Souřadnice X obdelníku
+vymezujícího texturu stavu nahoře</li>
+
+      <li><strong>Y
+= ;&nbsp;</strong>Souřadnice Y obdelníku
+vymezujícího texturu stavu nahoře</li>
+
+      <li><strong>Width
+= ; </strong>šířka obdelníku
+vymezujícího texturu stavu nahoře</li>
+
+      <li><strong>Height
+= ; </strong>Výška obdelníku
+vymezujícího texturu stavu nahoře</li>
+
+    </ul>
+
+    <li><strong><strong> </strong>&lt;/UpTexDecl&gt;</strong></li>
+
+    <li><strong><br>
+
+      </strong><strong>&lt;DownTexDecl&gt;&nbsp;</strong><strong>;
+      </strong>pro Button, předefinovává
+deklaraci dialogu pro daný objekt</li>
+
+    <ul>
+
+      <li><strong>X
+= ;&nbsp;</strong>Souřadnice X obdelníku
+vymezujícího texturu stavu dole</li>
+
+      <li><strong>Y
+= ;&nbsp;</strong>Souřadnice Y obdelníku
+vymezujícího texturu stavu dole</li>
+
+      <li><strong>Width
+= ; </strong>šířka obdelníku
+vymezujícího texturu stavu dole</li>
+
+      <li><strong>Height
+= ; </strong>Výška obdelníku
+vymezujícího texturu stavu dole</li>
+
+    </ul>
+
+    <li><strong>&lt;/DownTexDecl&gt;</strong></li>
+
+    <li><strong><br>
+
+      </strong><strong><strong> </strong>&lt;UncheckedTexDecl&gt;
+      </strong><strong>; </strong>pro CheckBox,
+předefinovává deklaraci dialogu pro
+daný objekt</li>
+
+    <ul>
+
+      <li><strong>X
+= ;&nbsp;</strong>Souřadnice X obdelníku
+vymezujícího texturu stavu nezaškrtnuto</li>
+
+      <li><strong>Y
+= ;&nbsp;</strong>Souřadnice Y obdelníku
+vymezujícího texturu stavu nezaškrtnuto</li>
+
+      <li><strong><strong> </strong>Width
+= ; </strong>šířka obdelníku
+vymezujícího texturu stavu nezaškrtnuto</li>
+
+      <li><strong><strong> </strong>Height
+= ; </strong>Výška obdelníku
+vymezujícího texturu stavu nezaškrtnuto</li>
+
+    </ul>
+
+    <li><strong>&lt;/UncheckedTextDecl&gt;</strong></li>
+
+    <li><strong><br>
+
+      </strong><strong>&lt;CheckedTexDecl&gt; </strong><strong>;
+      </strong>pro CheckBox, předefinovává
+deklaraci dialogu pro daný objekt</li>
+
+    <ul>
+
+      <li><strong> </strong><strong>X
+= ;&nbsp;</strong>Souřadnice X obdelníku
+vymezujícího texturu
+stavu&nbsp;zaškrtnuto</li>
+
+      <li><strong>Y
+= ;&nbsp;</strong>Souřadnice Y obdelníku
+vymezujícího texturu
+stavu&nbsp;zaškrtnuto</li>
+
+      <li><strong>Width
+= ; </strong>šířka obdelníku
+vymezujícího texturu
+stavu&nbsp;zaškrtnuto</li>
+
+      <li><strong>Height
+= ; </strong>Výška obdelníku
+vymezujícího texturu
+stavu&nbsp;zaškrtnuto</li>
+
+    </ul>
+
+    <li><strong>&lt;/CheckedTextDecl&gt;</strong></li>
+
+    <li><strong><br>
+
+      </strong><strong><strong> </strong>&lt;TrackTexDecl&gt;&nbsp;</strong><strong>;
+      </strong>pro TrackBar, předefinovává
+deklaraci dialogu pro daný objekt</li>
+
+    <ul>
+
+      <li><strong>X
+= ;&nbsp;</strong>Souřadnice X obdelníku
+vymezujícího texturu dráhy pro
+posuvník</li>
+
+      <li><strong>Y
+= ;&nbsp;</strong>Souřadnice Y obdelníku
+vymezujícího texturu dráhy pro
+posuvník</li>
+
+      <li><strong>Width<strong>&nbsp; </strong>=
+; </strong>šířka obdelníku
+vymezujícího texturu dráhy pro
+posuvník</li>
+
+      <li><strong>Height
+= ; </strong>Výška obdelníku
+vymezujícího texturu dráhy pro
+posuvník</li>
+
+    </ul>
+
+    <li><strong> </strong><strong>&lt;/TrackTexDecl&gt;</strong></li>
+
+    <li><strong><br>
+
+      </strong><strong>&lt;SliderTexDecl&gt; </strong><strong>;
+      </strong>pro TrackBar, předefinovává
+deklaraci dialogu pro daný objekt</li>
+
+    <ul>
+
+      <li><strong>X
+= ;&nbsp;</strong>Souřadnice X obdelníku
+vymezujícího texturu posuvníku</li>
+
+      <li><strong><strong> </strong>Y
+= ;&nbsp;</strong>Souřadnice Y obdelníku
+vymezujícího texturu posuvníku</li>
+
+      <li><strong>Width<strong>&nbsp; </strong>=
+; </strong>šířka obdelníku
+vymezujícího texturu posuvníku</li>
+
+      <li><strong>Height
+= ; </strong>Výška obdelníku
+vymezujícího texturu posuvníku</li>
+
+    </ul>
+
+    <li><strong>&lt;/SliderTexDecl&gt;</strong></li>
+
+  </ul>
+
+  <ul>
+
+    <li><br>
+
+      <strong><strong> </strong>&lt;UnselectedTexDecl&gt;
+      </strong><strong>; </strong>pro RadioButton,
+předefinovává deklaraci dialogu pro
+daný objekt</li>
+
+    <ul>
+
+      <li><strong>X
+= ;&nbsp;</strong>Souřadnice X obdelníku
+vymezujícího texturu stavu nevybráno</li>
+
+      <li><strong>Y
+= ;&nbsp;</strong>Souřadnice Y obdelníku
+vymezujícího texturu stavu nevybráno</li>
+
+      <li><strong>Width
+= ; </strong>šířka obdelníku
+vymezujícího texturu stavu nevybráno</li>
+
+      <li><strong>Height
+= ; </strong>Výška obdelníku
+vymezujícího texturu stavu nevybráno</li>
+
+    </ul>
+
+    <li><strong><strong> </strong>&lt;/UnselectedTexDecl&gt;</strong></li>
+
+    <li><strong><br>
+
+      </strong><strong>&lt;SelectedTexDecl&gt; </strong><strong>;
+      </strong>pro RadioButton,
+předefinovává deklaraci dialogu pro
+daný objekt</li>
+
+    <ul>
+
+      <li><strong>X
+= ;&nbsp;</strong>Souřadnice X obdelníku
+vymezujícího texturu
+stavu&nbsp;vybráno</li>
+
+      <li><strong>Y
+= ;&nbsp;</strong>Souřadnice Y obdelníku
+vymezujícího texturu
+stavu&nbsp;vybráno</li>
+
+      <li><strong>Width
+= ; </strong>šířka obdelníku
+vymezujícího texturu
+stavu&nbsp;vybráno</li>
+
+      <li><strong><strong> </strong>Height
+= ; </strong>Výška obdelníku
+vymezujícího texturu
+stavu&nbsp;vybráno</li>
+
+    </ul>
+
+    <li><strong><strong> </strong>&lt;/SelectedTexDecl&gt;</strong></li>
+
+    <li><strong><br>
+
+      </strong><strong>&lt;ActiveBackgroundTexDecl&gt;
+; </strong>pro ComboBox, PopupMenu, ListBox,
+předefinovává deklaraci dialogu pro
+daný objekt</li>
+
+    <ul>
+
+      <li><strong> </strong><strong>X
+= ;&nbsp;</strong>Souřadnice X obdelníku
+vymezujícího texturu vybraného
+řádku</li>
+
+      <li><strong><strong> </strong>Y
+= ;&nbsp;</strong>Souřadnice Y obdelníku
+vymezujícího texturu vybraného
+řádku</li>
+
+      <li><strong>Width
+= ; </strong>šířka obdelníku
+vymezujícího texturu vybraného
+řádku</li>
+
+      <li><strong>Height
+= ; </strong>Výška obdelníku
+vymezujícího texturu vybraného
+řádku</li>
+
+    </ul>
+
+    <li><strong> </strong><strong>&lt;/ActiveBackgroundTexDecl&gt;</strong></li>
+
+  </ul>
+
+  <li><strong>&lt;/Control&gt;</strong></li>
+
+</ul>
+
+<h2><a name="Cur">8.7 Soubor typu *.cur</a></h2>
+
+<p>Soubor typu *.cur obsahuje definici kurzoru myši na
+obrazovce.</p>
+
+<p><strong>Struktura souboru:</strong></p>
+
+<p>Řádkově orientovaný textový
+soubor</p>
+
+<p><strong>0 </strong>-
+Nepoužívá se, musí být
+nastaveno na 0<br>
+
+<strong>HotSpotX HotSpot Y </strong>- Hotspot
+myši na obrázku<br>
+
+<strong>Jméno souboru s obrázkem kurzoru
+myši</strong></p>
+
+<h2><a name="Objects.tree">8.8 Soubor objects.tree</a></h2>
+
+<p>Soubor objects.tree obsahuje definici stromu objektů pro map
+editor.</p>
+
+<p><strong>Struktura souboru:</strong></p>
+
+<p>Řádkově orientovaný
+konfigurační soubor.</p>
+
+<p>Možný obsah řádku:</p>
+
+<ol>
+
+  <li>&lt;<strong>začátek větve</strong>&gt;
+&lt;/ <strong>konec větve &gt; - </strong>Konec a
+začátek větve stromu objektů</li>
+
+  <li>[<strong>jméno souboru objektu </strong>]
+- jméno souboru objektu v hranantých
+závorkách, list stromu objektů</li>
+
+</ol>
+
+Soubor musí respektovat pravidla pro strom. Tj.
+mít jeden kořen.<br>
+
+<br>
+
+<h2><a name="Font">8.9 Soubor typu *.font</a></h2>
+
+Soubor typu *.font obsahuje definici fontu
+používaného aplikací.<br>
+
+<br>
+
+<strong>Struktura souboru:</strong><br>
+
+<br>
+
+Řádkově orientovaný konfigurační
+soubor.<br>
+
+<br>
+
+Možný obsah řádku:<br>
+
+<ol>
+
+  <li><strong>Klíč = hodnota </strong>-
+klíč a k němu přiřazená hodnota</li>
+
+  <li>; - komentář
+následující za středníkem</li>
+
+</ol>
+
+<strong>Seznam klíčů:<br>
+
+<br>
+
+SimpleDeclaration </strong>= ; 1 pro zjednodušenou
+deklaraci fontu
+(vyplňují se jenom hodnoty klíčů FaceName, Color,
+Height,
+všechy ostatní jsou defaultní), 0 pro
+nezjednodušenou deklaraci fontu, defaultní
+hodnota 1<br>
+
+<strong>Color = ; </strong>hexadecimální
+číslo ve formátu barvy: 0xAARRGGBB, kde AA je
+průhlednost, RR je červená složka barvy, GG je
+zelená
+složka barvy a&nbsp;BB je modrá složka barvy,
+defaultní
+hodnota 0xFFFFFFFF<br>
+
+<strong><strong>Height </strong></strong>= ;
+Výška fontu v bodech (pt), defaultní
+hodnota 18<br>
+
+<strong>Width = ; </strong>Průměrná
+šířka fontu, v bodech (pt), jestliže je
+zadána 0
+je vybrána vhodná šířka
+podle
+nastavení zobrazovacího
+zařízení a
+konkrétního fontu, defaultní hodnota 0<br>
+
+<strong>Weight </strong>= ; Váha fontu,
+určuje tloušťku písmen fontu,
+číselná
+hodnota od 0 do 1000, defaultní hodnota 400<br>
+
+<strong>MipLevels </strong>= ; Počet mipmap
+levelů textury s renderovanými písmeny fontu,
+číselná hodnota od 0 do 8, jestliže je 0
+celý
+řetěz mipmap levelů je vygenerovaný, defaultní
+hodnota 0<br>
+
+<strong>Italic </strong>= ; 1 pro italické
+písmo, 0 pro normální
+písmo, defaultní hodnota 0<br>
+
+<strong>CharSet </strong>= ; Znaková sada
+fontu,&nbsp;celočíselná hodnota,
+defaultní hodnota
+1, následující znakové sady
+jsou
+předdefinované:<br>
+
+; 0 - ANSI_CHARSET<br>
+
+; 1 - DEFAULT_CHARSET<br>
+
+; 2 - SYMBOL_CHARSET<br>
+
+; 30 - JOHAB_CHARSET<br>
+
+; 77 - MAC_CHARSET<br>
+
+; 128 - SHIFTJIS_CHARSET<br>
+
+; 129 - HANGUL_CHARSET<br>
+
+; 134 - GB2313_CHARSET<br>
+
+; 136 - CHINESEBIG5_CHARSET<br>
+
+; 161 - GREEK_CHARSET<br>
+
+; 162 - TURKISH_CHARSET<br>
+
+; 163 - VIETNAMESE_CHARSET<br>
+
+; 177 - HEBREW_CHARSET<br>
+
+; 178 - ARABIC_CHARSET<br>
+
+; 186 - BALTIC_CHARSET<br>
+
+; 204 - RUSSIAN_CHARSET<br>
+
+; 222 - THAI_CHARSET<br>
+
+; 238 - EASTEUROPE_CHARSETdefaultní hodnota Arial,<br>
+
+; 255 - OEM_CHARSET<br>
+
+<strong>Quality </strong>= ; vzhled fontu,
+defaultní hodnota 4<br>
+
+; 0 - na vzhledu fontu nezáleží, <br>
+
+; 1 - Vzhled fontu je méně důležitý, než při
+kvalitě 2,
+pro GDI rasterované fonty je povolena změna velikosti.
+Tučné, italické, podtržené a
+přeškrtnuté písmo je
+syntetizováno,
+jestliže je toho zapotřebí.<br>
+
+; 2 - Kvalita znaků písma je
+důležitější než
+přesné dodržení nastavených
+vlastností
+písma. pro GDI rasterové fonty je
+zakázána
+změna velikosti, místo toho je použita
+nejbližší
+rasterovaná velikost fontu. Tučné,
+italické,
+podtržené a přeškrtnuté
+písmo je
+syntetizováno, jestliže je toho zapotřebí.<br>
+
+; 3 - Font není antialisován.<br>
+
+; 4 - Font je vždy antialisován, jestliže to font podporuje
+a
+velikost fontu není příliš
+malá nebo
+příliš velká.<br>
+
+; 5 - Text je renderován pokud možno metodou antialiasingu
+ClearType<br>
+
+<strong>Pitch = ; </strong>nastavuje
+proporcionální či
+neproporcionální
+písmo, 0 - defaultní nastavení fontu,
+1 -
+neproporcionální písmo, 2 -
+proporcionální písmo,
+defaultní hodnota 0<br>
+
+<strong>FaceName </strong>= ; Jméno
+fontu,&nbsp;jestliže je hodnota ponechaná
+prázdná,
+bude jako font použit první font
+splňující
+ostatní předepsané vlastnosti,
+defaultní hodnota
+Arial<br>
+
+<br>
+
+<h2><a name="HUD">8.10 Soubor typu *.HUD</a></h2>
+
+Soubor typu *.HUD obsahuje nastavení HUDu (Head-up displaye).<br>
+
+<br>
+
+<strong>Struktura souboru:</strong><br>
+
+<br>
+
+Řádkově orientovaný konfigurační
+soubor. <br>
+
+<br>
+
+Možný obsah řádku:<br>
+
+<ol>
+
+  <li><strong>&lt; začátek objektu &gt;,
+&lt;/ konec objektu &gt;</strong> - začátek a
+konec objetu HUDu, každý objekt musí
+být použit právě jednou</li>
+
+  <li><strong>Klíč = hodnota</strong> -
+klíč a k němu přiřazená hodnota, každý
+klíč musí být použit právě
+jednou</li>
+
+  <li>; - komentář
+následující za středníkem</li>
+
+</ol>
+
+<strong>Seznam objektů a k nim
+náležících klíčů:<br>
+
+</strong>
+<ul>
+
+  <li><strong>&lt;Speedometer&gt; </strong>;
+objekt
+tachometru, tachometr se skládá z textury
+pozadí, textury zobrazující
+graficky rychlost auta, která roste zleva doprava, textu
+zobrazujícího
+nápis jednotek rychlosti a textu
+zobrazujícího hráčovu
+aktuální rychlost</li>
+
+  <ul>
+
+    <li><strong>Width = ; </strong>šířka
+tachometru, v pixelech</li>
+
+    <li><strong>Height = ; </strong>Výška
+tachometru, v pixelech</li>
+
+    <li><strong>BackgroundTexture = ;</strong>
+Jméno textury pozadí tachometru</li>
+
+    <li><strong>SpeedTexture = ;</strong>
+Jméno textury zobrazující graficky
+rychlost auta (textura rychlosti)</li>
+
+    <li><strong>SpeedTexturePosition.Left = ;</strong>
+Souřadnice X levého horního rohu
+obdelníku
+vymezujícího pozici textury rychlosti,
+relativní
+vůči levému hornímu rohu tachometru, v pixelech</li>
+
+    <li><strong>SpeedTexturePosition.Right = ; </strong>Souřadnice
+X pravého dolního rohu obdelníku
+vymezujícího pozici textury rychlosti,
+relativní
+vůči levému hornímu rohu tachometru, v pixelech</li>
+
+    <li><strong>SpeedTexturePosition.Top = ;</strong>
+Souřadnice Y levého horního rohu
+obdelníku
+vymezujícího pozici textury rychlosti,
+relativní
+vůči levému hornímu rohu tachometru, v pixelech</li>
+
+    <li><strong>SpeedTexturePosition.Bottom = ;</strong>
+Souřadnice Y pravého dolního rohu
+obdelníku
+vymezujícího pozici textury rychlosti,
+relativní
+vůči levému hornímu rohu tachometru, v pixelech</li>
+
+    <li><strong>KmhText <strong>= ;</strong></strong>
+Text zobrazující nápis jednotek
+rychlosti, např. : "KMH", "Kilometers"</li>
+
+    <li><strong>KmhTextPosition.Left = ; </strong>Souřadnice
+X levého horního rohu obdelníku
+vymezujícího pozici nápisu jednotek
+rychlosti,
+relativní vůči levému hornímu rohu
+tachometru, v
+pixelech</li>
+
+    <li><strong>KmhTextPosition.Right = ;</strong>
+Souřadnice X pravého dolního rohu
+obdelníku
+vymezujícího pozici nápisu jednotek
+rychlosti,
+relativní vůči levému hornímu rohu
+tachometru, v
+pixelech</li>
+
+    <li><strong>KmhTextPosition.Top = ; </strong>Souřadnice
+Y levého horního rohu obdelníku
+vymezujícího pozici nápisu jednotek
+rychlosti,
+relativní vůči levému hornímu rohu
+tachometru, v
+pixelech</li>
+
+    <li><strong>KmhTextPosition.Bottom = ; </strong>Souřadnice
+Y pravého dolního rohu obdelníku
+vymezujícího pozici nápisu jednotek
+rychlosti,
+relativní vůči levému hornímu rohu
+tachometru, v
+pixelech</li>
+
+    <li><strong>SpeedTextPosition.Left = ;</strong>
+Souřadnice X levého horního rohu
+obdelníku
+vymezujícího pozici nápisu
+samotné
+rychlosti, relativní vůči levému
+hornímu rohu
+tachometru, v pixelech</li>
+
+    <li><strong>SpeedTextPosition.Right = ;</strong>&nbsp;Souřadnice
+X pravého dolního rohu obdelníku
+vymezujícího pozici nápisu
+samotné rychlosti, relativní vůči
+levému hornímu rohu tachometru, v
+pixelech</li>
+
+    <li><strong>SpeedTextPosition.Top = ;</strong>
+Souřadnice Y levého horního rohu
+obdelníku vymezujícího pozici
+nápisu
+samotné rychlosti, relativní vůči
+levému hornímu rohu tachometru, v
+pixelech</li>
+
+    <li><strong>SpeedTextPosition.Bottom = ;</strong>
+Souřadnice Y pravého dolního&nbsp; rohu
+obdelníku vymezujícího pozici
+nápisu
+samotné rychlosti, relativní vůči
+levému hornímu rohu tachometru, v
+pixelech</li>
+
+    <li><strong>KmhTextFont = ;</strong>
+Jméno souboru s definicí fontu pro
+nápis jednotek rychlosti, *.font</li>
+
+    <li><strong>SpeedTextFont = ; </strong>Jméno
+souboru s definicí fontu pro nápis
+samotné rychlosti, *.font</li>
+
+    <li><strong>BackgroundTexturePositionOnTexture.X = ;</strong>
+Souřadnice X levého horního rohu
+obdelníku na
+textuře pozadí, v pixelech, slouží k tomu, aby
+všechny části tachometru mohly být
+uloženy v
+jednom obrázku</li>
+
+    <li><strong>BackgroundTexturePositionOnTexture.Y = ;</strong>
+Souřadnice Y levého horního rohu
+obdelníku na
+textuře pozadí, v pixelech, slouží k tomu, aby
+všechny části tachometru mohly být
+uloženy v
+jednom obrázku</li>
+
+    <li><strong>SpeedTexturePositionOnTexture.X = ;</strong>
+Souřadnice X levého horního rohu
+obdelníku na
+textuře pozadí, v pixelech, slouží k tomu, aby
+všechny části tachometru mohly být
+uloženy v
+jednom obrázku</li>
+
+    <li><strong>SpeedTexturePositionOnTexture.Y = ; </strong>Souřadnice
+Y levého horního rohu obdelníku na
+textuře
+pozadí, v pixelech, slouží k tomu, aby
+všechny
+části tachometru mohly být uloženy v jednom
+obrázku</li>
+
+  </ul>
+
+  <li><strong>&lt;/Speedometer&gt;</strong></li>
+
+  <li><strong><br>
+
+&lt;PlaceList&gt; ; </strong>List
+zobrazující
+aktuální pořadí aut v
+závodu (dále
+jenom list), list se skládá z horní,
+prostřední (položkové) a dolní
+části
+textury pozadí, z nadpisu listu, fontu pro
+číslování a fontu pro jména
+hráčů</li>
+
+  <ul>
+
+    <li><strong>Width = ;</strong>
+šířka listu, v pixelech</li>
+
+    <li><strong>TopBackgroundTexture = ; </strong>Jméno
+textury horní části pozadí</li>
+
+    <li><strong>TopBackgroundTextureHeight = ;</strong>
+Výška textury horní části
+pozadí, v pixelech</li>
+
+    <li><strong>ItemBackgroundTexture = ; </strong>Jméno
+textury prostřední (položkové) části
+pozadí</li>
+
+    <li><strong>ItemBackgroundTextureHeight = ; </strong>Výška
+textury prostřední (položkové) části
+pozadí, v pixelech</li>
+
+    <li><strong>BottomBackgroundTexture = ; </strong>Jméno
+textury dolní části pozadí</li>
+
+    <li><strong>BottomBackgroundTextureHeight = ; </strong>Výška
+textury dolní části pozadí, v pixelech</li>
+
+    <li><strong>TopBackgroundTexturePositionOnTexture.X = ;
+      </strong>Souřadnice
+X levého horního rohu obdelníku na
+textuře
+horní části pozadí, slouží
+k tomu, aby
+všechny části listu mohly být uloženy
+v jednom
+obrázku</li>
+
+    <li><strong>TopBackgroundTexturePositionOnTexture.Y = ;
+      </strong>Souřadnice
+Y levého horního rohu obdelníku na
+textuře
+horní části pozadí, slouží
+k tomu, aby
+všechny části listu mohly být uloženy
+v jednom
+obrázku</li>
+
+    <li><strong>ItemBackgroundTexturePositonOnTexture.X = ;
+      </strong>Souřadnice
+X levého horního rohu obdelníku na
+textuře
+prostřední (položkové) části
+pozadí,
+slouží k tomu, aby všechny části listu
+mohly
+být uloženy v jednom obrázku</li>
+
+    <li><strong>ItemBackgroundTexturePositionOnTexture.Y =
+; </strong>Souřadnice
+Y levého horního rohu obdelníku na
+textuře
+prostřední (položkové) části
+pozadí,
+slouží k tomu, aby všechny části listu
+mohly
+být uloženy v jednom obrázku</li>
+
+    <li><strong>BottomBackgroundTexturePositionOnTexture.X
+= ; </strong>Souřadnice
+X levého horního rohu obdelníku na
+textuře
+dolní části pozadí, slouží
+k tomu, aby
+všechny části listu mohly být uloženy
+v jednom
+obrázku</li>
+
+    <li><strong>BottomBackgroundTexturePositionOnTexture.Y
+= ; </strong>Souřadnice
+Y levého horního rohu obdelníku na
+textuře
+dolní části pozadí, slouží
+k tomu, aby
+všechny části listu mohly být uloženy
+v jednom
+obrázku</li>
+
+    <li><strong>CaptionText = ;</strong> Text nadpisu
+listu</li>
+
+    <li><strong>CaptionFont = ; </strong>Jméno
+souboru s definicí fontu pro nadpis listu, *.font</li>
+
+    <li><strong>NumberingFont = ;</strong>
+Jméno souboru s definicí fontu pro
+číslování, *.font</li>
+
+    <li><strong>NumberingPosition.Left = ; </strong>Souřadnice
+X levého horního rohu obdelníku
+vymezujícího pozici
+číslování,
+relativní vůči prostřední části
+pozadí, v
+pixelech</li>
+
+    <li><strong>NumberingPosition.Top = ; </strong><strong>
+      </strong>Souřadnice
+Y levého horního rohu obdelníku
+vymezujícího pozici
+číslování,
+relativní vůči prostřední části
+pozadí, v
+pixelech</li>
+
+    <li><strong>NumberingPosition.Right = ; </strong><strong>
+      </strong>Souřadnice
+X pravého dolního rohu obdelníku
+vymezujícího pozici
+číslování,
+relativní vůči prostřední části
+pozadí, v
+pixelech</li>
+
+    <li><strong>NumberingPosition.Bottom = ;&nbsp;</strong><strong>
+      </strong>Souřadnice
+X pravého dolního rohu obdelníku
+vymezujícího pozici
+číslování,
+relativní vůči prostřední části
+pozadí, v
+pixelech</li>
+
+    <li><strong>NameFont = ; </strong>Jméno
+souboru s definicí fontu pro název
+hráčů, *.font</li>
+
+    <li><strong>NamePosition.Left = ; </strong><strong>
+      </strong>Souřadnice
+X levého horního rohu obdelníku
+vymezujícího pozici pro název
+hráče,
+relativní vůči prostřední části
+pozadí, v
+pixelech</li>
+
+    <li><strong>NamePosition.Top = ; </strong>Souřadnice
+Y levého horního
+rohu obdelníku vymezujícího pozici pro
+název hráče, relativní vůči
+prostřední části pozadí, v pixelech</li>
+
+    <li><strong>NamePosition.Right = ; </strong>Souřadnice
+X pravého dolního&nbsp;
+rohu obdelníku vymezujícího pozici pro
+název hráče, relativní vůči
+prostřední části pozadí, v pixelech</li>
+
+    <li><strong>NamePosition.Bottom = ; </strong>Souřadnice
+Y pravého dolního&nbsp;
+rohu obdelníku vymezujícího pozici pro
+název hráče, relativní vůči
+prostřední části pozadí, v pixelech</li>
+
+  </ul>
+
+  <li><strong>&lt;/PlaceList&gt;</strong></li>
+
+  <li><strong><br>
+
+&lt;Gear&gt; ; </strong>ukazatel zařazené
+rychlosti, ukazatel
+zařazené rychlosti se skládá z textury
+pozadí, textu nadpisu a textu zařazené rychlosti</li>
+
+  <ul>
+
+    <li><strong>Width = ; </strong>šířka
+ukazatele zařazené rychlosti, v pixelech</li>
+
+    <li><strong>Height = ; </strong>Výška
+ukazatele zařazené rychlosti, v pixelech</li>
+
+    <li><strong>BackgroundTexture = ; </strong>Jméno
+souboru s texturou pozadí</li>
+
+    <li><strong>BackgroundTexturePositionOnTexture.X = ; </strong>Souřadnice
+X levého horního rohu obdelníku na
+textuře
+pozadí, slouží k tomu, aby všechny
+části
+ukazatele zařazené rychlosti mohly být uloženy v
+jednom
+obrázku</li>
+
+    <li><strong>BackgroundTexturePositionOnTexture.Y = ; </strong>Souřadnice
+Y levého horního rohu obdelníku na
+textuře
+pozadí, slouží k tomu, aby všechny
+části
+ukazatele zařazené rychlosti mohly být uloženy v
+jednom
+obrázku</li>
+
+    <li><strong>CaptionText = ; </strong>Text nadpisu</li>
+
+    <li><strong>CaptionFont = ; </strong>Jméno
+souboru s definicí fontu pro text nadpisu, *.font</li>
+
+    <li><strong>CaptionPosition.Left = ; </strong><strong>
+      </strong>Souřadnice
+X levého horního rohu obdelníku
+vymezujícího pozici textu nadpisu,
+relativní vůči
+levému hornímu rohu ukazatele zařazené
+rychlosti, v pixelech</li>
+
+    <li><strong>CaptionPosition.Top = ; </strong>Souřadnice
+Y levého horního
+rohu obdelníku vymezujícího pozici
+textu nadpisu, relativní vůči levému
+hornímu rohu ukazatele zařazené rychlosti, v
+pixelech</li>
+
+    <li><strong>CaptionPosition.Right = ; </strong>Souřadnice
+X pravého dolního
+rohu obdelníku vymezujícího pozici
+textu nadpisu, relativní vůči levému
+hornímu rohu ukazatele zařazené rychlosti, v
+pixelech</li>
+
+    <li><strong>CaptionPosition.Bottom = ; </strong>Souřadnice
+Y pravého dolního
+rohu obdelníku vymezujícího pozici
+textu nadpisu, relativní vůči levému
+hornímu rohu ukazatele zařazené rychlosti, v
+pixelech</li>
+
+    <li><strong>GearFont = ; </strong>Jméno
+souboru s definicí fontu pro text zařazené
+rychlosti</li>
+
+    <li><strong>GearPosition.Left = ; </strong>Souřadnice
+X levého horního
+rohu obdelníku vymezujícího pozici
+textu zařazené rychlosti, relativní vůči
+levému
+hornímu rohu ukazatele zařazené rychlosti, v
+pixelech</li>
+
+    <li><strong>GearPosition.Top = ; </strong>Souřadnice
+Y levého horního
+rohu obdelníku vymezujícího pozici
+textu zařazené rychlosti, relativní vůči
+levému
+hornímu rohu ukazatele zařazené rychlosti, v
+pixelech</li>
+
+    <li><strong>GearPosition.Right = ; </strong>Souřadnice
+X pravého dolního
+rohu obdelníku vymezujícího pozici
+textu zařazené rychlosti, relativní vůči
+levému
+hornímu rohu ukazatele zařazené rychlosti, v
+pixelech</li>
+
+    <li><strong>GearPosition.Bottom = ; </strong>Souřadnice
+Y pravého dolního
+rohu obdelníku vymezujícího pozici
+textu zařazené rychlosti, relativní vůči
+levému
+hornímu rohu ukazatele zařazené rychlosti, v
+pixelech</li>
+
+  </ul>
+
+  <li><strong>&lt;/Gear&gt;</strong></li>
+
+  <li><strong><br>
+
+&lt;NowPlaying&gt; ; </strong>Informace o
+právě hrané
+skladbě, Informace o právě hrané skladbě se
+skládají z textury pozadí, textu
+nadpisu a textu
+samotných informací o právě
+hrané skladbě</li>
+
+  <ul>
+
+    <li><strong>Width = ; </strong>šířka
+informací o právě hrané skladbě, v
+pixelech</li>
+
+    <li><strong>Height = ; </strong>Výška
+informací o právě hrané skladbě, v
+pixelech</li>
+
+    <li><strong>BackgroundTexture = ; </strong>Jméno
+souboru s texturou pozadí</li>
+
+    <li><strong>BackgroundTexturePositionOnTexture.X = ; </strong>Souřadnice
+X levého horního rohu obdelníku na
+textuře pozadí, slouží k
+tomu, aby všechny části informací o
+právě hrané skladbě mohly být uloženy
+v jednom obrázku</li>
+
+    <li><strong>BackgroundTexturePositionOnTexture.Y = ; </strong>Souřadnice
+Y levého horního rohu obdelníku na
+textuře pozadí, slouží k
+tomu, aby všechny části informací o
+právě hrané skladbě mohly být uloženy
+v jednom obrázku</li>
+
+    <li><strong>CaptionText = ; </strong>Text nadpisu</li>
+
+    <li><strong>CaptionFont = ; </strong>Jméno
+souboru s definicí fontu pro text nadpisu, *.font</li>
+
+    <li><strong>CaptionPosition.Left = ; </strong><strong>
+      </strong>Souřadnice
+X levého horního rohu obdelníku
+vymezujícího pozici textu nadpisu,
+relativní vůči levému hornímu rohu
+informací o právě hrané skladbě, v
+pixelech</li>
+
+    <li><strong>CaptionPosition.Top = ; </strong>Souřadnice
+Y levého horního
+rohu obdelníku vymezujícího pozici
+textu nadpisu, relativní vůči levému
+hornímu rohu&nbsp;informací o
+právě hrané skladbě, v pixelech</li>
+
+    <li><strong>CaptionPosition.Right = ; </strong>Souřadnice
+X pravého dolního
+rohu obdelníku vymezujícího pozici
+textu nadpisu, relativní vůči levému
+hornímu rohu&nbsp;informací o
+právě hrané skladbě, v pixelech</li>
+
+    <li><strong>CaptionPosition.Bottom = ; </strong>Souřadnice
+Y pravého dolního
+rohu obdelníku vymezujícího pozici
+textu nadpisu, relativní vůči levému
+hornímu rohu&nbsp;informací o
+právě hrané skladbě, v pixelech</li>
+
+    <li><strong>NowPlayingFont = ; </strong>Jméno
+souboru s definicí fontu pro text informací o
+právě hrané skladbě, *.font</li>
+
+    <li><strong>NowPlayingPosition.Left = ;&nbsp;</strong><strong>
+      </strong>Souřadnice
+X levého horního
+rohu obdelníku vymezujícího pozici
+textu
+informací o právě hrané skladbě,
+relativní
+vůči levému
+hornímu rohu&nbsp;informací o
+právě hrané skladbě, v pixelech</li>
+
+    <li><strong>NowPlayingPosition.Top = ; </strong>Souřadnice
+Y levého horního
+rohu obdelníku vymezujícího pozici
+textu
+informací o právě hrané skladbě,
+relativní
+vůči levému
+hornímu rohu&nbsp;informací o
+právě hrané
+skladbě, v pixelech</li>
+
+    <li><strong>NowPlayingPositoin.Right = ; </strong>Souřadnice
+X pravého dolního
+rohu obdelníku vymezujícího pozici
+textu
+informací o právě hrané skladbě,
+relativní
+vůči levému
+hornímu rohu&nbsp;informací o
+právě hrané
+skladbě, v pixelech</li>
+
+    <li><strong>NowPlayingPosiiton.Bottom = ; </strong>Souřadnice
+Ypravého dolního
+rohu obdelníku vymezujícího pozici
+textu
+informací o právě hrané skladbě,
+relativní
+vůči levému
+hornímu rohu&nbsp;informací o
+právě hrané
+skladbě, v pixelech</li>
+
+    <li><strong>MaxTextLength = ; </strong>Maximální
+délka textu informací o právě
+hrané skladbě, v počtu znaků</li>
+
+    <li><strong>Separator = ; </strong>Oddělovací
+znak nebo sekvence znaků mezi skladbou a interpretem skladby</li>
+
+  </ul>
+
+  <li><strong>&lt;/NowPlaying&gt;</strong></li>
+
+</ul>
+
+<h2><a name="Light">8.11 Soubor typu *.light</a></h2>
+
+Soubor typu *.light obsahuje definici světla pro hru.<br>
+
+<br>
+
+<strong>Struktura souboru:</strong><br>
+
+<br>
+
+Řádkově orientovaný konfigurační soubor<br>
+
+<br>
+
+Možný obsah řádku:<br>
+
+<ol>
+
+  <li><strong>Klíč = hodnota </strong>-
+klíč a k němu přiřazená hodnota(0 - 3 (* PI/2))</li>
+
+  <li>; - komentář
+následující za středníkem</li>
+
+</ol>
+
+<strong>Seznam klíčů:<br>
+
+</strong><strong><br>
+
+<strong>X&nbsp;= ; </strong></strong>Souřadnice
+X
+relativní pozice vůči objektu, kterému světlo
+náleží, číslo s desetinnou
+čárkou v
+centimetrech<br>
+
+<strong>Y = ;&nbsp;</strong>Souřadnice Y
+relativní pozice vůči objektu, kterému světlo
+náleží, číslo s desetinnou
+čárkou v
+centimetrech<br>
+
+<strong>Z&nbsp;= ; </strong>Souřadnice Z
+relativní pozice vůči objektu, kterému světlo
+náleží, číslo s desetinnou
+čárkou v
+centimetrech<strong><br>
+
+</strong><strong>Direction.X = ; </strong>Souřadnice
+X směru světla, číslo s desetinnou čárkou<br>
+
+<strong>Direction.Y = ;&nbsp;</strong>Souřadnice Y
+směru světla, číslo s desetinnou čárkou<br>
+
+<strong>Direction.Z = ; </strong>Souřadnice Z směru
+světla, číslo s desetinnou čárkou<br>
+
+<strong>Scale = ; </strong>velikost
+světelného billboardu, pouze pro typ světla číslo
+4,
+číslo s desetinnou čárkou v centimetrech<br>
+
+<strong>AttenuationConstant = ; </strong>konstatní
+koeficient rovnice pro útlum světla, číslo s
+desetinnou čárkou v centimetrech<br>
+
+<strong>AttenuationLinear = ; </strong>lineární
+koeficient rovnice pro útlum světla, číslo s
+desetinnou čárkou v centimetrech<br>
+
+<strong>AttenuationQuadratic = ; </strong>kvadratický
+koeficient rovnice pro útlum světla, číslo s
+desetinnou čárkou v centimetrech<br>
+
+<strong>OuterConeAngle = ; </strong>úhel
+vnějšího kuželu světla, číslo s
+desetinnou čárkou v radiánech<br>
+
+<strong>InnerConeAngle = ; </strong>úhel
+vnitřního kuželu světla, číslo s desetinnou
+čárkou v radiánech<br>
+
+<strong>Falloff = ; </strong>koeficient rychlosti
+útlumu světla ve vnějším kuželu
+světla, číslo s desetinnou čárkou<br>
+
+<strong>Range = ; </strong>Maximální
+dosah světla<br>
+
+<strong>Diffuse = ; </strong>Barva
+difusní složky světla, hexadecimální
+číslo
+ve formátu barvy: 0xAARRGGBB, kde AA musí
+mít
+hodnotu FF, RR je červená složka světla, GG je
+zelená
+složka světla a BB je modrá složka světla<br>
+
+<strong>Specular = ; </strong>Barva
+spekulární složky světla,
+hexadecimální číslo ve
+formátu barvy, viz. Diffuse<br>
+
+<strong>Ambient = ; </strong>Barva ambientní
+složky světla, hexadecimální číslo ve
+formátu barvy, viz. Diffuse<br>
+
+<strong>Type = ; </strong>Typ světla, 1 - reflektor u
+auta, 2 - reflektor lampy, 4 -&nbsp;světelný billboard<br>
+
+<strong>LightMap = ; </strong>Jméno textury
+light mapy pro typy světla 2 a 4
+<h2><a name="Lodmap">8.12 Soubor typu *.lodmap</a></h2>
+
+Soubor typu *.lodmap obsahuje definici použité
+úrovně detailu.<br>
+
+<br>
+
+<strong>Struktura souboru:</strong><br>
+
+<br>
+
+Řádkově orientovaný soubor.<br>
+
+<br>
+
+<strong>VelikostX VelikostY </strong>- Velikost matice s
+definovanými úrovněmi detailu<br>
+
+[Následuje matice s čísly úrovně
+detailu. Počet
+čísel na řádku je roven VelikostX. Počet
+řádků
+matice je roven VelikostY. Čísla úrovně detailu
+jsou na
+řádku oddělena mezerami. Čísla úrovně
+detailu
+začínají od 0 (nejnižší
+úroveň
+detailu) a končí nejvyšší
+definovanou
+úrovní detailu pro daný model,
+terén,
+trávu.]<br>
+
+<br>
+
+<h2><a name="Urmap">8.13 Soubor typu *.urmap</a></h2>
+
+Soubor typu *.urmap obsahuje definici mapy.<br>
+
+<br>
+
+<strong>Struktura souboru:</strong><br>
+
+<br>
+
+Řádkově orientovaný soubor.<br>
+
+<br>
+
+<strong>VelikostMapyX VelikostMapyZ </strong>- velikost
+mapy X * Z oddělená mezerou<br>
+
+<strong>Jméno mapy</strong> - nemělo by být delší než 30 znaků<br>
+
+<strong>MajorVersion.MinorVersion</strong> - dvě přirozená čísla oddělená tečkou určují verzi formátu souboru .urmap 
+(závisí na verzi editoru a ovlivňuje v jaké verzi hry půjde mapa spustit).<br>
+
+<strong>Popisek mapy</strong> - není povinný. Pokud je přítomen, měl by stručně popisovat smysl, účel či podobu mapy. 
+Popisek nesmí být delší než 10.000 znaků.<br>
+
+<strong>Podporované herní MODy</strong> - kompletní seznam herních MODů, pro které je mapa určena. Seznam obsahuje ID
+těchto MODů, ne jejich názvy, a jednotlivé položky jsou oddělený čárkou.<br>
+
+<strong>Jméno souboru s obrázkem</strong> - logo mapy nebo malý obrázek. Ideálně v rozlišení 180x180 pixelů, především však
+čtveratý (povolena průhlednost). Obrázek není povinný. Je-li uveden, musí se daný soubor nacházet ve složce s texturami.<br>
+
+<strong>Jméno souboru s terénem</strong> - *.terrain<br>
+
+<strong>Jméno souboru s definicí oblohy - </strong>*.sk<br>
+
+<strong>Denní doba - </strong>číslo
+s desetinnou čárkou v rozsahu 0 (0:00) až 1. 0 (24:00)<br>
+
+<strong>Ambientní světlo - </strong>hexadecimální
+číslo ve formátu barvy: 0xFFRRGGBB, kde RR je
+červená složka barvy, GG je zelená složka barvy a
+BB je modrá složka barvy<br>
+
+<strong>Barva mlhy - </strong>hexadecimální
+číslo ve formátu barvy: 0xFFRRGGBB, kde RR je
+červená složka barvy, GG je zelená složka barvy a
+BB je modrá složka barvy<br>
+
+<strong>Objekt se startovacími pozicemi </strong>-
+*.object obsahující definici
+startovacích pozic<br>
+
+<strong>StartovacíPoleX StartnovacíPoleZ RotaceStartovacíhoPole</strong>
+- Tři čísla: souřadnice startovacího pole na mapě a jeho rotace (0 - 3 (* PI/2))<br>
+
+<strong>Počet typů objektů na mapě</strong><br>
+
+[Pro každý typ objektu na mapě jeden řádek se jménem souboru objektu - *.object.]<br>
+
+<strong>Počet objektů na mapě</strong><br>
+
+[Pro každý objekt na mapě jeden řádek se čtyřmi čísly a jedním řetězcem. Postupně: index do typů objektů, 
+souřadnice X objektu na mapě, souřadnice Y objektu na mapě, rotace objektu (0 - 3 (* PI/2)),
+rozšířené vlastnosti objektu. Řetězec rozšířených vlastností je buďto jeden znak rovnítka, nebo
+text zakódovaný do base64 formátu obsahující popis vlastností objektu pro jednotlivé herní MODy.
+Formát původního textu je následující:
+Seznam MODů je oddělen pomocí středníku, každý MOD se skládá ze svého jména, po kterém následuje 
+dvojtečka a po dvojtečce seznam položek. Ty jsou od sebe odděleny čárkou a každá položka se skládá
+ze svého jména a hodnoty, odděleno rovnítkem (mezery se zanedbávají). Položka bez hodnoty a rovnítka
+se dá použít jako příznak a je při načtení chápána jako "1". Všechny MODy zde dodefinované se musí
+vyskytovat v seznamu MODů podporovaných mapou (viz výše).<br>
+Pokud objekt nemá tento řetězec definován (pouez jedno rovnítko), znamená to, že se vyskytuje ve
+všech MODech bez speciálních vlastností. Pokud je tento řetězec definován, pak se objekt
+vyskytuje pouze v těch MODech, které jsou v tomto řetězci explicitně uvedeny. Neznamená to nutně,
+že musí mít pro daný MOD zvláštní vlastnost, ale pouze to, že MOD musí být uveden (včetně dvojtečky). 
+Příklad původního řetězce a jeho použití při pomyslném objektu:<br>
+MOD1:name1=value1,name2=value2;MOD2:;MOD3:flag;nameX=valueX<br>
+1 18 26 2 TU9EMTpuYW1lMT12YWx1ZTEsbmFtZTI9dmFsdWUyO01PRDI6O01PRDM6ZmxhZztuYW1lWD12YWx1ZVg=<br>
+Omezení na celkovou délku base64 kódovaného řetězce je 10000 znaků, původní text tedy nesmí přesahovat cca 7500 znaků.]<br>
+
+<strong>Počet kroků cesty po závodním okruhu</strong>
+- musí být minimálně 1<br>
+
+[Pro každý krok cesty po závodním okruhu jedno číslo - index do seznamu objektů]<br>
+
+<br>
+
+<h2><a name="Terrain">8.14 Soubor typu *.terrain</a></h2>
+
+Soubor typu *.terrain obsahuje definici terénu.<br>
+
+<br>
+
+<strong>Struktura souboru:</strong><br>
+
+<br>
+
+Řádkově orientovaný soubor.<br>
+
+<br>
+
+<strong>VelikostTerénuX VelikostTerénuZ - </strong>velikost
+terénu X*Z, dvě čísla<br>
+
+<strong>Jméno souboru seznamu textur pro
+terén - </strong>*.textset<br>
+
+<strong>Jméno souboru seznamu textup pro zeď okolo
+terénu - </strong>*.textset<br>
+
+<strong>Počet druhů trávy<br>
+
+</strong>[Pro každý druh trávy
+jméno souboru s definicí trávy -
+*.grass.]<br>
+
+<strong>Počet druhů textur<br>
+
+</strong>[Pro každý druh textury jméno
+souboru]<strong><br>
+
+</strong>
+<strong>Počet druhý fyzikálních
+textur<br>
+
+</strong>[Pro každý druh
+fyzikální textury
+jméno souboru s definicí
+fyzikální textury
+- *.phTexture]<strong><strong><strong><strong></strong></strong></strong></strong><strong><br>
+
+</strong><strong></strong>[Pro
+každé políčko terénu (tj. X * Z) sedm
+čísel
+- výška terénu (0 - 8), index typu
+terénu
+(0 - 114), rotace políčka terénu (0 - 3 (*
+PI/2)), index
+do druhů textur, index do druhů fyzikálních
+textur,
+rotace textury&nbsp;(0 - 3 (* PI/2)) a index do druhů
+trávy.]<strong><br>
+
+</strong><strong></strong>
+<h2><a name="x">8.15 Soubor typu *.x</a></h2>
+
+Soubor typu *.x obsahuje geometrii modelu. Tento typ souboru je X File
+z Direct3DX. Dokumentaci jeho formátu naleznete proto v
+dokumentaci knihovny Direct3DX v Microsoft DirectX SDK.<br>
+
+<br>
+
+<h2><a name="Modeldef">8.16 Soubor typu *.modelDef</a></h2>
+
+Soubor typu *.modelDef obsahuje jména souborů s
+definicí
+geometrie jednotlivých úrovní detailu
+modelu.<br>
+
+<br>
+
+<strong>Struktura souboru:<br>
+
+<br>
+
+</strong>Řádkově orientovaný
+konfigurační soubor<br>
+
+<br>
+
+Možný obsah řádku:
+<ol>
+
+  <li><strong>&lt; začátek objektu &gt;,
+&lt;/ konec objektu &gt;</strong> - začátek a
+konec objetu</li>
+
+  <li><strong>Klíč = hodnota</strong> -
+klíč a k němu přiřazená hodnota</li>
+
+  <li>; - komentář
+následující za středníkem</li>
+
+</ol>
+
+<strong>Seznam objektů a k nim
+náležících klíčů:<br>
+
+<br>
+
+</strong>
+<ul>
+
+  <li><strong>&lt;LOD0&gt; ;&nbsp;</strong>Definice
+geometrie objektu nejnižšího LODu
+(úroveň
+detailu)&nbsp; 0, místo 0 může přijít 1 - 9
+pro definice
+vyšších LODů (&nbsp;<strong>&lt;LOD1&gt;,&nbsp;</strong><strong>&lt;LOD2&gt;,&nbsp;</strong><strong>&lt;LOD3&gt;,</strong><strong>&lt;LOD4&gt;,</strong><strong>&lt;LOD5&gt;,</strong><strong>&lt;LOD6&gt;,&nbsp;</strong><strong>&lt;LOD7&gt;,</strong><strong>&lt;LOD8&gt;,</strong><strong>&lt;LOD9&gt;</strong>)</li>
+
+  <ul>
+
+    <li><strong>model = ; </strong>jméno
+souboru s definicí geometrie modelu - *.x</li>
+
+    <li><strong>&lt;Textures&gt; ; </strong>Redefinice
+používaných textur modelu</li>
+
+    <ul>
+
+      <li><strong>[ jméno souboru
+používané textury ] = [ jméno souboru
+nové textury ] ;&nbsp;<strong><strong></strong></strong></strong>Jestliže
+model používá nějakou texturu, může
+být nahrazena
+jménem souboru nové textury, př.: kuza.jpg =
+test.jpg,
+klíč se může opakovat pro různá jména
+souborů
+používaných textur</li>
+
+    </ul>
+
+    <li><strong>&lt;/Textures&gt;</strong></li>
+
+  </ul>
+
+  <li><strong>&lt;/LOD0&gt;&nbsp;</strong>(&nbsp;<strong>&lt;/LOD1&gt;,&nbsp;</strong><strong>&lt;/LOD2&gt;,&nbsp;</strong><strong>&lt;/LOD3&gt;,</strong><strong>&lt;/LOD4&gt;,</strong><strong>&lt;/LOD5&gt;,</strong><strong>&lt;/LOD6&gt;,&nbsp;</strong><strong>&lt;/LOD7&gt;,</strong><strong>&lt;/LOD8&gt;,</strong><strong>&lt;/LOD9&gt;</strong>
+)</li>
+
+</ul>
+
+<h2><a name="Grass">8.17 Soubor typu *.grass</a></h2>
+
+Soubor typu *.,grass obsahuje definici trávy pro
+políčko na mapě.<br>
+
+<br>
+
+<strong>Struktura souboru:<br>
+
+<br>
+
+</strong>Řádkově orientovaný
+konfigurační soubor<br>
+
+<br>
+
+Možný obsah řádku:
+<ol>
+
+  <li><strong>&lt; začátek objektu &gt;,
+&lt;/ konec objektu &gt;</strong> - začátek a
+konec objetu</li>
+
+  <li><strong>Klíč = hodnota</strong> -
+klíč a k němu přiřazená hodnota</li>
+
+  <li>; - komentář
+následující za středníkem</li>
+
+</ol>
+
+<strong>Seznam objektů a k nim
+náležících klíčů:<br>
+
+<br>
+
+</strong>
+<ul>
+
+  <li><strong>Texture = ; </strong>Jméno
+souboru s texturou pro trávu</li>
+
+  <li><strong><strong>ItemFile = ; </strong></strong>Defaultní
+jméno souboru s definicí trsu trávy -
+*.shrub</li>
+
+  <ul>
+
+    <li><br>
+
+&lt;<strong>Item</strong>&gt; ;
+Umístění trsu trávy na
+políčko, může se opakovat</li>
+
+    <ul>
+
+      <li><strong>File = ; </strong>Jméno
+souboru s definicí trsu trávy - *.shrub</li>
+
+      <li><strong>X = ;&nbsp;</strong>Souřadnice
+X umístění trsu trávy na
+políčko,
+číslo s desetinnou čárkou od 0 do 1000 v
+centimetrech,
+defaultní hodnota je 500</li>
+
+      <li><strong>Y = ; </strong>Souřadnice Y
+umístění trsu trávy na
+políčko,
+číslo s desetinnou čárkou v centimetrech,
+defaultní hodnota je 0</li>
+
+      <li><strong>Z = ; </strong>Souřadnice Z
+umístění trsu trávy na
+políčko,
+číslo s desetinnou čárkou od 0 do 1000 v
+centimetrech,
+defaultní hodnota je 500</li>
+
+      <li><strong>Rotation = ; </strong>Rotace okolo
+osy Y, číslo s desetinnou čárkou ve
+stupních, defaultní hodnota je 0.0</li>
+
+      <li><strong>Scale = ; </strong>Faktor změny
+velikosti, číslo s desetinnou čárkou,
+defaultní hodnota je 1.0</li>
+
+    </ul>
+
+    <li><strong>&lt;/Item&gt;</strong></li>
+
+  </ul>
+
+</ul>
+
+<h2><a name="Shrub">8.18 Soubor typu *.shrub</a></h2>
+
+Soubor typu *.shrub obsahuje definici trsu trávy.<br>
+
+<br>
+
+<strong>Struktura souboru:<br>
+
+<br>
+
+</strong>Řádkově orientovaný soubor.<br>
+
+<br>
+
+<strong>Jméno souboru s texturou trávy<br>
+
+Počet úrovní detailu<br>
+
+<strong></strong></strong>[Následuje
+definice geometrie trávy pro jednotlivé
+úrovně detailu]<br>
+
+<br>
+
+Pro jednu úroveň detailu:<br>
+
+<strong>PočetSegmentůX PočetSegmentůY </strong>- dvě
+čísla, počet segmentů geometrie ve směru X a Y, tj. X * Y
+bodů (vertexů) geometrie<br>
+
+[Jednotlivé vertexy na řádek čtyři
+čísla s
+desetinnou čárkou oddělená mezerami - souřadnice
+vertexu
+X, souřadnice vertexu Y, mapování textury U,
+mapování textury V]<br>
+
+<br>
+
+<h2><a name="Mp3">8.19 Soubor typu *.mp3</a></h2>
+
+Soubory typu *.mp3 jsou soubory standardního
+hudebního
+formátu mp3. Je to jediný typ
+hudebního souboru,
+co naše aplikace přehrává.<br>
+
+<br>
+
+<h2><a name="Object">8.20 Soubor typu *.object</a></h2>
+
+Soubor typu *.objekt obsahuje definici druhu objekt(ů).<br>
+
+<br>
+
+<strong>Struktura souboru:</strong><br>
+
+<br>
+
+Řádkově orientovaný konfigurační
+soubor.<br>
+
+<br>
+
+Možný obsah řádku:
+<ol>
+
+  <li><strong>[Blok] -</strong> blok
+konfiguračního souboru</li>
+
+  <li><strong>Klíč = hodnota</strong> -
+klíč a k němu přiřazená hodnota</li>
+
+  <li>; - komentář
+následující za středníkem</li>
+
+</ol>
+
+<strong>Seznam bloků a k nim
+náležejících klíčů:<br>
+
+<br>
+
+Name = ; </strong>Jméno objektu
+zobrazované v map editoru.<br>
+
+<strong>Icon = ; </strong>jméno souboru
+obrázku nebo ikony zobrazované v map editoru<br>
+
+<strong>HasCheckpoint = ; </strong>Povinný
+checkpoint (kontrolní bod pro hráče v režimu
+závodu na kola), 0 - ne, 1 - ano<br>
+
+<strong>StartingPosition = ; </strong>Je tento objekt
+objektem startovacích pozic, 0 - ne, 1 - ano<br style="font-weight: bold;">
+
+<br style="font-weight: bold;">
+
+<strong>[Road] ; </strong>Definice objektu silnice - tento
+blok se může opakovat<br>
+
+<strong>PosX = ; </strong>Souřadnice X
+relativní pozice silnice vůči ostatním objektům a
+silnicím definovaných v souboru, číslo
+0 - 9,
+defaultně 0<br>
+
+<strong>PosY = ; </strong>Souřadnice Y
+relativní pozice silnice vůči ostatním objektům a
+silnicím definovaných v souboru, číslo
+0 - 9,
+defaultně 0<br>
+
+<strong>SizeX = ; </strong>Velikost silnice ve směru X,
+číslo 1 - 10 v počtu políček terénu,
+defaultně 1<br>
+
+<strong>SizeY = ; </strong>Velikost silnice ve směru Y,
+číslo 1 - 10 v počtu políček terénu,
+defaultně 1<br>
+
+<strong>Rotation.Y = ; </strong>Rotace silnice kolem
+výškové osy, číslo 0-2
+(*PI), defaultně 0<br>
+
+<strong>Texture = ; </strong>Jméno souboru s
+texturou silnice, opakuje se SizeX * SizeY krát<br>
+
+<strong>PhTexture = ; </strong>Jméno souboru s
+fyzikální texturou silnice, opakuje se SizeX *
+SizeY krát<br>
+
+<br>
+
+<strong>[Object] ; </strong>Definice objektu - tento blok
+se může opakovat<br>
+
+<strong>Model = ; </strong>Jméno souboru
+definice modelu objektu, *.modelDef<br>
+
+<strong>PosX = ; </strong>Souřadnice X
+relativní pozice objektu vůči ostatním objektům a
+silnicím definovaným v souboru, číslo
+0 - 9,
+defaultně 0<br>
+
+<strong>PosY = ; </strong>Souřadnice Y
+relativní pozice objektu vůči ostatním objektům a
+silnicím definovaným v souboru, číslo
+0 - 9,
+defaultně 0<br>
+
+<strong>SizeX = ; </strong>Velikost objektu ve směru X,
+číslo 1 - 10 v počtu políček terénu,
+defaultně 1<br>
+
+<strong>SizeY = ; </strong>Velikost objektu ve směru Y,
+číslo 1 - 10 v počtu políček terénu,
+defaultně 1<br>
+
+<strong>Static = ; </strong>Je objekt statický
+- 0 - ne, 1 - ano<br>
+
+<strong>Mass = ; </strong>Váha objektu,
+ignorována, pokud je objekt statický, v
+kilogramech<strong> <br>
+
+<strong><strong>Material = ; </strong></strong></strong>Index
+do fyzikálních materiálů objektů,
+číslo<br>
+
+<strong>GrassAllowed = ; </strong>Je tráva
+povolena na políčcích, které tento
+objekt zabírá, 0 - ne, 1 - ano<br>
+
+<strong>Light = ; </strong>Jméno souboru
+s definicí světla objektu, *.light, opakovatelné
+pro
+světla typu světelný billboard, pro světlo typu reflektor
+lampy
+smí být použito jenom jednou<br>
+
+<strong>X = ; </strong>Souřadnice X pozice
+objektu v jeho oblasti (definované&nbsp;PosX, PosY,
+SizeX,
+SizeY) , číslo s desetinnou čárkou v
+centimetrech,
+defaultně 0<br>
+
+<strong>Y = ; </strong>Souřadnice Y pozice objektu v
+jeho oblasti (definované&nbsp;PosX, PosY, SizeX, SizeY)
+, číslo s desetinnou
+čárkou v centimetrech, defaultně 0<br>
+
+<strong>Z = ; </strong>Souřadnice Z pozice objektu v
+jeho oblasti (definované&nbsp;PosX, PosY, SizeX, SizeY)
+, číslo s desetinnou
+čárkou v centimetrech, defaultně 0<br>
+
+<strong><strong>Rotation.X = ; </strong></strong>Rotace
+objektu podle osy X, 0 - 2 (*PI), defaultně 0<br>
+
+<strong>Rotation.Y = ; </strong>Rotace objektu podle osy
+Y, 0 - 2 (*PI), defaultně 0<br>
+
+<strong>Rotation.Z = ; </strong>Rotace objektu podle osy
+Z, 0 - 2 (*PI), defaultně 0<br>
+
+<strong>Scale.X = ; </strong>Faktor změny velikosti ve
+směru X, číslo s desetinnou čárkou, defaultně 1<br>
+
+<strong>Scale.Y = ; </strong>Faktor změny velikosti ve
+směru Y, číslo s desetinnou čárkou, defaultně 1<br>
+
+<strong>Scale.Z = ; </strong>Faktor změny velikosti ve
+směru Z, číslo s desetinnou čárkou, defaultně 1<br>
+
+<strong>Cog.X = ; </strong>Posunutí centra
+gravitace objektu ve směru X, číslo s desetinnou
+čárkou v centimetrech, defaultně 0<br>
+
+<strong>Cog.Y = ; </strong>Posunutí centra
+gravitace objektu ve směru Y, číslo s desetinnou
+čárkou v centimetrech, defaultně 0<br>
+
+<strong>Cog.Z = ; </strong>Posunutí centra
+gravitace objektu ve směru Z, číslo s desetinnou
+čárkou v centimetrech, defaultně 0<br>
+
+<strong>Moi.X = ; </strong>Posunutí momentu
+setrvačnosti ve směru X, číslo s desetinnou
+čárkou v centimetrech, defaultně 0<br>
+
+<strong>Moi.Y = ; </strong>Posunutí momentu
+setrvačnosti ve směru Y, číslo s desetinnou
+čárkou v centimetrech, defaultně 0<br>
+
+<strong>Moi.Z = ; </strong>Posunutí momentu
+setrvačnosti ve směru Z, číslo s desetinnou
+čárkou v centimetrech, defaultně 0<br>
+
+<br>
+
+<strong>[Waypoints] ; </strong>Definice cesty pro auta
+řízená počítačem přes objekty a
+silnice - tento blok se může opakovat<br>
+
+<strong>X = ; </strong>Souřadnice X pozice bodu
+na cestě, tento klíč se může opakovat, číslo s
+desetinnou
+čárkou v centimetrech, defaultně 0<br>
+
+<strong>Y = ; </strong>Souřadnice
+Y pozice bodu na cestě, tento klíč se může opakovat,
+číslo s desetinnou čárkou v centimetrech,
+defaultně 0<br>
+
+<strong>Z = ; </strong>Souřadnice
+Z pozice bodu na cestě, tento klíč se může opakovat,
+číslo s desetinnou čárkou v centimetrech,
+defaultně 0<br>
+
+<strong>Min_Speed = ; </strong>Minimální
+rychlost auta při projetí bodu, může se opakovat,
+číslo s
+desetinnou čárkou v kmh, nepovinný parametr<br>
+
+<strong>Max_Speed = ; </strong>Maximální
+rychlost auta při projetí bodu, může se opakovat,
+číslo s
+desetinnou čárkou v kmh, nepovinný parametr<br>
+
+<br>
+
+<h2><a name="Car">8.21 Soubor typu *.car</a></h2>
+
+Soubor typu *.car obsahuje definici závodního
+auta.<br>
+
+<br>
+
+<strong>Struktura souboru:<br>
+
+<br>
+
+</strong>Řádkově orientovaný
+konfigurační soubor. <br>
+
+<br>
+
+Možný obsah řádku:
+<ol>
+
+  <li><strong>[Blok] -</strong> blok
+konfiguračního souboru</li>
+
+  <li><strong>Klíč = hodnota</strong> -
+klíč a k němu přiřazená hodnota</li>
+
+  <li>; - komentář
+následující za středníkem</li>
+
+</ol>
+
+<strong>Seznam bloků a k nim
+náležejících klíčů:<br>
+
+<br>
+
+</strong><strong><strong>[Car] ; </strong></strong>Blok
+definice auta, musí být definován
+právě jednou<br>
+
+<strong>Name = ; </strong>Jméno auta<br>
+
+<strong>Model = ; </strong>Jméno souboru s
+definicí modelu auta, *.modelDef<br>
+
+<strong>Cog.X = ; </strong>Posunutí centra
+gravitace objektu ve směru X, číslo s desetinnou
+čárkou v centimetrech, defaultně 0<br>
+
+<strong>Cog.Y = ; </strong>Posunutí centra
+gravitace objektu ve směru Y, číslo s desetinnou
+čárkou v centimetrech, defaultně 0<br>
+
+<strong>Cog.Z = ; </strong>Posunutí centra
+gravitace objektu ve směru Z, číslo s desetinnou
+čárkou v centimetrech, defaultně 0<br>
+
+<strong>Scale.X = ; </strong>Faktor změny velikosti ve
+směru X, číslo s desetinnou čárkou, defaultně 1<br>
+
+<strong>Scale.Y = ; </strong>Faktor změny velikosti ve
+směru Y, číslo s desetinnou čárkou, defaultně 1<br>
+
+<strong>Scale.Z = ; </strong>Faktor změny velikosti ve
+směru Z, číslo s desetinnou čárkou, defaultně 1<br>
+
+<strong>Rotation.Y = ; </strong>Rotace auta kolem
+výškové osy, číslo 0-2
+(*PI), defaultně 0<br>
+
+<strong>Mass = ; </strong>Váha auta,
+číslo s desetinnou čárkou v kilogramech<br>
+
+<strong><strong><strong>Material = ; </strong></strong></strong>Index
+do fyzikálních materiálů objektů,
+číslo<br>
+
+<strong>Wheen_Material = ;</strong> Index do
+fyzikálních materiálů objektů,
+číslo<br>
+
+<strong>Light = ; </strong>Jméno souboru
+s definicí světla objektu, *.light, opakovatelné
+pro
+světla typu světelný billboard, pro světlo typu reflektor
+auta
+smí být použito jenom jednou
+<ul>
+
+  <ul>
+
+    <ul>
+
+    </ul>
+
+  </ul>
+
+</ul>
+
+<strong>[Wheel] ; </strong>Blok definice kola od auta,
+může být opakován<br>
+
+<strong>X = ; </strong>Souřadnice X relativní
+pozice kola vůči autu, číslo s desetinnou čárkou
+v centimetrech, defaultně 0<br>
+
+<strong>Y = ; </strong>Souřadnice Y relativní
+pozice kola vůči autu, číslo s desetinnou čárkou
+v centimetrech, defaultně 0<br>
+
+<strong>Z = ;</strong> Souřadnice Z relativní
+pozice kola vůči autu, číslo s desetinnou čárkou
+v centimetrech, defaultně 0<br>
+
+<strong>Rotated = ; </strong>Má se kolo točit,
+1 - ano, 0 - ne<br>
+
+<strong>Powered = ; </strong>Je kolo poháněno
+motorem, 1 - ano, 0 - ne<br>
+
+<strong>Mass = ; </strong>Váha kola,
+číslo s desetinnou čárkou v kilogramech<br>
+
+<strong>Suspension_Shock = ;<br>
+
+<strong>Suspension_Spring = ;</strong></strong>
+Fyzikální textura je dvourozměrné pole
+o rozměrech
+10 x 10 - terénní plát je rozdělen na
+100 čtverců.<br>
+
+<strong><strong><strong>Suspension_Length = ; <br>
+
+<br>
+
+[Engine] ; </strong></strong></strong>Blok definice
+motoru u auta, může být použit právě jednou<br>
+
+<strong>Gear_1 = ;<br>
+
+Gear_2 = ;<br>
+
+Gear_3 = ;<br>
+
+Gear_4 = ;<br>
+
+Gear_5 = ;<br>
+
+Gear_6 = ;<br>
+
+Gear_R = ;<br>
+
+Diff_Ratio = ;<br>
+
+Efficiency = ; </strong>Efektivita motoru, číslo s
+desetinnou čárkou od 0 (0 %) do 1 (100 %)<br>
+
+<br>
+
+<h2><a name="PhTexture">8.22 Soubor typu *.phTexture</a></h2>
+
+Soubor typu *.phTexture obsahuje popis fyzikální
+textury povrchu políčka a silnice. <br>
+
+<br>
+
+<strong>Struktura souboru: <br>
+
+<br>
+
+</strong>Řádkově orientovaný soubor.<br>
+
+<br>
+
+[Matice čísel indexů 10 x 10.]<br>
+
+<br>
+
+Fyzikální textura
+je dvourozměrné pole o rozměrech 10 x 10 -
+terénní
+plát je rozdělen na 100 čtverců. Každému čtverci
+je
+přiřazena hodnota - index do souboru materiálů materials.
+Index&nbsp;0 znamená použití
+základního
+materiálu. Soubor obsahuje 10 řádků.
+Každý
+řádek obsahuje 10 indexů vzájemně
+oddělených
+mezerou. Orientace dat v souboru je
+následující:
+první řádek, první index -
+severozápadní roh terénního
+plátu;
+první řádek, poslední index -
+severovýchodní roh; poslední
+řádek,
+první index - jihozápadní roh;
+poslední řádek, poslední index -
+jihovýchodní roh. Při
+definování
+fyzikální textury silnice se může
+místo indexu
+použít hodnota: -1.
+Načítání textury
+silnice způsobí přepsání
+původních hodnot
+fyzikální textury terénu
+políčka.
+Zanechání
+původních hodnot je možné dosáhnout
+právě
+pomocí této hodnoty, ostatní
+místa dostanou nové hodnoty.<br>
+
+<br>
+
+<h2><a name="materials">8.23 Soubor materials</a></h2>
+
+Soubor materials obsahuje seznam materiálů a jejich
+vzájemných vztahů mezi sebou.<br>
+
+<br>
+
+<strong>Struktura souboru:<br>
+
+<br>
+
+</strong>Řádkově orientovaný soubor.<br>
+
+<br>
+
+<strong>Počet jmen materiálu<br>
+
+</strong>[Jména materiálů v počtu jmen
+materiálů] -
+při odkazování na materiály z
+jiných
+souborů je na prvním řádku materiál s
+indexem 1,
+index 0 je rezervován pro defaultní
+materiál<br>
+
+<strong>Počet vztahů mezi materiály<br>
+
+</strong>[Pro každý vztah mezi materiály
+sedm údajů
+- jméno prvního materiálu,
+jméno
+druhého materiálu, měkkost, pružnost, koeficient
+statického tření, koeficient
+dynamického
+tření, kolize materiálů]<br>
+
+<br>
+
+Podrobnější vysvětlení vztahu mezi
+materiály:<br>
+
+<strong>Jméno prvního materiálu
+- </strong>název prvního
+materiálu ve dvojici, musí být
+definován v seznamu materiálů<br>
+
+<strong>Jméno druhého materiálu
+- </strong>název druhého
+materiálu ve dvojici, musí být
+definován v seznamu materiálů<br>
+
+<strong>Měkkost - </strong>měkkost, číslo
+s desetinnou čárkou mezi 0 (největší
+měkkost) a 1
+(nejmenší měkkost), -1 pro předdefinovanou hodnotu<br>
+
+<strong>Pružnost - </strong>pružnost (koeficient
+restituce), číslo s desetinnou čárkou mezi 0
+(nejmenší pružnost) a 1
+(největší
+pružnost), -1 pro tředdefinovanou hodnotu<br>
+
+<strong>Koeficient statického tření - </strong>číslo
+s desetinnou čárkou mezi 0 (nejmenší
+tření)&nbsp; a 2 (největší
+tření), -1 pro
+předdefinovanou hodnotu<br>
+
+<strong>Koeficient dynamického tření - </strong>číslo
+s desetinnou čárkou mezi 0 (nejmenší
+tření)
+a 2 (největší tření), -1 pro
+předdefinovanou
+hodnotu<br>
+
+<strong>Kolize materiálů - </strong>definuje,
+zda spolu materiály mohou kolidovat, 0 - ne, 1 - ano, -1 pro
+předdefinovanou hodnotu<br>
+
+<br>
+
+Defaultní materiál: <br>
+
+<strong>Jméno - </strong>default<br>
+
+Při kolizi s defaultním materiálem:<br>
+
+<strong>Měkkost - </strong>0.2<br>
+
+<strong>Pružnost - </strong>0.4<br>
+
+<strong>Koeficient statického tření </strong>-
+1.0<br>
+
+<strong>Koeficient dynamického tření </strong>-
+0.9<br>
+
+<strong>Kolize </strong>- 1<br>
+
+<br>
+
+<h2><a name="Sh">8.24 Soubor typu *.sh</a></h2>
+
+Soubor typu *.sh obsahuje programy pro grafickou kartu.
+Programovací jazyk je HLSL (High level shading language).<br>
+
+<br>
+
+<h2><a name="Sk">8.25 Soubor typu *.sk</a></h2>
+
+Soubor typu *.sk obsahuje definici oblohy.<br>
+
+<br>
+
+<strong>Struktura souboru:<br>
+
+<br>
+
+</strong>Řádkově orientovaný
+konfigurační soubor.<br>
+
+<br>
+
+Možný obsah řádku:
+<ol>
+
+  <li><strong>Klíč = hodnota</strong> -
+klíč a k němu přiřazená hodnota,
+všechny klíče musí mít
+přiřazenou hodnotu</li>
+
+  <li>; - komentář
+následující za středníkem</li>
+
+</ol>
+
+<strong>Seznam klíčů:<br>
+
+<br>
+
+MoleculeColor.r = </strong>; Červená složka barvy
+molekul oblohy, číslo s desetinnou
+čárkou&nbsp; mezi 0&nbsp;a 1<br>
+
+<strong>MoleculeColor.g = ; </strong>Zelená
+složka barvy molekul oblohy, číslo s desetinnou
+čárkou mezi 0 a 1<br>
+
+<strong>MoleculeColor.b = ; </strong>Modrá
+složka barvy molekul oblohy, číslo s desetinnou
+čárkou mezi 0 a 1<br>
+
+<strong>AerosolColor.r = ; </strong>Červená
+složka barvy aerosolu oblohy, číslo s desetinnou
+čárkou mezi 0 a 1<br>
+
+<strong>AerosolColor.g = ; </strong>Zelená
+složka barvy aerosolu oblohy, číslo s desetinnou
+čárkou mezi 0 a 1<br>
+
+<strong>AerosolColor.b = ; </strong>Modrá
+složka barvy aerosolu oblohy, číslo s desetinnou
+čárkou mezi 0 a 1<br>
+
+<strong>SunTexture = ; </strong>Jméno souboru s
+texturou slunce<br>
+
+<strong>SunColor0.r = ; </strong>Červená složka
+světla od slunce v hodině 0, číslo s desetinnou
+čárkou mezi 0 a 1<br>
+
+<strong><strong><strong></strong></strong></strong>Stejně
+tak pro klíče&nbsp;<strong>SunColor1.r,
+SunColor2.r, ..., SunColor23.r </strong>v různých
+hodinách definovaných číslem v
+klíči<br>
+
+<strong>SunColor0.g = ; </strong>Zelená složka
+světla od slunce v hodině 0, číslo s desetinnou
+čárkou mezi 0 a 1<br>
+
+Stejně tak pro klíče <strong>SunColor1.g,
+SunColor2.g, ..., SunColor23.g </strong>v různých
+hodinách definovaných číslem v
+klíči<br>
+
+<strong>SunColor0.b = ; </strong>Modrá složka
+světla od slunce v hodině 0, číslo s desetinnou
+čárkou mezi 0 a 1<br>
+
+Stejně tak pro klíče <strong>SunColor1.b,
+SunColor2.b, ..., SunColor23.b </strong>v různých
+hodinách definovaných číslem v
+klíči<br>
+
+<strong>MountainNorth = ;</strong> Jméno souboru
+textury&nbsp;severní strany pozadí<br>
+
+<strong>MountainWest = ; </strong>Jméno souboru
+textury západní strany pozadí<br>
+
+<strong>MountainSouth = ; </strong>Jméno
+souboru textury jižní strany pozadí<br>
+
+<strong>MountainEast = ; </strong>Jméno souboru
+textury východní strany pozadí<br>
+
+<strong>CloudTexture = ; </strong>Jméno souboru
+textury mraků<br>
+
+<br>
+
+<h2><a name="Surface">8.26 Soubor typu *.surface</a></h2>
+
+Soubor typu *.surface obsahuje definici geometrie políčka
+terénu.<br>
+
+<br>
+
+<strong>Struktura souboru:<br>
+
+<br>
+
+</strong>Binární soubor.<br>
+
+<br>
+
+<strong>SizeX - </strong>float,
+velikost&nbsp;políčka terénu ve směru X v
+centimetrech<br>
+
+<strong>SizeZ - </strong>float, velikost
+políčka terénu ve směru Z v centimetrech<br>
+
+<strong>SegsX -&nbsp;</strong><strong> </strong>integer,
+počet segmentů na políčku terénu ve směru X <br>
+
+<strong>SegsZ - &nbsp;</strong>integer, počet segmentů
+na políčku terénu ve směru Z<br>
+
+<strong>Options </strong>- integer, options pro
+vrcholy - součet čísel vybraného
+nastavení: 1 -
+má souřadnice vrcholů, 2 - má
+texturové
+souřadnice, 4 - má normály<br>
+
+[Pro každý vrchol se&nbsp;podle nastavení
+Options
+nahrávají
+následující údaje.
+Vrcholů je (SegsX + 1) * (SegsZ + 1).]<br>
+
+<br>
+
+údaje pro vrchol:<br>
+
+<strong>X </strong>- float, souřadnice X vrcholu, v
+centimetrech<br>
+
+<strong>Y - </strong>float, souřadnice Y vrcholu, v
+centimetrech<br>
+
+<strong>Z - </strong>float, souřadnice Z vrcholu, v
+centimetrech<br>
+
+<strong>U - </strong>float, texturová
+souřadnice ve směru U<br>
+
+<strong>V - </strong>float, texturová
+souřadnice ve směru V<br>
+
+<strong>NormalX - </strong>float, složka X
+normály<br>
+
+<strong>NormalY - </strong>float, složka Y
+normály<br>
+
+<strong>NormalZ </strong>- float, složka Z
+normály<br>
+
+<br>
+
+<h2><a name="Normal.GrPlate">8.27 Soubor normal.GrPlate</a></h2>
+
+Soubor normal.GrPlate definuje jednotlivé úrovně
+detailu
+pro jednotlivé typy políček. Pro každý
+typ
+políček existuje jeden soubor normal.GrPlate.<br>
+
+<br>
+
+<strong>Struktura souboru:<br>
+
+<br>
+
+</strong>Řádkově orientovaný soubor.<br>
+
+<br>
+
+<strong>Počet úrovní detailu<br>
+
+</strong>[Pro každou úroveň detailu jméno
+souboru s definicí geometrie políčka - *.surface]<br>
+
+<strong>Planární - </strong>Je
+políčko terénu planární, 0
+- ne, 1 - ano<br>
+
+<strong>Konkávní - </strong>Je
+políčko terénu konkávní, 0
+- ne, 1 - ano<br>
+
+<br>
+
+<h2><a name="Textset">8.28 Soubor typu *.textset</a></h2>
+
+Soubor typu *.textset obsahuje seznam textur.<br>
+
+<br>
+
+<strong>Struktura souboru:<br>
+
+<br>
+
+</strong>Řádkové orientovaný
+soubor.<br>
+
+<br>
+
+<strong>Počet textur<br>
+
+Jméno souboru s fyzikální texturou </strong>-
+*.phTexture<br>
+
+[Pro každou texturu záznam textury]<br>
+
+<br>
+
+údaje záznamu textury:<br>
+
+<strong>Jméno souboru textury<br>
+
+Pravděpodobnost výskytu </strong>- Celé
+kladné
+číslo určující pravděpodobnost, že se
+textura
+použije. Celková pravděpodobnost je dána součtem
+všech pravděpodobností výskytu textur.<strong><strong><strong></strong></strong></strong>
+<p>&nbsp;</p>
+
+</body>
+</html>

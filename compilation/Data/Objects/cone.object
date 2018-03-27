@@ -1,0 +1,19 @@
+icon=cone.bmp
+[object]
+name = Cone
+model = cone.modelDef
+static = 0
+mass = 3.0
+cog.x = 0.0
+cog.y = 10.0
+cog.z = 0.0
+posX = 0
+posY = 0
+x = 200
+y = 16
+z = 500
+scale.x = 2
+scale.y = 2
+scale.z = 2
+GrassAllowed = 1
+material = 1

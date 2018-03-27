@@ -1,0 +1,27 @@
+Name = Transparent Football
+icon = transparent_football_asphalt.bmp
+
+[Road]
+posX = 0
+posY = 0
+sizeX = 1
+sizeY = 1
+texture = concrete.jpg
+phtexture = asphalt.phTexture
+
+[object]
+Model = footballTransparent.modelDef
+static = 0
+mass = 1000.0
+SizeX = 1
+SizeY = 1
+PosX = 0
+PosY = 0
+X = 500
+Y = 0
+Z = 500
+Scale.X = 0.30
+Scale.Y = 0.30
+Scale.Z = 0.30
+GrassAllowed = 0
+material = 6

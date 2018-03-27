@@ -1,0 +1,41 @@
+name = Road
+icon = road.bmp 
+[road]
+texture = road.png
+phtexture = road.phTexture
+
+[waypoints]
+x = 500.0
+y = 100.0
+z = 0.0
+max_speed = 50
+
+x = 500.0
+y = 100.0
+z = 333.0
+
+x = 500.0
+y = 100.0
+z = 666.0
+
+x = 500.0
+y = 100.0
+z = 1000.0
+
+[waypoints]
+x = 500.0
+y = 100.0
+z = 1000.0
+max_speed = 50
+
+x = 500.0
+y = 100.0
+z = 666.0
+
+x = 500.0
+y = 100.0
+z = 333.0
+
+x = 500.0
+y = 100.0
+z = 0.0

@@ -1,0 +1,62 @@
+<Dialog>
+	X = 400
+	Y = 200
+	Width = 300
+	Height = 130
+	FontDeclaration = DialogBasic.font
+	BackgroundTexture = GUI\DialogBackgroundWait.png
+	TextureDeclarations = WaitBackground.dlgDecl
+	Transparency = 0.25 ; value in range <0,1>, 0 means totally visible
+	ToolTipTransparency = 0.0
+	ControlsTransparency = 0.0
+	BasicTextColor = 0xffd0d0d0
+	ActiveTextColor = 0xffffff00
+	Color = 0xff0000a0
+	SliderPosMin = 10
+	SliderPosMax = 109
+	ToolTipDelay = 1000
+</Dialog>
+
+
+            
+<Control>
+	Name = TopLabel
+	Type = label
+	X = 10
+	Y = 10
+	Width = 350
+	Height = 30
+	Value = PLEASE WAIT
+	FontDeclaration = DialogCaption.font
+	BasicTextColor = 0xffff9020
+	TextFormat = 68
+</Control>
+
+<Control>
+	Name = ProgressLabel
+	Type = label
+	X = 10
+	Y = 50
+	Width = 350
+	Height = 30
+	Value = Loading...
+	FontDeclaration = DialogCaption.font
+	BasicTextColor = 0xffff9020
+	TextFormat = 68
+</Control>
+
+<Control>
+	Name = DotLabel
+	Type = label
+	X = 10
+	Y = 90
+	Width = 350
+	Height = 30
+	Value = 
+	FontDeclaration = DialogCaption.font
+	BasicTextColor = 0xffff9020
+	TextFormat = 68
+</Control>
+
+
+

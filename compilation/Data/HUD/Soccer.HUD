@@ -1,0 +1,250 @@
+; HUD Definition file for Soccer game MOD
+
+; Speedometer definition
+; Speedometer consists of:
+; background texture - background image of speedometer, 
+; speed texture - which is alpha masked texture showing graphically car speed to
+; player, as speed is increasing more texture is showed, expansion is from left to right
+; Kmh text - usually displays "KMH" text, but for example can display "MPH" or display nothing
+; Speed text - displaying players speed textually
+
+<Speedometer>
+	; background texture width
+	Width=210
+	; background texture height
+	Height=160
+	; background texture - filename in textures directory
+	BackgroundTexture=HUD\SpeedometerBackground.bmp
+	; Speed texture
+	SpeedTexture=HUD\SpeedometerSpeed.bmp
+	; Speed texture position - related to background texture coord system, so (0,0) is top left corner of background texture
+	SpeedTexturePosition.left=10
+	SpeedTexturePosition.right=201
+	SpeedTexturePosition.top=10
+	SpeedTexturePosition.bottom=123
+	; Kmh text - description above
+	KmhText=KMH
+	; Kmh text position - related to background texture
+	KmhTextPosition.left=48
+	KmhTextPosition.right=110
+	KmhTextPosition.top=70
+	KmhTextPosition.bottom=90
+	; Speed text position - related to background texture
+	SpeedTextPosition.left=72
+	SpeedTextPosition.right= 170
+	SpeedTextPosition.top=97
+	SpeedTextPosition.bottom=142
+	; Kmh text font - see font directory for info how to create font, just filename of font description in font directory
+	KmhTextFont=KmhText.font
+	; Speed text font
+	SpeedTextFont=SpeedText.font
+
+	; positions on texture
+	BackgroundTexturePositionOnTexture.x=0
+	BackgroundTexturePositionOnTexture.y=0
+	SpeedTexturePositionOnTexture.x=0
+	SpeedTexturePositionOnTexture.y=0
+</Speedometer>
+
+; Place list definition
+; Place list is list showing current state of race. Which place is each racer on.
+; Place list consists of:
+; Top background texture - texture of top
+; Item background texture - texture for each item in place list
+; Bottom background texture - texture of bottom
+; Caption text - caption like "Position", "Race states"
+; Numbering font and position on item
+; Name font and position on item
+<PlaceList>
+	; Width of place list
+	Width=180
+	; Top background texture
+	TopBackgroundTexture=HUD\PlaceListBackground.bmp
+	; Top background texture height - width is determined by list width
+	TopBackgroundTextureHeight=30
+	; Item background texture - is used for each item
+	ItemBackgroundTexture=HUD\PlaceListBackground.bmp
+	; Item background texture height - determines height of item
+	ItemBackgroundTextureHeight=20
+	; Bottom background texture
+	BottomBackgroundTexture=HUD\PlaceListBackground.bmp
+	BottomBackgroundTextureHeight=30
+	; Positions on texture - this allows using one texture for all textures and only specify parts
+	TopBackgroundTexturePositionOnTexture.x=0
+	TopBackgroundTexturePositionOnTexture.y=0
+	ItemBackgroundTexturePositionOnTexture.x=0
+	ItemBackgroundTexturePositionOnTexture.y=30
+	BottomBackgroundTexturePositionOnTexture.x=0
+	BottomBackgroundTexturePositionOnTexture.y=60
+	; caption - is placed centered in top background texture area - for more bizzare shapes of list have caption directly on
+	; background texture and leave this free
+	CaptionText=RACE STATE
+	CaptionFont=PlaceListCaption.font
+	; Numbering
+	; Position depends on item and specifies, where to place numbering 
+	NumberingFont=PlaceListItem.font
+	NumberingPosition.Left=10
+	NumberingPosition.Right=25
+	NumberingPosition.Top=3
+	NumberingPosition.Bottom=20
+	; Names - position also depends on item
+	NameFont=PlaceListItem.font
+	NamePosition.Left=20
+	NamePosition.Right=170
+	NamePosition.Top=3
+	NamePosition.Bottom=20
+</PlaceList>
+
+; Gear info
+; Provides information about gear currently geared
+; Gear info consists of:
+; Background texture - just texture in background
+; Caption text - caption like "GEAR"
+; Gear - mainly font and position of gear currently geared
+<Gear>
+	; Width and height of background texture
+	Width=130
+	Height=160
+	; Background texture
+	BackgroundTexture=HUD\GearBackground.bmp
+	BackgroundTexturePositionOnTexture.x=0
+	BackgroundTexturePositionOnTexture.y=0
+	; caption - caption position depends on background texture
+	CaptionText=GEAR
+	CaptionFont=PlaceListCaption.font
+	CaptionPosition.Left=10
+	CaptionPosition.Right=80
+	CaptionPosition.Top=30
+	CaptionPosition.Bottom=55
+	; gear - gear position depends on background texture
+	GearFont=SpeedText.font
+	GearPosition.Left=30
+	GearPosition.Right=60
+	GearPosition.Top=70
+	GearPosition.Bottom=120
+</Gear>
+
+; Now playing 
+; Provides information about currently played song, if there are some
+; Now playing consists of:
+; Background texture - just texture in background
+; Caption text - like "Now playing"
+; Now Playing - font, position, separator, text length
+<NowPlaying>
+	; Width and height of background texture
+	Width=300
+	Height=90
+	; Background texture
+	BackgroundTexture=HUD\NowPlayingBackground.bmp
+	BackgroundTexturePositionOnTexture.x=0
+	BackgroundTexturePositionOnTexture.y=0
+	; caption - caption position depends on background texture
+	CaptionText=NOW PLAYING
+	CaptionFont=PlaceListCaption.font
+	CaptionPosition.Left=130
+	CaptionPosition.Right=250
+	CaptionPosition.Top=20
+	CaptionPosition.Bottom=40
+	; now playing - now playing position depends on background texture
+	NowPlayingFont=PlaceListCaption.font
+	NowPlayingPosition.Left=50
+	NowPlayingPosition.Right=290
+	NowPlayingPosition.Top=40
+	NowPlayIngPosition.Bottom=60
+	; maximal allowed text length in now playing
+	MaxTextLength=100
+	; separator between artist and title
+	Separator=-
+</NowPlaying>
+
+
+; Score object
+; Supposed to be used as score display, but can contain any text (single-line) information
+; Consists of:
+; Background texture - just texture in background
+; Caption text
+; Contect text - font, position, text length
+
+<Score>
+	Width = 256
+	Height = 64
+	
+	; Background texture
+	BackgroundTexture = HUD\Score2.png
+	BackgroundTexturePositionOnTexture.x = 0
+	BackgroundTexturePositionOnTexture.y = 0
+	
+	; caption - caption position depends on background texture
+	CaptionText = Score
+	CaptionFont = ScoreCaption.font
+	CaptionPosition.Left = 0
+	CaptionPosition.Right = 248
+	CaptionPosition.Top = 5
+	CaptionPosition.Bottom = 20
+	
+	; main text - position depends on background texture
+	TextFont = ScoreText.font
+	TextPosition.Left = 0
+	TextPosition.Right = 256
+	TextPosition.Top = 20
+	TextPosition.Bottom = 60
+	
+	; maximal allowed text length in the field
+	MaxTextLength = 7
+</Score>
+
+<Info>
+	Width = 512
+	Height = 64
+	
+	; Background texture
+	BackgroundTexture = 
+	BackgroundTexturePositionOnTexture.x = 0
+	BackgroundTexturePositionOnTexture.y = 0
+	
+	; caption - caption position depends on background texture
+	CaptionText = 
+	CaptionFont = ScoreCaption.font
+	CaptionPosition.Left = 40
+	CaptionPosition.Right = 120
+	CaptionPosition.Top = 5
+	CaptionPosition.Bottom = 20
+	
+	; main text - position depends on background texture
+	TextFont = InfoMessageText.font
+	TextPosition.Left = 0
+	TextPosition.Right = 512
+	TextPosition.Top = 130
+	TextPosition.Bottom = 194
+	
+	; maximal allowed length of the text
+	MaxTextLength = 90
+</Info>
+
+<Time>
+	Width = 128
+	Height = 128
+	
+	; Background texture
+	BackgroundTexture = HUD\Time.png
+	BackgroundTexturePositionOnTexture.x = 0
+	BackgroundTexturePositionOnTexture.y = 0
+	
+	; caption - caption position depends on background texture
+	CaptionText = 
+	CaptionFont = ScoreCaption.font
+	CaptionPosition.Left = 40
+	CaptionPosition.Right = 120
+	CaptionPosition.Top = 5
+	CaptionPosition.Bottom = 20
+	
+	; main text - position depends on background texture
+	TextFont = Time.font
+	TextPosition.Left = 0
+	TextPosition.Right = 128
+	TextPosition.Top = 53
+	TextPosition.Bottom = 120
+	
+	; maximal allowed length of the text
+	MaxTextLength = 15
+</Time>

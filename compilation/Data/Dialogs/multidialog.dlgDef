@@ -1,0 +1,174 @@
+<Dialog>
+	X = 0
+	Y = 0
+	Width = 640
+	Height = 480
+	FontDeclaration = DialogBasic.font
+	BackgroundTexture = GUI\SteelDialogBackground.png
+	TextureDeclarations = GraphicTest.dlgDecl
+	Transparency = 0.25 ; value in range <0,1>, 0 means totally visible
+	ToolTipTransparency = 0.0
+	ControlsTransparency = 0.0
+	BasicTextColor = 0xffd86b1c
+	ActiveTextColor = 0xffffff00
+	Color = 0xff0000a0
+	SliderPosMin = 10
+	SliderPosMax = 109
+	ToolTipDelay = 1000
+</Dialog>
+
+
+<Control>
+	Name = MPMultiplayerLabel
+	Type = label
+	X = 10
+	Y = 10
+	Width = 620
+	Height = 30
+	Value = MULTIPLAYER
+	FontDeclaration = DialogCaption.font
+	TextFormat = 68
+</Control>
+
+<Control>
+	Name = MPGameListLabel
+	Type = label
+	X = 40
+	Y = 90
+	Width = 120
+	Height = 30
+	Value = Game list:
+	FontDeclaration = DialogCaption.font
+</Control>
+
+
+<Control>
+	Name = MPIPLabel
+	Type = label
+	X = 40
+	Y = 50
+	Width = 80
+	Height = 30
+	Value = IP:
+	FontDeclaration = DialogCaption.font
+</Control>
+
+
+<Control>
+	Name = MPPortLabel
+	Type = label
+	X = 380
+	Y = 50
+	Width = 80
+	Height = 30
+	Value = Port:
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = MPIPEdit
+	Type = edit
+	X = 80
+	Y = 50
+	Width = 250
+	Height = 32
+	MaxTextLength = 15
+	ToolTip = Type host IP
+</Control>
+
+<Control>
+	Name = MPPortEdit
+	Type = edit
+	X = 440
+	Y = 50
+	Width = 150
+	Height = 32
+	MaxTextLength = 5
+	ToolTip = Type host port
+</Control>
+
+
+
+<Control>
+	Name = MPGameListList
+	Type = list
+	X = 40
+	Y = 130
+	Width = 560
+	Height = 270
+	Value = 0
+	ToolTip = Servers list.
+	LinesCount = 12
+	LineHeight = 20
+</Control>
+
+<Control>
+	Name = MPCreateButton
+	Type = button
+	X = 40
+	Y = 430
+	Width = 160
+	Height = 30
+	Value = CREATE GAME
+
+	Enabled = 1
+	Visible = 1
+	TabStop = 8
+	ZOrder = 10
+	AbsolutePosition = 0
+	Transparency = 0.0
+	FontDeclaration = DialogBasic.font
+	Color = 0xffffffff 
+	ToolTip = Create Game
+	
+	TextFormat = 68 ; left - 1, right - 2, center - 4, top - 16, bottom - 32, center - 64
+	
+
+</Control>
+
+<Control>
+	Name = MPJoinButton
+	Type = button
+	X = 240
+	Y = 430
+	Width = 160
+	Height = 30
+	Value = JOIN GAME
+
+	Enabled = 1
+	Visible = 1
+	TabStop = 8
+	ZOrder = 10
+	AbsolutePosition = 0
+	Transparency = 0.0
+	FontDeclaration = DialogBasic.font
+	Color = 0xffffffff 
+	ToolTip = Join selected game
+	TextFormat = 68 ; left - 1, right - 2, center - 4, top - 16, bottom - 32, center - 64
+	
+
+</Control>
+
+<Control>
+	Name = MPBackButton
+	Type = button
+	X = 440
+	Y = 430
+	Width = 160
+	Height = 30
+	Value = BACK
+
+	Enabled = 1
+	Visible = 1
+	TabStop = 8
+	ZOrder = 10
+	AbsolutePosition = 0
+	Transparency = 0.0
+	FontDeclaration = DialogBasic.font
+	Color = 0xffffffff 
+	ToolTip = Back to main menu
+	
+	TextFormat = 68 ; left - 1, right - 2, center - 4, top - 16, bottom - 32, center - 64
+	
+
+</Control>

@@ -1,0 +1,127 @@
+<Dialog>
+	X = 300
+	Y = 100
+	Width = 280
+	Height = 350
+	FontDeclaration = DialogBasic.font
+	BackgroundTexture = GUI\SteelDialogBackground.png
+	TextureDeclarations = GraphicTest.dlgDecl
+	Transparency = 0.25 ; value in range <0,1>, 0 means totally visible
+	ToolTipTransparency = 0.0
+	ControlsTransparency = 0.0
+	BasicTextColor = 0xffd86b1c
+	ActiveTextColor = 0xffffff00
+	Color = 0xff0000a0
+	SliderPosMin = 10
+	SliderPosMax = 109
+	ToolTipDelay = 1000
+</Dialog>
+
+
+<Control>
+	Name = MainMenu
+	Type = button
+	X = 60
+	Y = 250
+	Width = 160
+	Height = 30
+	Value = Back
+
+	Enabled = 1
+	Visible = 1
+	TabStop = 8
+	ZOrder = 10
+	AbsolutePosition = 0
+	Transparency = 0.0
+	FontDeclaration = DialogBasic.font
+	Color = 0xffffffff 
+	ToolTip = Returns back to main menu
+	
+	TextFormat = 68 ; left - 1, right - 2, center - 4, top - 16, bottom - 32, center - 64
+	
+
+</Control>
+
+
+<Control>
+	Name = KeySettings
+	Type = button
+	X = 60
+	Y = 200
+	Width = 160
+	Height = 30
+	Value = Key Settings
+
+	Enabled = 1
+	Visible = 1
+	TabStop = 8
+	ZOrder = 10
+	AbsolutePosition = 0
+	Transparency = 0.0
+	FontDeclaration = DialogBasic.font
+	Color = 0xffffffff 
+	ToolTip = Opens key settings
+	
+	TextFormat = 68 ; left - 1, right - 2, center - 4, top - 16, bottom - 32, center - 64
+	
+
+</Control>
+
+<Control>
+	Name = GraphicSettings
+	Type = button
+	X = 60
+	Y = 100
+	Width = 160
+	Height = 30
+	Value = Graphic Settings
+
+	Enabled = 1
+	Visible = 1
+	TabStop = 8
+	ZOrder = 10
+	AbsolutePosition = 0
+	Transparency = 0.0
+	FontDeclaration = DialogBasic.font
+	Color = 0xffffffff 
+	ToolTip = Opens graphic settings
+	
+	TextFormat = 68 ; left - 1, right - 2, center - 4, top - 16, bottom - 32, center - 64
+
+</Control>
+
+<Control>
+	Name = SoundSettings
+	Type = button
+	X = 60
+	Y = 150
+	Width = 160
+	Height = 30
+	Value = Sound Settings
+
+	Enabled = 1
+	Visible = 1
+	TabStop = 8
+	ZOrder = 10
+	AbsolutePosition = 0
+	Transparency = 0.0
+	FontDeclaration = DialogBasic.font
+	Color = 0xffffffff 
+	ToolTip = Opens sound settings
+	
+	TextFormat = 68 ; left - 1, right - 2, center - 4, top - 16, bottom - 32, center - 64
+
+</Control>
+            
+<Control>
+	Name = SettingsLabel
+	Type = label
+	X = 10
+	Y = 10
+	Width = 590
+	Height = 30
+	Value = SETTINGS
+	FontDeclaration = DialogCaption.font
+	TextFormat = 68
+</Control>
+

@@ -1,0 +1,144 @@
+<html>
+<body>
+<pre>
+; If SimpleDeclaration is set to 1, only FaceName, Color and Height properties are used to create a font object.
+; In that case, all other properties are filled by default values.
+;
+; default : 1
+
+SimpleDeclaration = 0
+
+
+; Color is unsigned int value of format 0xaarrggbb
+;
+; default : 0xffffffff
+
+Color = 0xff00aaff
+
+
+
+; Height, in logical units, of the font's character cell or character.
+;
+; default : 18
+
+Height = 18
+
+      
+      
+; Width specifies the average width, in logical units, of characters in the font.
+; If Width is zero, the aspect ratio of the device is matched against the digitization aspect ratio 
+; of the available fonts to find the closest match, determined by the absolute value of the difference
+;
+; default : 0
+
+Width = 0
+      
+      
+
+; Weight of the font in the range from 0 through 1000.
+; 400 is normal and 700 is bold. If this value is zero, a default weight is used.
+;
+; default : 400
+
+Weight = 600
+       
+       
+
+; Number of mip levels requested. If this value is zero or D3DX_DEFAULT, a complete mipmap chain is created.
+; If the value is 1, the texture space is mapped identically to the screen space.
+;
+; default : 0
+
+MipLevels = 0
+
+        
+        
+; Set to TRUE for an Italic font.
+;
+; default : 0
+
+Italic = 0
+     
+     
+
+; CharSet specifies the character set. The following values are predefined (use number values only):
+; 	0	~ ANSI_CHARSET
+;	1	~ DEFAULT_CHARSET
+;	2	~ SYMBOL_CHARSET
+;	30	~ JOHAB_CHARSET 
+;	77	~ MAC_CHARSET
+;	128	~ SHIFTJIS_CHARSET
+;	129	~ HANGUL_CHARSET
+;	134	~ GB2312_CHARSET
+;	136	~ CHINESEBIG5_CHARSET
+;	161	~ GREEK_CHARSET
+;	162	~ TURKISH_CHARSET
+;	163	~ VIETNAMESE_CHARSET 
+;	177	~ HEBREW_CHARSET 
+;	178	~ ARABIC_CHARSET
+;	186	~ BALTIC_CHARSET
+;	204	~ RUSSIAN_CHARSET
+;	222	~ THAI_CHARSET 
+;	238	~ EASTEUROPE_CHARSET
+;	255	~ OEM_CHARSET
+; The OEM_CHARSET value specifies a character set that is operating-system dependent. 
+;
+; Windows 95/98/Me: You can use the DEFAULT_CHARSET value to allow the name and size of a font to fully describe the logical font.
+; If the specified font name does not exist, a font from any character set can be substituted for the specified font,
+; so you should use DEFAULT_CHARSET sparingly to avoid unexpected results. 
+;
+; Windows NT/2000/XP: DEFAULT_CHARSET is set to a value based on the current system locale.
+; For example, when the system locale is English (United States), it is set as ANSI_CHARSET. 
+;
+; Fonts with other character sets may exist in the operating system.
+; If an application uses a font with an unknown character set, it should not attempt to translate or 
+; interpret strings that are rendered with that font. 
+;
+; This parameter is important in the font mapping process. To ensure consistent results, specify a specific character set.
+; If you specify a typeface name in the FaceName member, make sure that the CharSet value matches the character set 
+; of the typeface specified in FaceName. 
+;
+; default : 1
+             
+             
+CharSet = 0
+
+      
+      
+; Output quality. There are several possible values:
+; 0 Appearance of the font does not matter. 
+; 1 Appearance of the font is less important than when (2) is used. For GDI raster fonts, scaling is enabled, which means that more font sizes are available, but the quality may be lower. Bold, italic, underline, and strikeout fonts are synthesized if necessary. 
+; 2 Character quality of the font is more important than exact matching of the logical-font attributes. For GDI raster fonts, scaling is disabled and the font closest in size is chosen. Although the chosen font size may not be mapped exactly when this is used, the quality of the font is high and there is no distortion of appearance. Bold, italic, underline, and strikeout fonts are synthesized if necessary.
+; 3 Windows 95/98/Me, Windows NT 4.0 and later: Font is never antialiased. 
+; 4 Windows NT 4.0 and later: Font is always antialiased if the font supports it and the size of the font is not too small or too large. 
+;   Windows 95 Plus!, Windows 98/Me: The display must greater than 8-bit color, it must be a single plane device, it cannot be a palette display, and it cannot be in a multiple display monitor setup. In addition, you must select a TrueType font into a screen DC prior to using it in a DIBSection, otherwise antialiasing does not occur.
+; 5 CLEARTYPE_QUALITY Windows XP: If set, text is rendered (when possible) using ClearType antialiasing method. See Remarks for more information. 
+;
+; default : 0
+
+Quality = 4
+     
+     
+
+; Pitch of the font. Use one of these constanst (number only):
+; 0 ~ DEFAULT_PITCH
+; 1 ~ FIXED_PITCH
+; 2 ~ VARIABLE_PITCH
+;
+; default : 0
+
+Pitch = 0
+    
+    
+
+; FaceNem is a string of maximal length of 31 characters specifying the typeface name of the font.
+; If FaceName is an empty string, the first font that matches the other specified attributes will be used. 
+;
+; default : Arial
+
+FaceName = Arial
+
+
+</pre>
+</body>
+</html>

@@ -1,0 +1,527 @@
+<Dialog>
+	X = 0
+	Y = 0
+	Width = 640
+	Height = 480
+	FontDeclaration = DialogBasic.font
+	BackgroundTexture = GUI\SteelDialogBackground.png
+	TextureDeclarations = GraphicTest.dlgDecl
+	Transparency = 0.25 ; value in range <0,1>, 0 means totally visible
+	ToolTipTransparency = 0.0
+	ControlsTransparency = 0.0
+	BasicTextColor = 0xffd86b1c
+	ActiveTextColor = 0xffffff00
+	Color = 0xff0000a0
+	SliderPosMin = 10
+	SliderPosMax = 109
+	ToolTipDelay = 1000
+</Dialog>
+
+<Control>
+	Name = RRRaceResultLabel
+	Type = label
+	X = 10
+	Y = 10
+	Width = 590
+	Height = 30
+	Value = RACE RESULTS
+	FontDeclaration = DialogCaption.font
+	TextFormat = 68
+</Control>
+
+<Control>
+	Name = RRLapRecordLabel
+	Type = label
+	X = 10
+	Y = 50
+	Width = 590
+	Height = 30
+	Value = Lap record:
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = RRRaceRecordLabel
+	Type = label
+	X = 300
+	Y = 50
+	Width = 590
+	Height = 30
+	Value = Race record:
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = RRLapRecordPlayerLabel
+	Type = label
+	X = 10
+	Y = 90
+	Width = 590
+	Height = 30
+	Value =
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = RRLapRecordTimeLabel
+	Type = label
+	X = 150
+	Y = 90
+	Width = 590
+	Height = 30
+	Value = 
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = RRRaceRecordPlayerLabel
+	Type = label
+	X = 300
+	Y = 90
+	Width = 590
+	Height = 30
+	Value =
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = RRRaceRecordTimeLabel
+	Type = label
+	X = 450
+	Y = 90
+	Width = 590
+	Height = 30
+	Value = 
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = RRPositionLabel
+	Type = label
+	X = 10
+	Y = 130
+	Width = 590
+	Height = 30
+	Value = Position:
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = RRPos1Label
+	Type = label
+	X = 10
+	Y = 165
+	Width = 590
+	Height = 30
+	Value = 1.
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = RRPos2Label
+	Type = label
+	X = 10
+	Y = 200
+	Width = 590
+	Height = 30
+	Value = 2.
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = RRPos3Label
+	Type = label
+	X = 10
+	Y = 235
+	Width = 590
+	Height = 30
+	Value = 3.
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = RRPos4Label
+	Type = label
+	X = 10
+	Y = 270
+	Width = 590
+	Height = 30
+	Value = 4.
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = RRPos5Label
+	Type = label
+	X = 10
+	Y = 305
+	Width = 590
+	Height = 30
+	Value = 5.
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = RRPos6Label
+	Type = label
+	X = 10
+	Y = 340
+	Width = 590
+	Height = 30
+	Value = 6.
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = RRPos7Label
+	Type = label
+	X = 10
+	Y = 375
+	Width = 590
+	Height = 30
+	Value = 7.
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = RRPos8Label
+	Type = label
+	X = 10
+	Y = 410
+	Width = 590
+	Height = 30
+	Value = 8.
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = RRPlayerNameLabel
+	Type = label
+	X = 200
+	Y = 130
+	Width = 590
+	Height = 30
+	Value = Player name:
+	FontDeclaration = DialogCaption.font
+</Control>
+
+
+<Control>
+	Name = RRName1Label
+	Type = label
+	X = 200
+	Y = 165
+	Width = 590
+	Height = 30
+	Value = 
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = RRName2Label
+	Type = label
+	X = 200
+	Y = 200
+	Width = 590
+	Height = 30
+	Value = 
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = RRName3Label
+	Type = label
+	X = 200
+	Y = 235
+	Width = 590
+	Height = 30
+	Value = 
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = RRName4Label
+	Type = label
+	X = 200
+	Y = 270
+	Width = 590
+	Height = 30
+	Value = 
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = RRName5Label
+	Type = label
+	X = 200
+	Y = 305
+	Width = 590
+	Height = 30
+	Value = 
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = RRName6Label
+	Type = label
+	X = 200
+	Y = 340
+	Width = 590
+	Height = 30
+	Value = 
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = RRName7Label
+	Type = label
+	X = 200
+	Y = 375
+	Width = 590
+	Height = 30
+	Value = 
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = RRName8Label
+	Type = label
+	X = 200
+	Y = 410
+	Width = 590
+	Height = 30
+	Value = 
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = RRBestLapTimeLabel
+	Type = label
+	X = 350
+	Y = 130
+	Width = 590
+	Height = 30
+	Value = Best lap:
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = RRBestLap1Label
+	Type = label
+	X = 350
+	Y = 165
+	Width = 590
+	Height = 30
+	Value = 
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = RRBestLap2Label
+	Type = label
+	X = 350
+	Y = 200
+	Width = 590
+	Height = 30
+	Value = 
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = RRBestLap3Label
+	Type = label
+	X = 350
+	Y = 235
+	Width = 590
+	Height = 30
+	Value = 
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = RRBestLap4Label
+	Type = label
+	X = 350
+	Y = 270
+	Width = 590
+	Height = 30
+	Value = 
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = RRBestLap5Label
+	Type = label
+	X = 350
+	Y = 305
+	Width = 590
+	Height = 30
+	Value = 
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = RRBestLap6Label
+	Type = label
+	X = 350
+	Y = 340
+	Width = 590
+	Height = 30
+	Value = 
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = RRBestLap7Label
+	Type = label
+	X = 350
+	Y = 375
+	Width = 590
+	Height = 30
+	Value = 
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = RRBestLap8Label
+	Type = label
+	X = 350
+	Y = 410
+	Width = 590
+	Height = 30
+	Value = 
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = RRRaceTimeLabel
+	Type = label
+	X = 500
+	Y = 130
+	Width = 590
+	Height = 30
+	Value = Race time:
+	FontDeclaration = DialogCaption.font
+</Control>
+
+
+<Control>
+	Name = RRRace1Label
+	Type = label
+	X = 500
+	Y = 165
+	Width = 590
+	Height = 30
+	Value = 
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = RRRace2Label
+	Type = label
+	X = 500
+	Y = 200
+	Width = 590
+	Height = 30
+	Value = 
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = RRRace3Label
+	Type = label
+	X = 500
+	Y = 235
+	Width = 590
+	Height = 30
+	Value = 
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = RRRace4Label
+	Type = label
+	X = 500
+	Y = 270
+	Width = 590
+	Height = 30
+	Value = 
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = RRRace5Label
+	Type = label
+	X = 500
+	Y = 305
+	Width = 590
+	Height = 30
+	Value = 
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = RRRace6Label
+	Type = label
+	X = 500
+	Y = 340
+	Width = 590
+	Height = 30
+	Value = 
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = RRRace7Label
+	Type = label
+	X = 500
+	Y = 375
+	Width = 590
+	Height = 30
+	Value = 
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = RRRace8Label
+	Type = label
+	X = 500
+	Y = 410
+	Width = 590
+	Height = 30
+	Value = 
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = RRToLobbyButton
+	Type = button
+	X = 80
+	Y = 440
+	Width = 160
+	Height = 30
+	Value = TO LOBBY
+	
+	TextFormat = 68 ; left - 1, right - 2, center - 4, top - 16, bottom - 32, center - 64
+</Control>
+
+<Control>
+	Name = RRToMainMenuButton
+	Type = button
+	X = 400
+	Y = 440
+	Width = 160
+	Height = 30
+	Value = TO MAIN MENU
+	
+	TextFormat = 68 ; left - 1, right - 2, center - 4, top - 16, bottom - 32, center - 64
+</Control>
+
+
+
+
+
+
+
+
+

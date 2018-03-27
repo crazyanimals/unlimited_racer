@@ -1,0 +1,17 @@
+direction.x=0
+direction.y=0
+direction.z=1
+x=0
+y=200
+z=0
+attenuationConstant=1
+attenuationLinear=0.002
+attenuationQuadratic=0
+OuterConeAngle=1.7
+InnerConeAngle=1.2
+Falloff=1
+Range=5000
+type=1
+Diffuse=0xffffff00
+Specular=0
+Ambient=0xff777700

@@ -1,0 +1,27 @@
+startingposition=1
+name=Starting position
+icon=starting_flag.bmp
+[object]
+x=300
+z=500 
+[object]
+x=700
+z=200
+[object] 
+x=300
+z=-100
+[object]
+x=700
+z=-400
+[object]
+x=300
+z=-700
+[object]
+x=700
+z=-1000
+[object]
+x=300
+z=-1300
+[object]
+x=700 
+z=-1600

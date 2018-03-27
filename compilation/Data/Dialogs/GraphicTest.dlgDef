@@ -1,0 +1,236 @@
+<Dialog>
+	X = 100
+	Y = 100
+	Width = 600
+	Height = 400
+	FontDeclaration = DialogBasic.font
+	BackgroundTexture = GUI\DialogBackground.png
+	TextureDeclarations = GraphicTest.dlgDecl
+	Transparency = 0.25 ; value in range <0,1>, 0 means totally visible
+	ToolTipTransparency = 0.0
+	ControlsTransparency = 0.0
+	BasicTextColor = 0xffd0d0d0
+	ActiveTextColor = 0xffffff00
+	Color = 0xff0000a0
+	SliderPosMin = 10
+	SliderPosMax = 109
+	ToolTipDelay = 400
+</Dialog>
+
+
+<Control>
+	Name = CloseButton
+	Type = button
+	X = 240
+	Y = 350
+	Width = 120
+	Height = 25
+	Value = Zavøít
+
+	Enabled = 1
+	Visible = 1
+	TabStop = 8
+	ZOrder = 10
+	AbsolutePosition = 0
+	Transparency = 0.0
+	BackgroundTexture = GUI\DialogBackground.png
+	FontDeclaration = DialogBasic.font
+	BasicTextColor = 0xffd0d0d0
+	ActiveTextColor = 0xffffff00
+	Color = 0xffffffff 
+	ToolTip = Zavøe stávající dialog
+	
+	TextFormat = 68 ; left - 1, right - 2, center - 4, top - 16, bottom - 32, center - 64
+	
+;	<UpTexDecl>
+;		X = 6
+;		Y = 348
+;		Width = 120
+;		Height = 25
+;	</UpTexDecl>
+;	
+;	<DownTexDecl>
+;		X = 130
+;		Y = 348
+;		Width = 120
+;		Height = 25
+;	</DownTexDecl>
+</Control>
+            
+<Control>
+	Name = TopLabel
+	Type = label
+	X = 10
+	Y = 10
+	Width = 590
+	Height = 30
+	Value = HLAVNÍ DIALOG
+	FontDeclaration = DialogCaption.font
+	BasicTextColor = 0xffff9020
+	
+	TextFormat = 68
+</Control>
+
+<Control>
+	Name = Trans1CheckBox
+	Type = checkbox
+	X = 80
+	Y = 90
+	Width = 25
+	Height = 25
+	Value = 1
+	
+	; TextFormat
+	Caption = Prùhledný dialog
+</Control>
+
+<Control>
+	Name = Trans2CheckBox
+	Type = checkbox
+	X = 80
+	Y = 120
+	Width = 25
+	Height = 25
+	Value = 0
+	
+	; TextFormat
+	Caption = Prùhledné prvky
+</Control>
+            
+<Control>
+	Name = TransLabel
+	Type = label
+	X = 80
+	Y = 165
+	Width = 120
+	Height = 30
+	Value = Prùhlednost
+</Control>
+
+<Control>
+	Name = TrackBar
+	Type = trackbar
+	X = 80
+	Y = 190
+	Width = 120
+	Height = 20
+	Value = 0.23
+	ToolTip = You can continuously change\ndialog's transparency.\n\nUse the trackbar by dragging\nthe slider over it's track.
+	
+	; SliderPosMin
+	; SliderPosMax
+</Control>
+
+<Control>
+	Name = Radio1
+	Type = radiobutton
+	X = 80
+	Y = 240
+	Width = 20
+	Height = 20
+	Value = 0
+	
+	RadioGroup = 1
+	; TextFormat
+	Caption = Trojpoložkový listbox
+</Control>
+
+<Control>
+	Name = Radio2
+	Type = radiobutton
+	X = 80
+	Y = 265
+	Width = 20
+	Height = 20
+	Value = 1
+
+	RadioGroup = 1
+	; TextFormat
+	Caption = Ètyøpoložkový listbox
+</Control>
+
+<Control>
+	Name = Radio3
+	Type = radiobutton
+	X = 80
+	Y = 290
+	Width = 20
+	Height = 20
+	Value = 0
+
+	RadioGroup = 1
+	; TextFormat
+	Caption = Pìtipoložkový listbox
+</Control>
+
+<Control>
+	Name = EditBox
+	Type = edit
+	X = 380
+	Y = 90
+	Width = 140
+	Height = 32
+	MaxTextLength = 20
+	Value = tempíèek
+	ToolTip = Input your name.
+
+	; TextFormat
+</Control>
+
+<Control>
+	Name = Combo
+	Type = combo
+	X = 380
+	Y = 130
+	Width = 120
+	Height = 25
+	Value = 0
+	ToolTip = Could change its own text color.
+	
+	LineHeight = 20
+</Control>
+
+<Control>
+	Name = FileList
+	Type = iconedlist
+	X = 340
+	Y = 170
+	Width = 210
+	Value = 0
+	ToolTip = You can choose one file.
+	
+	LineHeight = 20
+	LinesCount = 4
+	TextFormat = 65
+	IconWidth = 20
+	
+	; Value = 1
+</Control>
+
+<Control>
+	Name = Popup
+	Type = popupmenu
+	X = 300
+	Y = 100
+	Width = 160
+	Value = 0
+	ToolTip = You can choose one file.
+	AbsolutePosition = 1
+	ZOrder = 1000000003
+	Visible = 0
+	
+	LineHeight = 20
+	TextFormat = 65
+</Control>
+
+<Control>
+	Name = Image
+	Type = image
+	X = 230
+	Y = 60
+	Width = 100
+	Height = 120
+	ToolTip = Klepnutim zmen fotku.
+	
+	Value = glow.png
+</Control>

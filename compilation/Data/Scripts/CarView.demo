@@ -1,0 +1,34 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; demo script used by GraphicTest for benchmarking purposes
+; created 7.11.2004 by Roman Margold
+;
+; this demo is flying above the road simulating a car view
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+#version 1 0
+#cycleinoneblock 1
+
+var ret, time, startTime, duration
+var posX, posY, posZ
+
+duration = 20 * 1000 ; the demo lasts 20 seconds
+posZ = 9500
+posY = 150
+
+call getTime: ret
+startTime = time = ret
+
+call setUpVec: ret, 0, 1, 0
+
+while time - startTime < duration
+{
+	; compute the position from actual time
+	posX = ( (2 * (time - startTime)) % 10000 ) + 5000
+	call setEyePtVec: ret, posX, posY, posZ
+	call setLookAtVec: ret, posX + 1000, posY, posZ
+	call render: ret, 1
+	call getTime: ret
+	time = ret
+}
+
+return 0

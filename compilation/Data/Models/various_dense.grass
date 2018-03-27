@@ -1,0 +1,5001 @@
+Texture = tuft2.png
+
+<ITEM>
+	File = grass2.shrub
+	X = 762.382874
+	Y = 0.000000
+	Z = 62.837612
+	Rotation = 125
+	Scale = 0.357231
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 905.697815
+	Y = 0.000000
+	Z = 244.758453
+	Rotation = 14
+	Scale = 0.570812
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 709.463806
+	Y = 0.000000
+	Z = 916.562378
+	Rotation = 76
+	Scale = 0.442680
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 930.997620
+	Y = 0.000000
+	Z = 221.228668
+	Rotation = 184
+	Scale = 0.499472
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 627.216431
+	Y = 0.000000
+	Z = 144.016846
+	Rotation = 169
+	Scale = 0.489914
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 931.119751
+	Y = 0.000000
+	Z = 690.572815
+	Rotation = 29
+	Scale = 0.529969
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 728.995605
+	Y = 0.000000
+	Z = 861.323914
+	Rotation = 165
+	Scale = 0.332914
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 347.941528
+	Y = 0.000000
+	Z = 951.109375
+	Rotation = 306
+	Scale = 0.376101
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 928.189941
+	Y = 0.000000
+	Z = 797.357117
+	Rotation = 156
+	Scale = 0.562032
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 404.858551
+	Y = 0.000000
+	Z = 105.441452
+	Rotation = 264
+	Scale = 0.543767
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 538.895813
+	Y = 0.000000
+	Z = 790.307312
+	Rotation = 295
+	Scale = 0.339387
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 942.411560
+	Y = 0.000000
+	Z = 323.099457
+	Rotation = 279
+	Scale = 0.502045
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 872.707275
+	Y = 0.000000
+	Z = 0.671407
+	Rotation = 279
+	Scale = 0.503473
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 961.821350
+	Y = 0.000000
+	Z = 260.933258
+	Rotation = 87
+	Scale = 0.359127
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 747.764526
+	Y = 0.000000
+	Z = 44.343395
+	Rotation = 294
+	Scale = 0.455470
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 269.936218
+	Y = 0.000000
+	Z = 710.013123
+	Rotation = 176
+	Scale = 0.356243
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 467.146820
+	Y = 0.000000
+	Z = 623.920410
+	Rotation = 67
+	Scale = 0.381072
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 152.989288
+	Y = 0.000000
+	Z = 938.016907
+	Rotation = 62
+	Scale = 0.532551
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 254.829559
+	Y = 0.000000
+	Z = 943.662842
+	Rotation = 359
+	Scale = 0.526765
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 117.069000
+	Y = 0.000000
+	Z = 862.147888
+	Rotation = 85
+	Scale = 0.514515
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 84.963531
+	Y = 0.000000
+	Z = 350.108337
+	Rotation = 95
+	Scale = 0.507199
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 548.326050
+	Y = 0.000000
+	Z = 744.010742
+	Rotation = 276
+	Scale = 0.382199
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 928.586670
+	Y = 0.000000
+	Z = 377.636047
+	Rotation = 114
+	Scale = 0.357598
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 788.445679
+	Y = 0.000000
+	Z = 170.720535
+	Rotation = 260
+	Scale = 0.500067
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 294.289978
+	Y = 0.000000
+	Z = 817.133118
+	Rotation = 92
+	Scale = 0.449702
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 716.025269
+	Y = 0.000000
+	Z = 298.776215
+	Rotation = 282
+	Scale = 0.407953
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 185.125275
+	Y = 0.000000
+	Z = 693.838318
+	Rotation = 95
+	Scale = 0.448650
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 599.139404
+	Y = 0.000000
+	Z = 316.019165
+	Rotation = 205
+	Scale = 0.487753
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 851.741089
+	Y = 0.000000
+	Z = 261.299469
+	Rotation = 133
+	Scale = 0.590121
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 860.621948
+	Y = 0.000000
+	Z = 446.333191
+	Rotation = 53
+	Scale = 0.488449
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 624.011963
+	Y = 0.000000
+	Z = 416.669220
+	Rotation = 298
+	Scale = 0.487396
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 603.320435
+	Y = 0.000000
+	Z = 206.305130
+	Rotation = 49
+	Scale = 0.346400
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 268.532379
+	Y = 0.000000
+	Z = 444.532623
+	Rotation = 17
+	Scale = 0.426960
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 400.097656
+	Y = 0.000000
+	Z = 647.999512
+	Rotation = 222
+	Scale = 0.314731
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 376.049072
+	Y = 0.000000
+	Z = 827.814575
+	Rotation = 329
+	Scale = 0.363512
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 90.426346
+	Y = 0.000000
+	Z = 614.307068
+	Rotation = 44
+	Scale = 0.453575
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 855.037109
+	Y = 0.000000
+	Z = 145.268112
+	Rotation = 34
+	Scale = 0.571041
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 264.015625
+	Y = 0.000000
+	Z = 213.324387
+	Rotation = 314
+	Scale = 0.569814
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 321.054718
+	Y = 0.000000
+	Z = 938.749329
+	Rotation = 108
+	Scale = 0.530821
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 880.367432
+	Y = 0.000000
+	Z = 417.004913
+	Rotation = 184
+	Scale = 0.467171
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 649.891663
+	Y = 0.000000
+	Z = 995.818970
+	Rotation = 338
+	Scale = 0.529612
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 193.243195
+	Y = 0.000000
+	Z = 525.650818
+	Rotation = 333
+	Scale = 0.513407
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 830.500183
+	Y = 0.000000
+	Z = 887.600342
+	Rotation = 318
+	Scale = 0.487835
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 948.332153
+	Y = 0.000000
+	Z = 845.332214
+	Rotation = 115
+	Scale = 0.488311
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 140.690323
+	Y = 0.000000
+	Z = 946.256897
+	Rotation = 324
+	Scale = 0.426301
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 823.267334
+	Y = 0.000000
+	Z = 917.294861
+	Rotation = 84
+	Scale = 0.381448
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 191.900391
+	Y = 0.000000
+	Z = 290.658295
+	Rotation = 355
+	Scale = 0.598810
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 411.481049
+	Y = 0.000000
+	Z = 649.739075
+	Rotation = 203
+	Scale = 0.499710
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 181.310471
+	Y = 0.000000
+	Z = 136.478775
+	Rotation = 297
+	Scale = 0.553609
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 831.629395
+	Y = 0.000000
+	Z = 352.153076
+	Rotation = 323
+	Scale = 0.359529
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 371.349213
+	Y = 0.000000
+	Z = 580.431519
+	Rotation = 186
+	Scale = 0.326945
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 408.032471
+	Y = 0.000000
+	Z = 588.244263
+	Rotation = 336
+	Scale = 0.414069
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 13.153478
+	Y = 0.000000
+	Z = 458.204895
+	Rotation = 316
+	Scale = 0.304944
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 931.302856
+	Y = 0.000000
+	Z = 570.726624
+	Rotation = 283
+	Scale = 0.339790
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 269.692078
+	Y = 0.000000
+	Z = 861.293396
+	Rotation = 60
+	Scale = 0.501926
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 899.868774
+	Y = 0.000000
+	Z = 142.704544
+	Rotation = 242
+	Scale = 0.516785
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 795.953247
+	Y = 0.000000
+	Z = 586.931946
+	Rotation = 327
+	Scale = 0.583053
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 990.905457
+	Y = 0.000000
+	Z = 854.304626
+	Rotation = 72
+	Scale = 0.320545
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 129.642624
+	Y = 0.000000
+	Z = 313.821838
+	Rotation = 37
+	Scale = 0.593390
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 930.661926
+	Y = 0.000000
+	Z = 870.174255
+	Rotation = 53
+	Scale = 0.437361
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 554.673889
+	Y = 0.000000
+	Z = 766.380798
+	Rotation = 86
+	Scale = 0.431529
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 63.142796
+	Y = 0.000000
+	Z = 64.729759
+	Rotation = 337
+	Scale = 0.558095
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 249.244659
+	Y = 0.000000
+	Z = 679.311523
+	Rotation = 66
+	Scale = 0.412403
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 370.036926
+	Y = 0.000000
+	Z = 294.869843
+	Rotation = 162
+	Scale = 0.333940
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 948.850952
+	Y = 0.000000
+	Z = 126.133003
+	Rotation = 12
+	Scale = 0.386712
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 602.801575
+	Y = 0.000000
+	Z = 115.817741
+	Rotation = 129
+	Scale = 0.430018
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 658.070618
+	Y = 0.000000
+	Z = 855.708496
+	Rotation = 147
+	Scale = 0.512757
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 675.557739
+	Y = 0.000000
+	Z = 748.008667
+	Rotation = 223
+	Scale = 0.325269
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 770.012512
+	Y = 0.000000
+	Z = 813.440369
+	Rotation = 140
+	Scale = 0.596301
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 655.110352
+	Y = 0.000000
+	Z = 532.334351
+	Rotation = 78
+	Scale = 0.519440
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 913.022278
+	Y = 0.000000
+	Z = 135.807373
+	Rotation = 299
+	Scale = 0.513837
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 703.207520
+	Y = 0.000000
+	Z = 60.426647
+	Rotation = 33
+	Scale = 0.354485
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 574.358337
+	Y = 0.000000
+	Z = 720.847168
+	Rotation = 106
+	Scale = 0.502008
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 296.456787
+	Y = 0.000000
+	Z = 253.395187
+	Rotation = 7
+	Scale = 0.579464
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 668.965698
+	Y = 0.000000
+	Z = 119.693596
+	Rotation = 29
+	Scale = 0.417127
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 98.178047
+	Y = 0.000000
+	Z = 515.701782
+	Rotation = 112
+	Scale = 0.419150
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 355.998413
+	Y = 0.000000
+	Z = 90.945160
+	Rotation = 83
+	Scale = 0.432939
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 108.188118
+	Y = 0.000000
+	Z = 336.436035
+	Rotation = 178
+	Scale = 0.587356
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 181.646164
+	Y = 0.000000
+	Z = 831.934570
+	Rotation = 65
+	Scale = 0.538200
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 297.128204
+	Y = 0.000000
+	Z = 968.535400
+	Rotation = 283
+	Scale = 0.351848
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 667.897583
+	Y = 0.000000
+	Z = 779.198608
+	Rotation = 26
+	Scale = 0.506476
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 964.720581
+	Y = 0.000000
+	Z = 717.276550
+	Rotation = 46
+	Scale = 0.547658
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 397.808777
+	Y = 0.000000
+	Z = 75.197609
+	Rotation = 246
+	Scale = 0.325828
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 672.627930
+	Y = 0.000000
+	Z = 536.088135
+	Rotation = 78
+	Scale = 0.585772
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 95.950195
+	Y = 0.000000
+	Z = 456.007568
+	Rotation = 277
+	Scale = 0.483825
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 917.447449
+	Y = 0.000000
+	Z = 683.523071
+	Rotation = 38
+	Scale = 0.553792
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 789.971619
+	Y = 0.000000
+	Z = 551.591553
+	Rotation = 257
+	Scale = 0.390521
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 851.649536
+	Y = 0.000000
+	Z = 767.510010
+	Rotation = 305
+	Scale = 0.389560
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 493.118073
+	Y = 0.000000
+	Z = 529.892883
+	Rotation = 142
+	Scale = 0.476757
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 455.671875
+	Y = 0.000000
+	Z = 217.017120
+	Rotation = 335
+	Scale = 0.367385
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 591.387695
+	Y = 0.000000
+	Z = 782.586121
+	Rotation = 39
+	Scale = 0.513874
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 739.280396
+	Y = 0.000000
+	Z = 698.110901
+	Rotation = 9
+	Scale = 0.405994
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 879.329834
+	Y = 0.000000
+	Z = 72.298347
+	Rotation = 101
+	Scale = 0.452751
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 925.656921
+	Y = 0.000000
+	Z = 861.629089
+	Rotation = 291
+	Scale = 0.324729
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 587.664429
+	Y = 0.000000
+	Z = 359.111298
+	Rotation = 335
+	Scale = 0.360985
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 278.450867
+	Y = 0.000000
+	Z = 694.753845
+	Rotation = 284
+	Scale = 0.578631
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 413.830994
+	Y = 0.000000
+	Z = 525.894958
+	Rotation = 254
+	Scale = 0.535096
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 389.049957
+	Y = 0.000000
+	Z = 272.530304
+	Rotation = 342
+	Scale = 0.429807
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 121.189003
+	Y = 0.000000
+	Z = 553.239563
+	Rotation = 67
+	Scale = 0.467730
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 477.584167
+	Y = 0.000000
+	Z = 498.580902
+	Rotation = 225
+	Scale = 0.300970
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 346.110413
+	Y = 0.000000
+	Z = 476.851715
+	Rotation = 263
+	Scale = 0.345137
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 702.261414
+	Y = 0.000000
+	Z = 103.793449
+	Rotation = 193
+	Scale = 0.343178
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 464.980011
+	Y = 0.000000
+	Z = 821.863464
+	Rotation = 65
+	Scale = 0.324519
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 736.625244
+	Y = 0.000000
+	Z = 370.983002
+	Rotation = 86
+	Scale = 0.572506
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 351.176483
+	Y = 0.000000
+	Z = 273.415314
+	Rotation = 356
+	Scale = 0.583300
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 97.476120
+	Y = 0.000000
+	Z = 389.599304
+	Rotation = 229
+	Scale = 0.426191
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 221.533859
+	Y = 0.000000
+	Z = 234.839935
+	Rotation = 332
+	Scale = 0.428800
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 3.601184
+	Y = 0.000000
+	Z = 749.534607
+	Rotation = 158
+	Scale = 0.595807
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 156.498917
+	Y = 0.000000
+	Z = 771.080688
+	Rotation = 221
+	Scale = 0.595825
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 47.273170
+	Y = 0.000000
+	Z = 76.265755
+	Rotation = 105
+	Scale = 0.549764
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 903.714111
+	Y = 0.000000
+	Z = 357.860046
+	Rotation = 351
+	Scale = 0.327906
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 792.382568
+	Y = 0.000000
+	Z = 319.895020
+	Rotation = 282
+	Scale = 0.599451
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 865.565979
+	Y = 0.000000
+	Z = 985.869934
+	Rotation = 128
+	Scale = 0.524247
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 693.197449
+	Y = 0.000000
+	Z = 860.713501
+	Rotation = 47
+	Scale = 0.427253
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 353.038116
+	Y = 0.000000
+	Z = 621.570496
+	Rotation = 324
+	Scale = 0.424186
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 592.699951
+	Y = 0.000000
+	Z = 910.031433
+	Rotation = 230
+	Scale = 0.320673
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 885.372498
+	Y = 0.000000
+	Z = 937.498108
+	Rotation = 43
+	Scale = 0.584234
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 620.349731
+	Y = 0.000000
+	Z = 991.821045
+	Rotation = 196
+	Scale = 0.580718
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 152.745132
+	Y = 0.000000
+	Z = 708.578735
+	Rotation = 282
+	Scale = 0.464406
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 704.550293
+	Y = 0.000000
+	Z = 112.704857
+	Rotation = 223
+	Scale = 0.432517
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 863.612793
+	Y = 0.000000
+	Z = 462.660614
+	Rotation = 284
+	Scale = 0.370855
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 259.041107
+	Y = 0.000000
+	Z = 190.923798
+	Rotation = 262
+	Scale = 0.499912
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 690.694885
+	Y = 0.000000
+	Z = 989.043884
+	Rotation = 61
+	Scale = 0.385083
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 27.161474
+	Y = 0.000000
+	Z = 43.183689
+	Rotation = 139
+	Scale = 0.549580
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 541.734070
+	Y = 0.000000
+	Z = 280.953400
+	Rotation = 260
+	Scale = 0.337135
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 694.387634
+	Y = 0.000000
+	Z = 347.941528
+	Rotation = 290
+	Scale = 0.303479
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 29.084139
+	Y = 0.000000
+	Z = 536.423828
+	Rotation = 306
+	Scale = 0.335862
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 834.681213
+	Y = 0.000000
+	Z = 137.577438
+	Rotation = 25
+	Scale = 0.496936
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 930.417786
+	Y = 0.000000
+	Z = 93.234047
+	Rotation = 192
+	Scale = 0.542604
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 165.288254
+	Y = 0.000000
+	Z = 148.625137
+	Rotation = 118
+	Scale = 0.361644
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 237.311935
+	Y = 0.000000
+	Z = 754.631165
+	Rotation = 162
+	Scale = 0.452632
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 69.002350
+	Y = 0.000000
+	Z = 398.480164
+	Rotation = 242
+	Scale = 0.576470
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 713.400696
+	Y = 0.000000
+	Z = 995.178101
+	Rotation = 42
+	Scale = 0.318915
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 34.577473
+	Y = 0.000000
+	Z = 290.292053
+	Rotation = 3
+	Scale = 0.389752
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 343.455292
+	Y = 0.000000
+	Z = 147.556992
+	Rotation = 285
+	Scale = 0.502310
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 182.012390
+	Y = 0.000000
+	Z = 994.323547
+	Rotation = 55
+	Scale = 0.315033
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 286.355164
+	Y = 0.000000
+	Z = 985.869934
+	Rotation = 255
+	Scale = 0.549434
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 510.696747
+	Y = 0.000000
+	Z = 441.267120
+	Rotation = 231
+	Scale = 0.572231
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 561.723694
+	Y = 0.000000
+	Z = 262.642303
+	Rotation = 267
+	Scale = 0.571279
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 57.374798
+	Y = 0.000000
+	Z = 618.366028
+	Rotation = 125
+	Scale = 0.428901
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 336.405518
+	Y = 0.000000
+	Z = 853.968933
+	Rotation = 218
+	Scale = 0.509278
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 902.554382
+	Y = 0.000000
+	Z = 600.878906
+	Rotation = 202
+	Scale = 0.525987
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 951.109375
+	Y = 0.000000
+	Z = 339.426849
+	Rotation = 127
+	Scale = 0.519092
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 43.885616
+	Y = 0.000000
+	Z = 513.687561
+	Rotation = 270
+	Scale = 0.588684
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 369.273956
+	Y = 0.000000
+	Z = 221.564377
+	Rotation = 80
+	Scale = 0.563323
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 689.169006
+	Y = 0.000000
+	Z = 16.113773
+	Rotation = 159
+	Scale = 0.463051
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 162.083801
+	Y = 0.000000
+	Z = 694.387634
+	Rotation = 117
+	Scale = 0.569649
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 631.427979
+	Y = 0.000000
+	Z = 570.574036
+	Rotation = 265
+	Scale = 0.419269
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 89.632866
+	Y = 0.000000
+	Z = 27.832880
+	Rotation = 253
+	Scale = 0.568441
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 184.759064
+	Y = 0.000000
+	Z = 311.227753
+	Rotation = 205
+	Scale = 0.361452
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 427.625366
+	Y = 0.000000
+	Z = 373.454987
+	Rotation = 173
+	Scale = 0.461431
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 800.653076
+	Y = 0.000000
+	Z = 402.172913
+	Rotation = 309
+	Scale = 0.519184
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 41.444138
+	Y = 0.000000
+	Z = 233.161407
+	Rotation = 111
+	Scale = 0.477233
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 80.965607
+	Y = 0.000000
+	Z = 986.236145
+	Rotation = 189
+	Scale = 0.303946
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 454.176453
+	Y = 0.000000
+	Z = 103.335670
+	Rotation = 39
+	Scale = 0.428883
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 577.867981
+	Y = 0.000000
+	Z = 805.200378
+	Rotation = 129
+	Scale = 0.433433
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 414.227722
+	Y = 0.000000
+	Z = 25.299845
+	Rotation = 112
+	Scale = 0.489950
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 646.931335
+	Y = 0.000000
+	Z = 940.946655
+	Rotation = 294
+	Scale = 0.493851
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 369.762268
+	Y = 0.000000
+	Z = 72.756126
+	Rotation = 9
+	Scale = 0.536616
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 826.044495
+	Y = 0.000000
+	Z = 511.368134
+	Rotation = 231
+	Scale = 0.564724
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 421.613220
+	Y = 0.000000
+	Z = 308.908356
+	Rotation = 58
+	Scale = 0.351573
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 869.319763
+	Y = 0.000000
+	Z = 180.883209
+	Rotation = 215
+	Scale = 0.507437
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 384.624786
+	Y = 0.000000
+	Z = 575.365479
+	Rotation = 127
+	Scale = 0.438514
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 803.643921
+	Y = 0.000000
+	Z = 636.432983
+	Rotation = 105
+	Scale = 0.456880
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 158.268997
+	Y = 0.000000
+	Z = 759.239502
+	Rotation = 21
+	Scale = 0.540855
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 312.570587
+	Y = 0.000000
+	Z = 360.667755
+	Rotation = 181
+	Scale = 0.492239
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 321.146271
+	Y = 0.000000
+	Z = 44.740135
+	Rotation = 185
+	Scale = 0.583511
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 522.141174
+	Y = 0.000000
+	Z = 732.474731
+	Rotation = 140
+	Scale = 0.435292
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 341.959900
+	Y = 0.000000
+	Z = 221.686447
+	Rotation = 52
+	Scale = 0.448228
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 981.627869
+	Y = 0.000000
+	Z = 321.756653
+	Rotation = 38
+	Scale = 0.570565
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 669.240417
+	Y = 0.000000
+	Z = 513.840149
+	Rotation = 275
+	Scale = 0.339827
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 433.606995
+	Y = 0.000000
+	Z = 849.971008
+	Rotation = 260
+	Scale = 0.538438
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 846.186707
+	Y = 0.000000
+	Z = 738.364807
+	Rotation = 89
+	Scale = 0.489474
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 967.162109
+	Y = 0.000000
+	Z = 280.617706
+	Rotation = 356
+	Scale = 0.557701
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 323.099457
+	Y = 0.000000
+	Z = 28.778954
+	Rotation = 184
+	Scale = 0.359758
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 479.689941
+	Y = 0.000000
+	Z = 515.976440
+	Rotation = 80
+	Scale = 0.425074
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 430.280457
+	Y = 0.000000
+	Z = 982.726501
+	Rotation = 109
+	Scale = 0.552007
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 155.980103
+	Y = 0.000000
+	Z = 823.480957
+	Rotation = 301
+	Scale = 0.454152
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 656.270020
+	Y = 0.000000
+	Z = 49.714653
+	Rotation = 0
+	Scale = 0.456697
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 33.143101
+	Y = 0.000000
+	Z = 34.638508
+	Rotation = 15
+	Scale = 0.491397
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 573.290222
+	Y = 0.000000
+	Z = 383.648193
+	Rotation = 316
+	Scale = 0.520621
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 786.736633
+	Y = 0.000000
+	Z = 363.780640
+	Rotation = 177
+	Scale = 0.521290
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 90.365303
+	Y = 0.000000
+	Z = 368.785675
+	Rotation = 115
+	Scale = 0.316343
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 763.237427
+	Y = 0.000000
+	Z = 16.052736
+	Rotation = 330
+	Scale = 0.382418
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 816.949951
+	Y = 0.000000
+	Z = 720.511475
+	Rotation = 71
+	Scale = 0.379635
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 132.572403
+	Y = 0.000000
+	Z = 219.306015
+	Rotation = 189
+	Scale = 0.499683
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 814.691589
+	Y = 0.000000
+	Z = 576.921875
+	Rotation = 190
+	Scale = 0.313981
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 955.961792
+	Y = 0.000000
+	Z = 539.902954
+	Rotation = 20
+	Scale = 0.532240
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 525.406677
+	Y = 0.000000
+	Z = 469.710388
+	Rotation = 172
+	Scale = 0.538310
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 92.165901
+	Y = 0.000000
+	Z = 964.110229
+	Rotation = 128
+	Scale = 0.379672
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 812.005981
+	Y = 0.000000
+	Z = 611.011108
+	Rotation = 325
+	Scale = 0.459691
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 321.115753
+	Y = 0.000000
+	Z = 860.225220
+	Rotation = 127
+	Scale = 0.517215
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 466.811127
+	Y = 0.000000
+	Z = 684.865845
+	Rotation = 67
+	Scale = 0.476263
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 970.091858
+	Y = 0.000000
+	Z = 212.286758
+	Rotation = 51
+	Scale = 0.483468
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 847.529541
+	Y = 0.000000
+	Z = 412.182983
+	Rotation = 297
+	Scale = 0.443339
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 816.431152
+	Y = 0.000000
+	Z = 57.405315
+	Rotation = 344
+	Scale = 0.456761
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 123.355812
+	Y = 0.000000
+	Z = 691.183228
+	Rotation = 273
+	Scale = 0.556035
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 227.820679
+	Y = 0.000000
+	Z = 489.913635
+	Rotation = 222
+	Scale = 0.568084
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 577.013489
+	Y = 0.000000
+	Z = 226.630447
+	Rotation = 172
+	Scale = 0.301291
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 520.798340
+	Y = 0.000000
+	Z = 543.687256
+	Rotation = 12
+	Scale = 0.445839
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 136.448257
+	Y = 0.000000
+	Z = 375.652344
+	Rotation = 50
+	Scale = 0.599405
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 487.044891
+	Y = 0.000000
+	Z = 350.657684
+	Rotation = 105
+	Scale = 0.508573
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 430.036316
+	Y = 0.000000
+	Z = 580.462036
+	Rotation = 2
+	Scale = 0.476629
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 87.557602
+	Y = 0.000000
+	Z = 828.363892
+	Rotation = 45
+	Scale = 0.353771
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 792.474121
+	Y = 0.000000
+	Z = 354.167297
+	Rotation = 82
+	Scale = 0.374490
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 565.538513
+	Y = 0.000000
+	Z = 392.162842
+	Rotation = 7
+	Scale = 0.470943
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 425.214386
+	Y = 0.000000
+	Z = 459.395111
+	Rotation = 42
+	Scale = 0.494830
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 809.015198
+	Y = 0.000000
+	Z = 449.049347
+	Rotation = 112
+	Scale = 0.373565
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 956.083862
+	Y = 0.000000
+	Z = 796.807739
+	Rotation = 117
+	Scale = 0.390466
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 828.272339
+	Y = 0.000000
+	Z = 328.775909
+	Rotation = 97
+	Scale = 0.434028
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 573.076599
+	Y = 0.000000
+	Z = 724.997681
+	Rotation = 284
+	Scale = 0.426740
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 823.603027
+	Y = 0.000000
+	Z = 475.356293
+	Rotation = 0
+	Scale = 0.456258
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 357.036041
+	Y = 0.000000
+	Z = 192.602310
+	Rotation = 215
+	Scale = 0.346785
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 633.503235
+	Y = 0.000000
+	Z = 777.581116
+	Rotation = 81
+	Scale = 0.569860
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 23.102512
+	Y = 0.000000
+	Z = 298.287903
+	Rotation = 37
+	Scale = 0.460762
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 496.810822
+	Y = 0.000000
+	Z = 490.768158
+	Rotation = 216
+	Scale = 0.514515
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 636.585571
+	Y = 0.000000
+	Z = 835.108521
+	Rotation = 301
+	Scale = 0.533723
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 156.315811
+	Y = 0.000000
+	Z = 912.991699
+	Rotation = 37
+	Scale = 0.541670
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 611.377319
+	Y = 0.000000
+	Z = 142.429886
+	Rotation = 320
+	Scale = 0.355986
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 507.431244
+	Y = 0.000000
+	Z = 459.547729
+	Rotation = 220
+	Scale = 0.430045
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 60.029907
+	Y = 0.000000
+	Z = 309.701843
+	Rotation = 53
+	Scale = 0.531205
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 370.189514
+	Y = 0.000000
+	Z = 647.206055
+	Rotation = 255
+	Scale = 0.429194
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 964.476440
+	Y = 0.000000
+	Z = 575.212891
+	Rotation = 103
+	Scale = 0.398431
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 669.789734
+	Y = 0.000000
+	Z = 384.655304
+	Rotation = 184
+	Scale = 0.549022
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 301.583923
+	Y = 0.000000
+	Z = 764.305542
+	Rotation = 163
+	Scale = 0.502768
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 467.879272
+	Y = 0.000000
+	Z = 492.171997
+	Rotation = 202
+	Scale = 0.440400
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 816.736328
+	Y = 0.000000
+	Z = 943.052490
+	Rotation = 242
+	Scale = 0.531919
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 23.651844
+	Y = 0.000000
+	Z = 162.633133
+	Rotation = 37
+	Scale = 0.499994
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 207.525864
+	Y = 0.000000
+	Z = 244.361710
+	Rotation = 350
+	Scale = 0.331422
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 503.280731
+	Y = 0.000000
+	Z = 759.392090
+	Rotation = 255
+	Scale = 0.319117
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 696.218750
+	Y = 0.000000
+	Z = 187.536240
+	Rotation = 70
+	Scale = 0.485711
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 223.242889
+	Y = 0.000000
+	Z = 542.497009
+	Rotation = 233
+	Scale = 0.318622
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 944.486816
+	Y = 0.000000
+	Z = 873.805969
+	Rotation = 226
+	Scale = 0.394522
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 535.050537
+	Y = 0.000000
+	Z = 253.791931
+	Rotation = 264
+	Scale = 0.408017
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 636.402466
+	Y = 0.000000
+	Z = 335.825684
+	Rotation = 129
+	Scale = 0.570711
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 755.882446
+	Y = 0.000000
+	Z = 593.829163
+	Rotation = 46
+	Scale = 0.513654
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 438.215271
+	Y = 0.000000
+	Z = 162.541580
+	Rotation = 294
+	Scale = 0.424250
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 53.468430
+	Y = 0.000000
+	Z = 118.259224
+	Rotation = 268
+	Scale = 0.476144
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 69.246498
+	Y = 0.000000
+	Z = 445.966980
+	Rotation = 45
+	Scale = 0.566060
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 22.309031
+	Y = 0.000000
+	Z = 591.479248
+	Rotation = 189
+	Scale = 0.558443
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 510.330505
+	Y = 0.000000
+	Z = 222.693558
+	Rotation = 32
+	Scale = 0.550761
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 971.922974
+	Y = 0.000000
+	Z = 984.557617
+	Rotation = 323
+	Scale = 0.370516
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 556.382935
+	Y = 0.000000
+	Z = 38.727989
+	Rotation = 155
+	Scale = 0.568038
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 809.533997
+	Y = 0.000000
+	Z = 721.976379
+	Rotation = 20
+	Scale = 0.542439
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 617.908264
+	Y = 0.000000
+	Z = 173.680832
+	Rotation = 151
+	Scale = 0.374856
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 963.621948
+	Y = 0.000000
+	Z = 87.038788
+	Rotation = 164
+	Scale = 0.401169
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 514.175842
+	Y = 0.000000
+	Z = 547.013794
+	Rotation = 1
+	Scale = 0.323164
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 187.200531
+	Y = 0.000000
+	Z = 518.845154
+	Rotation = 77
+	Scale = 0.367083
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 603.198364
+	Y = 0.000000
+	Z = 518.631531
+	Rotation = 257
+	Scale = 0.466997
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 425.916321
+	Y = 0.000000
+	Z = 496.108887
+	Rotation = 325
+	Scale = 0.418857
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 589.556580
+	Y = 0.000000
+	Z = 813.806580
+	Rotation = 175
+	Scale = 0.317377
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 359.508057
+	Y = 0.000000
+	Z = 432.508331
+	Rotation = 16
+	Scale = 0.320289
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 359.233368
+	Y = 0.000000
+	Z = 772.148804
+	Rotation = 342
+	Scale = 0.339525
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 852.320923
+	Y = 0.000000
+	Z = 126.133003
+	Rotation = 307
+	Scale = 0.595038
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 842.066711
+	Y = 0.000000
+	Z = 170.628983
+	Rotation = 109
+	Scale = 0.543062
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 503.158661
+	Y = 0.000000
+	Z = 441.297638
+	Rotation = 316
+	Scale = 0.414124
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 817.835022
+	Y = 0.000000
+	Z = 121.707817
+	Rotation = 276
+	Scale = 0.589068
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 894.161804
+	Y = 0.000000
+	Z = 675.984985
+	Rotation = 210
+	Scale = 0.463262
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 389.110992
+	Y = 0.000000
+	Z = 127.170631
+	Rotation = 201
+	Scale = 0.515943
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 122.836998
+	Y = 0.000000
+	Z = 109.561447
+	Rotation = 81
+	Scale = 0.519871
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 165.929138
+	Y = 0.000000
+	Z = 403.454681
+	Rotation = 355
+	Scale = 0.555870
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 893.032654
+	Y = 0.000000
+	Z = 156.559952
+	Rotation = 279
+	Scale = 0.431556
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 670.247498
+	Y = 0.000000
+	Z = 203.100677
+	Rotation = 175
+	Scale = 0.363695
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 955.870239
+	Y = 0.000000
+	Z = 999.603271
+	Rotation = 89
+	Scale = 0.484979
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 696.920654
+	Y = 0.000000
+	Z = 173.406174
+	Rotation = 211
+	Scale = 0.397049
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 164.922028
+	Y = 0.000000
+	Z = 163.243500
+	Rotation = 51
+	Scale = 0.525034
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 986.815979
+	Y = 0.000000
+	Z = 934.507263
+	Rotation = 209
+	Scale = 0.557994
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 956.358521
+	Y = 0.000000
+	Z = 842.951721
+	Rotation = 112
+	Scale = 0.466210
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 202.612381
+	Y = 0.000000
+	Z = 155.980103
+	Rotation = 325
+	Scale = 0.420569
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 817.926575
+	Y = 0.000000
+	Z = 548.142944
+	Rotation = 18
+	Scale = 0.568120
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 473.189484
+	Y = 0.000000
+	Z = 584.459961
+	Rotation = 297
+	Scale = 0.412091
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 391.338837
+	Y = 0.000000
+	Z = 378.093811
+	Rotation = 329
+	Scale = 0.363356
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 313.058868
+	Y = 0.000000
+	Z = 850.520325
+	Rotation = 183
+	Scale = 0.576791
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 384.014404
+	Y = 0.000000
+	Z = 649.372864
+	Rotation = 60
+	Scale = 0.465853
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 156.163208
+	Y = 0.000000
+	Z = 590.868835
+	Rotation = 172
+	Scale = 0.415690
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 579.149780
+	Y = 0.000000
+	Z = 260.139771
+	Rotation = 218
+	Scale = 0.387912
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 689.169006
+	Y = 0.000000
+	Z = 577.196594
+	Rotation = 172
+	Scale = 0.454610
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 46.845913
+	Y = 0.000000
+	Z = 732.901978
+	Rotation = 219
+	Scale = 0.593637
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 258.125549
+	Y = 0.000000
+	Z = 281.167023
+	Rotation = 201
+	Scale = 0.428929
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 301.431305
+	Y = 0.000000
+	Z = 949.247742
+	Rotation = 178
+	Scale = 0.451140
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 475.783569
+	Y = 0.000000
+	Z = 743.980225
+	Rotation = 130
+	Scale = 0.578860
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 746.238586
+	Y = 0.000000
+	Z = 803.949097
+	Rotation = 262
+	Scale = 0.354558
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 400.860626
+	Y = 0.000000
+	Z = 886.196472
+	Rotation = 185
+	Scale = 0.307489
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 420.636627
+	Y = 0.000000
+	Z = 983.489502
+	Rotation = 146
+	Scale = 0.405783
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 920.255127
+	Y = 0.000000
+	Z = 615.009033
+	Rotation = 5
+	Scale = 0.556017
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 941.129822
+	Y = 0.000000
+	Z = 443.250824
+	Rotation = 181
+	Scale = 0.314164
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 865.932190
+	Y = 0.000000
+	Z = 383.953369
+	Rotation = 145
+	Scale = 0.380642
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 733.603943
+	Y = 0.000000
+	Z = 543.137939
+	Rotation = 257
+	Scale = 0.325864
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 563.585327
+	Y = 0.000000
+	Z = 362.773529
+	Rotation = 43
+	Scale = 0.565035
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 311.685547
+	Y = 0.000000
+	Z = 825.525696
+	Rotation = 101
+	Scale = 0.571462
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 567.888428
+	Y = 0.000000
+	Z = 205.053864
+	Rotation = 333
+	Scale = 0.553993
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 592.760986
+	Y = 0.000000
+	Z = 711.966309
+	Rotation = 228
+	Scale = 0.459032
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 909.939880
+	Y = 0.000000
+	Z = 684.255493
+	Rotation = 289
+	Scale = 0.540086
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 182.470169
+	Y = 0.000000
+	Z = 575.304443
+	Rotation = 214
+	Scale = 0.475979
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 896.847412
+	Y = 0.000000
+	Z = 330.271301
+	Rotation = 199
+	Scale = 0.559056
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 326.273376
+	Y = 0.000000
+	Z = 342.020935
+	Rotation = 117
+	Scale = 0.335597
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 980.986938
+	Y = 0.000000
+	Z = 763.023804
+	Rotation = 54
+	Scale = 0.542311
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 947.264038
+	Y = 0.000000
+	Z = 617.328430
+	Rotation = 171
+	Scale = 0.450105
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 85.970642
+	Y = 0.000000
+	Z = 812.219604
+	Rotation = 72
+	Scale = 0.421256
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 988.036743
+	Y = 0.000000
+	Z = 928.464600
+	Rotation = 59
+	Scale = 0.568935
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 661.153015
+	Y = 0.000000
+	Z = 858.149963
+	Rotation = 334
+	Scale = 0.567132
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 277.047028
+	Y = 0.000000
+	Z = 677.114197
+	Rotation = 161
+	Scale = 0.526014
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 261.299469
+	Y = 0.000000
+	Z = 252.021851
+	Rotation = 310
+	Scale = 0.368465
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 469.069489
+	Y = 0.000000
+	Z = 399.945068
+	Rotation = 330
+	Scale = 0.531361
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 240.424820
+	Y = 0.000000
+	Z = 301.583923
+	Rotation = 218
+	Scale = 0.584372
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 392.956329
+	Y = 0.000000
+	Z = 588.122192
+	Rotation = 243
+	Scale = 0.556630
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 828.791138
+	Y = 0.000000
+	Z = 262.459167
+	Rotation = 127
+	Scale = 0.451735
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 501.846375
+	Y = 0.000000
+	Z = 231.696518
+	Rotation = 19
+	Scale = 0.540022
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 60.274055
+	Y = 0.000000
+	Z = 184.575943
+	Rotation = 173
+	Scale = 0.557692
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 184.209717
+	Y = 0.000000
+	Z = 62.013611
+	Rotation = 284
+	Scale = 0.309998
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 355.784790
+	Y = 0.000000
+	Z = 448.316895
+	Rotation = 212
+	Scale = 0.300293
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 587.817017
+	Y = 0.000000
+	Z = 787.041870
+	Rotation = 231
+	Scale = 0.537083
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 669.637146
+	Y = 0.000000
+	Z = 515.244019
+	Rotation = 161
+	Scale = 0.340550
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 453.505066
+	Y = 0.000000
+	Z = 77.913757
+	Rotation = 231
+	Scale = 0.506476
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 603.137329
+	Y = 0.000000
+	Z = 936.002686
+	Rotation = 328
+	Scale = 0.482580
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 380.443726
+	Y = 0.000000
+	Z = 293.313385
+	Rotation = 248
+	Scale = 0.598709
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 396.679596
+	Y = 0.000000
+	Z = 127.628410
+	Rotation = 34
+	Scale = 0.395291
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 70.436722
+	Y = 0.000000
+	Z = 546.983215
+	Rotation = 19
+	Scale = 0.307965
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 863.429688
+	Y = 0.000000
+	Z = 982.940125
+	Rotation = 162
+	Scale = 0.495151
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 554.673889
+	Y = 0.000000
+	Z = 359.324921
+	Rotation = 248
+	Scale = 0.356984
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 743.217285
+	Y = 0.000000
+	Z = 124.454483
+	Rotation = 203
+	Scale = 0.532386
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 314.432190
+	Y = 0.000000
+	Z = 408.795441
+	Rotation = 315
+	Scale = 0.418793
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 262.459167
+	Y = 0.000000
+	Z = 698.446594
+	Rotation = 56
+	Scale = 0.551503
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 693.411072
+	Y = 0.000000
+	Z = 439.741211
+	Rotation = 270
+	Scale = 0.569512
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 507.126068
+	Y = 0.000000
+	Z = 133.915222
+	Rotation = 327
+	Scale = 0.316663
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 188.299210
+	Y = 0.000000
+	Z = 815.607178
+	Rotation = 236
+	Scale = 0.407340
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 179.845581
+	Y = 0.000000
+	Z = 407.086395
+	Rotation = 335
+	Scale = 0.392453
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 223.456528
+	Y = 0.000000
+	Z = 153.050323
+	Rotation = 285
+	Scale = 0.320545
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 39.979248
+	Y = 0.000000
+	Z = 162.327957
+	Rotation = 179
+	Scale = 0.437489
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 983.825195
+	Y = 0.000000
+	Z = 560.625000
+	Rotation = 311
+	Scale = 0.308121
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 444.898834
+	Y = 0.000000
+	Z = 686.056091
+	Rotation = 240
+	Scale = 0.490179
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 931.241821
+	Y = 0.000000
+	Z = 859.431763
+	Rotation = 62
+	Scale = 0.588702
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 545.457336
+	Y = 0.000000
+	Z = 323.923462
+	Rotation = 354
+	Scale = 0.589508
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 880.367432
+	Y = 0.000000
+	Z = 406.750702
+	Rotation = 97
+	Scale = 0.513407
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 464.125488
+	Y = 0.000000
+	Z = 607.165771
+	Rotation = 84
+	Scale = 0.367568
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 89.724419
+	Y = 0.000000
+	Z = 404.339722
+	Rotation = 177
+	Scale = 0.464873
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 824.976318
+	Y = 0.000000
+	Z = 228.461563
+	Rotation = 176
+	Scale = 0.361150
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 858.363586
+	Y = 0.000000
+	Z = 471.968750
+	Rotation = 97
+	Scale = 0.413804
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 936.765625
+	Y = 0.000000
+	Z = 215.857422
+	Rotation = 99
+	Scale = 0.305036
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 728.232666
+	Y = 0.000000
+	Z = 434.766693
+	Rotation = 263
+	Scale = 0.355464
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 377.056183
+	Y = 0.000000
+	Z = 308.603180
+	Rotation = 290
+	Scale = 0.477645
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 707.998901
+	Y = 0.000000
+	Z = 327.616211
+	Rotation = 306
+	Scale = 0.597427
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 314.249084
+	Y = 0.000000
+	Z = 777.184387
+	Rotation = 121
+	Scale = 0.556383
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 75.838493
+	Y = 0.000000
+	Z = 193.639938
+	Rotation = 132
+	Scale = 0.554662
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 256.294434
+	Y = 0.000000
+	Z = 867.915894
+	Rotation = 253
+	Scale = 0.395245
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 415.112762
+	Y = 0.000000
+	Z = 965.758240
+	Rotation = 336
+	Scale = 0.366662
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 660.542603
+	Y = 0.000000
+	Z = 820.917358
+	Rotation = 202
+	Scale = 0.445711
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 709.982605
+	Y = 0.000000
+	Z = 199.194305
+	Rotation = 299
+	Scale = 0.520612
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 598.376404
+	Y = 0.000000
+	Z = 130.619217
+	Rotation = 198
+	Scale = 0.393863
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 705.404846
+	Y = 0.000000
+	Z = 292.031616
+	Rotation = 248
+	Scale = 0.482177
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 68.208870
+	Y = 0.000000
+	Z = 516.647827
+	Rotation = 199
+	Scale = 0.467418
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 441.236603
+	Y = 0.000000
+	Z = 715.323364
+	Rotation = 9
+	Scale = 0.439595
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 217.322311
+	Y = 0.000000
+	Z = 75.014496
+	Rotation = 82
+	Scale = 0.564742
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 27.680288
+	Y = 0.000000
+	Z = 300.057983
+	Rotation = 290
+	Scale = 0.493402
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 288.522003
+	Y = 0.000000
+	Z = 410.260315
+	Rotation = 145
+	Scale = 0.460799
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 466.017639
+	Y = 0.000000
+	Z = 419.141205
+	Rotation = 326
+	Scale = 0.512702
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 181.432541
+	Y = 0.000000
+	Z = 330.790131
+	Rotation = 166
+	Scale = 0.340083
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 758.445984
+	Y = 0.000000
+	Z = 583.819092
+	Rotation = 58
+	Scale = 0.564971
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 729.606018
+	Y = 0.000000
+	Z = 53.010651
+	Rotation = 173
+	Scale = 0.581469
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 817.590881
+	Y = 0.000000
+	Z = 172.124390
+	Rotation = 41
+	Scale = 0.449290
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 773.735779
+	Y = 0.000000
+	Z = 922.482971
+	Rotation = 345
+	Scale = 0.561693
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 907.681519
+	Y = 0.000000
+	Z = 343.974121
+	Rotation = 256
+	Scale = 0.458345
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 480.849640
+	Y = 0.000000
+	Z = 554.277161
+	Rotation = 80
+	Scale = 0.541276
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 647.602783
+	Y = 0.000000
+	Z = 301.095612
+	Rotation = 275
+	Scale = 0.301730
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 743.522461
+	Y = 0.000000
+	Z = 139.530624
+	Rotation = 240
+	Scale = 0.335112
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 108.523819
+	Y = 0.000000
+	Z = 544.968994
+	Rotation = 171
+	Scale = 0.478204
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 518.417908
+	Y = 0.000000
+	Z = 589.526062
+	Rotation = 100
+	Scale = 0.538676
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 368.785675
+	Y = 0.000000
+	Z = 294.839325
+	Rotation = 22
+	Scale = 0.325681
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 255.378891
+	Y = 0.000000
+	Z = 315.042572
+	Rotation = 106
+	Scale = 0.566701
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 171.086761
+	Y = 0.000000
+	Z = 378.307434
+	Rotation = 357
+	Scale = 0.342729
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 748.863159
+	Y = 0.000000
+	Z = 894.711121
+	Rotation = 138
+	Scale = 0.551375
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 190.191345
+	Y = 0.000000
+	Z = 323.648804
+	Rotation = 350
+	Scale = 0.400336
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 441.450226
+	Y = 0.000000
+	Z = 793.267639
+	Rotation = 117
+	Scale = 0.429862
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 981.719421
+	Y = 0.000000
+	Z = 689.077454
+	Rotation = 114
+	Scale = 0.487433
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 46.876431
+	Y = 0.000000
+	Z = 777.825256
+	Rotation = 114
+	Scale = 0.513169
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 76.357307
+	Y = 0.000000
+	Z = 486.678680
+	Rotation = 296
+	Scale = 0.593014
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 963.560913
+	Y = 0.000000
+	Z = 868.587280
+	Rotation = 359
+	Scale = 0.457933
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 29.786066
+	Y = 0.000000
+	Z = 521.408752
+	Rotation = 18
+	Scale = 0.561565
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 943.388184
+	Y = 0.000000
+	Z = 679.860840
+	Rotation = 41
+	Scale = 0.446883
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 661.366638
+	Y = 0.000000
+	Z = 194.524979
+	Rotation = 291
+	Scale = 0.402432
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 491.317474
+	Y = 0.000000
+	Z = 975.768311
+	Rotation = 121
+	Scale = 0.310099
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 342.295593
+	Y = 0.000000
+	Z = 439.436005
+	Rotation = 81
+	Scale = 0.526893
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 120.212410
+	Y = 0.000000
+	Z = 315.408783
+	Rotation = 90
+	Scale = 0.375149
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 149.449142
+	Y = 0.000000
+	Z = 592.822021
+	Rotation = 132
+	Scale = 0.365151
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 502.761932
+	Y = 0.000000
+	Z = 913.876770
+	Rotation = 120
+	Scale = 0.407578
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 107.913452
+	Y = 0.000000
+	Z = 779.900513
+	Rotation = 260
+	Scale = 0.317835
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 367.961670
+	Y = 0.000000
+	Z = 424.787140
+	Rotation = 248
+	Scale = 0.581066
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 733.146179
+	Y = 0.000000
+	Z = 432.630402
+	Rotation = 133
+	Scale = 0.559377
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 312.967316
+	Y = 0.000000
+	Z = 384.533234
+	Rotation = 62
+	Scale = 0.586688
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 771.965698
+	Y = 0.000000
+	Z = 492.446655
+	Rotation = 359
+	Scale = 0.472564
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 162.480545
+	Y = 0.000000
+	Z = 668.630005
+	Rotation = 154
+	Scale = 0.540507
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 560.014648
+	Y = 0.000000
+	Z = 295.052948
+	Rotation = 56
+	Scale = 0.590634
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 737.998596
+	Y = 0.000000
+	Z = 625.659973
+	Rotation = 313
+	Scale = 0.465844
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 883.144653
+	Y = 0.000000
+	Z = 724.478882
+	Rotation = 220
+	Scale = 0.594388
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 517.258240
+	Y = 0.000000
+	Z = 696.462891
+	Rotation = 352
+	Scale = 0.397974
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 779.869995
+	Y = 0.000000
+	Z = 575.029785
+	Rotation = 144
+	Scale = 0.393670
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 299.478119
+	Y = 0.000000
+	Z = 422.406677
+	Rotation = 89
+	Scale = 0.373281
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 473.586243
+	Y = 0.000000
+	Z = 805.871765
+	Rotation = 294
+	Scale = 0.452705
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 267.159027
+	Y = 0.000000
+	Z = 920.102539
+	Rotation = 244
+	Scale = 0.307929
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 702.963318
+	Y = 0.000000
+	Z = 131.290634
+	Rotation = 176
+	Scale = 0.434962
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 376.598419
+	Y = 0.000000
+	Z = 276.345093
+	Rotation = 135
+	Scale = 0.332420
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 253.242584
+	Y = 0.000000
+	Z = 790.795593
+	Rotation = 55
+	Scale = 0.583145
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 440.198975
+	Y = 0.000000
+	Z = 23.773918
+	Rotation = 219
+	Scale = 0.313349
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 600.909424
+	Y = 0.000000
+	Z = 8.941923
+	Rotation = 16
+	Scale = 0.350108
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 211.706894
+	Y = 0.000000
+	Z = 13.794366
+	Rotation = 211
+	Scale = 0.451634
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 400.158691
+	Y = 0.000000
+	Z = 212.073120
+	Rotation = 182
+	Scale = 0.595908
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 873.226135
+	Y = 0.000000
+	Z = 741.416687
+	Rotation = 158
+	Scale = 0.583538
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 181.371506
+	Y = 0.000000
+	Z = 139.988403
+	Rotation = 221
+	Scale = 0.300641
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 175.389877
+	Y = 0.000000
+	Z = 615.161621
+	Rotation = 86
+	Scale = 0.515513
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 227.454453
+	Y = 0.000000
+	Z = 205.053864
+	Rotation = 268
+	Scale = 0.451991
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 728.293701
+	Y = 0.000000
+	Z = 932.981323
+	Rotation = 44
+	Scale = 0.482937
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 268.044067
+	Y = 0.000000
+	Z = 428.998688
+	Rotation = 175
+	Scale = 0.484484
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 197.882019
+	Y = 0.000000
+	Z = 546.037170
+	Rotation = 354
+	Scale = 0.324244
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 508.743561
+	Y = 0.000000
+	Z = 656.422607
+	Rotation = 104
+	Scale = 0.516611
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 65.553757
+	Y = 0.000000
+	Z = 490.829193
+	Rotation = 146
+	Scale = 0.492935
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 716.635620
+	Y = 0.000000
+	Z = 129.734177
+	Rotation = 288
+	Scale = 0.384533
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 772.606567
+	Y = 0.000000
+	Z = 371.745972
+	Rotation = 94
+	Scale = 0.378262
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 742.851013
+	Y = 0.000000
+	Z = 534.989441
+	Rotation = 201
+	Scale = 0.549004
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 128.971222
+	Y = 0.000000
+	Z = 107.455673
+	Rotation = 309
+	Scale = 0.358376
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 98.483231
+	Y = 0.000000
+	Z = 918.973328
+	Rotation = 147
+	Scale = 0.389697
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 438.093201
+	Y = 0.000000
+	Z = 936.002686
+	Rotation = 126
+	Scale = 0.554671
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 139.286484
+	Y = 0.000000
+	Z = 60.304573
+	Rotation = 291
+	Scale = 0.338224
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 501.205475
+	Y = 0.000000
+	Z = 435.865356
+	Rotation = 127
+	Scale = 0.480877
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 183.446762
+	Y = 0.000000
+	Z = 573.839539
+	Rotation = 107
+	Scale = 0.472784
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 144.993439
+	Y = 0.000000
+	Z = 885.433533
+	Rotation = 274
+	Scale = 0.572781
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 605.761902
+	Y = 0.000000
+	Z = 865.443909
+	Rotation = 141
+	Scale = 0.344240
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 783.898438
+	Y = 0.000000
+	Z = 673.360413
+	Rotation = 319
+	Scale = 0.530573
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 752.189697
+	Y = 0.000000
+	Z = 658.986145
+	Rotation = 150
+	Scale = 0.359502
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 413.800476
+	Y = 0.000000
+	Z = 821.253113
+	Rotation = 205
+	Scale = 0.495196
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 518.662048
+	Y = 0.000000
+	Z = 809.808655
+	Rotation = 259
+	Scale = 0.553600
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 959.715576
+	Y = 0.000000
+	Z = 101.046783
+	Rotation = 157
+	Scale = 0.498364
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 770.256653
+	Y = 0.000000
+	Z = 129.734177
+	Rotation = 57
+	Scale = 0.373244
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 689.901428
+	Y = 0.000000
+	Z = 858.790833
+	Rotation = 24
+	Scale = 0.561620
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 558.214050
+	Y = 0.000000
+	Z = 599.291992
+	Rotation = 87
+	Scale = 0.409125
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 92.013306
+	Y = 0.000000
+	Z = 609.271545
+	Rotation = 263
+	Scale = 0.560494
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 454.695282
+	Y = 0.000000
+	Z = 257.545715
+	Rotation = 76
+	Scale = 0.489630
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 802.362122
+	Y = 0.000000
+	Z = 876.705200
+	Rotation = 255
+	Scale = 0.402112
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 389.324615
+	Y = 0.000000
+	Z = 868.587280
+	Rotation = 133
+	Scale = 0.423106
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 519.058838
+	Y = 0.000000
+	Z = 740.531616
+	Rotation = 333
+	Scale = 0.477215
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 264.198730
+	Y = 0.000000
+	Z = 783.745850
+	Rotation = 305
+	Scale = 0.385449
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 932.157349
+	Y = 0.000000
+	Z = 236.762604
+	Rotation = 171
+	Scale = 0.526746
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 469.283112
+	Y = 0.000000
+	Z = 883.205688
+	Rotation = 334
+	Scale = 0.533137
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 198.126160
+	Y = 0.000000
+	Z = 281.655334
+	Rotation = 347
+	Scale = 0.597610
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 344.798126
+	Y = 0.000000
+	Z = 708.487183
+	Rotation = 273
+	Scale = 0.416449
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 996.642944
+	Y = 0.000000
+	Z = 255.836670
+	Rotation = 234
+	Scale = 0.438441
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 763.573120
+	Y = 0.000000
+	Z = 516.464722
+	Rotation = 52
+	Scale = 0.310181
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 356.639313
+	Y = 0.000000
+	Z = 935.697510
+	Rotation = 63
+	Scale = 0.392233
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 461.348297
+	Y = 0.000000
+	Z = 620.288696
+	Rotation = 335
+	Scale = 0.307956
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 856.227295
+	Y = 0.000000
+	Z = 210.608231
+	Rotation = 148
+	Scale = 0.466018
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 651.509155
+	Y = 0.000000
+	Z = 658.406311
+	Rotation = 143
+	Scale = 0.578173
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 106.021301
+	Y = 0.000000
+	Z = 105.044708
+	Rotation = 224
+	Scale = 0.485693
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 947.141968
+	Y = 0.000000
+	Z = 973.082703
+	Rotation = 112
+	Scale = 0.593207
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 249.458298
+	Y = 0.000000
+	Z = 157.231354
+	Rotation = 319
+	Scale = 0.464150
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 802.148499
+	Y = 0.000000
+	Z = 712.485107
+	Rotation = 343
+	Scale = 0.454390
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 174.718460
+	Y = 0.000000
+	Z = 317.819763
+	Rotation = 42
+	Scale = 0.510770
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 701.803650
+	Y = 0.000000
+	Z = 216.650894
+	Rotation = 122
+	Scale = 0.583309
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 863.155029
+	Y = 0.000000
+	Z = 346.537689
+	Rotation = 60
+	Scale = 0.377209
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 302.377380
+	Y = 0.000000
+	Z = 336.405518
+	Rotation = 27
+	Scale = 0.470312
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 416.730255
+	Y = 0.000000
+	Z = 327.036346
+	Rotation = 271
+	Scale = 0.556209
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 769.829407
+	Y = 0.000000
+	Z = 187.017426
+	Rotation = 69
+	Scale = 0.303607
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 443.159271
+	Y = 0.000000
+	Z = 515.915405
+	Rotation = 11
+	Scale = 0.313907
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 818.262268
+	Y = 0.000000
+	Z = 83.376572
+	Rotation = 128
+	Scale = 0.381924
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 251.472519
+	Y = 0.000000
+	Z = 415.845215
+	Rotation = 336
+	Scale = 0.329856
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 529.892883
+	Y = 0.000000
+	Z = 662.526306
+	Rotation = 303
+	Scale = 0.480465
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 352.732941
+	Y = 0.000000
+	Z = 839.899902
+	Rotation = 308
+	Scale = 0.329463
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 70.589310
+	Y = 0.000000
+	Z = 99.917603
+	Rotation = 350
+	Scale = 0.529154
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 691.915649
+	Y = 0.000000
+	Z = 938.474670
+	Rotation = 124
+	Scale = 0.509177
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 27.191992
+	Y = 0.000000
+	Z = 492.477173
+	Rotation = 244
+	Scale = 0.513086
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 484.145630
+	Y = 0.000000
+	Z = 819.696655
+	Rotation = 135
+	Scale = 0.562334
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 406.537079
+	Y = 0.000000
+	Z = 536.729004
+	Rotation = 223
+	Scale = 0.453694
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 116.550186
+	Y = 0.000000
+	Z = 628.925415
+	Rotation = 127
+	Scale = 0.400821
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 479.384735
+	Y = 0.000000
+	Z = 204.290909
+	Rotation = 37
+	Scale = 0.514689
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 930.356750
+	Y = 0.000000
+	Z = 893.887146
+	Rotation = 286
+	Scale = 0.422263
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 747.703491
+	Y = 0.000000
+	Z = 828.516479
+	Rotation = 265
+	Scale = 0.334562
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 442.030090
+	Y = 0.000000
+	Z = 708.670288
+	Rotation = 294
+	Scale = 0.581487
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 487.472137
+	Y = 0.000000
+	Z = 495.132294
+	Rotation = 159
+	Scale = 0.457375
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 322.367004
+	Y = 0.000000
+	Z = 50.691246
+	Rotation = 8
+	Scale = 0.476666
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 696.890137
+	Y = 0.000000
+	Z = 499.282806
+	Rotation = 293
+	Scale = 0.450865
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 852.107300
+	Y = 0.000000
+	Z = 324.076050
+	Rotation = 49
+	Scale = 0.441380
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 983.520020
+	Y = 0.000000
+	Z = 514.908264
+	Rotation = 295
+	Scale = 0.405023
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 239.173553
+	Y = 0.000000
+	Z = 223.639633
+	Rotation = 105
+	Scale = 0.331953
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 84.109009
+	Y = 0.000000
+	Z = 649.403381
+	Rotation = 200
+	Scale = 0.331010
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 739.738159
+	Y = 0.000000
+	Z = 345.530579
+	Rotation = 194
+	Scale = 0.502805
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 445.265045
+	Y = 0.000000
+	Z = 346.201965
+	Rotation = 84
+	Scale = 0.568770
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 595.934937
+	Y = 0.000000
+	Z = 751.731934
+	Rotation = 112
+	Scale = 0.357076
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 733.359802
+	Y = 0.000000
+	Z = 780.236206
+	Rotation = 186
+	Scale = 0.597913
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 18.250069
+	Y = 0.000000
+	Z = 58.870205
+	Rotation = 356
+	Scale = 0.335221
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 410.229797
+	Y = 0.000000
+	Z = 588.091675
+	Rotation = 221
+	Scale = 0.369161
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 417.096466
+	Y = 0.000000
+	Z = 685.049011
+	Rotation = 281
+	Scale = 0.545717
+</ITEM>
+
+
+<ITEM>
+	File = grass3.shrub
+	X = 731.009888
+	Y = 0.000000
+	Z = 113.254189
+	Rotation = 333
+	Scale = 0.469341
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 458.021790
+	Y = 0.000000
+	Z = 780.785522
+	Rotation = 63
+	Scale = 0.438936
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 819.360962
+	Y = 0.000000
+	Z = 449.415558
+	Rotation = 20
+	Scale = 0.339717
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 900.540161
+	Y = 0.000000
+	Z = 217.627487
+	Rotation = 251
+	Scale = 0.464361
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 978.087708
+	Y = 0.000000
+	Z = 59.450058
+	Rotation = 207
+	Scale = 0.523112
+</ITEM>
+
+
+<ITEM>
+	File = grass5.shrub
+	X = 204.290909
+	Y = 0.000000
+	Z = 929.197083
+	Rotation = 315
+	Scale = 0.419205
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 222.327347
+	Y = 0.000000
+	Z = 258.156067
+	Rotation = 315
+	Scale = 0.355886
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 178.777435
+	Y = 0.000000
+	Z = 28.473770
+	Rotation = 116
+	Scale = 0.483001
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 306.314270
+	Y = 0.000000
+	Z = 995.147583
+	Rotation = 99
+	Scale = 0.386071
+</ITEM>
+
+
+<ITEM>
+	File = grass4.shrub
+	X = 133.640549
+	Y = 0.000000
+	Z = 580.004272
+	Rotation = 355
+	Scale = 0.322642
+</ITEM>
+
+
+<ITEM>
+	File = grass2.shrub
+	X = 375.347137
+	Y = 0.000000
+	Z = 793.145569
+	Rotation = 238
+	Scale = 0.424076
+</ITEM>
+

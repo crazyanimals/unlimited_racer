@@ -1,0 +1,46 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; terrain generating script used by TerrainGenerator v1.2
+; created 23.5.2004 by Roman Margold
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+#version 1 0
+#cycleinoneblock 0
+
+var ret, size, segs, height, type
+
+height = 350
+size = 1000
+type = 9
+segs = 64
+
+
+call settings: ret, "terrain_type9.plate", type, height, segs, segs, size, size, 1, 1
+
+call init: ret
+if ret
+then
+{
+	call release: ret
+	return ret
+}
+
+for i,segs + 1
+{
+	var x
+	x = i - 1
+
+	for j,segs + 1
+	{
+		var z, val, H
+		z = j - 1
+		if x+z < segs
+		then val = x ** height // segs
+		else val = (segs-z) ** height // segs
+		call computeY: ret, x, z, val
+	}	
+}
+	
+call write: ret
+call release: ret
+
+return ret

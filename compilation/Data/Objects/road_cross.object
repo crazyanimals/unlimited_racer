@@ -1,0 +1,82 @@
+name = Crossroad 
+icon = road_cross.bmp 
+
+[road]
+texture = road_cross.png
+phtexture = road_cross.phTexture
+
+[waypoints]
+x = 500.0
+y = 100.0
+z = 0.0
+max_speed = 25
+
+x = 500.0
+y = 100.0
+z = 333.0
+
+x = 500.0
+y = 100.0
+z = 666.0
+
+
+x = 500.0
+y = 100.0
+z = 1000.0
+
+
+[waypoints]
+x = 500.0
+y = 100.0
+z = 1000.0
+max_speed = 25
+
+x = 500.0
+y = 100.0
+z = 666.0
+
+x = 500.0
+y = 100.0
+z = 333.0
+
+
+x = 500.0
+y = 100.0
+z = 0.0
+
+[waypoints]
+x = 0.0
+y = 100.0
+z = 500.0
+max_speed = 25
+
+x = 333.0
+y = 100.0
+z = 500.0
+
+x = 666.0
+y = 100.0
+z = 500.0
+
+x = 1000.0
+y = 100.0
+z = 500.0
+
+[waypoints]
+x = 1000.0
+y = 100.0
+z = 500.0
+max_speed = 25
+
+x = 666.0
+y = 100.0
+z = 500.0
+
+x = 333.0
+y = 100.0
+z = 500.0
+
+x = 0.0
+y = 100.0
+z = 500.0
+

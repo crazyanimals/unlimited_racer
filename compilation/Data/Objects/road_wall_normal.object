@@ -1,0 +1,51 @@
+Name = Road Wall Normal
+icon=road_wall_normal.bmp
+
+[object]
+Model = road_wall_normal.modelDef
+static = 1
+SizeX = 1
+SizeY = 1
+PosX = 0
+PosY = 0
+X = 500
+Y = 0
+Z = 500
+GrassAllowed = 0
+material = 6
+
+[waypoints]
+x = 500.0
+y = 600.0
+z = 0.0
+max_speed = 50
+
+x = 500.0
+y = 600.0
+z = 333.0
+
+x = 500.0
+y = 600.0
+z = 666.0
+
+x = 500.0
+y = 600.0
+z = 1000.0
+
+[waypoints]
+x = 500.0
+y = 600.0
+z = 1000.0
+max_speed = 50
+
+x = 500.0
+y = 600.0
+z = 666.0
+
+x = 500.0
+y = 600.0
+z = 333.0
+
+x = 500.0
+y = 600.0
+z = 0.0

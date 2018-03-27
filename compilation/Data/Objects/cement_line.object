@@ -1,0 +1,10 @@
+Name = Cement with Line
+Icon = cement_line.bmp
+
+[Road]
+posX = 0
+posY = 0
+sizeX = 1
+sizeY = 1
+texture = cement_line.jpg
+phtexture = asphalt.phTexture

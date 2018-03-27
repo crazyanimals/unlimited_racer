@@ -1,0 +1,18 @@
+Name = Goal Mouth
+Icon = goalMouth.bmp
+
+[object]
+Model = goalMouthSimple.modelDef
+static = 1
+SizeX = 2
+SizeY = 1
+Scale.X = 8
+Scale.Y = 5
+Scale.Z = 5
+PosX = 0
+PosY = 0
+X = 1000
+Y = 0
+Z = 1000
+GrassAllowed = 0
+ 

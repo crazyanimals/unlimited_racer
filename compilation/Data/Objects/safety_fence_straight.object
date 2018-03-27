@@ -1,0 +1,69 @@
+name = Safety Fence Straight
+icon = safety_fence_straight.bmp 
+[road]
+texture = road.png
+phtexture = road.phTexture
+
+[object]
+Model = safety_fence_straight.modelDef
+static = 1
+SizeX = 1
+SizeY = 1
+PosX = 0
+PosY = 0
+X = 100
+Y = 0
+Z = 500
+rotation.y= 4.712
+GrassAllowed = 0
+material = 2
+
+[object]
+Model = safety_fence_straight.modelDef
+static = 1
+SizeX = 1
+SizeY = 1
+PosX = 0
+PosY = 0
+X = 900
+Y = 0
+Z = 500
+rotation.y= 1.571
+GrassAllowed = 0
+material = 2
+
+[waypoints]
+x = 500.0
+y = 100.0
+z = 0.0
+max_speed = 40
+
+x = 500.0
+y = 100.0
+z = 333.0
+
+x = 500.0
+y = 100.0
+z = 666.0
+
+x = 500.0
+y = 100.0
+z = 1000.0
+
+[waypoints]
+x = 500.0
+y = 100.0
+z = 1000.0
+max_speed = 40
+
+x = 500.0
+y = 100.0
+z = 666.0
+
+x = 500.0
+y = 100.0
+z = 333.0
+
+x = 500.0
+y = 100.0
+z = 0.0

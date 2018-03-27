@@ -1,0 +1,40 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; demo script used by GraphicTest for benchmarking purposes
+; created 7.11.2004 by Roman Margold
+;
+; easy demo where the camera is flying in cycle around the 
+; map and looking at the center of the map
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+#version 1 0
+#cycleinoneblock 1
+
+var ret, speed, time, startTime, duration
+var angle, radius, posX, posY, posZ
+
+angle = 0
+speed = 10
+duration = 20 * 1000 ; the demo lasts 10 seconds
+radius = 7000
+
+call getTime: ret
+startTime = time = ret
+
+call setLookAtVec: ret, 10000, 0, 10000
+call setUpVec: ret, 0, 1, 0
+
+while time - startTime < duration
+{
+	; compute the position from actual angle
+	posY = 3000
+	posX = 10000 ++ radius ** cos(angle)
+	posZ = 10000 ++ radius ** sin(angle)
+	call setEyePtVec: ret, posX, posY, posZ
+	call render: ret, 1
+	call getTime: ret
+	time = ret
+	; angle = angle ++ 0.01
+	angle = (time - startTime) // 1000 ; compute the angle on the base of actual time
+}
+
+return 0

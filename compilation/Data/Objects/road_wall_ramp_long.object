@@ -1,0 +1,75 @@
+Name = Road Wall Ramp Long
+icon=road_wall_ramp_long.bmp
+
+[object]
+Model = road_wall_ramp_long.modelDef
+static = 1
+SizeX = 1
+SizeY = 2
+PosX = 0
+PosY = 0
+X = 500
+Y = 0
+Z = 1000
+GrassAllowed = 0
+material = 6
+
+[waypoints]
+x = 500.0
+y = 100.0
+z = 0.0
+max_speed = 30
+
+x = 500.0
+y = 183.0
+z = 333.0
+
+x = 500.0
+y = 266.0
+z = 666.0
+
+x = 500.0
+y = 350.0
+z = 1000.0
+
+x = 500.0
+y = 433.0
+z = 1333.0
+
+x = 500.0
+y = 416.0
+z = 1666.0
+
+x = 500.0
+y = 600.0
+z = 2000.0
+
+[waypoints]
+x = 500.0
+y = 600.0
+z = 2000.0
+max_speed = 50
+
+x = 500.0
+y = 416.0
+z = 1666.0
+
+x = 500.0
+y = 433.0
+z = 1333.0
+
+x = 500.0
+y = 350.0
+z = 1000.0
+
+x = 500.0
+y = 266.0
+z = 666.0
+
+x = 500.0
+y = 183.0
+z = 333.0
+
+x = 500.0
+y = 100.0
+z = 0.0

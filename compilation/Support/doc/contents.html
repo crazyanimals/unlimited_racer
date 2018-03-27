@@ -1,0 +1,288 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+	<link type="text/css" href="mainstyles.css" rel="stylesheet">
+</head>
+
+<body>
+<div id="contents">
+<ul class="firstlist">
+<li class="mainsection"><a href="firstpage.html" target="rightframe">Hlavní stránka</a>
+<li class="mainsection"><a href="introduction.html" target="rightframe">Úvod</a>
+
+<!-- ----------------------------------------------------------------------------
+    Architektura a design
+------------------------------------------------------------------------------->
+<li class="mainsection"><a href="arch_design.html" target="rightframe">1 Architektura a design</a>
+<ul>
+    <li><a href="arch_design.html#IDE" target="rightframe">1.1 Vývojové prostředí</a>
+    <li><a href="arch_design.html#projects" target="rightframe">1.2 Hlavní moduly</a>
+    <li><a href="arch_design.html#directories" target="rightframe">1.3 Adresářová struktura</a>
+    <li><a href="arch_design.html#error_handling" target="rightframe">1.4 Ošetřování chyb a výjimek</a>
+    <li><a href="arch_design.html#config_files" target="rightframe">1.5 Konfigurační soubory</a>
+   
+</ul>
+
+<!------------------------------------------------------------------------------
+    Graphic 
+------------------------------------------------------------------------------->
+<li class="mainsection"><a href="graphics.html#gr_engine" target="rightframe">2 Grafický engine</a>
+<ul>
+   <li><a href="graphics.html#HW_rendering" target="rightframe">2.1 Rendering pomocí grafického hardwaru</a>
+    <ul>
+	    <li><a href="graphics.html#rendering_phases" target="rightframe">2.1.1 Fáze renderingu</a>
+	    <li><a href="graphics.html#Direct3D" target="rightframe">2.1.2 Pohled z hlediska uživatele knihovny Direct3D</a>
+	    <li><a href="graphics.html#shaders" target="rightframe">2.1.3 Shadery</a>
+	    <ul>
+		    <li><a href="graphics.html#shaders_howto" target="rightframe">2.1.3.1 Jak fungují shadery</a>
+		    <li><a href="graphics.html#shader_framework" target="rightframe">2.1.3.2 Shader framework</a>
+		 </ul>
+    </ul>
+   <li><a href="graphics.html#algorithms" target="rightframe">2.2 Použité algoritmy a techniky</a>
+   	<ul>
+	    <li><a href="graphics.html#lod" target="rightframe">2.2.1 LOD - úroveň detailu</a>
+	    <li><a href="graphics.html#lights" target="rightframe">2.2.2 Světla</a>
+	    <ul>
+	       <li><a href="graphics.html#lights_reflector" target="rightframe">2.2.2.1 Světlo reflektoru od auta</a>
+	       <li><a href="graphics.html#lights_lamp" target="rightframe">2.2.2.2 Světlo od lampy</a>
+	       <li><a href="graphics.html#lights_directional" target="rightframe">2.2.2.3 Směrové světlo</a>
+	       <li><a href="graphics.html#lights_billboard" target="rightframe">2.2.2.4 Světelný billboard nahrazující osvětlení</a>
+	       <li><a href="graphics.html#lights_ambient" target="rightframe">2.2.2.5 Globální světlo</a>
+	       <li><a href="graphics.html#lights_equation" target="rightframe">2.2.2.6 Osvětlovací model</a>
+	    </ul>
+	    <li><a href="graphics.html#shadows" target="rightframe">2.2.3 Stíny</a>
+	    <ul>
+		    <li><a href="graphics.html#shadows_impl" target="rightframe">2.2.3.1 Algoritmy implementace stínů na dnešním grafickém hardware</a>
+		    <li><a href="graphics.html#shadows_ours" target="rightframe">2.2.3.2 Naše implementace stínů</a>
+		    <li><a href="graphics.html#shadows_system" target="rightframe">2.2.3.3 Popis stínovacího systému ve hře</a>
+	    </ul>
+	    <li><a href="graphics.html#terrain" target="rightframe">2.2.4 Terén</a>
+	    <ul>
+		    <li><a href="graphics.html#lod0" target="rightframe">2.2.4.1 LOD0</a>
+		    <li><a href="graphics.html#terrain_holes" target="rightframe">2.2.4.2 Zalepování děr</a>
+		    <li><a href="graphics.html#terrainlightmap" target="rightframe">2.2.4.3 Předpočítání osvětlení</a>
+		    <li><a href="graphics.html#terrain_visibility" target="rightframe">2.2.4.4 Výpočet viditelnosti</a>
+	    </ul>
+	    <li><a href="graphics.html#grass" target="rightframe">2.2.5 Tráva</a>
+	    <li><a href="graphics.html#skysystem" target="rightframe">2.2.6 Systém oblohy</a>
+	    <li><a href="graphics.html#fog" target="rightframe">2.2.7 Mlha</a>
+	  </ul>
+	 <li><a href="graphics.html#implementation" target="rightframe">2.3 Implementace</a> 
+	  <ul>
+	    <li><a href="graphics.html#graphicobjects" target="rightframe">2.3.1 Grafické objekty</a>
+	    <ul>
+		    <li><a href="graphics.html#scene" target="rightframe">2.3.1.1 Scéna</a>
+		    <li><a href="graphics.html#grobj_structure" target="rightframe">2.3.1.2 Struktura</a>
+		    <li><a href="graphics.html#CGrObjectTerrain" target="rightframe">2.3.1.3 CGrObjectTerrain</a>
+		    <li><a href="graphics.html#CGrObjectTerrainPlate" target="rightframe">2.3.1.4 CGrObjectTerrainPlate</a>
+		    <li><a href="graphics.html#CGrObjectMesh" target="rightframe">2.3.1.5 CGrObjectMesh</a>
+		    <li><a href="graphics.html#CGrObjectCar" target="rightframe">2.3.1.6 CGrObjectCar</a>
+		    <li><a href="graphics.html#CGrObjectBillboard" target="rightframe">2.3.1.7 CGrObjectBillboard</a>
+		    <li><a href="graphics.html#CGrObjectSkySystem" target="rightframe">2.3.1.8 CGrObjectSkySystem</a>
+		    <li><a href="graphics.html#CGrObjectGrass" target="rightframe">2.3.1.9 CGrObjectGrass</a>
+		    <li><a href="graphics.html#CGrObjectBoundingBox" target="rightframe">2.3.1.10 CGrObjectBoundingBox</a>
+		    <li><a href="graphics.html#CLight" target="rightframe">2.3.1.11 CLight</a>
+		    <li><a href="graphics.html#CBoundingEnvelopes" target="rightframe">2.3.1.12 CBoundingEnvelopes</a>
+	    </ul>
+	    <li><a href="graphics.html#GUI" target="rightframe">2.3.2 Ovládací prvky</a>
+	    <ul>
+		    <li><a href="graphics.html#GUI_structure" target="rightframe">2.3.2.1 Struktura</a>
+		    <li><a href="graphics.html#GUI_messages" target="rightframe">2.3.2.2 Systém zpráv a událostí</a>
+		    <li><a href="graphics.html#GR_GUI_typyprvku" target="rightframe">2.3.2.3 Typy prvků</a>
+		    <li><a href="graphics.html#GUI_defs" target="rightframe">2.3.2.4 Definování a modifikovatelnost ovládacích prvků</a>
+	    </ul>
+		  <li><a href="graphics.html#HUD_kernel" target="rightframe">2.3.3 Jádro pro renderování HUD</a>
+	    <li><a href="graphics.html#GraphicKernel" target="rightframe">2.3.4 Zobrazovací jádro</a>
+	  </ul>
+</ul>
+
+<!------------------------------------------------------------------------------
+    Main section 
+------------------------------------------------------------------------------->
+<li class="mainsection"><a href="Physics.html" target="rightframe">3 Fyzikální engine</a>
+<ul>
+    <li><a href="Physics.html#section1" target="rightframe">3.1 Seznámení s fyzikálním enginem</a>
+    <ul>
+        <li><a href="Physics.html#section1.1" target="rightframe">3.1.1 Vlastní implementace a problémy s ní spojené</a>
+        <li><a href="Physics.html#section1.2" target="rightframe">3.1.2 Integrace nového fyzikálního enginu</a>
+        <li><a href="Physics.html#section1.3" target="rightframe">3.1.3 Problémy spojené s přechodem</a>
+    </ul>
+    <li><a href="Physics.html#section2" target="rightframe">3.2 Fyzikální engine <strong>Newton Game Dynamics<sup>TM</sup></strong></a>
+    <ul>
+        <li><a href="Physics.html#section2.1" target="rightframe">3.2.1 Struktura NewtonWorld</a>
+        <li><a href="Physics.html#section2.2" target="rightframe">3.2.2 Struktura NewtonCollision</a>
+        <ul>
+            <li><a href="Physics.html#section2.2.1" target="rightframe">3.2.2.1 Kolizní obálka typu Convex Hull Collision</a>
+            <li><a href="Physics.html#section2.2.2" target="rightframe">3.2.2.2 Kolizní obálka typu Tree Collision</a>
+        </ul>
+        <li><a href="Physics.html#section2.3" target="rightframe">3.2.3 Struktura NewtonBody</a>
+        <li><a href="Physics.html#section2.4" target="rightframe">3.2.4 Struktura NewtonJoint</a>
+        <li><a href="Physics.html#section2.5" target="rightframe">3.2.5 Struktura NewtonMaterial</a>
+    </ul>
+    <li><a href="Physics.html#section3" target="rightframe">3.3 Fyzikální engine pro hru Unlimited Racer</a>
+    <ul>
+        <li><a href="Physics.html#section3.1" target="rightframe">3.3.1 Objekty</a>
+        <ul>
+            <li><a href="Physics.html#section3.1.1" target="rightframe">3.3.1.1 Statické objekty</a>
+            <li><a href="Physics.html#section3.1.2" target="rightframe">3.3.1.2 Dynamické objekty</a>
+        </ul>
+        <li><a href="Physics.html#section3.2" target="rightframe">3.3.2 Terén</a>
+        <li><a href="Physics.html#section3.3" target="rightframe">3.3.3 Auta</a>
+        <ul>
+            <li><a href="Physics.html#section3.3.1" target="rightframe">3.3.3.1 Karoserie</a>
+            <li><a href="Physics.html#section3.3.2" target="rightframe">3.3.3.2 Kola</a>
+            <li><a href="Physics.html#section3.3.3" target="rightframe">3.3.3.3 Motor</a>                                     	
+        </ul>
+        <li><a href="Physics.html#section3.4" target="rightframe">3.3.4 Materiály</a>
+        <li><a href="Physics.html#section3.5" target="rightframe">3.3.5 Průběh výpočtů</a>
+    </ul>
+    <li><a href="Physics.html#section4" target="rightframe">3.4 Přehled tříd</a>
+</ul>
+
+
+<!------------------------------------------------------------------------------
+    Umělá inteligence
+------------------------------------------------------------------------------->
+<li class="mainsection"><a href="AI.html#sec4" target="rightframe">4 Umělá inteligence</a>
+<ul>
+    <li><a href="AI.html#sec4.1" target="rightframe">4.1 Základní princip fungování AI</a>
+    <li><a href="AI.html#sec4.2" target="rightframe">4.2 CSteeringAI</a>
+    <li><a href="AI.html#sec4.3" target="rightframe">4.3 CAIPath</a>
+    <li><a href="AI.html#sec4.4" target="rightframe">4.4 CAIObject</a>
+    <li><a href="AI.html#sec4.5" target="rightframe">4.5 CAIVehicle</a>
+    <ul>
+    <li><a href="AI.html#sec4.5.1" target="rightframe">4.5.1 SteerToAvoidObjects()</a>
+    <li><a href="AI.html#sec4.5.2" target="rightframe">4.5.2 SteerToFollowPath()</a>
+    </ul>
+    <li><a href="AI.html#sec4.6" target="rightframe">4.6 V3</a>
+</ul>
+
+<!------------------------------------------------------------------------------
+    HRA 
+------------------------------------------------------------------------------->
+<li class="mainsection"><a href="hra.html" target="rightframe">5 Hra</a>
+<ul>
+<li><a href="hra.html#sec5.1" target="rightframe">5.1 Klient</a>
+<ul>
+    <li><a href="hra.html#sec5.1.1" target="rightframe">5.1.1 Úvod</a>
+    <li><a href="hra.html#sec5.1.2" target="rightframe">5.1.2 Implementace klienta</a>
+    <li><a href="hra.html#sec5.1.3" target="rightframe">5.1.3 Jádro klienta - třída CClient</a>
+    <li><a href="hra.html#sec5.1.4" target="rightframe">5.1.4 Postup nahrávání mapy a auta ze strany klienta</a>
+    <li><a href="hra.html#sec5.1.5" target="rightframe">5.1.5 Komunikace mezi serverem a klientem</a>
+    <ul>
+        <li><a href="hra.html#sec5.1.5.1" target="rightframe"> 5.1.5.1 Postup při nahrávání single playeru</a>
+        <li><a href="hra.html#sec5.1.5.2" target="rightframe">5.1.5.2 Postup při lokalizaci herních serverů</a>
+        <li><a href="hra.html#sec5.1.5.3" target="rightframe">5.1.5.3 Postup při připojování klienta na server</a>
+        <li><a href="hra.html#sec5.1.5.4" target="rightframe">5.1.5.4 Komunikace klienta se serverem ve stavu připojení k serveru</a>
+        <li><a href="hra.html#sec5.1.5.5" target="rightframe">5.1.5.5 Postup nahrávání klienta při nahrávání hry multiplayeru</a>
+        <li><a href="hra.html#sec5.1.5.6" target="rightframe">5.1.5.6 Komunikace mezi serverem a klientem při samotné hře</a>
+        <li><a href="hra.html#sec5.1.5.7" target="rightframe">5.1.5.7 Komunikace mezi serverem a klientem ve stavu výsledků závodu (race results)</a>
+    </ul>
+    <li><a href="hra.html#sec5.1.6" target="rightframe">5.1.6 Pomocná informační třída CMultiPlayerGameInfo</a>
+    <li><a href="hra.html#sec5.1.7" target="rightframe">5.1.7 Třída CGameInfo</a>
+</ul>
+<li><a href="hra.html#sec5.2" target="rightframe">5.2 Server</a>
+<ul>
+    <li><a href="hra.html#sec5.2.1" target="rightframe">5.2.1 Úvod</a>
+    <li><a href="hra.html#sec5.2.2" target="rightframe">5.2.2 Implementace serveru</a>
+    <li><a href="hra.html#sec5.2.3" target="rightframe">5.2.3 Jádro serveru - třída CServer</a>
+    <li><a href="hra.html#sec5.2.4" target="rightframe">5.2.4 Popis nahrávání mapy a auta na straně serveru</a>
+    <li><a href="hra.html#sec5.2.5" target="rightframe">5.2.5 Třída CNetServer</a>
+    <ul>
+    <li><a href="hra.html#sec5.2.5.1" target="rightframe">5.2.5.1 Známé chyby</a>
+    </ul>
+    <li><a href="hra.html#sec5.2.6" target="rightframe">5.2.6 Postup spuštění serveru pro multiplayer</a>
+</ul>
+<li><a href="hra.html#sec5.3" target="rightframe">5.3 GUI (Graphic user interface)</a>
+<ul>
+    <li><a href="hra.html#sec5.3.1" target="rightframe">5.3.1 Implementace dialogů</a>
+    <li><a href="hra.html#sec5.3.2" target="rightframe">5.3.2 Třída CMyDialogs</a>
+    <li><a href="hra.html#sec5.3.3" target="rightframe">5.3.3 Třída CMyDialog</a>
+</ul>
+<li><a href="hra.html#sec5.4" target="rightframe">5.4 HUD (Head-up display)</a>
+<li><a href="hra.html#sec5.5" target="rightframe">5.5 Hudba</a>
+</ul>
+
+
+<!------------------------------------------------------------------------------
+    EDITOR 
+------------------------------------------------------------------------------->
+<li class="mainsection"><a href="limitededitor.html" target="rightframe">6 Editor tratí</a>
+<ul>
+<li><a href="limitededitor.html#uvod" target="rightframe">6.1 Úvod</a>
+<li><a href="limitededitor.html#dokument" target="rightframe">6.2 Dokument - data a jejich správa</a>
+    
+    <ul>
+    <li><a href="limitededitor.html#objekty" target="rightframe">6.2.1 Objekty</a>
+    <li><a href="limitededitor.html#mapa" target="rightframe">6.2.2 Mapa</a>
+        <ul>       
+        <li><a href="limitededitor.html#teraobj" target="rightframe">6.2.2.1 Terén a objekty v mapě</a>
+        <li><a href="limitededitor.html#zavtrat" target="rightframe">6.2.2.2 Závodní trať</a>
+        <li><a href="limitededitor.html#ostnastmap" target="rightframe">6.2.2.3 Ostatní nastavení mapy</a>
+        </ul>
+    <li><a href="limitededitor.html#stromobj" target="rightframe">6.2.4 Strom objektů</a>
+    <li><a href="limitededitor.html#aktobj" target="rightframe">6.2.5 Aktuální objekt a editační módy</a>
+    </ul>
+<li><a href="limitededitor.html#pohled" target="rightframe">6.3 Pohled - zobrazení dat</a>
+    <ul>
+    <li><a href="limitededitor.html#pictureview" target="rightframe">6.3.1 Pohled na vybraný objekt</a>
+         
+    <li><a href="limitededitor.html#mapview" target="rightframe">6.3.2 Pohled na mapu</a>
+        <ul>
+        <li><a href="limitededitor.html#zobrter" target="rightframe">6.3.2.1 Zobrazení terénu</a>
+        <li><a href="limitededitor.html#zobrobjmap" target="rightframe">6.3.2.2 Zobrazení objektů v mapě</a>
+        <li><a href="limitededitor.html#zobrzavtrat" target="rightframe">6.3.2.3 Zobrazení závodní tratě</a>
+        </ul>
+    <li><a href="limitededitor.html#treeview" target="rightframe">6.3.3 Pohled na strom </a>
+    <li><a href="limitededitor.html#dialogy" target="rightframe">6.3.4 Dialogy</a>    
+    </ul> 
+<li><a href="limitededitor.html#editdat" target="rightframe">6.4 Editace</a>
+    <ul>
+    <li><a href="limitededitor.html#editter" target="rightframe">6.4.1 Editace terénu </a>
+    <li><a href="limitededitor.html#editmap" target="rightframe">6.4.2 Vkládání objektů do mapy</a>
+    <li><a href="limitededitor.html#editces" target="rightframe">6.4.3 Editace závodní tratě</a>
+    <li><a href="limitededitor.html#editstr" target="rightframe">6.4.4 Editace stromu</a>
+    <li><a href="limitededitor.html#editkon" target="rightframe">6.4.5 Editace konfiguračních souboru</a>
+    </ul>
+</ul>
+
+<!------------------------------------------------------------------------------
+    Další moduly 
+------------------------------------------------------------------------------->
+<li class="mainsection"><a href="others.html" target="rightframe">7 Další moduly</a>
+	<ul>
+		<li><a href="others.html#ResourceManager" target="rightframe">7.1 Resource Manager</a>
+			<ul>
+				<li><a href="others.html#sec7.1.1" target="rightframe">7.1.1 CResourceManager</a>
+				<li><a href="others.html#sec7.1.2" target="rightframe">7.1.2 CResourceContainer</a>
+				<li><a href="others.html#sec7.1.3" target="rightframe">7.1.3 CReferenceVector</a>
+				<li><a href="others.html#sec7.1.4" target="rightframe">7.1.4 CCrc32Static</a>
+				<li><a href="others.html#sec7.1.5" target="rightframe">7.1.5 Přidání nového typu dat do RM</a>
+			</ul>
+		<li><a href="others.html#TerrainGenerator" target="rightframe">7.2 Terrain Generator</a>
+	       <ul>
+                <li><a href="others.html#sec7.2.1" target="rightframe">7.2.1 Výpočet normál</a>
+		          <li><a href="others.html#sec7.2.2" target="rightframe">7.2.2 Generování terénu skriptem</a>
+            </ul>
+    
+    <li><a href="others.html#ScriptInterpreter" target="rightframe">7.3 Script Interpreter</a>
+    <ul>
+			<li><a href="others.html#sec7.3.1" target="rightframe">7.3.1 Implementace</a>
+			<li><a href="others.html#sec7.3.2" target="rightframe">7.3.2 Způsob užití</a>
+			<li><a href="others.html#sec7.3.3" target="rightframe">7.3.3 Syntaxe jazyka</a>
+			<ul>
+			<li><a href="others.html#sec7.3.3.1" target="rightframe">7.3.3.1 Syntaktické prvky jazyka</a>
+			<li><a href="others.html#sec7.3.3.2" target="rightframe">7.3.3.2 Operátory</a>
+			<li><a href="others.html#sec7.3.3.3" target="rightframe">7.3.3.3 Direktivy</a>
+			<li><a href="others.html#sec7.3.3.4" target="rightframe">7.3.3.4 Built-in funkce</a>
+			<li><a href="others.html#sec7.3.3.5" target="rightframe">7.3.3.5 Deklarace proměnných</a>
+			<li><a href="others.html#sec7.3.3.6" target="rightframe">7.3.3.6 Podmínka</a>
+			<li><a href="others.html#sec7.3.3.7" target="rightframe">7.3.3.7 Cykly</a>
+			<li><a href="others.html#sec7.3.3.8" target="rightframe">7.3.3.8 Externall Function Call</a>
+			</ul>
+	</ul>
+	</ul>
+
+</body>
+</html>

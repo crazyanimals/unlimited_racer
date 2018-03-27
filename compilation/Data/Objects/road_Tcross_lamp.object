@@ -1,0 +1,143 @@
+name = Crossroad T /w Lamp
+icon = road_Tcross_lamp.bmp 
+
+[road]
+texture = road_Tcross.png
+phtexture = road_Tcross.phTexture
+
+
+
+[object]
+model = lamp.modeldef
+light = lamp.light
+light = lamp_glow.light
+SizeX = 1
+SizeY = 1
+PosX = 0
+PosY = 0
+static = 1
+x = 500
+y = 0
+z = 950
+rotation.y = -1.57
+material = 6
+
+
+[waypoints]
+x = 0.0
+y = 100.0
+z = 500.0
+max_speed = 15
+
+x = 333.0
+y = 100.0
+z = 500.0
+
+x = 666.0
+y = 100.0
+z = 500.0
+
+x = 1000.0
+y = 100.0
+z = 500.0
+
+[waypoints]
+x = 1000.0
+y = 100.0
+z = 500.0
+
+x = 666.0
+y = 100.0
+z = 500.0
+
+x = 333.0
+y = 100.0
+z = 500.0
+
+x = 0.0
+y = 100.0
+z = 500.0
+
+[waypoints]
+x = 500.0
+y = 100.0
+z = 0.0
+
+x = 440.0
+y = 100.0
+z = 333.0
+
+x = 380.0
+y = 100.0
+z = 380.0
+
+x = 333.0
+y = 100.0
+z = 440.0
+
+x = 0.0
+y = 100.0
+z = 500.0
+
+[waypoints]
+x = 0.0
+y = 100.0
+z = 500.0
+
+x = 333.0
+y = 100.0
+z = 440.0
+
+x = 380.0
+y = 100.0
+z = 380.0
+
+x = 440.0
+y = 100.0
+z = 333.0
+
+x = 500.0
+y = 100.0
+z = 0.0
+
+[waypoints]
+x = 500.0
+y = 100.0
+z = 0.0
+
+x = 560.0
+y = 100.0
+z = 333.0
+
+x = 620.0
+y = 100.0
+z = 380.0
+
+x = 666.0
+y = 100.0
+z = 440.0
+
+x = 1000.0
+y = 100.0
+z = 500.0
+
+[waypoints]
+x = 1000.0
+y = 100.0
+z = 500.0
+
+x = 666.0
+y = 100.0
+z = 440.0
+
+x = 620.0
+y = 100.0
+z = 380.0
+
+x = 560.0
+y = 100.0
+z = 333.0
+
+x = 500.0
+y = 100.0
+z = 0.0

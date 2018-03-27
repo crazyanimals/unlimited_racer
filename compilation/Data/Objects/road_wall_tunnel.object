@@ -1,0 +1,93 @@
+Name = Road Wall Tunnel
+icon=road_wall_tunnel.bmp
+[road]
+texture = road.png
+phtexture = road.phTexture
+
+[object]
+Model = road_wall_tunnel.modelDef
+static = 1
+SizeX = 1
+SizeY = 1
+PosX = 0
+PosY = 0
+X = 500
+Y = 0
+Z = 500
+GrassAllowed = 0
+rotation.y= 1.57
+material = 6
+
+[waypoints]
+x = 0.0
+y = 100.0
+z = 500.0
+max_speed = 25
+
+x = 333.0
+y = 100.0
+z = 500.0
+
+x = 666.0
+y = 100.0
+z = 500.0
+
+x = 1000.0
+y = 100.0
+z = 500.0
+
+[waypoints]
+x = 1000.0
+y = 100.0
+z = 500.0
+max_speed = 25
+
+x = 666.0
+y = 100.0
+z = 500.0
+
+x = 333.0
+y = 100.0
+z = 500.0
+
+x = 0.0
+y = 100.0
+z = 500.0
+
+
+[waypoints]
+x = 0.0
+y = 600.0
+z = 500.0
+max_speed = 50
+
+x = 333.0
+y = 600.0
+z = 500.0
+
+x = 666.0
+y = 600.0
+z = 500.0
+
+x = 1000.0
+y = 600.0
+z = 500.0
+
+[waypoints]
+x = 1000.0
+y = 600.0
+z = 500.0
+max_speed = 50
+
+x = 666.0
+y = 600.0
+z = 500.0
+
+x = 333.0
+y = 600.0
+z = 500.0
+
+x = 0.0
+y = 600.0
+z = 500.0
+

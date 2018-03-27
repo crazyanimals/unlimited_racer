@@ -1,0 +1,58 @@
+Name = Road /w Panel
+Icon = road.bmp 
+
+[road]
+texture = road.png
+phtexture = road.phTexture
+
+[object]
+Model = panel.modelDef
+;static = 1
+mass = 10000
+SizeX = 1
+SizeY = 1
+PosX = 0
+PosY = 0
+X = 950
+Y = 0
+Z = 500
+Scale.X = 3.5
+Scale.Y = 3
+Scale.Z = 3
+material = 6
+
+[waypoints]
+x = 300.0
+y = 100.0
+z = 0.0
+max_speed = 30
+
+x = 300.0
+y = 100.0
+z = 333.0
+
+x = 300.0
+y = 100.0
+z = 666.0
+
+x = 300.0
+y = 100.0
+z = 1000.0
+
+[waypoints]
+x = 300.0
+y = 100.0
+z = 1000.0
+max_speed = 30
+
+x = 300.0
+y = 100.0
+z = 666.0
+
+x = 300.0
+y = 100.0
+z = 333.0
+
+x = 300.0
+y = 100.0
+z = 0.0

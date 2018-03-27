@@ -1,0 +1,262 @@
+<Dialog>
+	X = 100
+	Y = 100
+	Width = 640
+	Height = 480
+	FontDeclaration = DialogBasic.font
+	BackgroundTexture = GUI\SteelDialogBackground.png
+	TextureDeclarations = GraphicTest.dlgDecl
+	Transparency = 0.25 ; value in range <0,1>, 0 means totally visible
+	ToolTipTransparency = 0.0
+	ControlsTransparency = 0.0
+	BasicTextColor = 0xffd86b1c
+	ActiveTextColor = 0xffffff00
+	Color = 0xff0000a0
+	SliderPosMin = 10
+	SliderPosMax = 109
+	ToolTipDelay = 1000
+</Dialog>
+
+
+<Control>
+	Name = SPSinglePlayerLabel
+	Type = label
+	X = 10
+	Y = 10
+	Width = 590
+	Height = 30
+	Value = SINGLE PLAYER
+	FontDeclaration = DialogCaption.font
+	TextFormat = 68
+</Control>
+
+<Control>
+	Name = SPPlayerNameLabel
+	Type = label
+	X = 10
+	Y = 50
+	Width = 590
+	Height = 30
+	Value = Player name:
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = SPMapLabel
+	Type = label
+	X = 310
+	Y = 90
+	Width = 590
+	Height = 30
+	Value = Map:
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = SPCarLabel
+	Type = label
+	X = 10
+	Y = 90
+	Width = 590
+	Height = 30
+	Value = Car:
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = SPTimeLabel
+	Type = label
+	X = 10
+	Y = 250
+	Width = 590
+	Height = 30
+	Value = Time of day:
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = SPCircuitModeLabel
+	Type = label
+	X = 10
+	Y = 330
+	Width = 590
+	Height = 30
+	Value = Circuit
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = SPLapsLabel
+	Type = label
+	X = 220
+	Y = 330
+	Width = 590
+	Height = 30
+	Value = Laps
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = SPOpponentsLabel
+	Type = label
+	X = 10
+	Y = 370
+	Width = 590
+	Height = 30
+	Value = Opponents:
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = SPMapListBox
+	Type = list
+	X = 360
+	Y = 90
+	Width = 250
+	Value = 0
+	ToolTip = Select racing map
+	
+	LineHeight = 20
+	LinesCount = 5
+	TextFormat = 65
+	IconWidth = 20
+	
+	; Value = 1
+</Control>
+
+<Control>
+	Name = SPCarListBox
+	Type = list
+	X = 50
+	Y = 90
+	Width = 250
+	Value = 0
+	ToolTip = Select player car
+	
+	LineHeight = 20
+	LinesCount = 5
+	TextFormat = 65
+	IconWidth = 20
+	
+	; Value = 1
+</Control>
+
+
+<Control>
+	Name = SPPlayerNameEditBox
+	Type = edit
+	X = 140
+	Y = 50
+	Width = 130
+	Height = 32
+	MaxTextLength = 10
+	Value = Unknown
+	ToolTip = Hours of day time
+
+	; TextFormat
+</Control>
+
+<Control>
+	Name = SPDayHoursEditBox
+	Type = edit
+	X = 140
+	Y = 250
+	Width = 40
+	Height = 32
+	MaxTextLength = 2
+	Value = 0
+	ToolTip = Hours of day time
+
+	; TextFormat
+</Control>
+
+<Control>
+	Name = SPDayMinutesEditBox
+	Type = edit
+	X = 200
+	Y = 250
+	Width = 40
+	Height = 32
+	MaxTextLength = 2
+	Value = 0
+	ToolTip = Minutes of day time
+
+	; TextFormat
+</Control>
+
+<Control>
+	Name = SPLapsEditBox
+	Type = edit
+	X = 170
+	Y = 330
+	Width = 40
+	Height = 32
+	MaxTextLength = 2
+	Value = 3
+	ToolTip = Laps of race
+
+	; TextFormat
+</Control>
+
+<Control>
+	Name = SPLapsModeCheckBox
+	Type = checkbox
+	X = 140
+	Y = 330
+	Width = 25
+	Height = 25
+	Value = 1
+	
+	; TextFormat
+	Caption = 
+</Control>
+
+<Control>
+	Name = SPOpponentsButton
+	Type = button
+	X = 140
+	Y = 370
+	Width = 160
+	Height = 30
+	Value = Opponents...
+
+	
+	ToolTip = Opponents setting
+	
+	TextFormat = 68 ; left - 1, right - 2, center - 4, top - 16, bottom - 32, center - 64
+</Control>
+
+<Control>
+	Name = SPStartButton
+	Type = button
+	X = 80
+	Y = 440
+	Width = 160
+	Height = 30
+	Value = START
+
+	
+	ToolTip = Start race
+	
+	TextFormat = 68 ; left - 1, right - 2, center - 4, top - 16, bottom - 32, center - 64
+</Control>
+
+<Control>
+	Name = SPBackButton
+	Type = button
+	X = 400
+	Y = 440
+	Width = 160
+	Height = 30
+	Value = BACK
+
+	
+	ToolTip = Back to main menu
+	
+	TextFormat = 68 ; left - 1, right - 2, center - 4, top - 16, bottom - 32, center - 64
+</Control>
+
+
+
+
+

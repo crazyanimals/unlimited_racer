@@ -1,0 +1,270 @@
+Name = Barrel Pyramid (big)
+Icon =barrel_pyramid_big.bmp
+
+[object]
+Model = barrel.modelDef
+static = 0
+mass = 10.0
+SizeX = 1
+SizeY = 1
+PosX = 0
+PosY = 0
+X = 320
+Y = 0
+Z = 500
+Scale.X = 1.5
+Scale.Y = 1.5
+Scale.Z = 1.5
+GrassAllowed = 1
+material = 2 
+
+[object]
+Model = barrel.modelDef
+static = 0
+mass = 10.0
+SizeX = 1
+SizeY = 1
+PosX = 0
+PosY = 0
+X = 410
+Y = 0
+Z = 500
+Scale.X = 1.5
+Scale.Y = 1.5
+Scale.Z = 1.5
+GrassAllowed = 1
+material = 2 
+
+[object]
+Model = barrel.modelDef
+static = 0
+mass = 10.0
+SizeX = 1
+SizeY = 1
+PosX = 0
+PosY = 0
+X = 500
+Y = 0
+Z = 500
+Scale.X = 1.5
+Scale.Y = 1.5
+Scale.Z = 1.5
+GrassAllowed = 1
+material = 2 
+
+[object]
+Model = barrel.modelDef
+static = 0
+mass = 10.0
+SizeX = 1
+SizeY = 1
+PosX = 0
+PosY = 0
+X = 590
+Y = 0
+Z = 500
+Scale.X = 1.5
+Scale.Y = 1.5
+Scale.Z = 1.5
+GrassAllowed = 1
+material = 2 
+
+[object]
+Model = barrel.modelDef
+static = 0
+mass = 10.0
+SizeX = 1
+SizeY = 1
+PosX = 0
+PosY = 0
+X = 680
+Y = 0
+Z = 500
+Scale.X = 1.5
+Scale.Y = 1.5
+Scale.Z = 1.5
+GrassAllowed = 1
+material = 2 
+
+
+
+
+[object]
+Model = barrel.modelDef
+static = 0
+mass = 10.0
+SizeX = 1
+SizeY = 1
+PosX = 0
+PosY = 0
+X = 365
+Y = 100
+Z = 500
+Scale.X = 1.5
+Scale.Y = 1.5
+Scale.Z = 1.5
+GrassAllowed = 1
+material = 2 
+
+[object]
+Model = barrel.modelDef
+static = 0
+mass = 10.0
+SizeX = 1
+SizeY = 1
+PosX = 0
+PosY = 0
+X = 455
+Y = 100
+Z = 500
+Scale.X = 1.5
+Scale.Y = 1.5
+Scale.Z = 1.5
+GrassAllowed = 1
+material = 2 
+
+[object]
+Model = barrel.modelDef
+static = 0
+mass = 10.0
+SizeX = 1
+SizeY = 1
+PosX = 0
+PosY = 0
+X = 545
+Y = 100
+Z = 500
+Scale.X = 1.5
+Scale.Y = 1.5
+Scale.Z = 1.5
+GrassAllowed = 1
+material = 2 
+
+[object]
+Model = barrel.modelDef
+static = 0
+mass = 10.0
+SizeX = 1
+SizeY = 1
+PosX = 0
+PosY = 0
+X = 635
+Y = 100
+Z = 500
+Scale.X = 1.5
+Scale.Y = 1.5
+Scale.Z = 1.5
+GrassAllowed = 1
+material = 2 
+
+
+
+
+
+[object]
+Model = barrel.modelDef
+static = 0
+mass = 10.0
+SizeX = 1
+SizeY = 1
+PosX = 0
+PosY = 0
+X = 410
+Y = 200
+Z = 500
+Scale.X = 1.5
+Scale.Y = 1.5
+Scale.Z = 1.5
+GrassAllowed = 1
+material = 2 
+
+[object]
+Model = barrel.modelDef
+static = 0
+mass = 10.0
+SizeX = 1
+SizeY = 1
+PosX = 0
+PosY = 0
+X = 500
+Y = 200
+Z = 500
+Scale.X = 1.5
+Scale.Y = 1.5
+Scale.Z = 1.5
+GrassAllowed = 1
+material = 2 
+
+[object]
+Model = barrel.modelDef
+static = 0
+mass = 10.0
+SizeX = 1
+SizeY = 1
+PosX = 0
+PosY = 0
+X = 590
+Y = 200
+Z = 500
+Scale.X = 1.5
+Scale.Y = 1.5
+Scale.Z = 1.5
+GrassAllowed = 1
+material = 2 
+
+
+
+
+[object]
+Model = barrel.modelDef
+static = 0
+mass = 10.0
+SizeX = 1
+SizeY = 1
+PosX = 0
+PosY = 0
+X = 455
+Y = 300
+Z = 500
+Scale.X = 1.5
+Scale.Y = 1.5
+Scale.Z = 1.5
+GrassAllowed = 1
+material = 2 
+
+[object]
+Model = barrel.modelDef
+static = 0
+mass = 10.0
+SizeX = 1
+SizeY = 1
+PosX = 0
+PosY = 0
+X = 545
+Y = 300
+Z = 500
+Scale.X = 1.5
+Scale.Y = 1.5
+Scale.Z = 1.5
+GrassAllowed = 1
+material = 2 
+
+
+
+
+[object]
+Model = barrel.modelDef
+static = 0
+mass = 10.0
+SizeX = 1
+SizeY = 1
+PosX = 0
+PosY = 0
+X = 500
+Y = 400
+Z = 500
+Scale.X = 1.5
+Scale.Y = 1.5
+Scale.Z = 1.5
+GrassAllowed = 1
+material = 2 

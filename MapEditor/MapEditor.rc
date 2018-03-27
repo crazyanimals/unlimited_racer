@@ -1,0 +1,660 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Czech resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CSY)
+#ifdef _WIN32
+LANGUAGE LANG_CZECH, SUBLANG_DEFAULT
+#pragma code_page(1250)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#include ""res\\MapEditor.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#include ""afxprint.rc""       // printing/print preview resources\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_NEW_FILE DIALOGEX 0, 0, 192, 79
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "New map"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,45,57,40,14
+    PUSHBUTTON      "Cancel",IDCANCEL,105,57,42,14
+    EDITTEXT        IDC_NEW_HEIGHT,45,34,18,14,ES_NUMBER
+    EDITTEXT        IDC_NEW_WIDTH,99,34,17,14,ES_NUMBER
+    RTEXT           "Width:",IDC_STATIC,67,38,26,8
+    RTEXT           "Height:",IDC_STATIC,7,38,27,10
+    EDITTEXT        IDC_NEW_NAME,46,11,138,14
+    RTEXT           "Name:",IDC_STATIC,12,11,22,8
+END
+
+IDD_EDITFILE_DIALOG DIALOGEX 0, 0, 516, 374
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Object Properties"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Close",IDOK,351,352,50,14
+    DEFPUSHBUTTON   "Load",IDC_EDITFILE_LOAD,101,352,50,14
+    DEFPUSHBUTTON   "Save",IDC_EDITFILE_SAVE,186,352,50,14
+    CONTROL         "",IDC_EDITFILE_VIEW,"RichEdit20A",ES_MULTILINE | ES_AUTOVSCROLL | ES_READONLY | ES_WANTRETURN | WS_BORDER | WS_VSCROLL | WS_TABSTOP,8,5,391,166
+    DEFPUSHBUTTON   "Save as",IDC_EDITFILE_SAVEAS,269,352,50,14
+    LISTBOX         IDC_EDITFILE_LIST,406,5,100,338,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_EDITFILE_EDIT,"RichEdit20A",ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | WS_BORDER | WS_VSCROLL | WS_HSCROLL | WS_TABSTOP,8,173,391,170
+END
+
+IDD_FILE_OPEN_DIALOG DIALOGEX 0, 0, 229, 268
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Browse"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Load",IDOK,52,247,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,128,247,50,14
+    LISTBOX         IDC_FILE_LIST,7,7,215,232,LBS_OWNERDRAWFIXED | LBS_HASSTRINGS | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_HSCROLL | WS_TABSTOP
+END
+
+IDD_FILE_SAVE_DIALOG DIALOGEX 0, 0, 229, 292
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Browse"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Save",IDOK,57,271,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,121,271,50,14
+    LISTBOX         IDC_FILE_LIST,7,7,215,232,LBS_OWNERDRAWFIXED | LBS_HASSTRINGS | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_HSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_SAVE_FILE_NAME,52,247,170,14,ES_AUTOHSCROLL | ES_WANTRETURN
+    LTEXT           "File name:",IDC_STATIC,7,249,34,8
+END
+
+IDD_MAP_PROPERTIES DIALOGEX 0, 0, 253, 270
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Map properties"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_MAP_NAME,72,12,174,14
+    EDITTEXT        IDC_MAP_HOURS,72,48,18,14,ES_NUMBER
+    EDITTEXT        IDC_MAP_MINUTES,98,48,18,14,ES_NUMBER
+    PUSHBUTTON      "Load",IDC_MAP_LOAD_TEXTURESET,204,74,25,12
+    PUSHBUTTON      "Load",IDC_MAP_LOAD_WALLSET,204,92,25,12
+    DEFPUSHBUTTON   "OK",IDOK,68,242,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,140,242,50,14
+    EDITTEXT        IDC_MAP_TEXTURESET,72,72,124,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    LTEXT           " :",IDC_STATIC,90,50,8,8
+    LTEXT           "Name:",IDC_STATIC,18,18,46,8,0,WS_EX_RIGHT
+    LTEXT           "Time:",IDC_STATIC,23,52,39,9,0,WS_EX_RIGHT
+    LTEXT           "Terrain textures:",IDC_STATIC,6,76,56,10,0,WS_EX_RIGHT
+    EDITTEXT        IDC_MAP_WALLSET,72,90,124,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    LTEXT           "Wall textures:",IDC_STATIC,6,94,56,10,0,WS_EX_RIGHT
+    PUSHBUTTON      "Load",IDC_MAP_LOAD_GRASS,204,110,25,12
+    EDITTEXT        IDC_MAP_GRASS,72,108,124,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    LTEXT           "Grass type:",IDC_STATIC,6,112,56,10,0,WS_EX_RIGHT
+    PUSHBUTTON      "Load",IDC_MAP_LOAD_SKYSYSTEM,204,129,25,12
+    EDITTEXT        IDC_MAP_SKYSYSTEM,72,127,124,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    LTEXT           "Sky system:",IDC_STATIC,6,132,56,10,0,WS_EX_RIGHT
+    LTEXT           "Map image/logo:",IDC_STATIC,6,148,56,10,0,WS_EX_RIGHT
+    EDITTEXT        IDC_MAP_LOGO,72,146,124,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    PUSHBUTTON      "Load",IDC_MAP_LOAD_LOGO,204,148,25,12
+    LTEXT           "Fog color:  0xff",IDC_STATIC,146,53,49,9,0,WS_EX_RIGHT
+    EDITTEXT        IDC_MAP_FOGCOLOR,196,49,50,14
+    LTEXT           "Description:",IDC_STATIC,18,35,46,8,0,WS_EX_RIGHT
+    EDITTEXT        IDC_MAP_DESCRIPTION,72,30,174,14
+    LISTBOX         IDC_MAP_MODLIST,71,165,125,53,LBS_SORT | LBS_MULTIPLESEL | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "Supported MODs",IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,7,180,54,20,WS_EX_RIGHT
+    PUSHBUTTON      "All",IDC_MAP_ALLMODS,204,168,25,12
+    PUSHBUTTON      "None",IDC_MAP_NOMODS,204,184,25,12
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_NEW_FILE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 184
+        TOPMARGIN, 11
+        BOTTOMMARGIN, 71
+    END
+
+    IDD_EDITFILE_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 8
+        RIGHTMARGIN, 506
+        TOPMARGIN, 5
+        BOTTOMMARGIN, 366
+    END
+
+    IDD_FILE_OPEN_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 222
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 261
+    END
+
+    IDD_FILE_SAVE_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 222
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 285
+    END
+
+    IDD_MAP_PROPERTIES, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 246
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 256
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_LEFTARROW_UP        BITMAP                  "res\\leftarrowup.bmp"
+IDB_LEFTARROW_DOWN      BITMAP                  "res\\leftarrowdown.bmp"
+IDB_RIGHTARROW_UP       BITMAP                  "res\\rightarrowup.bmp"
+IDB_RIGHTARROW_DOWN     BITMAP                  "res\\rightarrowdown.bmp"
+#endif    // Czech resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 235, 55
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About MapEditor"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "MapEditor Version 1.0",IDC_STATIC,40,10,119,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2004",IDC_STATIC,40,25,119,8
+    DEFPUSHBUTTON   "OK",IDOK,178,7,50,16,WS_GROUP
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDR_MAINFRAME           BITMAP                  "res\\Toolbar.bmp"
+IDR_MAINFRAME2          BITMAP                  "res\\toolbar1.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_TREE_MENU MENU 
+BEGIN
+    POPUP ""
+    BEGIN
+        MENUITEM "Add new item",                ID_TREE_ADDNEWITEM
+        MENUITEM "Add new sub item",            ID_TREE_ADDNEWSUBITEM
+        MENUITEM SEPARATOR
+        MENUITEM "Cut",                         ID_TREE_CUT
+        MENUITEM "Paste",                       ID_TREE_PASTE, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "Delete",                      ID_TREE_DELETE
+        MENUITEM "Rename",                      ID_TREE_RENAME
+        MENUITEM SEPARATOR
+        MENUITEM "Properties...",               ID_TREE_PROPERTIES
+    END
+END
+
+IDR_MAINFRAME MENU 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&New...\tCtrl+N",             ID_FILE_NEW
+        MENUITEM "L&oad map...\tCtrl+O",        ID_MYFILE_OPEN
+        MENUITEM "Load terrain...\tCtrl+T",     ID_MYFILE_TERRAINOPEN
+        MENUITEM "&Save\tCtrl+S",               ID_MYFILE_SAVE
+        MENUITEM "Save &As...",                 ID_MYFILE_SAVE_AS
+        MENUITEM SEPARATOR
+        MENUITEM "Map properties...",           ID_MAP_PROPERTIES
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       ID_APP_EXIT
+    END
+    POPUP "View"
+    BEGIN
+        MENUITEM "Zoom in",                     ID_ZOOM
+        MENUITEM "Zoom out",                    ID_UNZOOM
+    END
+    POPUP "&Edit"
+    BEGIN
+        MENUITEM "Terrain\tCtrl+1",             ID_EDIT_TERRAINEDIT, CHECKED
+        MENUITEM "Map\tCtrl+2",                 ID_EDIT_MAPEDIT
+        MENUITEM "Race course\tCtrl+3",         ID_EDIT_PATHEDIT
+        MENUITEM SEPARATOR
+        MENUITEM "Cars...",                     ID_FILE_EDIT_CAR
+        MENUITEM "Lights...",                   ID_FILE_EDIT_LIGHT
+        MENUITEM "Model definitions...",        ID_FILE_EDIT_MODELDEF
+        MENUITEM "Physical textures...",        ID_FILE_EDIT_PHTEXTURE
+        MENUITEM "Texture set...",              ID_FILE_EDIT_TEXTURESET
+        MENUITEM "Sky systems...",              ID_FILE_EDIT_SKYSYSTEM
+        MENUITEM "Dialog definitions...",       ID_FILE_EDIT_DGDEF
+        MENUITEM "Dialog declarations...",      ID_FILE_EDIT_DLGDECL
+        MENUITEM "Dialog cursor...",            ID_FILE_EDIT_CURSOR
+        MENUITEM "Grass...",                    ID_FILE_EDIT_GRASS
+        MENUITEM "Shrub...",                    ID_FILE_EDIT_SHRUB
+        MENUITEM "Edit help...",                ID_FILE_EDIT_HELP
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "Limited Editor Help...",      ID_HELP_HELP
+        MENUITEM SEPARATOR
+        MENUITEM "&About Limited Editor...",    ID_APP_ABOUT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\MapEditor.ico"
+IDR_MapEditorTYPE       ICON                    "res\\MapEditorDoc.ico"
+IDR_DIR_ICON            ICON                    "res\\idr_dir_icon.ico"
+IDR_FILE_ICON           ICON                    "res\\idr_file_icon.ico"
+IDI_EDIT_FILE_ICON      ICON                    "res\\editfile.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_MAINFRAME TOOLBAR  16, 15
+BEGIN
+    BUTTON      ID_FILE_NEW
+    BUTTON      ID_MYFILE_OPEN
+    BUTTON      ID_MYFILE_SAVE
+    SEPARATOR
+    BUTTON      ID_EDIT_TERRAINEDIT
+    BUTTON      ID_EDIT_MAPEDIT
+    BUTTON      ID_EDIT_PATHEDIT
+    SEPARATOR
+    BUTTON      ID_UNZOOM
+    BUTTON      ID_ZOOM
+    SEPARATOR
+    BUTTON      ID_MAP_PROPERTIES
+END
+
+IDR_MAINFRAME2 TOOLBAR  16, 15
+BEGIN
+    BUTTON      ID_FILE_EDIT_CAR
+    BUTTON      ID_FILE_EDIT_LIGHT
+    BUTTON      ID_FILE_EDIT_MODELDEF
+    SEPARATOR
+    BUTTON      ID_FILE_EDIT_PHTEXTURE
+    SEPARATOR
+    BUTTON      ID_FILE_EDIT_TEXTURESET
+    BUTTON      ID_FILE_EDIT_SKYSYSTEM
+    SEPARATOR
+    BUTTON      ID_FILE_EDIT_DGDEF
+    BUTTON      ID_FILE_EDIT_DLGDECL
+    BUTTON      ID_FILE_EDIT_CURSOR
+    SEPARATOR
+    BUTTON      ID_FILE_EDIT_GRASS
+    BUTTON      ID_FILE_EDIT_SHRUB
+    SEPARATOR
+    BUTTON      ID_FILE_EDIT_HELP
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS 
+BEGIN
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL, NOINVERT
+    "N",            ID_FILE_NEW,            VIRTKEY, CONTROL, NOINVERT
+    "O",            ID_MYFILE_OPEN,         VIRTKEY, CONTROL, NOINVERT
+    "S",            ID_MYFILE_SAVE,         VIRTKEY, CONTROL, NOINVERT
+    "T",            ID_MYFILE_TERRAINOPEN,  VIRTKEY, CONTROL, NOINVERT
+    "1",            ID_EDIT_TERRAINEDIT,    VIRTKEY, CONTROL, NOINVERT
+    "2",            ID_EDIT_MAPEDIT,        VIRTKEY, CONTROL, NOINVERT
+    "3",            ID_EDIT_PATHEDIT,       VIRTKEY, CONTROL, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904e4"
+        BEGIN
+            VALUE "CompanyName", "Crazy Animals"
+            VALUE "FileDescription", "Map Editor Unlimited Racer"
+            VALUE "FileVersion", "1.0.0.1"
+            VALUE "InternalName", "MapEditor.exe"
+            VALUE "LegalCopyright", "(c) Crazy Animals.  All rights reserved."
+            VALUE "OriginalFilename", "MapEditor.exe"
+            VALUE "ProductName", "Map Editor"
+            VALUE "ProductVersion", "1.0.0.1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1252
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDR_MAINFRAME           "MapEditor\n\nMapEditor\n\n\nMapEditor.Document\nMapEditor.Document"
+    ID_ERROR_MAP_OPEN       "Error when loading map file - bad format"
+    ID_ERROR_TERRAIN_OPEN   "Error when opening terrain file - bad format"
+    ID_CONFIRM_REPLACE      "The file already exists. Do you want to replace the existing file?"
+    ID_ERROR_TERRAIN_SAVE   "Error: Could not save the terrain file."
+    ID_ERROR_MAP_SAVE       "Error: Could not save the map file."
+    ID_ERROR_STARTPOS       "SAVE FAILED: You must set start position. "
+    ID_ERROR_PATH           "SAVE FAILED: You must define a race course.\n Set the start position next to an object with waypoints or use the race course edit mode.  "
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_APP_TITLE       "Limited Editor"
+    AFX_IDS_IDLEMESSAGE     "Map Editor"
+    AFX_IDS_HELPMODEMESSAGE "Select an object on which to get Help"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_FILE_NEW             "Create a new document\nNew"
+    ID_FILE_OPEN            "Open an existing document\nOpen"
+    ID_FILE_CLOSE           "Close the active document\nClose"
+    ID_FILE_SAVE            "Save the active document\nSave"
+    ID_FILE_SAVE_AS         "Save the active document with a new name\nSave As"
+    ID_FILE_PAGE_SETUP      "Change the printing options\nPage Setup"
+    ID_FILE_PRINT_SETUP     "Change the printer and printing options\nPrint Setup"
+    ID_FILE_PRINT           "Print the active document\nPrint"
+    ID_FILE_PRINT_PREVIEW   "Display full pages\nPrint Preview"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_APP_ABOUT            "Display program information, version number and copyright\nAbout"
+    ID_APP_EXIT             "Quit the application; prompts to save documents\nExit"
+    ID_HELP_INDEX           "Opens Help\nHelp Topics"
+    ID_HELP_FINDER          "List Help topics\nHelp Topics"
+    ID_HELP_USING           "Display instructions about how to use help\nHelp"
+    ID_CONTEXT_HELP         "Display help for clicked on buttons, menus and windows\nHelp"
+    ID_HELP                 "Display help for current task or command\nHelp"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_FILE_MRU_FILE1       "Open this document"
+    ID_FILE_MRU_FILE2       "Open this document"
+    ID_FILE_MRU_FILE3       "Open this document"
+    ID_FILE_MRU_FILE4       "Open this document"
+    ID_FILE_MRU_FILE5       "Open this document"
+    ID_FILE_MRU_FILE6       "Open this document"
+    ID_FILE_MRU_FILE7       "Open this document"
+    ID_FILE_MRU_FILE8       "Open this document"
+    ID_FILE_MRU_FILE9       "Open this document"
+    ID_FILE_MRU_FILE10      "Open this document"
+    ID_FILE_MRU_FILE11      "Open this document"
+    ID_FILE_MRU_FILE12      "Open this document"
+    ID_FILE_MRU_FILE13      "Open this document"
+    ID_FILE_MRU_FILE14      "Open this document"
+    ID_FILE_MRU_FILE15      "Open this document"
+    ID_FILE_MRU_FILE16      "Open this document"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_NEXT_PANE            "Switch to map edit mode.\nMap mode."
+    ID_PREV_PANE            "Switch back to the previous window pane\nPrevious Pane"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_WINDOW_SPLIT         "Split the active window into panes\nSplit"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_EDIT_CLEAR           "Erase the selection\nErase"
+    ID_EDIT_CLEAR_ALL       "Erase everything\nErase All"
+    ID_EDIT_COPY            "Copy the selection and put it on the Clipboard\nCopy"
+    ID_EDIT_CUT             "Cut the selection and put it on the Clipboard\nCut"
+    ID_EDIT_FIND            "Find the specified text\nFind"
+    ID_EDIT_PASTE           "Insert Clipboard contents\nPaste"
+    ID_EDIT_REPEAT          "Repeat the last action\nRepeat"
+    ID_EDIT_REPLACE         "Replace specific text with different text\nReplace"
+    ID_EDIT_SELECT_ALL      "Select the entire document\nSelect All"
+    ID_EDIT_UNDO            "Undo the last action\nUndo"
+    ID_EDIT_REDO            "Redo the previously undone action\nRedo"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_VIEW_TOOLBAR         "Show or hide the toolbar\nToggle ToolBar"
+    ID_VIEW_STATUS_BAR      "Show or hide the status bar\nToggle StatusBar"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_SCSIZE          "Change the window size"
+    AFX_IDS_SCMOVE          "Change the window position"
+    AFX_IDS_SCMINIMIZE      "Reduce the window to an icon"
+    AFX_IDS_SCMAXIMIZE      "Enlarge the window to full size"
+    AFX_IDS_SCNEXTWINDOW    "Switch to the next document window"
+    AFX_IDS_SCPREVWINDOW    "Switch to the previous document window"
+    AFX_IDS_SCCLOSE         "Close the active window and prompts to save the documents"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_SCRESTORE       "Restore the window to normal size"
+    AFX_IDS_SCTASKLIST      "Activate Task List"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_PREVIEW_CLOSE   "Close print preview mode\nCancel Preview"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_EDIT_TERRAINEDIT     "Switch to terrain edit mode.\nTerrain mode"
+    ID_EDIT_MAPEDIT         "Switch to map edit mode.\nMap mode"
+    ID_MYFILE_OPEN          "Open an existing map\nOpen"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_MYFILE_SAVE          "Save the active document\nSave"
+    ID_MYFILE_TERRAINOPEN   "Open an existing terrain\nOpen"
+    ID_MYFILE_SAVE_AS       "Edit map properties."
+    ID_UNZOOM               "Zoom out map\nZoom out"
+    ID_ZOOM                 "Zoom in map\nZoom in"
+END
+
+STRINGTABLE 
+BEGIN
+    IDC_MAPP_NAME           "Set name"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_MAP_PROPERTIES       "Edit map properties\nMap properties"
+    ID_EDIT_PATHEDIT        "Switch to race course edit mode\nRace course edit mode"
+    ID_FILE_EDIT_TEXTURESET "Edit textureset files.\nEdit textureset file"
+    ID_FILE_EDIT_CAR        "Edit car files.\nEdit car file"
+    ID_FILE_EDIT_LIGHT      "Edit light files.\nEdit light file"
+    ID_FILE_EDIT_CURSOR     "Edit cursor files.\nEdit cursor file"
+    ID_FILE_EDIT_DLGDECL    "Edit dlgDecl files.\nEdit dlgDecl file"
+    ID_FILE_EDIT_DGDEF      "Edit dlgDef files.\n Edit dlgDef file"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_FILE_EDIT_SHRUB      "Edit shrub files.\n Edit shrub file"
+    ID_FILE_EDIT_MODELDEF   "Edit modeldef files.\nEdit modeldef file"
+    ID_FILE_EDIT_PHTEXTURE  "Edit phTexture files.\nEdit phTexture file"
+    ID_FILE_EDIT_SKYSYSTEM  "Edit skySystem files.\nEdit skySystem file"
+    ID_FILE_EDIT_GRASS      "Edit grass files.\nEdit grass file"
+    ID_FILE_EDIT_HELP       "Edit help files.\nEdit help file"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_EDIT_SKYSYSTEMS      "Edit skysystem.\nEdit skysystem file"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#include "res\MapEditor.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#include "afxprint.rc"       // printing/print preview resources
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

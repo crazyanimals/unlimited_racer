@@ -1,0 +1,75 @@
+Properties supported by the Soccer mod
+--------------------------------------
+
+2. 3. 2007 Branislav Repcek
+
+
+Properties that are to be read by the Soccer mod have to pre prefixed by the Soccer1 tag.
+
+1. Playground specification
+---------------------------
+
+playground:   all squares on the map, that compose area of the playfield have to be marked with this property.
+              This property can be freely combined with any other properties. If one ball leaves designated playfield
+              area an out will occur and all balls in the game will be reset to their starting position after the short
+              delay.
+              This property does not have any value.
+            
+            
+2. Ball
+-------
+
+football:     every object containing this property will be considered a ball. This property can only be specified on
+              a dynamic object. Every object designated as a ball will be tested each frame against areas of the home cages
+              of both teams and score will be changed as needed.
+              This property does not have any value. Radius of the ball calculated as half of the side of the bounding box
+              of the object.
+
+
+3. Teams
+--------
+
+team_id:     this property marks object as object that belongs to the specified team. This property has to have value. 
+             Allowed values are 0 (for read team) and 1 (for blue team). This property should only be used in conjunction
+             with goal area and start position specification properties.
+
+
+4. Goal areas
+-------------
+
+home:        this property marks object as home cage. Each team can have unlimited number of home cage objects. Home cage
+             objects have to be static. Bounding box of the object is considered as a goal area - all dimensions are considered, 
+             so thisproperty should not be used on flat objects (objects with zero height).
+             This property has to be used in conjunction with the team specification property team_id. This property has no value.
+           
+score_award: this property can be used to define custom score that is awarded to the scoring team. This property has to have
+             value. Valid values are integers. Negative numbers and zero are allowed.
+           
+           
+5. Starting positions
+---------------------
+
+All properties in this section have to be used in conjuntion with the team specification property team_id.
+
+start_pos:   this property marks square as a starting area for the specified player. Value of the property has to be an integer
+             greater or equal to zero. If no value is specified, default value of 0 is used.
+             Value of the property is an index of the player that will be placed on this area. Players from the team designated
+             via team_id property are then placed on the areas in ascending order (that is, first player from the team will be 
+             placed on the are with the smallest index and so on). Note that indeices of areas on the map may not be unique. 
+             If two or more indices are the same, players are placed areas they mark in random order.
+             This property has to be used only on static objects.
+
+start_rot:   rotation of the player placed on the area. This property has to be used in conjuction with start_pos and team_id
+		     properties. Value of the property is rotation of the car in degress around the vertical axis. 
+		     Valid values are floating point (or integer) numbers in range 0 to 360. If no value is specified, default value of 0 will be used.
+		   
+Full specification of the start position field therefore is:
+
+Soccer1: team_id=<id>, start_pos[=<index>], [start_rot[=<angle>]];
+
+where <id> is team identification
+      <index> is index of the area
+      <angle> is rotation angle of the car
+
+Index specification in the start_pos property can be omitted. Angle specification in the start_rot property can be omitted.
+If start_rot property is not specified, its value is assumed to be the default value.

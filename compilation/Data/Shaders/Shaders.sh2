@@ -1,0 +1,781 @@
+// Main program shaders - covers lighting, transformations, shadowing
+// By Pavel Celba
+// 6. 5. 2005
+
+//////////////////////////////////////////////////////////////
+// GLOBAL CONSTANTS
+//////////////////////////////////////////////////////////////
+
+// Matrixes
+// World * View * Proj matrix
+matrix AllMat;
+// World * View matrix
+matrix WorldViewMat;
+// View matrix
+matrix ViewMat;
+// World matrix
+matrix WorldMat;
+// Shadow map matrix - from view space to texture space
+matrix ShadowMat;
+// Post projection matrix
+matrix PostProjMat;
+
+
+// Material power
+float MaterialPower = 16.0f;
+
+// Specular lighting on/off
+bool Specular: register(b0) = false;
+
+// Ambient color
+float4 Ambient = {0.0, 0.0, 0.0, 1.0};
+
+// for setting alpha member of color to 1 in lighting computation
+float4 COLORBASE = {0.0, 0.0, 0.0, 1.0};
+
+// single increasing unit for Shadow Volume rendering 
+float4 SVIncrease = { 0.01, 0.01, 0.01, 0.01 };
+
+
+// Material structure
+struct MATERIAL
+{
+   float4 Diffuse;
+   float4 Specular;
+   float4 Ambient;
+};
+
+// material global
+MATERIAL Material;
+
+// Directional light structure
+struct DIRECTIONAL_LIGHT
+{
+	float4 Ambient;
+    float4 Diffuse;
+    float4 Specular;
+    float3 Direction;
+};
+
+struct SPOT_LIGHT
+{
+	float4 Ambient;
+	float4 Diffuse;
+	float4 Specular;
+	float3 Position;
+	float3 Direction;
+	float3 Atten; //1, D, D^2;
+	float3 Angles; //cos(theta/2), cos(phi/2), falloff
+	float Range;
+};
+
+SPOT_LIGHT SpotLight; // Spot light
+
+// Direction light global
+DIRECTIONAL_LIGHT DirLight;
+
+struct COLOR_PAIR
+{
+   float4 Diffuse;
+   float4 Specular;     
+};
+
+//////////////////////////////////////////////////////////////
+// TEXTURE SAMPLERS
+/////////////////////////////////////////////////////////////
+sampler TexSamp0: register(s0);
+sampler TexSamp1: register(s1);
+sampler TexSamp2: register(s2);
+sampler TexSamp3: register(s3);
+sampler TexSamp4: register(s4);
+
+//////////////////////////////////////////////////////////////////////////////////////////
+// STANDARD LIGHTING MODEL
+///////////////////////////////////////////////////////////////////////////////////////////
+
+//-----------------------------------------------------------------------------
+// Name: DoDirLight()
+// Desc: Directional light computation
+//-----------------------------------------------------------------------------
+COLOR_PAIR DoDirLight(float3 Normal, float3 View, float3 Direction, DIRECTIONAL_LIGHT DirLight)
+{
+   COLOR_PAIR Out;
+   Out.Specular =  COLORBASE;
+   Out.Diffuse = DirLight.Ambient;
+   float NdotL = dot(Normal, Direction);
+   if(NdotL > 0.f)
+   {
+      //compute diffuse color
+      Out.Diffuse.xyz += NdotL * DirLight.Diffuse;
+
+      //add specular component
+      if(Specular)
+      {
+         float3 H = normalize(Direction + View);   //half vector
+         Out.Specular.xyz += pow(max(0, dot(H, Normal)), MaterialPower) * DirLight.Specular;
+      }
+      
+      
+   }
+   
+   return Out;
+}
+
+COLOR_PAIR DoSpotLight(float3 Normal, float3 View, float4 Position, SPOT_LIGHT SpotLight)
+{
+   float3 L;
+   float AttenSpot = 1;
+   COLOR_PAIR Out;
+   Out.Specular = COLORBASE;
+   Out.Diffuse = SpotLight.Ambient;
+   L = normalize( mul(SpotLight.Position - (float3)mul(Position, WorldMat), (float3x3)ViewMat) );
+   
+   float NDotL = dot(Normal, L);
+   
+  if (NDotL > 0.0f)
+   {
+      // compute basic diffuse color
+      Out.Diffuse.xyz += NDotL * SpotLight.Diffuse;
+      
+      // add basic specular component
+      if (Specular)
+      {
+         float3 H = normalize(L + View); // half vector
+         Out.Specular.xyz = pow(max(0, dot(H, Normal)), MaterialPower) * SpotLight.Specular;
+      }
+      
+      
+      float LD = length(SpotLight.Position -(float3)mul(Position, WorldMat));
+      if(LD > SpotLight.Range)
+      {
+         AttenSpot = 0.f;
+      }
+      else
+      {
+         AttenSpot *= 1.f/(SpotLight.Atten.x + SpotLight.Atten.y*LD + SpotLight.Atten.z*LD*LD);
+      }
+
+      //spot cone computation
+      float3 L2 = mul(-normalize(SpotLight.Direction), (float3x3)ViewMat);
+      float rho = dot(L, L2);
+      AttenSpot *= pow(saturate((rho - SpotLight.Angles.y)/(SpotLight.Angles.x - SpotLight.Angles.y)), SpotLight.Angles.z);
+
+	  Out.Diffuse.xyz *= AttenSpot;
+	  Out.Specular.xyz *= AttenSpot;
+   }
+   
+    return Out;
+};
+
+// Compute resulting color
+float4 DoResultLight(COLOR_PAIR Color, MATERIAL Material, float4 Ambient)
+{
+    float4 Out;
+
+  //  Out = Color.Diffuse * Material.Diffuse + Color.Specular * Material.Specular + Ambient * Material.Ambient;
+    Out = Color.Diffuse * Material.Diffuse + Color.Specular * Material.Specular;
+	Out = saturate(Out);
+	
+    return Out;
+}
+
+//////////////////////////////////////////////////////////////////////////////////
+// GENERAL TRANSFORMING SHADERS
+//////////////////////////////////////////////////////////////////////////////////
+
+// Inputs and outputs
+
+struct SIMPLE_INPUT
+{
+	float4 Position: POSITION;
+};
+
+struct SIMPLE_OUTPUT
+{
+	float4 Position: POSITION;
+};
+
+struct SIMPLETEX_INPUT
+{
+	float4 Position: POSITION;
+	float2 TexCoord: TEXCOORD;
+};
+
+struct SIMPLETEX_OUTPUT
+{
+	float4 Position: POSITION;
+	float2 TexCoord: TEXCOORD;
+};
+
+// Simply transforms position coordinates and that's all
+SIMPLE_OUTPUT TransformVS(SIMPLE_INPUT Input)
+{
+	SIMPLE_OUTPUT Output;
+	Output.Position = mul(Input.Position, AllMat);
+	return Output;
+};
+
+// Simply transforms position coordinated and copy texture coordinates
+SIMPLETEX_OUTPUT TransformTexVS(SIMPLETEX_INPUT Input)
+{
+	SIMPLETEX_OUTPUT Output;
+	Output.Position = mul(Input.Position, AllMat);
+	Output.TexCoord = Input.TexCoord;
+	
+	return Output;
+};
+
+
+//-----------------------------------------
+// Shadow volume shaders
+//-----------------------------------------
+
+struct SV_COVERPOLY_INPUT_VS
+{
+	float4 Position: POSITION;
+	float2 Coords: TEXCOORD0;
+};
+
+struct SV_COVERPOLY_OUTPUT_VS
+{
+	float4 Position: POSITION;
+	float2 ScreenCoord: TEXCOORD0;
+};
+
+struct SV_COVERPOLY_INPUT_PS
+{
+	//float4 Position: POSITION;
+	float2 ScreenCoord: TEXCOORD0;
+};
+
+
+SV_COVERPOLY_OUTPUT_VS SVCoveringPolygonVS( SV_COVERPOLY_INPUT_VS Input )
+{
+	float					fW;
+	SV_COVERPOLY_OUTPUT_VS	Output;
+    
+/*    Output.Position = mul(Input.Position, AllMat);
+    Output.ScreenCoord.x = ( (Output.Position.x + Output.Position.w) * 0.5 );
+	Output.ScreenCoord.y = ( (Output.Position.w - Output.Position.y) * 0.5 );
+	Output.ScreenCoord.zw = Output.Position.w;*/
+
+/*    Output.Position.xy = Input.Coords.xy;
+    Output.Position.z = 0.5;
+    Output.Position.w = 1;
+    Output.ScreenCoord.x = Input.Coords.x;// / Input.Coords.z;
+    Output.ScreenCoord.y = Input.Coords.y;// / Input.Coords.w;
+	Output.ScreenCoord.zw = Input.Coords.xy;*/
+	Output.Position = Input.Position;
+	Output.ScreenCoord = Input.Coords;
+	
+	return Output;
+}
+
+float4 SVIncreaseCounterPS() : COLOR0
+{
+	return SVIncrease;
+}
+
+float4 SVCoveringPolygonPS( SV_COVERPOLY_INPUT_PS Input ) : COLOR0
+{
+	float4		Color;
+	float4		Shadow;
+	
+	Shadow = tex2D( TexSamp3, Input.ScreenCoord );
+
+	if ( Shadow.r < 0.505 ) Color.rgb = 0;
+	else Color.rgb = Ambient.rgb;
+	Color.a = 1;
+	
+	return Color;
+}
+
+
+
+//////////////////////////////////////////////////////////////////
+// TERRAIN TRANSFORMATION SHADERS
+//////////////////////////////////////////////////////////////////
+
+// Input and output
+struct TERRAIN_OUTPUT
+{
+    float4 Position: POSITION;
+    float4 Light: COLOR0;
+    float2 LightMapCoord: TEXCOORD0;
+    float2 TerrainCoord: TEXCOORD1;
+    float2 RoadCoord: TEXCOORD2;
+};
+
+struct TERRAIN_TSM_OUTPUT
+{
+    float4 Position: POSITION;
+    float4 Light: COLOR0;
+    float4 TSMCoord: TEXCOORD3;
+    float2 LightMapCoord: TEXCOORD0;
+    float2 TerrainCoord: TEXCOORD1;
+    float2 RoadCoord: TEXCOORD2;
+};
+
+struct TERRAIN_SV_OUTPUT
+{
+    float4 Position: POSITION;
+    float4 Light: COLOR0;
+    float4 ScreenCoord: TEXCOORD3;
+    float2 LightMapCoord: TEXCOORD0;
+    float2 TerrainCoord: TEXCOORD1;
+    float2 RoadCoord: TEXCOORD2;
+};
+
+struct TERRAIN_INPUT
+{
+    float4 Position: POSITION;
+    float3 Normal: NORMAL;
+    float2 TexCoord: TEXCOORD;
+};
+
+// Rotate terrain texture 
+bool RotateTerrainTexture : register(b1) = false;
+// Rotate road terrain texture
+bool RotateRoadTexture : register(b2) = false;
+// Terrain texture texcoord rotation matrix
+matrix TerrainTextureMat; 
+// Terrain road texture texcoord rotation matrix
+matrix RoadTextureMat;
+
+TERRAIN_OUTPUT TerrainVS(TERRAIN_INPUT Input)
+{
+	float3 N;
+	float3 V;
+	float3 D;
+	float3 TexCoord;
+    TERRAIN_OUTPUT Output = (TERRAIN_OUTPUT) 0;
+    
+    // compute position
+    Output.Position = mul(Input.Position, AllMat);
+
+    // compute texture coordinates
+    // light map - pass tex coords
+    Output.LightMapCoord = Input.TexCoord;
+    
+    // Terrain texture
+    TexCoord.xy = Input.TexCoord.xy;
+    TexCoord.z = 1;
+    if (RotateTerrainTexture) 
+		Output.TerrainCoord.xy = mul(TexCoord, (float3x2) TerrainTextureMat).xy;
+    else
+		Output.TerrainCoord = Input.TexCoord;
+		
+	// Road texture
+	if (RotateRoadTexture)
+		Output.RoadCoord.xy = mul(TexCoord, (float3x2) RoadTextureMat).xy;
+	else
+		Output.RoadCoord = Input.TexCoord;
+
+    // compute lighting
+    N = normalize(mul( Input.Normal, (float3x3) WorldViewMat ) );
+    V = -normalize(mul(Input.Position, (float3x3) WorldViewMat) );
+    D = -normalize(mul(DirLight.Direction, (float3x3) ViewMat) );
+
+    COLOR_PAIR Lighting = (COLOR_PAIR) 0;
+    Lighting = DoDirLight(N, V, D, DirLight);
+
+    Output.Light = DoResultLight(Lighting, Material, Ambient);
+    
+    return Output;
+};
+
+// Terrain shader with TSM coord generation
+TERRAIN_TSM_OUTPUT TerrainWithTSMVS(TERRAIN_INPUT Input)
+{
+	float3 N;
+	float3 V;
+	float3 D;
+	float3 TexCoord;
+	float4 World;
+	float4 LightCoord;
+	
+    TERRAIN_TSM_OUTPUT Output = (TERRAIN_TSM_OUTPUT) 0;
+    
+    // compute position
+    Output.Position = mul(Input.Position, AllMat);
+
+    // compute texture coordinates
+    // light map - pass tex coords
+    Output.LightMapCoord = Input.TexCoord;
+    
+    // Terrain texture
+    TexCoord.xy = Input.TexCoord.xy;
+    TexCoord.z = 1;
+    if (RotateTerrainTexture) 
+		Output.TerrainCoord.xy = mul(TexCoord, (float3x2) TerrainTextureMat).xy;
+    else
+		Output.TerrainCoord = Input.TexCoord;
+		
+	// Road texture
+	if (RotateRoadTexture)
+		Output.RoadCoord.xy = mul(TexCoord, (float3x2) RoadTextureMat).xy;
+	else
+		Output.RoadCoord = Input.TexCoord;
+		
+	// compute texture coordinates for TSM
+    World = mul(Input.Position, WorldMat);
+    LightCoord = mul(World, ShadowMat);
+    Output.TSMCoord = mul(LightCoord, PostProjMat);
+    Output.TSMCoord /= Output.TSMCoord.w;
+    Output.TSMCoord.z = LightCoord.z;
+
+    // compute lighting
+    N = normalize(mul( Input.Normal, (float3x3) WorldViewMat ) );
+    V = -normalize(mul(Input.Position, (float3x3) WorldViewMat) );
+    D = -normalize(mul(DirLight.Direction, (float3x3) ViewMat) );
+
+    COLOR_PAIR Lighting = (COLOR_PAIR) 0;
+    Lighting = DoDirLight(N, V, D, DirLight);
+
+    Output.Light = DoResultLight(Lighting, Material, Ambient);
+    
+    return Output;
+}
+
+// terrain vertex shader for shadow volumes
+TERRAIN_SV_OUTPUT TerrainWithSVVS(TERRAIN_INPUT Input)
+{
+	float3 N;
+	float3 V;
+	float3 D;
+	float3 TexCoord;
+    TERRAIN_SV_OUTPUT Output = (TERRAIN_SV_OUTPUT) 0;
+    
+    // compute position
+    Output.Position = mul(Input.Position, AllMat);
+    Output.ScreenCoord.x = ( (Output.Position.x + Output.Position.w) * 0.5 );
+	Output.ScreenCoord.y = ( (Output.Position.w - Output.Position.y) * 0.5 );
+	Output.ScreenCoord.z = Output.Position.w;
+	Output.ScreenCoord.w = Output.Position.w;
+ 
+    // compute texture coordinates
+    // light map - pass tex coords
+    Output.LightMapCoord = Input.TexCoord;
+    
+    // Terrain texture
+    TexCoord.xy = Input.TexCoord.xy;
+    TexCoord.z = 1;
+    if (RotateTerrainTexture) 
+		Output.TerrainCoord.xy = mul(TexCoord, (float3x2) TerrainTextureMat).xy;
+    else
+		Output.TerrainCoord = Input.TexCoord;
+		
+	// Road texture
+	if (RotateRoadTexture)
+		Output.RoadCoord.xy = mul(TexCoord, (float3x2) RoadTextureMat).xy;
+	else
+		Output.RoadCoord = Input.TexCoord;
+
+    // compute lighting
+    N = normalize(mul( Input.Normal, (float3x3) WorldViewMat ) );
+    V = -normalize(mul(Input.Position, (float3x3) WorldViewMat) );
+    D = -normalize(mul(DirLight.Direction, (float3x3) ViewMat) );
+
+    COLOR_PAIR Lighting = (COLOR_PAIR) 0;
+    Lighting = DoDirLight(N, V, D, DirLight);
+
+    Output.Light = DoResultLight(Lighting, Material, Ambient);
+    
+    return Output;
+};
+
+
+//////////////////////////////////////////////////////////////////////////
+// TERRAIN PIXEL SHADERS
+//////////////////////////////////////////////////////////////////////////
+
+struct TERRAIN_INPUT_PS
+{
+	float4 Light: COLOR0;
+    float2 LightMapCoord: TEXCOORD0;
+    float2 TerrainCoord: TEXCOORD1;
+    float2 RoadCoord: TEXCOORD2;
+};
+
+struct TERRAIN_TSM_INPUT_PS
+{
+	float4 Light: COLOR0;
+    float4 TSMCoord: TEXCOORD3;
+    float2 LightMapCoord: TEXCOORD0;
+    float2 TerrainCoord: TEXCOORD1;
+    float2 RoadCoord: TEXCOORD2;
+};
+
+struct TERRAIN_SV_INPUT_PS
+{
+	float4 Light: COLOR0;
+    float4 ScreenCoord: TEXCOORD3;
+    float2 LightMapCoord: TEXCOORD0;
+    float2 TerrainCoord: TEXCOORD1;
+    float2 RoadCoord: TEXCOORD2;
+};
+
+float4 TerrainPS(TERRAIN_INPUT_PS Input) : COLOR
+{
+	float4 TerrainCol;
+	float4 RoadCol;	
+	float4 LightMapCol;
+	float4 Color;
+	
+	LightMapCol = tex2D(TexSamp0, Input.LightMapCoord);
+	TerrainCol = tex2D(TexSamp1, Input.TerrainCoord);
+	RoadCol = tex2D(TexSamp2, Input.RoadCoord);
+	
+	Color.rgb = saturate(Input.Light.rgb + LightMapCol.rgb + Ambient.rgb);
+	Color.rgb *= (TerrainCol.rgb * (1 - RoadCol.a) + RoadCol.rgb * RoadCol.a);
+	Color.a = 1;
+	
+	return Color;
+};
+
+float4 TerrainWithTSMPS(TERRAIN_TSM_INPUT_PS Input): COLOR
+{
+	float4 TerrainCol;
+	float4 RoadCol;	
+	float4 LightMapCol;
+	float4 Color;
+	float ShadowDepth;
+	float Shadow;
+	
+	LightMapCol = tex2D(TexSamp0, Input.LightMapCoord);
+	TerrainCol = tex2D(TexSamp1, Input.TerrainCoord);
+	RoadCol = tex2D(TexSamp2, Input.RoadCoord);
+	
+	// Get shadow map depth to r
+	ShadowDepth = tex2Dproj(TexSamp3, Input.TSMCoord).r;
+	
+	// compare
+	Shadow = (ShadowDepth >=  Input.TSMCoord.z);
+	
+	Color.rgb = saturate(Input.Light.rgb * Shadow + LightMapCol.rgb + Ambient.rgb);
+	Color.rgb *= (TerrainCol.rgb * (1 - RoadCol.a) + RoadCol.rgb * RoadCol.a);
+	Color.a = 1;
+	
+	return Color;
+};
+
+// Terrain with HW TSM pixel shader
+float4 TerrainWithHWTSMPS(TERRAIN_TSM_INPUT_PS Input): COLOR
+{
+	float4 TerrainCol;
+	float4 RoadCol;	
+	float4 LightMapCol;
+	float4 Color;
+	float Shadow;
+	
+	LightMapCol = tex2D(TexSamp0, Input.LightMapCoord);
+	TerrainCol = tex2D(TexSamp1, Input.TerrainCoord);
+	RoadCol = tex2D(TexSamp2, Input.RoadCoord);
+	
+	// Get shadow color to r
+	Shadow = tex2Dproj(TexSamp3, Input.TSMCoord).r;
+	
+	Color.rgb = saturate(Input.Light.rgb * Shadow + LightMapCol.rgb + Ambient.rgb);
+	Color.rgb *= (TerrainCol.rgb * (1 - RoadCol.a) + RoadCol.rgb * RoadCol.a);
+	Color.a = 1;
+	
+	return Color;
+};
+
+float4 TerrainWithSVPS(TERRAIN_SV_INPUT_PS Input) : COLOR
+{
+	float4 TerrainCol;
+	float4 RoadCol;	
+	float4 LightMapCol;
+	float4 Color;
+	float4 Shadow;
+	
+	LightMapCol = tex2D(TexSamp0, Input.LightMapCoord);
+	TerrainCol = tex2D(TexSamp1, Input.TerrainCoord);
+	RoadCol = tex2D(TexSamp2, Input.RoadCoord);
+	//Input.ScreenCoord.xy += 1;
+	Shadow = tex2Dproj(TexSamp3, Input.ScreenCoord );
+	
+	if ( Shadow.r < 0.505 )
+	{
+		Color.rgb = saturate(Input.Light.rgb + LightMapCol.rgb + Ambient.rgb);
+		Color.rgb *= (TerrainCol.rgb * (1 - RoadCol.a) + RoadCol.rgb * RoadCol.a);
+	}
+	else
+	{
+		Color.rgb = saturate(LightMapCol.rgb + Ambient.rgb);
+		Color.rgb *= (TerrainCol.rgb * (1 - RoadCol.a) + RoadCol.rgb * RoadCol.a);
+	}
+	
+	Color.a = 1;
+	
+	return Color;
+};
+
+
+//////////////////////////////////////////////////////////////////////////////
+// OBJECT TRANSFORMATION SHADERS
+//////////////////////////////////////////////////////////////////////////////
+
+// Input and output
+struct OBJECT_INPUT
+{
+    float4 Position: POSITION;
+    float3 Normal: NORMAL;
+    float2 TexCoord: TEXCOORD;
+};
+
+struct OBJECT_OUTPUT
+{
+	float4 Position: POSITION;
+	float4 Light: COLOR;
+	float2 TexCoord: TEXCOORD;
+};
+
+struct OBJECT_TSM_OUTPUT
+{
+	float4 Position: POSITION;
+	float4 Light: COLOR;
+	float4 TSMCoord: TEXCOORD1;
+	float2 TexCoord: TEXCOORD0;
+};
+
+OBJECT_OUTPUT ObjectVS(OBJECT_INPUT Input)
+{
+	float3 N;
+	float3 V;
+	float3 D;
+    OBJECT_OUTPUT Output = (OBJECT_OUTPUT) 0;
+    
+    // compute position
+    Output.Position = mul(Input.Position, AllMat);
+
+    // compute texture coordinates
+    Output.TexCoord = Input.TexCoord;
+
+    // compute lighting
+    N = normalize(mul( Input.Normal, (float3x3) WorldViewMat ) );
+    V = -normalize(mul(Input.Position, (float3x3) WorldViewMat) );
+    D = -normalize(mul(DirLight.Direction, (float3x3) ViewMat) );
+
+    COLOR_PAIR Lighting = (COLOR_PAIR) 0;
+    Lighting = DoDirLight(N, V, D, DirLight);
+
+    Output.Light = DoResultLight(Lighting, Material, Ambient);
+    
+    return Output;
+};
+
+OBJECT_TSM_OUTPUT ObjectWithTSMVS(OBJECT_INPUT Input)
+{
+	float3 N;
+	float3 V;
+	float3 D;
+	float4 World;
+	float4 LightCoord;
+    OBJECT_TSM_OUTPUT Output = (OBJECT_TSM_OUTPUT) 0;
+    
+    // compute position
+    Output.Position = mul(Input.Position, AllMat);
+
+    // compute texture coordinates
+    Output.TexCoord = Input.TexCoord;
+    
+    // compute texture coordinates for TSM
+    World = mul(Input.Position, WorldMat);
+    LightCoord = mul(World, ShadowMat);
+    Output.TSMCoord = mul(LightCoord, PostProjMat);
+    Output.TSMCoord /= Output.TSMCoord.w;
+    Output.TSMCoord.z = LightCoord.z;
+
+    // compute lighting
+    N = normalize(mul( Input.Normal, (float3x3) WorldViewMat ) );
+    V = -normalize(mul(Input.Position, (float3x3) WorldViewMat) );
+    D = -normalize(mul(DirLight.Direction, (float3x3) ViewMat) );
+
+    COLOR_PAIR Lighting = (COLOR_PAIR) 0;
+    Lighting = DoDirLight(N, V, D, DirLight);
+
+    Output.Light = DoResultLight(Lighting, Material, Ambient);
+    
+    return Output;
+};
+
+/////////////////////////////////////////////////////////////////////
+// OBJECT PIXEL SHADERS
+/////////////////////////////////////////////////////////////////////
+
+// Input and output
+struct OBJECT_INPUT_PS 
+{
+	float4 Light: COLOR;
+	float2 TexCoord: TEXCOORD;
+};
+
+struct OBJECT_TSM_INPUT_PS
+{
+	float4 Light: COLOR;
+	float4 TSMCoord: TEXCOORD1;
+	float2 TexCoord: TEXCOORD0;
+};
+
+// Basic object pixel shader
+float4 ObjectPS(OBJECT_INPUT_PS Input) : COLOR
+{
+	float4 TexCol;
+	float4 Color;
+	
+	TexCol = tex2D(TexSamp1, Input.TexCoord);
+	
+	Color.rgb = saturate(Input.Light.rgb + Ambient.rgb) * TexCol.rgb;
+	Color.a = TexCol.a;
+	
+	return Color;
+};
+
+// Object with TSM pixel shader
+float4 ObjectWithTSMPS(OBJECT_TSM_INPUT_PS Input) : COLOR
+{
+	float4 TexCol;
+	float4 Color;
+	float ShadowDepth;
+	float Shadow;
+	
+	TexCol = tex2D(TexSamp1, Input.TexCoord);
+	
+	// Get shadow map depth to r
+	ShadowDepth = tex2Dproj(TexSamp3, Input.TSMCoord).r;
+	
+	// compare
+	Shadow = (ShadowDepth >=  Input.TSMCoord.z);
+
+	Color.rgb = saturate(Input.Light.rgb * Shadow + Ambient.rgb) * TexCol.rgb;
+	Color.a = TexCol.a;
+	
+	return Color;
+};
+
+// Object with HW TSM pixel shader
+float4 ObjectWithHWTSMPS(OBJECT_TSM_INPUT_PS Input) : COLOR
+{
+	float4 TexCol;
+	float4 Color;
+	float Shadow;
+	
+	TexCol = tex2D(TexSamp1, Input.TexCoord);
+	
+	// Get shadow map color to r
+	Shadow = tex2Dproj(TexSamp3, Input.TSMCoord).r;
+	
+	Color.rgb = saturate(Input.Light.rgb * Shadow + Ambient.rgb) * TexCol.rgb;
+	Color.a = TexCol.a;
+	
+	return Color;
+};
+
+
+
+
+
+
+

@@ -1,0 +1,52 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+	<link type="text/css" href="../mainstyles.css" rel="stylesheet">
+</head>
+
+<body>
+
+<h1>Mutators dokumentace</h1>
+
+<p>
+	Mutators je mnozina vlastnosti, ktere ovnlivnuji hru globalne
+	(tzn. vsechny hrace). Je to to same jako v Unreal Tournament,
+	kde byly mutatory jako treba flank arena, po jehoz aplykaci
+	vsichni hraci meli brokarnu, nebo low gravity -> moznost hodne
+	daleko skakat. Z tohoto je videt, ze se jedna o zmenu globalnich
+	parametru. 
+</p>
+
+<p>
+	Ja jsem zalozil dalsi druh souboru, ktery tyto mutators
+	definuje. Soubory tohoto druhu jsou ulozeny v adresary
+	Mutators a maji priponu *.mut. Je to radkove orientovany
+	soubor, kazda radka odpovida nejake globalni vlastnosti,
+	ktere lze menit. Nasleduje jejich seznam i s vysvetlenim:
+</p>
+
+<ul>
+	<li> <b>name</b><br />
+	Jmeno Mutatoru, objevi se v seznamu mutatoru
+	</li>
+
+	<li> <b>materialFile</b><br />
+	Jmeno souboru, ktery definuje parametry materialu</b>
+	</li>
+
+	<li> <b>engineEfficiecy</b><br />
+	Vykonost motoru. Cislo od 0.5 (hodne malo vykonne motory), po ?
+	</li>
+
+	<li> <b>breaksEfficiecy</b><br />
+	Vykonost brzd. Cislo od 0.1 {skoro nebrzdi), po 10 (instant Handbrake:).
+	</li>
+	
+	<li> <b>gravity</b><br />
+	Velikost gravitacni sily v N[newtonech]. Od 1 (budete litat jak sloni) po 100 (gravity from Jupiter 10x vetsi nez na Zemi:)
+	</li>
+	
+	
+</ul>
+
+</body>

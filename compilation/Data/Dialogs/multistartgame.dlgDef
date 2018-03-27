@@ -1,0 +1,581 @@
+<Dialog>
+	X = 0
+	Y = 0
+	Width = 640
+	Height = 480
+	FontDeclaration = DialogBasic.font
+	BackgroundTexture = GUI\SteelDialogBackground.png
+	TextureDeclarations = GraphicTest.dlgDecl
+	Transparency = 0.25 ; value in range <0,1>, 0 means totally visible
+	ToolTipTransparency = 0.0
+	ControlsTransparency = 0.0
+	BasicTextColor = 0xffd86b1c
+	ActiveTextColor = 0xffffff00
+	Color = 0xff0000a0
+	SliderPosMin = 10
+	SliderPosMax = 109
+	ToolTipDelay = 1000
+</Dialog>
+
+
+<Control>
+	Name = MGLobbyLabel
+	Type = label
+	X = 10
+	Y = 10
+	Width = 590
+	Height = 30
+	Value = MULTIPLAYER - LOBBY
+	FontDeclaration = DialogCaption.font
+	TextFormat = 68
+</Control>
+
+<Control>
+	Name = MGGameLabel
+	Type = label
+	X = 10
+	Y = 50
+	Width = 590
+	Height = 30
+	Value = Game name:
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = MGGameNameLabel
+	Type = label
+	X = 140
+	Y = 50
+	Width = 150
+	Height = 30
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = MGMapLabel
+	Type = label
+	X = 340
+	Y = 50
+	Width = 590
+	Height = 30
+	Value = Map Name:
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = MGMapNameLabel
+	Type = label
+	X = 460
+	Y = 50
+	Width = 150
+	Height = 30
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = MGLapsLabel
+	Type = label
+	X = 10
+	Y = 90
+	Width = 590
+	Height = 30
+	Value = Laps:
+	FontDeclaration = DialogCaption.font
+	Visible = 0
+	Enabled = 0
+</Control>
+
+<Control>
+	Name = MGLapsCheckBox
+	Type = checkbox
+	X = 140
+	Y = 90
+	Width = 25
+	Height = 25
+	Value = 1
+	
+	Caption = 
+	Visible = 0
+	Enabled = 0
+</Control>
+
+<Control>
+	Name = MGLapsEdit
+	Type = edit
+	X = 180
+	Y = 90
+	Width = 40
+	Height = 32
+	MaxTextLength = 2
+	Value = 3
+	ToolTip = Laps of race
+	Visible = 0
+	Enabled = 0
+</Control>
+
+<Control>
+	Name = MGTimeOfDayLabel
+	Type = label
+	X = 340
+	Y = 90
+	Width = 590
+	Height = 30
+	Value = Time of day:
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = MGDayHoursEdit
+	Type = edit
+	X = 460
+	Y = 90
+	Width = 40
+	Height = 32
+	MaxTextLength = 2
+	Value = 00
+	ToolTip = Hours of day time
+</Control>
+
+<Control>
+	Name = MGDoubleDotLabel
+	Type = label
+	X = 530
+	Y = 90
+	Width = 590
+	Height = 30
+	Value = :
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = MGDayMinutesEdit
+	Type = edit
+	X = 540
+	Y = 90
+	Width = 40
+	Height = 32
+	MaxTextLength = 2
+	Value = 00
+	ToolTip = Minutes of day time
+</Control>
+
+<Control>
+	Name = MGPlayer1Label
+	Type = label
+	X = 10
+	Y = 130
+	Width = 590
+	Height = 30
+	Value = Player
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = MGCar1Label
+	Type = label
+	X = 120
+	Y = 130
+	Width = 590
+	Height = 30
+	Value = Car 
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = MGReady1Label
+	Type = label
+	X = 230
+	Y = 130
+	Width = 590
+	Height = 30
+	Value = Ready
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = MGPlayer2Label
+	Type = label
+	X = 340
+	Y = 130
+	Width = 590
+	Height = 30
+	Value = Player
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = MGCar2Label
+	Type = label
+	X = 460
+	Y = 130
+	Width = 590
+	Height = 30
+	Value = Car 
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = MGReady2Label
+	Type = label
+	X = 570
+	Y = 130
+	Width = 590
+	Height = 30
+	Value = Ready
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = MGPlayerName1Label
+	Type = label
+	X = 10
+	Y = 170
+	Width = 590
+	Height = 30
+	Value = 0123456789
+	FontDeclaration = DialogNarrow.font
+</Control>
+
+<Control>
+	Name = MGPlayerName2Label
+	Type = label
+	X = 10
+	Y = 200
+	Width = 590
+	Height = 30
+	Value = Player 2
+	FontDeclaration = DialogNarrow.font
+</Control>
+
+<Control>
+	Name = MGPlayerName3Label
+	Type = label
+	X = 10
+	Y = 230
+	Width = 590
+	Height = 30
+	Value = Player 3
+	FontDeclaration = DialogNarrow.font
+</Control>
+
+<Control>
+	Name = MGPlayerName4Label
+	Type = label
+	X = 10
+	Y = 260
+	Width = 590
+	Height = 30
+	Value = Player 4
+	FontDeclaration = DialogNarrow.font
+</Control>
+
+
+<Control>
+	Name = MGPlayerName5Label
+	Type = label
+	X = 340
+	Y = 170
+	Width = 590
+	Height = 30
+	Value = Player 5
+	FontDeclaration = DialogNarrow.font
+</Control>
+
+<Control>
+	Name = MGPlayerName6Label
+	Type = label
+	X = 340
+	Y = 200
+	Width = 590
+	Height = 30
+	Value = Player 6
+	FontDeclaration = DialogNarrow.font
+</Control>
+
+<Control>
+	Name = MGPlayerName7Label
+	Type = label
+	X = 340
+	Y = 230
+	Width = 590
+	Height = 30
+	Value = Player 7
+	FontDeclaration =DialogNarrow.font
+</Control>
+
+<Control>
+	Name = MGPlayerName8Label
+	Type = label
+	X = 340
+	Y = 260
+	Width = 590
+	Height = 30
+	Value = Player 8
+	FontDeclaration = DialogNarrow.font
+</Control>
+
+<Control>
+	Name = MGPlayerCar1Label
+	Type = label
+	X = 120
+	Y = 170
+	Width = 590
+	Height = 30
+	Value = 0123456789	
+	FontDeclaration = DialogNarrow.font
+</Control>
+
+<Control>
+	Name = MGPlayerCar2Label
+	Type = label
+	X = 120
+	Y = 200
+	Width = 590
+	Height = 30
+	Value = Player Car 2
+	FontDeclaration = DialogNarrow.font
+</Control>
+
+<Control>
+	Name = MGPlayerCar3Label
+	Type = label
+	X = 120
+	Y = 230
+	Width = 590
+	Height = 30
+	Value = Player Car 3
+	FontDeclaration = DialogNarrow.font
+</Control>
+
+<Control>
+	Name = MGPlayerCar4Label
+	Type = label
+	X = 120
+	Y = 260
+	Width = 590
+	Height = 30
+	Value = Player Car 4
+	FontDeclaration = DialogNarrow.font
+</Control>
+
+<Control>
+	Name = MGPlayerCar5Label
+	Type = label
+	X = 460
+	Y = 170
+	Width = 590
+	Height = 30
+	Value = Player Car 5
+	FontDeclaration = DialogNarrow.font
+</Control>
+
+<Control>
+	Name = MGPlayerCar6Label
+	Type = label
+	X = 460
+	Y = 200
+	Width = 590
+	Height = 30
+	Value = Player Car 6
+	FontDeclaration = DialogNarrow.font
+</Control>
+
+<Control>
+	Name = MGPlayerCar7Label
+	Type = label
+	X = 460
+	Y = 230
+	Width = 590
+	Height = 30
+	Value = Player Car 7
+	FontDeclaration = DialogNarrow.font
+</Control>
+
+<Control>
+	Name = MGPlayerCar8Label
+	Type = label
+	X = 460
+	Y = 260
+	Width = 590
+	Height = 30
+	Value = Player Car 8
+	FontDeclaration = DialogNarrow.font
+</Control>
+
+<Control>
+	Name = MGPlayerReady1CheckBox
+	Type = checkbox
+	X = 260
+	Y = 170
+	Width = 25
+	Height = 25
+	Value = 0
+	Enabled = 0
+</Control>
+
+
+<Control>
+	Name = MGPlayerReady2CheckBox
+	Type = checkbox
+	X = 260
+	Y = 200
+	Width = 25
+	Height = 25
+	Value = 0
+	Enabled = 0
+</Control>
+
+<Control>
+	Name = MGPlayerReady3CheckBox
+	Type = checkbox
+	X = 260
+	Y = 230
+	Width = 25
+	Height = 25
+	Value = 0
+	Enabled = 0
+</Control>
+
+<Control>
+	Name = MGPlayerReady4CheckBox
+	Type = checkbox
+	X = 260
+	Y = 260
+	Width = 25
+	Height = 25
+	Value = 0
+	Enabled = 0
+</Control>
+
+<Control>
+	Name = MGPlayerReady5CheckBox
+	Type = checkbox
+	X = 600
+	Y = 170
+	Width = 25
+	Height = 25
+	Value = 0
+	Enabled = 0
+</Control>
+
+<Control>
+	Name = MGPlayerReady6CheckBox
+	Type = checkbox
+	X = 600
+	Y = 200
+	Width = 25
+	Height = 25
+	Value = 0
+	Enabled = 0
+</Control>
+
+<Control>
+	Name = MGPlayerReady7CheckBox
+	Type = checkbox
+	X = 600
+	Y = 230
+	Width = 25
+	Height = 25
+	Value = 0
+	Enabled = 0
+</Control>
+
+<Control>
+	Name = MGPlayerReady8CheckBox
+	Type = checkbox
+	X = 600
+	Y = 260
+	Width = 25
+	Height = 25
+	Value = 0
+	Enabled = 0
+</Control>
+
+<Control>
+	Name = MGChatList
+	Type = list
+	X = 10
+	Y = 300
+	Width = 620
+	Value = 0
+	ToolTip = Chat window
+	
+	LineHeight = 18
+	LinesCount = 3
+	TextFormat = 65
+	IconWidth = 15
+	
+	; Value = 1
+</Control>
+
+<Control>
+	Name = MGChatEdit
+	Type = edit
+	X = 10
+	Y = 400
+	Width = 510
+	Height = 32
+	MaxTextLength = 60
+	ToolTip = Type in message to send to others
+</Control>
+
+<Control>
+	Name = MGSendButton
+	Type = button
+	X = 530
+	Y = 400
+	Width = 100
+	Height = 30
+	Value = SEND
+
+	
+	ToolTip = Sends chat message to others
+	
+	TextFormat = 68 ; left - 1, right - 2, center - 4, top - 16, bottom - 32, center - 64
+</Control>
+
+<Control>
+	Name = MGStartGameButton
+	Type = button
+	X = 25
+	Y = 440
+	Width = 160
+	Height = 30
+	Value = START GAME
+
+	
+	ToolTip = Starts multiplayer game
+	
+	TextFormat = 68 ; left - 1, right - 2, center - 4, top - 16, bottom - 32, center - 64
+</Control>
+
+<Control>
+	Name = MGPlayerSettingsButton
+	Type = button
+	X = 225
+	Y = 440
+	Width = 180
+	Height = 30
+	Value = PLAYER SETTINGS...
+
+	
+	ToolTip = Change player settings
+	
+	TextFormat = 68 ; left - 1, right - 2, center - 4, top - 16, bottom - 32, center - 64
+</Control>
+
+<Control>
+	Name = MGLeaveButton
+	Type = button
+	X = 445
+	Y = 440
+	Width = 160
+	Height = 30
+	Value = LEAVE
+
+	
+	ToolTip = Leave multiplayer game
+	
+	TextFormat = 68 ; left - 1, right - 2, center - 4, top - 16, bottom - 32, center - 64
+</Control>
+

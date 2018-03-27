@@ -1,0 +1,53 @@
+Name = Container /w Boards
+Icon =containerboard.bmp
+
+[object]
+Model = container.modelDef
+static = 0
+mass = 10000
+SizeX = 1
+SizeY = 2
+PosX = 0
+PosY = 0
+X = 500
+Y = 0
+Z = 1000
+Scale.X = 1
+Scale.Y = 1
+Scale.Z = 1
+GrassAllowed = 1
+material = 2
+
+[object]
+Model = board.modelDef
+static = 0
+mass = 500.0
+SizeX = 1
+SizeY = 1
+PosX = 0
+PosY = 0
+X = 500
+Y = 360
+Z = 400
+Scale.X = 1
+Scale.Y = 1
+Scale.Z = 1
+GrassAllowed = 1
+material = 1
+
+[object]
+Model = board.modelDef
+static = 0
+mass = 500.0
+SizeX = 1
+SizeY = 1
+PosX = 0
+PosY = 1
+X = 500
+Y = 360
+Z = 600
+Scale.X = 1
+Scale.Y = 1
+Scale.Z = 1
+GrassAllowed = 1
+material = 1

@@ -1,0 +1,256 @@
+Name = Tower of Crates
+
+[object]
+Model = crate.modelDef
+static = 0
+mass = 30.0
+SizeX = 1
+SizeY = 1
+PosX = 0
+PosY = 0
+X = 500
+Y = 0
+Z = 500
+Scale.X = 1
+Scale.Y = 1
+Scale.Z = 1
+GrassAllowed = 1
+material = 1
+
+[object]
+Model = crate.modelDef
+static = 0
+mass = 30.0
+SizeX = 1
+SizeY = 1
+PosX = 0
+PosY = 0
+X = 500
+Y = 100
+Z = 500
+Scale.X = 1
+Scale.Y = 1
+Scale.Z = 1
+GrassAllowed = 1
+material = 1
+
+[object]
+Model = crate.modelDef
+static = 0
+mass = 30.0
+SizeX = 1
+SizeY = 1
+PosX = 0
+PosY = 0
+X = 500
+Y = 200
+Z = 500
+Scale.X = 1
+Scale.Y = 1
+Scale.Z = 1
+GrassAllowed = 1
+material = 1
+
+[object]
+Model = crate.modelDef
+static = 0
+mass = 30.0
+SizeX = 1
+SizeY = 1
+PosX = 0
+PosY = 0
+X = 500
+Y = 300
+Z = 500
+Scale.X = 1
+Scale.Y = 1
+Scale.Z = 1
+GrassAllowed = 1
+material = 1
+
+[object]
+Model = crate.modelDef
+static = 0
+mass = 30.0
+SizeX = 1
+SizeY = 1
+PosX = 0
+PosY = 0
+X = 500
+Y = 400
+Z = 500
+Scale.X = 1
+Scale.Y = 1
+Scale.Z = 1
+GrassAllowed = 1
+material = 1
+
+[object]
+Model = crate.modelDef
+static = 0
+mass = 30.0
+SizeX = 1
+SizeY = 1
+PosX = 0
+PosY = 0
+X = 500
+Y = 500
+Z = 500
+Scale.X = 1
+Scale.Y = 1
+Scale.Z = 1
+GrassAllowed = 1
+material = 1
+
+[object]
+Model = crate.modelDef
+static = 0
+mass = 30.0
+SizeX = 1
+SizeY = 1
+PosX = 0
+PosY = 0
+X = 500
+Y = 600
+Z = 500
+Scale.X = 1
+Scale.Y = 1
+Scale.Z = 1
+GrassAllowed = 1
+material = 1
+
+[object]
+Model = crate.modelDef
+static = 0
+mass = 30.0
+SizeX = 1
+SizeY = 1
+PosX = 0
+PosY = 0
+X = 500
+Y = 700
+Z = 500
+Scale.X = 1
+Scale.Y = 1
+Scale.Z = 1
+GrassAllowed = 1
+material = 1
+
+[object]
+Model = crate.modelDef
+static = 0
+mass = 30.0
+SizeX = 1
+SizeY = 1
+PosX = 0
+PosY = 0
+X = 500
+Y = 800
+Z = 500
+Scale.X = 1
+Scale.Y = 1
+Scale.Z = 1
+GrassAllowed = 1
+material = 1
+
+[object]
+Model = crate.modelDef
+static = 0
+mass = 30.0
+SizeX = 1
+SizeY = 1
+PosX = 0
+PosY = 0
+X = 500
+Y = 900
+Z = 500
+Scale.X = 1
+Scale.Y = 1
+Scale.Z = 1
+GrassAllowed = 1
+material = 1
+
+[object]
+Model = crate.modelDef
+static = 0
+mass = 30.0
+SizeX = 1
+SizeY = 1
+PosX = 0
+PosY = 0
+X = 500
+Y = 1000
+Z = 500
+Scale.X = 1
+Scale.Y = 1
+Scale.Z = 1
+GrassAllowed = 1
+material = 1
+
+[object]
+Model = crate.modelDef
+static = 0
+mass = 30.0
+SizeX = 1
+SizeY = 1
+PosX = 0
+PosY = 0
+X = 500
+Y = 1100
+Z = 500
+Scale.X = 1
+Scale.Y = 1
+Scale.Z = 1
+GrassAllowed = 1
+material = 1
+
+[object]
+Model = crate.modelDef
+static = 0
+mass = 30.0
+SizeX = 1
+SizeY = 1
+PosX = 0
+PosY = 0
+X = 500
+Y = 1200
+Z = 500
+Scale.X = 1
+Scale.Y = 1
+Scale.Z = 1
+GrassAllowed = 1
+material = 1
+
+[object]
+Model = crate.modelDef
+static = 0
+mass = 30.0
+SizeX = 1
+SizeY = 1
+PosX = 0
+PosY = 0
+X = 500
+Y = 1300
+Z = 500
+Scale.X = 1
+Scale.Y = 1
+Scale.Z = 1
+GrassAllowed = 1
+material = 1
+
+[object]
+Model = crate.modelDef
+static = 0
+mass = 30.0
+SizeX = 1
+SizeY = 1
+PosX = 0
+PosY = 0
+X = 500
+Y = 1400
+Z = 500
+Scale.X = 1
+Scale.Y = 1
+Scale.Z = 1
+GrassAllowed = 1
+material = 1

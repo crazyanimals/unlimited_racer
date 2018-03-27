@@ -1,0 +1,19 @@
+Name = Football
+icon = football.bmp
+
+[object]
+Model = football.modelDef
+static = 0
+mass = 10.0
+SizeX = 1
+SizeY = 1
+PosX = 0
+PosY = 0
+X = 500
+Y = 0
+Z = 500
+Scale.X = 0.27
+Scale.Y = 0.27
+Scale.Z = 0.27
+GrassAllowed = 1
+material = 6

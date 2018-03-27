@@ -1,0 +1,9 @@
+Gravity from Jupiter Chachaaa	; name
+30.0					; gravity
+8.0					; breaksEfficiency
+2.5					; engineEfficiency
+; material interaction koeficients
+-1 0.3 1.1 0.7 -1		;car <-> wood
+-1 0.5 0.8 0.6 -1		;car <-> metal
+-1 0.5 0.8 0.6 -1		;car <-> grass
+-1 0.518 0.8 0.6 -1		;car <-> ashalt

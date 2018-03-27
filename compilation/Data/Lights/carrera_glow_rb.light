@@ -1,0 +1,7 @@
+x = 56
+y = 116
+z = -165
+Scale = 100.0
+type = 4
+Diffuse = 0xffff0000
+lightmap = glow_red.png

@@ -1,0 +1,15 @@
+Name = Inclined Road
+
+[object]
+Model = inclined.modelDef
+static = 1
+SizeX = 1
+SizeY = 1
+PosX = 0
+PosY = 0
+X = 500
+Y = -5
+Z = 500
+Scale.X = 1.01
+GrassAllowed = 0
+material = 6

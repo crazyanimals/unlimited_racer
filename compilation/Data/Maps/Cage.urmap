@@ -1,0 +1,149 @@
+20 20
+Cage
+1.1
+There's not much space for overtaking on this map. Be careful to keep your position.
+FREERIDE,UR
+Maps\Cage.jpg
+Cage.terrain
+SkySystem.sk
+0.416667
+0xff444444
+0xff8080a0
+starting_positions.object
+1 13 0
+15
+road_wall_turning.object
+road_wall_turning_ramp_right.object
+road.object
+road_wall_ramp_long.object
+road_wall_normal.object
+road_wall_crossing.object
+road_wall_ramp_short.object
+road_wall_tunnel.object
+turning_small.object
+road_wall_turning_ramp_left.object
+safety_fence_straight_start.object
+safety_fence_turning_2.object
+safety_fence_straight.object
+finish.object
+safety_fence_turning_3.object
+59
+0 1 2 3 =
+0 4 2 2 =
+1 12 2 3 =
+2 14 1 1 =
+3 15 0 1 =
+0 18 2 2 =
+0 1 5 0 =
+4 5 4 0 =
+4 11 4 0 =
+1 18 5 1 =
+4 5 5 0 =
+4 11 5 0 =
+4 3 6 1 =
+4 4 6 1 =
+5 5 6 0 =
+4 6 6 1 =
+4 7 6 1 =
+6 8 6 3 =
+2 9 6 1 =
+2 10 6 1 =
+7 11 6 3 =
+2 12 6 1 =
+2 13 6 1 =
+2 14 6 1 =
+2 15 6 1 =
+2 16 6 1 =
+1 4 8 1 =
+4 11 7 0 =
+4 11 8 0 =
+8 1 9 3 =
+9 12 10 3 =
+2 1 11 0 =
+2 14 11 1 =
+2 15 11 1 =
+2 16 11 1 =
+10 17 11 1 =
+11 18 11 2 =
+2 1 12 0 =
+2 1 13 0 =
+12 19 13 0 =
+13 1 14 0 =
+12 19 14 0 =
+10 1 15 0 =
+12 19 15 0 =
+12 1 16 0 =
+11 5 16 3 =
+11 7 16 2 =
+12 19 16 0 =
+14 2 18 0 =
+14 18 18 1 =
+11 4 18 1 =
+11 8 18 0 =
+12 10 19 1 =
+12 11 19 1 =
+12 12 19 1 =
+12 13 19 1 =
+10 14 19 3 =
+10 15 19 1 =
+12 16 19 3 =
+59
+42
+44
+48
+50
+45
+46
+51
+52
+53
+54
+55
+56
+57
+58
+49
+47
+43
+41
+39
+36
+35
+34
+33
+32
+30
+28
+27
+20
+11
+8
+2
+3
+4
+5
+9
+25
+24
+23
+22
+21
+19
+18
+17
+16
+15
+14
+13
+12
+6
+0
+1
+7
+10
+26
+29
+31
+37
+38
+40

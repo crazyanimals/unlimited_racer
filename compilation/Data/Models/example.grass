@@ -1,0 +1,18 @@
+; EXAMPLE FILE
+; ============
+;
+; This file describes grass placement on one 10x10m square
+;
+;
+; Texture = string		// texture file name, all the items have to use the same texture!!! the check is made while loading items
+; ItemFile = string		// deafult file name for items where no file name is specified
+;
+; <ITEM>				// single item description
+;	File = string		// tuft file name - geometry with all LODs; there's no default value
+;	X = float			// coordinates of the tuft in the 10x10m square <0,1000>; default values are [500,0,500]
+;	Y = float
+;	Z = float
+;	Rotation = float	// rotation around the y axis in degrees; default value is 0.0
+;	Scale = float		// scaling factor - uniform for all the coordinates; default value is 1.0
+; </ITEM>
+;

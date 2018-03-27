@@ -1,0 +1,184 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+	<link type="text/css" href="mainstyles.css" rel="stylesheet">
+</head>
+
+<body>
+<h1>1 Architektura a design</h1>
+
+<h2><a name="IDE">1.1 Vývojové prostředí a použité knihovny</a></h2>
+	<p>Za cílovou platformu jsme předem zvolili systém Windows. Jednak proto, že nám byl všem důvěrně známý, jednak proto, že jsme neměli žádné zkušenosti s grafickými knihovnami OpenGL (narozdíl od DirectX), a konečně proto, že většina her určená pro PC je směřována na tento operační systém. Z důvodu některých systémových funkcí jsme se navíc omezili na Windows XP, neboť Windows 98 a ME nemají podporu přesných časovačů, kterých je ve hrách třeba, a Windows 2000 a 2003 jsme při vývoji neměli k dispozici pro stálé testování (navíc svým zaměřením nejsou vhodnou cílovou platformou).</p>
+	<p>Z velmi obdobných důvodů bylo při volbě programovacího jazyka vybráno C++. Pro své vlastnosti je to v dnešní době nejvíce používaný jazyk při vývoji her, zvolili jsme ho tedy i my.</p>
+	<p>Při výběru integrovaného vývojového prostředí (a potažmo i kompilátoru) jsme považovali Microsoft Visual Studio za jakýsi standard, se kterým jsme navíc již byli více či méně seznámeni. V průběhu vývoje to pak byly postupně verze 7.0, 7.1 a 8.0, respektive 2002, .NET 2003 a 2005. Narozdíl od jiných vývojových prostředí určených pro jazyk C++, MSVS zahrnuje debugger pro <a href="graphics.html#shaders">shadery</a>, což je nedocenitelná pomůcka při vývoji grafických aplikací.</p>
+	<p>Pro volbu grafických knihoven Direct3D přispěl nejen to, že jsme s nimi měli již nějaké zkušenosti, ale především fakt, že balík DirectX (jehož je Direct3D nedílnou součástí) nezahrnuje pouze grafické knihovny, ale také zpracování uživatelského vstupu (modul DirectInput) a řadu dalších knihoven pro práci s hudbou, zvukem či sítí (byť jsme tyto další moduly v projektu nepoužili).</p>
+	<p>Po delším rozhodování jsme se také uchýlili k použití knihovny třetí strany jako základ implementace fyzikálního enginu. Více o použité knihovně Newton Game Dynamics v sekci <a href="Physics.html">Fyzikální engine</a>.</p>
+	<p>Přehrávání hudby ze souborů formátu mp3 provádí funkce z knihovny <strong>FMOD</strong>.</p>
+	
+<h2><a name="projects">1.2 Hlavní moduly</a></h2>
+	<p>Diagram na obr. 1.1 ukazuje závislosti mezi jednotlivými moduly celého projektu. Do diagramu nejsou zahrnuty samostatné utility, které sloužily jen při vývoji a nejsou součástí hry. Stejně tak není v diagramu pro přehlednost explicitně zaznamenána závislost všech ostatních modulů na modulech <strong>Resource Manager</strong> a <strong>Globals</strong>. </p>
+	<p class="center"><img src="images/ProjectDesign.gif"/></p>
+	<p class="center"><strong>Obrázek 1.1: Diagram závislostí jednotlivých modulů projektu. Pro přehlednost nejsou zobrazeny závislosti všech modulů kromě Globals na Resource Manageru a všech modulů kromě Limited Editoru na modulu Globals.</strong></p>
+	<h5><a name="Globals">Globals</a></h5>
+		<p>Modul <strong>Globals</strong> má v projektu zcela zvláštní postavení. Zastřešuje všechna makra, konstanty, funkce a třídy, které jsou široce používány ve všech ostatních modulech. Vytvoření takto klíčového modulu má ten důsledek, že samostatně jsou ostatní moduly nepoužitelné (nelze je přenést a použít v jiném projektu bez přenesení Globals). Avšak jak už jsme se zmínili v úvodu - neplánovali jsme vytvářet knihovny obecně použitelných funkcí, ale jeden funkční celek, a v takovém bylo vydělení obecně používaný entit ku prospěchu. Nejdůležitější funkcionalita tohoto modulu je popsána dále v kapitolách <a href="#config_files">Konfigurační soubory</a> a <a href="#error_handling">Ošetřování chyb a výjimek</a>.</p>
+		
+	<h5><a name="ResMan">Resource Manager</a></h5>
+		<p>Modulem, který se stará o správu zdrojů, je <strong>Resource Manager</strong>. Jednak je vrstvou oddělující ostatní moduly od systému souborů, jednak se stará o to, aby žádný soubor nebyl zbytečně nahráván (či dokonce uchováván v paměti) vícekrát. Svým rozhraním poskytuje transparenci přístupu k souborům, takže volající funkce nejen neví, z jakého místa byl požadovaný soubor načten, ale ani zda byl vůbec právě načten. Podstatné je pouze navrácené tzv. "resource ID" a struktura, která se dá za pomoci tohoto resrouce ID získat. Podrobněji se Resource Manageru věnujeme v sekci <a href="ResourceManager.html">Resource Manager</strong>.</p>
+	
+	<h5><a name="Main">Main</a></h5>
+		<p>Modul <strong>Main</strong> je hlavním modulem projektu. Hlavním v tom smyslu, že jeho produktem je spustitelný soubor, který startuje hru Unlimited Racer. Pomineme-li další samosatné aplikace, je tento modul přímo či nepřímo závislý na všech ostatních. Představuje řídící jednotku celé aplikace - "startuje" server i klienta, iniciuje grafický mód atd. Více je možné nalézt v sekci <a href="hra.html#sec5">Hra</a>.</p>
+	
+	<h5><a name="Server">Server</a></h5>
+		<p>Tento modul představuje serverovskou část hry, tj. procesy, které jsou prováděny na serveru (a to i v případě, že hráč zvolí hru typu "single player"). Je úzce svázán s moduly <strong>Physics</strong> a <strong>AI</strong>, jejichž služeb využívá. Jeho součástí je síťové rozhraní, přes které server komunikuje s klienty (přijímá spojení, akceptuje hráče, rozesílá údaje, ...). Během samotné hry se stará o správně probíhající výpočet fyzikálního modulu. Detailněji je rozebrán v kapitole <a href="hra.html#sec5.2">Server</a>.</p>
+	
+	<h5><a name="Client">Client</a></h5>
+		<p>Modul <strong>Client</strong> jednak představuje klientskou část síťové aplikace, tj. iniciuje spojení, žádá o službu serveru (o vstup do hry) atd., jednak vystupuje jako prostředník mezi serverem a hráčem - zpracovává uživatelský vstup, předává ho serveru, načítá a připravuje všechna data potřebná na straně klienta a využíváním služeb modulů <strong>Graphic</strong> a <strong>Graphic Objects</strong> zajišťuje zobrazení herní scény. Detailněji je rozebrán v kapitole <a href="hra.html#sec5.1">Klient</a>.</p>
+		
+	<h5><a name="Physics">Physics</a></h5>
+		<p>Serverem využívaný modul <strong>Physics</strong> má za úkol na základě vstupních dat, jimiž jsou předzpracované uživatelské vstupy přeložené do řeči příkazů k ovládání auta (brždění, plyn, točení volantem, ...) a časový interval, určit, jakým způsobem se scéna, nad kterou je výpočet prováděn, změní. To znamená, že objektům udělí rychlost, směr pohybu, rotaci atd. Rozebrán je v samostatné sekci <a href="Physics.html">Physics</a>.</p>
+	
+	<h5><a name="Graphic">Graphic</a></h5>
+		<p>Výrazně nejrozsáhlejším modulem je <strong>Graphic</strong>, který zahrnuje řídící jádro 3D grafického engine, všechny jeho stěžejní funkce a jeho součástí je též systém ovládacích prvků představujících neherní GUI. Modul je silně závislý na modulu <strong>Graphic Objects</strong>, jež by se dal považovat za jeho datovou část. Velmi detailně jsou oba moduly rozebrány v sekci <a href="graphics.html">Grafický engine</a>, odkud je také více pochopitelný jejich těsný vztah.</p>
+	
+	<h5><a name="GrObjects">Graphic Objects</a></h5>
+		<p>Modul <strong>Graphic Objects</strong> reprezentuje zobrazovanou scénu, je tedy využíván předně modulem <strong>Client</strong> pro načtení a správu celé herní scény, a pak modulem <strong>Graphic</strong> jako jednotka zobrazující žádaná data zvoleným způsobem. Dopodrobna je rozebrán v kapitole <a href="graphics.html#graphicobjects">Grafické objekty</strong> sekce <a href="graphics.html">Grafický engine</strong>, jehož je nedělitelnou součástí.</p>
+	
+	<h5><a name="Editor">Limited Editor</a></h5>
+		<p><strong>Limited Editor</strong> je samostatnou okenní aplikací sloužící k vytváření a editování tratí (a nejen tratí), které je možné následně uplatnit ve hře. Je závislý pouze na <strong>Resource Manageru</strong>, který nevyužívá ani tak pro inteligentní správu zdrojů, jako spíše pro načítání všech relevantních typů souborů. Rozebrán je v sekci <a href="limitededitor.html">Limited Editor</a>.</p>
+		
+	<h5><a name="AI">AI</a></h5>
+		<p>Ve hře je možné soutěžit s fiktivními oponenty, což jsou počítačem řízená auta. Modul <strong>AI</strong> (tj. Artificial Intelligence) představuje rozhodovací logiku těchto oponentů. Na základě znalosti vlastností auta a okolní scény se rozhoduje jakým způsobem auto dále řídit. Tento proces je řízen serverem, stejně jako fyzikální výpočet. Více je možné nalézt v sekci <a href="AI.html">AI</a>.</p>
+	
+	<h5><a name="others">Další moduly</a></h5>
+		<p>Projekt zahrnuje ještě řadu dalších modulů (celkem 19), které byly v průběhu vývoje využívány především ke generování či editaci některých dat a k snadnému testování jiných modulů. Některé však již ztratily význam docela kvůli změně formátu souborů, či přímo změně návrhu a chování jiných částí projektu. Důležité a stále aktivní projekty jsou tyto:</p>
+		<ul>
+			<li><strong>Terrain Generator</strong> - aplikace používaná na generování plátů terénu. Více viz kapitola TODO LINK.</li>
+			<li><strong>Graphic Test</strong> - aplikace používaná na testování funkcí grafického engine (jednodušší a rychlejší testování než ve hře).</li>
+			<li><strong>Script Interpreter</strong> - knihovna sloužící jako interpret námi definovaného skriptovacího jazyka. Používána předně moduly <strong>Graphic Test</strong> a <strong>Terrain Generator</strong>. Více v kapitole TODO LINK.</li>
+			<li><strong>Setup Wizard</strong> - výstupem tohoto modulu je tradiční instalátor pro Windows, který nainstaluje na cílový počítač Unlimited Racer, Limited Editor a všechny potřebné knihovny.</li>
+		</ul>
+
+<h2><a name="directories">1.3 Adresářová struktura</a></h2>
+	<p>Pro lepší orientaci v (nejen) zdrojových souborech projektu zde lehce okomentujeme adresářovou strukturu. Všechny uvedené cesty jsou relativní ke kořenovému adresáři projektu.</p>
+	<table border=1>
+		<thead><tr><td>Relativní cesta</td><td>Popis adresáře</td></tr></thead>
+		<tbody>
+			<tr><td><strong>.</strong></td><td>Kořenový adresář obsahuje pouze projektové soubory pro MSVS 2005.</td></tr>
+			<tr><td><strong>AI\</strong></td><td>Zdrojové soubory modulu <a href="AI.html">AI</a>.</td></tr>
+			<tr><td><strong>BBModeler\</strong></td><td>Zdrojové soubory již nepoužívaného modulu na editaci obálek <strong>BB Modeler</strong>.</td></tr>
+			<tr><td><strong>BBParser\</strong></td><td>Zdrojové soubory již nepoužívaného modulu na generování obálek <strong>BB Parser</strong>.</td></tr>
+			<tr><td><strong>Client\</strong></td><td>Zdrojové soubory modulu <a href="hra.html#Sec5.1">Client</a>.</td></tr>
+			<tr><td><strong>compilation\</strong></td><td>Výstupní soubory modulů, jejichž výsledkem je spustitelná aplikace nebo dynamicky linkované knihovna. Též kořenový adresář výstupní adresářové struktury tvořené instalátorem.</td></tr>
+			<tr><td><strong>compilation\Data\</strong></td><td>Adresář se všemi datovými soubory pro hru. Detailnější rozebrání tohoto adresáře je možné nalézt v <a href="FileSystem.html">dokumentaci souborového systému</a>.</td></tr>
+			<tr><td><strong>compilation\Data\Shaders\</strong></td><td>Adresář souborů obsahujících vertex a pixel shadery.</td></tr>
+			<tr><td><strong>compilation\linking\</strong></td><td>Kořenový adresář pro výstupní soubory modulů, jejichž výsledkem je statická knihovna (též tedy zvláštní cesta pro linker). Adresář je dále dělen do podadresářů podle označení kompilace (debug/release/...).</td></tr>
+			<tr><td><strong>compilation\removable\</strong></td><td>Odkládací adresář pro dočasné soubory kompilátoru (prekompilované headery atd.). Adresář je dále dělen do podadresářů podle označení kompilace (debug/release/...).</td></tr>
+			<tr><td><strong>compilation\Support\</strong></td><td>Obsahuje dokumentaci projektu, manuál a další přiložené dokumenty.</td></tr>
+			<tr><td><strong>DXSetup\</strong></td><td>Obsahuje instalátor potřebné verze DirectX. Tento balík je přidáván do instalátoru jako volitelný krok po instalaci hry.</td></tr>
+			<tr><td><strong>DXUtils\</strong></td><td>Zdrojové soubory starší verze rozšiřujících funkcí Direct3D pro zobrazování textu na obrazovku.</td></tr>
+			<tr><td><strong>FMOD\inc\</strong></td><td>Hlavičkové soubory knihovny FMOD Ex používané pro přehrávání hudby ve hře.</td></tr>
+			<tr><td><strong>FMOD\lib\</strong></td><td>Staticky llinkované knihovny modulu FMOD Ex používaného pro přehrávání hudby ve hře.</td></tr>
+			<tr><td><strong>Globals\</strong></td><td>Zdrojové soubory modulu <strong>Globals</strong>.</td></tr>
+			<tr><td><strong>Graphic\</strong></td><td>Zdrojové soubory modulu <a href="graphics.html">Graphic</a>.</td></tr>
+			<tr><td><strong>GraphicObjects\</strong></td><td>Zdrojové soubory modulu <a href="graphics.html#graphicobjects">Graphic Objects</a>.</td></tr>
+			<tr><td><strong>GraphicTest\</strong></td><td>Zdrojové soubory modulu <strong>Graphic Test</strong>.</td></tr>
+			<tr><td><strong>LODGenerator\</strong></td><td>Zdrojové soubory již nepoužívaného modulu <strong>LOD Generator</strong>.</td></tr>
+			<tr><td><strong>Main\</strong></td><td>Zdrojové soubory modulu <a href="hra.html">Main</a>.</td></tr>
+			<tr><td><strong>MapEditor\</strong></td><td>Zdrojové soubory modulu <a href="limitededitor.html">Limited Editor</a>.</td></tr>
+			<tr><td><strong>ModelMaker\</strong></td><td>Zdrojové soubory již nepoužívaného modulu <strong>Model Maker</strong> určeného k vytváření balíků datových souborů.</td></tr>
+			<tr><td><strong>NewtonSDK\</strong></td><td>Kořenový adresář SDK použitého modulu Newton Game Dynamics.</td></tr>
+			<tr><td><strong>Physics\</strong></td><td>Zdrojové soubory modulu <a href="Physics.html">Physics</a>.</td></tr>
+			<tr><td><strong>ResourceManager\</strong></td><td>Zdrojové soubory modulu <a href="others.html#ResourceManager">Resource Manager</a>.</td></tr>
+			<tr><td><strong>RMTest\</strong></td><td>Zdrojové soubory již nepoužívaného modulu <strong>RM Test</strong> určeného pro testování Resource Manageru.</td></tr>
+			<tr><td><strong>ScriptInterpreter\</strong></td><td>Zdrojové soubory modulu <a href="others.html#ScriptInterpreter">Script Interpreter</a>.</td></tr>
+			<tr><td><strong>Server\</strong></td><td>Zdrojové soubory modulu <a href="hra.html#Sec5.2">Server</a>.</td></tr>
+			<tr><td><strong>SetupWizard\</strong></td><td>Projektové soubory obsahující konfiguraci instalačního modulu <strong>Setup Wizard</strong>.</td></tr>
+			<tr><td><strong>SetupWizard\Release\</strong></td><td>Výstupní soubory instalačního modulu Setup Wizard - instalační balík hry.</td></tr>
+			<tr><td><strong>TerrainGenerator\</strong></td><td>Zdrojové soubory modulu <a href="others.html#TerrainGenerator">Terrain Generator</a>.</td></tr>
+		</tbody>
+	</table>
+
+<h2><a name="error_handling">1.4 Ošetřování chyb a výjimek</a></h2>
+	<p>V projektu jsme se namísto standardních výjimek rozhodli navrhnout jiný systém zachytávání a ošetřování vzniklých chyb, který by více splňoval naše požadavky:</p>
+	<ol>
+		<li>Nezávislost na způsobu prezentování chyby.</li>
+		<li>Snadné dohledávání původu chyby pro účely ladění.</li>
+		<li>Jednoduché použití.</li>
+	</ol>
+	<p>Jednotlivé body jsou uvedeny víceméně v pořadí důležitosti. V první řadě jsme hledali způsob, jak navrhnout systém hlášení chyb tak, aby mohly být chyby uživateli prezentovány libovolným způsobem podle typu aplikace (ve hře bude třeba chyby ohlašovat jinak než v okenní aplikaci jakou je například editor tratí). Tím bylo dáno, že o prezentaci chyby se nesmí starat chybový mechanismus sám, ale musí se o ni postarat běžící aplikace, které bude oznámeno, jaká chyba nastala. Přitom však jsme chtěli, aby bylo možné chybu vyvolat kdekoli, tedy i v modulu mimo aplikaci. To nás dovedlo k implementaci pomocí callback funkce, tj. funkce, kterou hlavní modul aplikace zaregistruje ve třídě systému hlášení chyb, a ta zaregistrovanou funkci následně volá při každé vzniklé chybě. Parametrem jí přitom předává text chyby a místo, ve kterém k chybě došlo.</p>
+	<p>To, že každá vzniklá chyba udává místo, kde k ní došlo, je zásadní především pro ladící účely. Chybu totiž neošetřuje (nehlásí) pouze jedna funkce, jako tomu běžně bývá v případě výjimek. Většinu funkcí a metod tříd jsme napsali tak, že vrací chybovou hodnotu v podobě proměnné typu <strong>HRESULT</strong>, což je celočíselná hodnota chápána tak, že 0 znamená úspěšné provedení funkce a záporná hodnota reprezentuje definovaný kód chyby (kladné hodnoty jsou zpravidla nevyužity). Každé volání takové funkce je tedy otestováno a v případě, že došlo k chybě, je vygenerována chybová hláška. Běh volající funkce je zpravidla v daném místě ukončen s návratovou hodnotou oznamující chybu. Tato chyba však již může být jiného charakteru, neboť volající funkce chápe nastalou situaci jinak. Příkladem je chyba vzniklá v Resource Manageru, kterému se nepodařilo otevřít požadovaný soubor. Resource Manager vygeneruje chybovou hlášku pro chybu <strong>ERRFILENOTFOUND</strong> a oznámí chybu volající funkci. Ta nezjišťuje k jaké chybě došlo uvnitř Resource Manageru, z jejího pohledu pouze došlo k tomu, že požadovaný zdroj nebyl k dispozici, což mohlo vést řekněme k neúspěšné inicializaci jednoho z aut hráčů. V takovém případě funkce oznámí chybu <strong>ERRRESOURCENOTAVAILABLE</strong> a předá řízení funkci nadřazené. Schéma na obr. 2 zachycuje popsaný princip.</p>
+	<p class="center"><img src="images/ErrorHandling.gif"/></p>
+	<p class="center"><strong>Obrázek 2: Schéma zachytávání chyb.</strong></p>
+	<p>Uvedené řešení nám značně zjednodušilo dohledávání chyb v kódu, neboť všechny chybové výstupy jsme nasměřovali do souboru, který při vzniku nějaké chyby obsahoval záznamy o tom, kde byla chyba vyvolána, co bylo její podstatou, ale především jakou hierarchií volání jsme se k ní dostali. Tak jsme mohli často i bez použití debuggeru rozpoznat kde v programu se nachází chyba. Příklad chybového výstupu může být následující:</p>
+	<pre>  CResourceManager::LoadPhysicalTexture() : Can not find file 'GRASS.PHPLATE'. 
+  CResourceManager::LoadResource() : Could not load PhysicalTexture.
+  CResourceManager::LoadTerrain() : Could not load PhysicalTexture 'grass.phPlate'.
+  CResourceManager::LoadResource() : Could not load Terrain.
+  CGrObjectTerrain::Init() : Could not load terrain object.
+  MapInit() : Terrain wasn't loaded</pre>
+	<p>Na prvním řádku v uvedeném chybovém výstupu se dozvídáme, že nebyl nalezen potřebný soubor, v dalších řádcích pak kde v programu byl tento soubor požadován.</p>
+	<p>Vylepšením tohoto systému je rozdělení hlášek na ryze chybové (zpravidla ukončí program) a hlášky ladícího charakteru (upozorňují na to, kudy program prošel, případně jaké podezřelé hodnoty se nachází v některých důležitých proměnných). Pro každý typ hlášek je samostatný objekt se svou vlastní funkcí pro směrování výstupu, takže zatímco chybové hlášky mohou být směřovány do souboru, ladící hlášky můžeme zobrazovat na obrazovku atp. Pro ladící hlášky je navíc definováno 5 úrovní důležitosti a nastavením makra či proměnné <strong>DebugLevel</strong> je možné ovlivňovat jak podrobné (a tedy i objemné) mají být ladící informace.</p>
+	<p>Pod pojmem jednoduché použití jsme si představovali vyhnutí se psaní nadbytečného kódu jen pro ošetřování chyb. Tomu jsme tolik nedostáli, a proto jsme nadefinovali celou řadu maker, která tuto nevýhodu potlačovala. Následující příklad ukazuje ošetření vytvoření dynamické proměnné jako pole a její následné uvolnění.</p>
+	<pre>  // definice užitých maker
+  #define ERRORMSG(code, location, param, ret)    \
+                {    \
+                    ErrorHandler.HandleError( code, _T( location ), _T( param ) );    \
+                    return ret;     \
+                }
+  #define ERRORMSG(code, location, param)  __ERRORMSG(code, location, param, code)
+  #define SAFE_NEW(p,_class,fce)  { p=new (_class); if(!p)ERRORMSG(ERROUTOFMEMORY,fce,""); }
+  #define SAFE_NEW_ARRAY(p,_class,size,fce)	SAFE_NEW(p,_class[size],fce)
+  #define SAFE_DELETE_ARRAY(p)  { if (p) { delete[] (p); (p) = NULL; } }
+  
+  // definice funkce, která naalokuje a dealokuje pole
+  // v případě chyby vyvolá chybovou hlášku a vrátí nenulu
+  HRESULT CClass::Foo( int count ) {
+      CClassItem * pArray;
+      
+      SAFE_NEW_ARRAY(pArray,CClassExample,count,"CClass::Foo()")
+      /* ...  použití pole pObject ... */
+      SAFE_DELETE_ARRAY(pObject)
+      return ERRNOERROR;
+  }</pre>
+
+<h2><a name="config_files">1.5 Konfigurační soubory</a></h2>
+	<p>Již bylo zmíněno, že jednou z našich hlavních snah je nabídnout uživateli (hráči) co největší vlastní prostor, co nejširší pole působnosti na úrovni konfigurace a tvorby map, terénů a objektů ve hře. K uskutečnění našich představ je nutné mít buďto velmi silné editační nástroje, nebo dobře přístupná data měnitelná uživatelem. Dostatečně obecný editor pro všechny možné typy datových souborů používaných ve hře by byl jednak příliš rozsáhlý projekt, než abychom byli schopni jej zahrnout do našeho časového harmonogramu, jednak by neustále narážel na změny, které jsme prováděli v průběhu dosavadního vývoje či které přinese další vývoj a rozšiřování schopností herního enginu. Proto jsme se rozhodli pro druhou variantu, tj. systém konfiguračních souborů volně přístupných uživateli.</p>
+	<p>Navrhli jsme syntaxi obecného konfiguračního souboru, který má sloužit k nastavení pojmenovaných položek. Při návrhu jsme vyšli ze standardních .ini souborů, ve kterých jedna řádka odpovídá jednomu přiřazení (nastavení proměnné) a ve kterých je možné definovat návěští označující blok přiřazení určitého charakteru. V průběhu vývoje se však ukázalo, že by bylo užitečné moci definovat hierarchickou strukturu. Rozhodli jsme se tedy o přidání druhé možné syntaxe, ve které jsou namísto návěští párové závorky (tagy) uzavírající skupinu přiřazení z obou stran (tedy platnost tagu nekončí definicí následujícího tagu jako v případě návěští). Obě syntaxe je možné míchat v rámci jednoho souboru, ale nikde se toho nevyužívá.</p>
+	<p>Shrneme-li obecnou syntaxi těchto souborů do krátkého přehledu, pak v každém souboru je možné použít:</p>
+	<ul>
+		<li>pojmenované návěští definované pomocí hranatých závorek
+			<pre>  [PojmenovaneNavesti]</pre>
+		</li>
+		<li>párový tag pomocí špičatých závorek
+			<pre>  &lt;LibovolnyTag&gt;
+  &lt;/LibovolnyTag&gt;</pre>
+		</li>
+		<li>párový tag uvnitř jiného tagu
+			<pre>  &lt;LibovolnyTag&gt;
+    &lt;VnorenyTag&gt;
+    &lt;/VnorenyTag&gt;
+  &lt;/LibovolnyTag&gt;</pre>
+		</li>
+		<li>přiřazení textu nějaké pojmenované položce (okolní "whitespace" se ignoruje)
+			<pre>  JmenoPolozky = Text, ktery chceme polozce priradit.</pre>
+		</li>
+		<li>přiřazení celého čísla nějaké pojmenované položce (reprezentováno pomocí 32 bitů)
+			<pre>  CelociselnaPolozka = 987654321
+  JinaPolozka = 0xffa0a0a0</pre>
+		</li>
+		<li>přiřazení "reálného" čísla nějaké pojmenované položce (číslo s plovoucí řádovou čárkou uchováno v 32 bitech)
+			<pre>  RealnaPolozka = 3.141592</pre>
+		</li>
+		<li>komentář platný od znaku středník až do konce řádky
+			<pre>  Polozka = 123 ; krátký komentář k položce
+  ; na další řádce jej musíme uvodit znovu</pre>				
+		</li>
+	</ul>
+	<p>K syntaxi je třeba doplnit, že z každého řádku je načteno pouze prvních 512 znaků, ostatní jsou zahozeny. Maximální délka jména položky, tagu či návěští není definována, ale logicky též nemůže přesáhnout 512 znaků.</p>
+	<p>Implementačně je načítání konfiguračního souboru řešeno metodou <strong>Load()</strong> třídy <strong>NAMEVALUEPAIR</strong>. Metodě je předána callback funkce, která je následně volána pro každý načtený relevantní řádek zvoleného konfiguračního souboru (jsou tedy ignorovány prázdné řádky a řádky obsahující pouze komentář). Metoda <strong>Load()</strong> předem určí, jakého typu je načítaný řádek (zda je to specifikace položky, návěští nebo otevírající či uzavírající tag) a callback funkci předá informaci o typu, jménu a hodnotě daného řádku (hodnota je nastavena pouze pro specifikaci položky, návěští a tagy mají definováno jen jméno). Je na volajícím, resp. předané callback funkci, aby zpracoval načtené položky. Pokud dojde při načítání k chybě na straně zpracovávající callback funkce (kupříkladu je zadání některé položky odporuje pravidlům daného konfiguračního souboru), je o tom spravena i metoda <strong>Load()</strong>, která ukončí další zpracování souboru.</p>
+	<p>Výhodou těchto konfiguračích souborů je snadná specifikace nového typu vstupních dat, jednoduché zvládnutí syntaxe pro uživatele a mimo jiné i to, že umožňuje zadávat libovolnou položku opakovaně (naopak v případě, že je potřeba opakované zadávání položek potlačit, je nutné toto zařídit vnitřními stavy na úrovni volané callback funkce).</p>
+	
+	
+</body>
+</html>

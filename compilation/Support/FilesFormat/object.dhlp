@@ -1,0 +1,117 @@
+--MainObject - whole set
+Name = 
+HasCheckpoint = 
+StartingPosition = 
+Icon = 
+%%icon
+--Name
+Name =
+--Icon
+Icon =
+%%icon
+--HasCheckPoint
+HasCheckpoint =
+--StartingPosition
+StartingPosition =
+---------------------------
+--[object] - whole set
+[object]
+Model = 
+%%modeldef
+
+posX = 
+posY = 
+
+sizeX = 
+sizeY =
+
+x = 
+y = 
+z = 
+
+scale.x = 
+scale.y = 
+scale.z = 
+
+cog.x = 
+cog.y = 
+cog.z = 
+
+static = 
+mass = 
+material = 
+grassAllowed = 
+light = 
+%%light
+--[object]
+[object]
+--Model 
+Model = 
+%%modeldef
+--posX & posY
+posX = 
+posY =
+--sizeX & sizeY
+sizeX = 
+sizeY =
+--x & y & z
+x = 
+y = 
+z = 
+-- scale.x & scale.y & scale.z
+scale.x = 
+scale.y = 
+scale.z = 
+-- cog.x & cog.y & cog.z
+cog.x = 
+cog.y = 
+cog.z = 
+--static 
+static = 
+--mass
+mass = 
+--matrial
+material = 
+--GrassAllowed
+grassAllowed = 
+--Light
+light = 
+%%light
+---------------------------
+--[Road] - whole set
+[Road]
+posX = 
+posY = 
+sizeX = 1
+sizeY = 1
+rotation.y=0
+texture = 
+%%text
+phtexture = 
+%%phtexture
+--[road]
+[Road]
+--posX & posY
+posX = 
+posY = 
+--sizeX & sizeY
+sizeX = 
+sizeY = 
+--texture
+texture = 
+%%text
+--rotation.y
+rotation.y=
+--phTexture
+phtexture=
+%%phtexture
+---------------------------
+--[Waypoints]
+[waypoints]
+--x & y & z
+x = 
+y = 
+z = 
+--min_speed & max_speed
+min_speed = 
+max_speed = 

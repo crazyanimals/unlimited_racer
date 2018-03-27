@@ -1,0 +1,150 @@
+<Dialog>
+	X = 300
+	Y = 100
+	Width = 280
+	Height = 350
+	FontDeclaration = DialogBasic.font
+	BackgroundTexture = GUI\SteelDialogBackground.png
+	TextureDeclarations = GraphicTest.dlgDecl
+	Transparency = 0.25 ; value in range <0,1>, 0 means totally visible
+	ToolTipTransparency = 0.0
+	ControlsTransparency = 0.0
+	BasicTextColor = 0xffd86b1c
+	ActiveTextColor = 0xffffff00
+	Color = 0xff0000a0
+	SliderPosMin = 10
+	SliderPosMax = 109
+	ToolTipDelay = 1000
+</Dialog>
+
+
+<Control>
+	Name = ExitButton
+	Type = button
+	X = 60
+	Y = 280
+	Width = 160
+	Height = 30
+	Value = Exit
+
+	Enabled = 1
+	Visible = 1
+	TabStop = 8
+	ZOrder = 10
+	AbsolutePosition = 0
+	Transparency = 0.0
+	FontDeclaration = DialogBasic.font
+	Color = 0xffffffff 
+	ToolTip = Zavøe stávající dialog
+	
+	TextFormat = 68 ; left - 1, right - 2, center - 4, top - 16, bottom - 32, center - 64
+	
+
+</Control>
+
+<Control>
+	Name = CreditsButton
+	Type = button
+	X = 60
+	Y = 230
+	Width = 160
+	Height = 30
+	Value = Credits
+
+	Enabled = 1
+	Visible = 1
+	TabStop = 8
+	ZOrder = 10
+	AbsolutePosition = 0
+	Transparency = 0.0
+	FontDeclaration = DialogBasic.font
+	Color = 0xffffffff 
+	ToolTip = Zobrazi credits
+	
+	TextFormat = 68 ; left - 1, right - 2, center - 4, top - 16, bottom - 32, center - 64
+	
+
+</Control>
+
+<Control>
+	Name = SettingsButton
+	Type = button
+	X = 60
+	Y = 180
+	Width = 160
+	Height = 30
+	Value = Settings
+
+	Enabled = 1
+	Visible = 1
+	TabStop = 8
+	ZOrder = 10
+	AbsolutePosition = 0
+	Transparency = 0.0
+	FontDeclaration = DialogBasic.font
+	Color = 0xffffffff 
+	
+	TextFormat = 68 ; left - 1, right - 2, center - 4, top - 16, bottom - 32, center - 64
+	
+
+</Control>
+
+<Control>
+	Name = MultiStartButton
+	Type = button
+	X = 60
+	Y = 130
+	Width = 160
+	Height = 30
+	Value = Multiplayer Game
+
+	Enabled = 1
+	Visible = 1
+	TabStop = 8
+	ZOrder = 10
+	AbsolutePosition = 0
+	Transparency = 0.0
+	FontDeclaration = DialogBasic.font
+	Color = 0xffffffff 
+	
+	
+	TextFormat = 68 ; left - 1, right - 2, center - 4, top - 16, bottom - 32, center - 64
+	
+
+</Control>
+
+<Control>
+	Name = SingleStartButton
+	Type = button
+	X = 60
+	Y = 80
+	Width = 160
+	Height = 30
+	Value = Single Game
+
+	Enabled = 0
+	Visible = 1
+	TabStop = 8
+	ZOrder = 10
+	AbsolutePosition = 0
+	Transparency = 0.5
+	FontDeclaration = DialogBasic.font
+	Color = 0xffffffff 
+	ToolTip = Zavøe stávající dialog
+	
+	TextFormat = 68 ; left - 1, right - 2, center - 4, top - 16, bottom - 32, center - 64
+
+</Control>
+            
+<Control>
+	Name = TopLabel
+	Type = label
+	X = 10
+	Y = 20
+	Width = 590
+	Height = 30
+	Value = UNLIMITED RACER
+	FontDeclaration = DialogCaption.font
+	TextFormat = 68
+</Control>
+

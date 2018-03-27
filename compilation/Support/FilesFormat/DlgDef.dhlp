@@ -1,0 +1,161 @@
+------------ Parametrs -----------
+
+--X & Y
+X = 
+Y = 
+--Width & Height
+Width = 
+Height = 
+--FontDeclaration
+FontDeclaration = 
+--BackgroundTexture
+BackgroundTexture = 
+--TextureDeclarations
+TextureDeclarations = 
+--Transparency
+Transparency = 
+--ToolTipTransparency
+ToolTipTransparency = 
+--ControlsTransparency
+ControlsTransparency =
+--BasicTextColor
+BasicTextColor = 
+--ActiveTextColor
+ActiveTextColor = 
+--SliderPosMin
+SliderPosMin =  
+--SliderPosMax
+SliderPosMax = 
+--ToolTipDelay
+ToolTipDelay = 
+--Dialog
+-------------- Sets --------------
+<Dialog> 
+X = 
+Y = 
+Width = 
+Height = 
+FontDeclaration = 
+BackgroundTexture = 
+TextureDeclarations = 
+Transparency = 
+ToolTipTransparency = 
+ControlsTransparency =
+BasicTextColor = 
+ActiveTextColor = 
+SliderPosMin =  
+SliderPosMax = 
+ToolTipDelay = 
+</Dialog>
+--BackgroundTexDecl 
+<BackgroundTexDecl> 
+X = 
+Y = 
+Width = 
+Height = 
+</BackgroundTexDecl> 
+--TopLeftTexDecl
+<TopLeftTexDecl> 
+X = 
+Y = 
+Width = 
+Height = 
+</TopLeftTexDecl> 
+--TopRightTexDecl
+<TopRightTexDecl> 
+X = 
+Y = 
+Width = 
+Height = 
+</TopRightTexDecl> 
+--BottomLeftTexDecl
+<BottomLeftTexDecl> 
+X = 
+Y = 
+Width = 
+Height = 
+</BottomLeftTexDecl> 
+--BottomRightTexDecl
+<BottomRightTexDecl> 
+X = 
+Y = 
+Width = 
+Height = 
+</BottomRightTexDecl> 
+--HorizLineTexDecl
+<HorizLineTexDecl> 
+X = 
+Y = 
+Width = 
+Height = 
+</HorizLineTexDecl> 
+--VertLineTexDecl
+<VertLineTexDecl> 
+X = 
+Y = 
+Width = 
+Height = 
+</VertLineTexDecl> 
+--UpTexDecl
+<UpTexDecl> 
+X = 
+Y = 
+Width = 
+Height = 
+</UpTexDecl>
+--DownTexDecl
+<DownTexDecl> 
+X = 
+Y = 
+Width = 
+Height = 
+</DownTexDecl>
+--UncheckedTexDecl
+<UncheckedTexDecl> 
+X = 
+Y = 
+Width = 
+Height = 
+</UncheckedTextDecl>
+--CheckedTexDecl
+<CheckedTexDecl> 
+X = 
+Y = 
+Width = 
+Height = 
+</CheckedTextDecl>
+--TrackTexDecl
+<TrackTexDecl> 
+X = 
+Y = 
+Width  = 
+Height = 
+</TrackTexDecl>
+--SliderTexDecl
+<SliderTexDecl> 
+X = 
+Y = 
+Width  = 
+Height = 
+</SliderTexDecl>
+--UnselectedTexDecl
+<UnselectedTexDecl> 
+X = 
+Y = 
+Width = 
+Height = 
+</UnselectedTexDecl>
+--SelectedTexDecl
+<SelectedTexDecl> 
+X = 
+Y = 
+Width = 
+Height = 
+</SelectedTexDecl>
+--ActiveBackgroundTexDecl
+<ActiveBackgroundTexDecl> 
+X = 
+Y = 
+Width = 
+Height = 
+</ActiveBackgroundTexDecl>

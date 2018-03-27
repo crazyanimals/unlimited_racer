@@ -1,0 +1,147 @@
+name = Safety Fence Turning 3x3
+icon = safety_fence_turning.bmp
+
+[road]
+posX = 0
+posY = 0
+sizeX = 1
+sizeY = 1
+texture = road_turn3_7.png
+phtexture = road_turn3_7.phTexture
+GrassAllowed = 0
+
+[road]
+posX = 1
+posY = 0
+sizeX = 1
+sizeY = 1
+texture = road_turn3_8.png
+phtexture = road_turn3_8.phTexture
+GrassAllowed = 0
+
+[road]
+posX = 0
+posY = 1
+sizeX = 1
+sizeY = 1
+texture = road_turn3_4.png
+phtexture = road_turn3_4.phTexture
+GrassAllowed = 0
+
+[road]
+posX = 1
+posY = 1
+sizeX = 1
+sizeY = 1
+texture = road_turn3_5.png
+phtexture = road_turn3_5.phTexture
+GrassAllowed = 0
+
+[road]
+posX = 2
+posY = 1
+sizeX = 1
+sizeY = 1
+texture = road_turn3_6.png
+phtexture = road_turn3_6.phTexture
+GrassAllowed = 0
+
+[road]
+posX = 0
+posY = 2
+sizeX = 1
+sizeY = 1
+texture = road_turn3_1.png
+phtexture = road_turn3_1.phTexture
+GrassAllowed = 1
+
+[road]
+posX = 1
+posY = 2
+sizeX = 1
+sizeY = 1
+texture = road_turn3_2.png
+phtexture = road_turn3_2.phTexture
+GrassAllowed = 0
+
+[road]
+posX = 2
+posY = 2
+sizeX = 1
+sizeY = 1
+texture = road_turn3_3.png
+phtexture = road_turn3_3.phTexture
+GrassAllowed = 0
+
+[object]
+Model = safety_fence_turning_3_inner.modelDef
+static = 1
+SizeX = 3
+SizeY = 3
+PosX = 0
+PosY = 0
+X = 1500
+Y = 0
+Z = 1500
+rotation.y= 4.712
+GrassAllowed = 0
+material = 2
+
+[object]
+Model = safety_fence_turning_3_outer.modelDef
+static = 1
+SizeX = 3
+SizeY = 3
+PosX = 0
+PosY = 0
+X = 1500
+Y = 0
+Z = 1500
+rotation.y= 4.712
+GrassAllowed = 0
+material = 2
+
+[waypoints]
+x = 500.0
+y = 100.0
+z = 0.0
+max_speed = 10
+
+x = 735.0
+y = 100.0
+z = 1000.0
+
+x = 1225.0
+y = 100.0
+z = 1775.0
+
+x = 2000.0
+y = 100.0
+z = 2265.0
+
+x = 3000.0
+y = 100.0
+z = 2500.0
+
+[waypoints]
+
+x = 3000.0
+y = 100.0
+z = 2500.0
+max_speed = 10
+
+x = 2000.0
+y = 100.0
+z = 2265.0
+
+x = 1225.0
+y = 100.0
+z = 1775.0
+
+x = 735.0
+y = 100.0
+z = 1000.0
+
+x = 500.0
+y = 100.0
+z = 0.0

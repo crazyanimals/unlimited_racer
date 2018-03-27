@@ -1,0 +1,182 @@
+name = Turning 3x3 /w Lamps
+icon = turning_lamp.bmp
+
+[road]
+posX = 0
+posY = 0
+sizeX = 1
+sizeY = 1
+texture = road_turn3_7.png
+phtexture = road_turn3_7.phTexture
+GrassAllowed = 0
+
+[road]
+posX = 1
+posY = 0
+sizeX = 1
+sizeY = 1
+texture = road_turn3_8.png
+phtexture = road_turn3_8.phTexture
+GrassAllowed = 0
+
+[road]
+posX = 0
+posY = 1
+sizeX = 1
+sizeY = 1
+texture = road_turn3_4.png
+phtexture = road_turn3_4.phTexture
+GrassAllowed = 0
+
+[road]
+posX = 1
+posY = 1
+sizeX = 1
+sizeY = 1
+texture = road_turn3_5.png
+phtexture = road_turn3_5.phTexture
+GrassAllowed = 0
+
+[road]
+posX = 2
+posY = 1
+sizeX = 1
+sizeY = 1
+texture = road_turn3_6.png
+phtexture = road_turn3_6.phTexture
+GrassAllowed = 0
+
+[road]
+posX = 0
+posY = 2
+sizeX = 1
+sizeY = 1
+texture = road_turn3_1.png
+phtexture = road_turn3_1.phTexture
+GrassAllowed = 1
+
+[road]
+posX = 1
+posY = 2
+sizeX = 1
+sizeY = 1
+texture = road_turn3_2.png
+phtexture = road_turn3_2.phTexture
+GrassAllowed = 0
+
+[road]
+posX = 2
+posY = 2
+sizeX = 1
+sizeY = 1
+texture = road_turn3_3.png
+phtexture = road_turn3_3.phTexture
+GrassAllowed = 0
+
+
+
+[object]
+model = lamp.modeldef
+light = lamp.light
+light = lamp_glow.light
+SizeX = 1
+SizeY = 1
+PosX = 0
+PosY = 0
+static = 1
+x = 60
+y = 0
+z = 500
+rotation.y = 3.14
+material = 2
+
+[object]
+model = lamp.modeldef
+light = lamp.light
+light = lamp_glow.light
+SizeX = 1
+SizeY = 1
+PosX = 2
+PosY = 2
+static = 1
+x = 500
+y = 0
+z = 940
+rotation.y = -1.57
+material = 2
+
+[object]
+model = lamp.modeldef
+light = lamp.light
+light = lamp_glow.light
+SizeX = 1
+SizeY = 1
+PosX = 0
+PosY = 1
+static = 1
+x = 354
+y = 0
+z = 646
+rotation.y = -2.356
+material = 2
+
+[object]
+model = lamp.modeldef
+light = lamp.light
+light = lamp_glow.light
+SizeX = 1
+SizeY = 1
+PosX = 1
+PosY = 2
+static = 1
+x = 354
+y = 0
+z = 646
+rotation.y = -2.356
+material = 2
+
+[waypoints]
+x = 500.0
+y = 100.0
+z = 0.0
+max_speed = 40
+
+x = 735.0
+y = 100.0
+z = 1000.0
+
+x = 1225.0
+y = 100.0
+z = 1775.0
+
+x = 2000.0
+y = 100.0
+z = 2265.0
+
+x = 3000.0
+y = 100.0
+z = 2500.0
+
+
+[waypoints]
+
+x = 3000.0
+y = 100.0
+z = 2500.0
+max_speed = 40
+
+x = 2000.0
+y = 100.0
+z = 2265.0
+
+x = 1225.0
+y = 100.0
+z = 1775.0
+
+x = 735.0
+y = 100.0
+z = 1000.0
+
+x = 500.0
+y = 100.0
+z = 0.0

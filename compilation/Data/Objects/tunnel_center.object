@@ -1,0 +1,54 @@
+Name = Tunnel center
+Icon = tunnel_center.bmp
+
+[object]
+model = tunnel_center.modeldef
+SizeX = 1
+SizeY = 1
+PosX = 0
+PosY = 0
+static = 1
+x = 500
+y = 0
+z = 500
+scale.x = 1
+scale.y = 1
+scale.z = 1
+GrassAllowed = 0
+material = 6
+
+[waypoints]
+x = 500.0
+y = 100.0
+z = 0.0
+
+x = 500.0
+y = 100.0
+z = 333.0
+
+x = 500.0
+y = 100.0
+z = 666.0
+
+x = 500.0
+y = 100.0
+z = 1000.0
+
+
+[waypoints]
+x = 500.0
+y = 100.0
+z = 1000.0
+
+x = 500.0
+y = 100.0
+z = 666.0
+
+x = 500.0
+y = 100.0
+z = 333.0
+
+x = 500.0
+y = 100.0
+z = 0.0
+

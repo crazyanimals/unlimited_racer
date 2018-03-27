@@ -1,0 +1,147 @@
+<Dialog>
+	X = 100
+	Y = 100
+	Width = 600
+	Height = 400
+	FontDeclaration = DialogBasic.font
+	BackgroundTexture = GUI\SteelDialogBackground.png
+	TextureDeclarations = GraphicTest.dlgDecl
+	Transparency = 0.25 ; value in range <0,1>, 0 means totally visible
+	ToolTipTransparency = 0.0
+	ControlsTransparency = 0.0
+	BasicTextColor = 0xffd86b1c
+	ActiveTextColor = 0xffffff00
+	Color = 0xff0000a0
+	SliderPosMin = 10
+	SliderPosMax = 109
+	ToolTipDelay = 1000
+</Dialog>
+
+
+<Control>
+	Name = ODOpponentsSettingLabel
+	Type = label
+	X = 10
+	Y = 10
+	Width = 590
+	Height = 30
+	Value = OPPONENTS SETTING
+	FontDeclaration = DialogCaption.font
+	TextFormat = 68
+</Control>
+
+
+<Control>
+	Name = ODOpponentsLabel
+	Type = label
+	X = 10
+	Y = 50
+	Width = 590
+	Height = 30
+	Value = Opponents:
+	FontDeclaration = DialogCaption.font
+</Control>
+
+
+<Control>
+	Name = ODCarsLabel
+	Type = label
+	X = 330
+	Y = 50
+	Width = 590
+	Height = 30
+	Value = Cars:
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = ODOpponentsListBox
+	Type = list
+	X = 10
+	Y = 90
+	Width = 250
+	Value = 0
+	ToolTip = Select racing map
+	
+	LineHeight = 20
+	LinesCount = 10
+	TextFormat = 65
+	IconWidth = 20
+	
+	; Value = 1
+</Control>
+
+<Control>
+	Name = ODCarsListBox
+	Type = list
+	X = 330
+	Y = 90
+	Width = 250
+	Value = 0
+	ToolTip = Select racing map
+	
+	LineHeight = 20
+	LinesCount = 10
+	TextFormat = 65
+	IconWidth = 20
+	
+	; Value = 1
+</Control>
+
+<Control>
+	Name = ODLeftArrowButton
+	Type = button
+	X = 270
+	Y = 160
+	Width = 50
+	Height = 30
+	Value = <<<
+
+	ToolTip = Adds opponent with selected car
+	
+	TextFormat = 68 ; left - 1, right - 2, center - 4, top - 16, bottom - 32, center - 64
+</Control>
+
+<Control>
+	Name = ODRightArrowButton
+	Type = button
+	X = 270
+	Y = 210
+	Width = 50
+	Height = 30
+	Value =  >>>
+
+	ToolTip = Removes opponent 
+	
+	TextFormat = 68 ; left - 1, right - 2, center - 4, top - 16, bottom - 32, center - 64
+</Control>
+
+<Control>
+	Name = ODOkButton
+	Type = button
+	X = 70
+	Y = 350
+	Width = 160
+	Height = 30
+	Value = OK
+
+	ToolTip = Confirm opponents settings
+	
+	TextFormat = 68 ; left - 1, right - 2, center - 4, top - 16, bottom - 32, center - 64
+</Control>
+
+<Control>
+	Name = ODCancelButton
+	Type = button
+	X = 370
+	Y = 350
+	Width = 160
+	Height = 30
+	Value = CANCEL
+
+	ToolTip = Cancel opponents settings
+	
+	TextFormat = 68 ; left - 1, right - 2, center - 4, top - 16, bottom - 32, center - 64
+</Control>
+
+

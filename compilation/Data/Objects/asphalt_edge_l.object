@@ -1,0 +1,25 @@
+Name = Asphalt Left Edge
+Icon = asphalt_edge_l.bmp
+
+[object]
+model = road_edge.modeldef
+SizeX = 1
+SizeY = 1
+PosX = 0
+PosY = 0
+static = 1
+x = 500
+y = 0
+z = 500
+scale.x = 1
+scale.y = 0.5
+scale.z = 1
+Rotation.Y = -1.571
+
+[Road]
+posX = 0
+posY = 0
+sizeX = 1
+sizeY = 1
+texture = concrete.jpg
+phtexture = asphalt.phTexture

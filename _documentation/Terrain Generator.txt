@@ -1,0 +1,60 @@
+UŽIVATELSKÁ DOKUMENTACE
+=======================
+
+TerrainGenerator
+----------------
+	
+TerrainGenerator je konzolový program pro generování ploch dle zadaných funkcí a jejich následný výstup do souboru. Generování je ovlivnìno celou øadou parametrù, z nichž nejpodstatnìjší je možnost generování dle vstupního skriptu. Protože generátor samotný obsahuje pouze nìkolik pøeddefinovaných funkcí - vzorù terénu, je èasto tøeba využít skriptu pro vytvoøení nového terénu. Program kromì souøadnic vrcholù plochy podmínìnì generuje také normály povrchu ve vygenerovaných vrcholech a souøadnice pøípadné mapované textury.
+
+Plocha je generována jako množina funkèních hodnot v diskrétní pravoúhlé pravidelné møížce. Rozestupy mezi jednotlivými body jsou definovány nepøímo - vychází z údaje o velikosti plochy a o poètu segmentù, ze kterých má  být plocha v daném smìru složena.
+	
+Parametry programu se zadávají v pøíkazové øádce. Jde-li o parametrizovanou položku, zadává se ve tvaru -X#, kde namísto znaku X se vloží znak argumentu programu a namísto # se vloží údaj, kterým chceme daný argument inicializovat. Všechny argumenty mají svou defaultní hodnotu, proto není nutné zadávat žádný parametr, a program pøesto nìjaký terén vygeneruje. Bude následovat struèný výpis parametrù, jejich detailnìjší popis je možno najít pøi výpisu nápovìdy.
+
+	-h	vyvolá nápovìdu - generátor v takovém pøípadì vùbec nebude spuštìn; zde se dozvíte více o jednotlivých parametrech
+	-t	definuje typ plochy z pøeddefinovaných prototypù
+	-f	bude zadáno jméno výstupního souboru
+	-b	jméno souboru se skriptem; pokud není zadán tento parametr, provádí se program podle zadaných èi defaultních argumentù; naopak v pøípadì, že tento parametr zadán je, provádí se program pouze jako dùsledek provedení vstupního skriptu
+	+T	kromì souøadnic vrcholù budou vygenerovány také jejich normály
+	-T	normály generovány nebudou
+	+N	budou generovány také souøadnice textury
+	-N	souøadnice textury generovány nebudou
+	-x	šíøka plochy
+	-z	hloubka plochy (èi délka)
+	-y	výška plochy
+	-X	poèet segmentù plochy na ose X
+	-Z	poèet segmentù plochy na ose Z
+	
+
+V pøípadì použití skriptu je tøeba volat nìkteré vnitøní pøíkazy generátoru. Zde je seznam onìch pøíkazù:
+
+setFName ( string ) : Nastaví jméno výstupního souboru. Nic nevrací.
+
+setType ( int ) : Nastaví typ pøeddefinovaného plátu.  Nic nevrací.
+
+setHeight ( float ) : Nastaví výšku plochy. Nic nevrací.
+
+setSegsX ( int ) : Nastaví poèet segmentù na ose X. Nic nevrací.
+
+setSegsZ ( int ) : Nastaví poèet segmentù na ose Z. Nic nevrací.
+
+setSizeX ( float ) : Nastaví šíøku plochy. Nic nevrací.
+
+setSizeZ ( float ) : Nastaví hloubku plochy. Nic nevrací.
+		
+setNormals ( int ) : Pokud je parametr 1, pak nastaví generování normál na TRUE, jinak FALSE. Nic nevrací.
+
+setTextureCoords ( int ) : Pokud je parametr 1, pak nastaví generování souøadnice textury na TRUE, jinak FALSE. Nic nevrací.
+
+settings ( fileName, type, height, segsX, segsZ, sizeX, sizeZ, normals, texture ) : Pøíkaz settings provede nastavení všech parametrù najednou. Nevrací žádnou hodnotu. Typy parametrù i jejich význam je odpovídající jednotlivým pøedešlým pøíkazùm.
+
+generate () : Vygeneruje terén podle zadaných parametrù. Vrací 1 pokud nedošlo k chybì. Nedostává žádný parametr, vše musí být již nastaveno. Tento pøíkaz slouží k rychlému generování nìkterého z prototypù. Není možné jej použít v pøípadì vlastního plátu.
+
+init () : Inicializuje struktury potøebné ke generování terénu. Vrací 1, pokud nedošlo k chybì. Struktury jsou vytvoøeny na základì nastavení provedeného pomocí volání settings. Proto pøed voláním init MUSÍ být již vše nastaveno.
+
+computeY ( int X, int Z, float val ) : Nastaví výšku (Y souøadnici) vrcholu v souøadnicích X,Z na hodnotu val. X a Z jsou souøadnice indexované segmenty, tedy v rozsahu <0,#segmentù>. Nic nevrací. Pøed voláním computeY MUSÍ být inicializovány nìkteré struktury, tedy zavolán init.
+
+write () : Zapisuje vytvoøený terén do souboru. Využívá již nastavených parametrù a již vygenerovaného terénu. Opìt je nutné, aby byl døíve zavolán init. Pokud nebyla data správnì naplnìna pomocí volání computeY, program to nepozná, pouze budou špatné výstupní hodnoty. Vrací 1 v pøípadì úspìšného uložení.
+
+release () : Uvolòuje døíve vytvoøené struktury. Nic nevrací.
+
+

@@ -1,0 +1,29 @@
+Name = Jumper
+icon=jumper.bmp
+
+[object]
+Model = jumper.modelDef
+static = 1
+SizeX = 1
+SizeY = 1
+PosX = 0
+PosY = 0
+X = 500
+Y = 0
+Z = 500
+Scale.X = 1.33333
+Scale.Y = 1
+Scale.Z = 1
+GrassAllowed = 0
+material = 6
+
+[waypoints]
+x = 500.0
+y = 100.0
+z = 0.0
+max_speed = 25
+
+x = 500.0
+y = 300.0
+z = 1000.0
+

@@ -1,0 +1,70 @@
+<LOD0>
+	model = carrera.x
+	<textures>
+		carrera.png = carrera_red.png
+	</textures>
+</LOD0>
+
+<LOD1>
+	model = carrera.x
+	<textures>
+		carrera.png = carrera_red.png
+	</textures>
+</LOD1>
+
+<LOD2>
+	model = carrera.x
+	<textures>
+		carrera.png = carrera_red.png
+	</textures>
+</LOD2>
+
+<LOD3>
+	model = carrera.x
+	<textures>
+		carrera.png = carrera_red.png
+	</textures>
+</LOD3>
+
+<LOD4>
+	model = carrera.x
+	<textures>
+		carrera.png = carrera_red.png
+	</textures>
+</LOD4>
+
+<LOD5>
+	model = carrera.x
+	<textures>
+		carrera.png = carrera_red.png
+	</textures>
+</LOD5>
+
+<LOD6>
+	model = carrera.x
+	<textures>
+		carrera.png = carrera_red.png
+	</textures>
+</LOD6>
+
+<LOD7>
+	model = carrera.x
+	<textures>
+		carrera.png = carrera_red.png
+	</textures>
+</LOD7>
+
+<LOD8>
+	model = carrera.x
+	<textures>
+		carrera.png = carrera_red.png
+	</textures>
+</LOD8>
+
+<LOD9>
+	model = carrera.x
+	<textures>
+		carrera.png = carrera_red.png
+	</textures>
+</LOD9>
+	

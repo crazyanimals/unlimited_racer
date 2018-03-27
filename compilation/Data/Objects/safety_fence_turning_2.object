@@ -1,0 +1,104 @@
+name = Safety Fence Turning 2x2
+Icon = safety_fence_turning2x2.bmp
+
+[road]
+posX = 0
+posY = 1
+sizeX = 1
+sizeY = 1
+texture = road_turn2_1.png
+phtexture = road_turn2_1.phTexture
+GrassAllowed = 0
+
+[road]
+posX = 1
+posY = 1
+sizeX = 1
+sizeY = 1
+texture = road_turn2_2.png
+phtexture = road_turn2_2.phTexture
+GrassAllowed = 0
+
+[road]
+posX = 0
+posY = 0
+sizeX = 1
+sizeY = 1
+texture = road_turn2_3.png
+phtexture = road_turn2_3.phTexture
+GrassAllowed = 0
+
+[road]
+posX = 1
+posY = 0
+sizeX = 1
+sizeY = 1
+texture = road_turn2_4.png
+phtexture = road_turn2_4.phTexture
+GrassAllowed = 0
+
+[object]
+Model = safety_fence_turning_2_inner.modelDef
+static = 1
+SizeX = 2
+SizeY = 2
+PosX = 0
+PosY = 0
+X = 1000
+Y = 0
+Z = 1000
+rotation.y= 4.712
+GrassAllowed = 0
+material = 2
+
+[object]
+Model = safety_fence_turning_2_outer.modelDef
+static = 1
+SizeX = 2
+SizeY = 2
+PosX = 0
+PosY = 0
+X = 1000
+Y = 0
+Z = 1000
+rotation.y= 4.712
+GrassAllowed = 0
+material = 2
+
+[waypoints]
+x = 500.0
+y = 100.0
+z = 0.0
+max_speed = 25
+
+x = 375.0
+y = 100.0
+z = 1000.0
+
+x = 1000.0
+y = 100.0
+z = 1675.0
+
+x = 2000.0
+y = 100.0
+z = 1500.0
+
+[waypoints]
+
+max_speed = 25
+
+x = 2000.0
+y = 100.0
+z = 1500.0
+
+x = 1000.0
+y = 100.0
+z = 1675.0
+
+x = 375.0
+y = 100.0
+z = 1000.0
+
+x = 500.0
+y = 100.0
+z = 0.0

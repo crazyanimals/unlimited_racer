@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>AI</title>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<link type="text/css" href="mainstyles.css" rel="stylesheet">
+</head>
+<body>
+
+<h1><a name="sec4">4 Umělá inteligence</a></h1>
+<p>
+Cílem AI (<i>Artificial Intelligence - Umělá Inteligence</i>) je vytvořit umělého "řidiče", který bude důstojným soupeřem hráči hry Unlimited Racer. Automobil řízený pomocí AI by měl být schopen jezdit rozumnou rychlostí po trati, přes překážky a vyhýbat se protivníkům. Je nutné poznamenat, že prakticky neexistuje dostupná literatura, která by se tímto problémem zabývala. Běžné metody používané v oboru Umělé Inteligence jsou pro potřeby počítačových her zpravidla nepoužitelné, zpravidla pro svou výpočetní náročnost, nebo nutnost "předpočítávání dat". Častokrát nemají ani moc použitelné výsledky. Takto jsme například narazili s původní myšlenkou, jak implementovat AI. Ta počítala s využítím technik zpětnovazebného učení (Reinforcement Learning). Po bližším prozkoumání se tato metoda ukázala být velmi nevhodná, zejména z důvodů velké volnosti našeho světa, nutnosti "naučit" algoritmus předem, nedostatečné schopnosti reagovat na dynamicky se měnící situaci a v neposlední řadě také díky výpočetní náročnosti.<br>
+Ve finální verzi je použitá modifikace metody známé jako <a href="http://www.red3d.com/cwr/steer/" target="_blank">Steering</a>, zejména pak variant <a href="http://www.red3d.com/cwr/steer/PathFollow.html" target="_blank">Path Following</a> a <a href="http://www.red3d.com/cwr/steer/Obstacle.html" target="_blank">Obstacle Avoidance</a> pro pohybující se objekty. Metoda je výpočetně nenáročná, nepředpokládá žádná předpočítaná data a tak se velmi hodí pro použití v dynamické počítačové hře.<br><br> Implementace předpokládala použití projektu <a href="http://opensteer.sourceforge.net/">OpenSteer</a>, který obsahuje již hotovou implementaci zmíňěných algoritmů. Nakonec se tak ale nestalo, převážně z těchto důvodů:
+<ul><li>
+Implementace OpenSteeru nedovoluje jednoduše oddělit výpočetní část (OpenSteer) od části zobrazovací (OpenSteerDemo) a implementace pokročilejších algoritmů je výhradě ve formě pluginů pro OpenSteerDemo. OpenSteer je navržen opačně než bychom chtěli - umožňuje přidávání pluginů a jejich jednoduché zobrazování, ale díky provázanosti projektů neumožňuje implementované algoritmy použít v jiném produktu (Unlimited Racer) bez jejich kompletního přepsání.
+</li><br>
+<li>
+OpenSteer má velmi zjednodušený pohled na svět a autonomní objekty v něm se pohybující. Řada těchto zjednodušení se pro automobilový simulátor nehodí, nebo je dokonce konstrukční vadou - například se předpokládá, že jakýkoliv objekt je automaticky natočený podle směru svého pohybu a může se otočit na místě při nulové rychlosti. To samořejmě běžný automobil neumí.
+</li>
+</ul>
+Nakonec tedy nezbylo než prostudovat algoritmy použité v OpenSteeru, zejména pak plugin "Pedestrian" a kompletně je přepsat, aby vyhovovaly našim požadavkům. Možná zde není vhodné mluvit o přepsání OpenSteeru, ale spíš o inspiraci OpenSteerem, protože po postupném přepisování a upravování z OpenSteeru zbylo jen logické rozdělení do tříd a hiearchický model volání funkcí. Většinu ostatního kódu bylo potřeba zjednodušit, vynechat či přepsat tak, aby vyhovoval našim požadavkům.<br>
+</p> <br>
+
+<p class="center"><img src="images/AI_scheme.gif"></p>
+<p class="center"><strong>Obrázek 4.1: Schéma umístění modulu AI v projektu.</strong></p>
+<p>
+
+<h2><a name="sec4.1">4.1 Základní princip fungování AI</a></h2>
+<p>AI využívá waypointů, pomocí kterých je popsána trať, kterou má auto projet. Tyto waypointy jsou předgenerovány pomocí Limited Editoru. Auta ovládaná pomocí AI se snaží waypointů držet a současně (s nižší prioritou) se vyhýbat ostatním dynamickým objektům (jejichž hmotnost překročí jistou hranici). Každý waypoint má navíc nastavenou minimální a maximální rychlost, kterou se přes něj dá jet. Při vhodném nastavení tak AI pozná, že má do zatáčky zpomalit a naopak na rovince jet rychle. AI ignoruje statické objekty (například lampy podél trati, billboardy), protože je díky implementaci fyziky nelze nijak odlišit od vlastních objektů překážek (looping, rampa, ...). Pokud se auto řízené AI v určitém časovém intervalu nepohne o předem definovaný počet metrů, je restartováno. Toto restartování je zde pro případ, kdy automobil uvízne v překážce či jiném objektu a nedokáže odtud vyjet. Hráč má k dispozici podobnou funkci.<br>
+<br><br>
+<p class="center"><img src="images/AIClasses.gif"></p>
+<p class="center"><strong>Obrázek 4.2: Schéma tříd v AI.</strong></p><br>
+<h2><a name="sec4.2">4.2 CSteeringAI</a></h2>
+<p>
+	<code>CSteeringAI</code> je hlavní třída projektu AI, která slouží jako rozhraní pro komunikaci s dalšími částmi Unlimited Raceru. Tato třída zajišťuje inicializaci celé AI, synchronizaci pozic a rychlostí objektů před vlastním výpočtem a nastavení ovládacích prvků aut po výpočtu.
+	Samotná incializace se pak provádí předáním inicializační struktury <code>InitStruct</code> funkci <code>InitAI()</code>. V průběhu inicializace si tato funkce načte mapu a najde optimální posloupnost waypointů, které odpovídají cestě zvolené Limited Editoru. Optimální cesta se hledá pomocí Dijkstrova algoritmu v grafu s kladně ohodnocenými hranami. Vrcholy grafu jsou jednotlivé sady waypointů příslušející k políčkům, přes které vede trať. Mezi dvěma vrcholy (v1 a v2) vede cesta s ohodnocením H, pokud spolu na trati (vygenerované v Limited Editoru) sousedí políčka příslušející sadám waypointů rerezentovaných vrcholy v1 a v2. H je potom rovno vzdálenosti konečného waypointu sady v1 a počátečního vrcholu sady v2. Díky tomu je možné poměrně rychle složit ze sad waypointů cestu, která má minimální součet vzdáleností mezi sadami waypointů. Po lomené čáře definované těmito waypointy poté jezdí auta řízená pomocí AI. U waypointů je třeba spočítat a uložit absolutní pozice, protože v mapě uložené waypointy mají relativní pozice vůči políčku, na kterém se nacházejí. Výsledkem je tedy posloupnost waypointů ve světových souřadnicích. Tuto posloupnost potřebuje ke svému fungování třída <a href="#sec4.2.3.2"><code>CAIPath</code></a>. Podrobnější popis uložení trati a waypointů lze najít v <a href="FileSystem.html#Urmap">dokumentaci k souboru typu .urmap</a>. <code>InitAI()</code> také inicializuje všechna auta (<a href="#sec4.2.3.4"><code>CAIVehicle</code></a>) a ostatní dynamické objekty (<a href="#sec4.2.3.3"><code>CAIObject</code></a>) příslušné mapy.
+</p>
+<p>
+	Hlavní úkol AI, tedy řízení počítačových aut, se spouští zavoláním funkce <code>Update()</code>. Funkce <code>Update()</code> je volána z projektu <strong>Server</strong> po té, co je spočítána fyzika. Ve funkci <code>Update()</code> AI aktualizuje pozice a rychlosti všech objektů na mapě. Poté pro každé auto ovládané pomocí AI zavolá <a href=""><code>CAIVehicle::Update()</code></a>. Tato funkce spočítá bod, ke kterému se automobil má snažit jet spolu s jeho doporučenou minimální a maximální rychlostí. Funkce <code>SaveCar()</code> následně nastaví odpovídajícím způsobem ovládací prvky auta: natočí kola požadovaným směrem a zrychlí/zpomalí/brzdí dle potřeby.
+	</p>
+<br>
+<h2><a name="sec4.3">4.3 CAIPath</a></h2>
+<p>
+Třída <code>CAIPath</code>reprezentuje trať, po které auta jedou. Používá k tomu posloupnost waypointů, kolem kterých se auta řízená AI snaží jezdit. Celá trať je tedy zjednodušena na lomenou čáru, která vznikne spojením za sebou jdoucích waypointů. <code>CAIPath</code> obsahuje funkce pro "namapování" libovolného bodu na mapě k nejbližšímu bodu na trati, mapování ujeté vzdálenosti k bodu na trati, zjištění vzdálenosti bodu od trati a další. Tyto funkce používá převážně třída <code>CAIVehicle</code> pro určení směru a rychlosti jízdy počítačem řízeného automobilu.
+</p>
+<br>
+<h2><a name="sec4.4">4.4 CAIObject</a></h2>
+<p>
+Třída <code>CAIObject</code> se používá k reprezentaci libovolného dynamického objektu umístěného na mapě. Pro zjednodušení se předpokládá, že jakýkoliv objekt je koule s daným středem, poloměrem, hmotností a vektorem rychlosti. Aproximace koulí je zvolena zejména pro jednoduchost výpočtu testu kolize objektů. Nepřesnost této aproximace není pro AI (narozdíl od fyziky) příliš důležitá, ale přesto je dobré nepoužívat na mapě dynamické objekty, které jsou výrazně delší v jednom směru. AI se jim potom bude vyhýbat zbytečně velkým obloukem. Zřejmě by bylo možné implementovat jinou formu reprezentace objektu na mapě, která by neměla tyto problémy. Po pečlivém zvážení všech pro a proti jsme dospěli k názoru, že je to zbytečné a dokonce nežádoucí. Jakákoliv jiná reprezentace by sice zlepšila přesnost detekce kolizí, ale zároveň by o mnoho zesložitila jejich výpočet. AI by poté mohla o něco lépe uhýbat před překážkami, ale výsledek by byl téměř neznatelný, narozdíl od změny rychlosti výpočtu, která je v počítačové hře jedním z hlavních kritérií použitelnosti algoritmu. Použitá metoda je tak i přes své neduhy zřejmě nejlepší metodou, kterou lze použít.
+</p>
+<br>
+<h2><a name="sec4.5">4.5 CAIVehicle</a></h2>
+<p>
+	Třída <code>CAIVehicle</code> je potomkem třídy <code>CAIObject</code>. Abstrakce dynamického objektu použitá ve třídě <code>CAIObject</code> nestačí pro reprezentaci automobilu, proto obsahuje <code>CAIVehicle</code> navíc několik dalších informací. Jsou to zejména informace sloužící k určení aktuálního umístění v závodu, již projeté části trati, doporučené rychlosti a testu, zda je potřeba vozidlo restartovat. <br>
+	Navíc tato třída obsahuje několik funkcí důležitých k určení, kam má automobil řízený pomocí AI jet. Tuto informaci, v podobě bodu, ke kterému se má snažit automobil jet, počítá funkce <code>CombinedSteering()</code>. <code>CombinedSteering()</code> v sobě kombinuje dva různé stavy jízdy automobilu: vyhýbání se překážkám a jízdu podél trati. Hlavní důraz je kladen na jízdu podél trati, ale s určitou pravděpodobností se kontroluje, zda náhodou nehrozí v budoucnosti srážka s jiným objektem. Pokud je taková srážka detekována, použije se jako výsledek návratová hodnota funkce <code>SteerToAvoidObjects()</code>. V opačném případě se použije návratová hodnota funkce <code>SteerToFollowPath()</code>.<br>
+</p>
+	<a name="sec4.5.1"><h3>4.5.1 SteerToAvoidObjects()</h3></a>
+<p>
+	Tato funkce detekuje možnou kolizi objektu. Najde nejbližší hrozící kolizi s jiným dostatečně hmotným objektem a pokusí se zatočením této kolizi vyhnout. Cílem není jen se vyhýbat při možné kolizi, ale zároveň udržovat jistou minimální vzdálenost od problematických objektů.
+</p>
+	<a name="sec4.5.2"><h3>4.5.2 SteerToFollowPath()</h3></a>
+<p>
+	Funkce <code>SteerToFollowPath()</code> slouží ke sledování předepsané trati. To je poměrně obtížný úkol, protože nemůžeme dovolit zkracování trati, ale zároveň chceme dovolit jistou míru volnosti jejího následování. Tento problém se nakonec podařilo vyřešit <br>Abychom zajistili dobrou jízdu po trati, predikujeme pozici auta po t sekundách (ve skutečnosti se parametr t pohybuje v rozmezí 0.5s - 2s). Pokud je pozice auta dostatečně blízko trati, pokračujeme v jízdě tímto směrem. V opačném případě musíme zatočit, abychom v budousnocti nevyjeli z trati. Spočteme kam bychom se při ideální jízdě po trati měli dostat a snažíme se k tomuto bodu směřovat. To nám definuje směr naší jízdy. Rychlost je definována pomocí naší aktuální rychlosti a doporučené minimální a maximální rychlosti příslušné k tomuto bodu. Tento princip jízdy je výpočetně poměrně jednoduchý a má dobré jízdní výsledky při vhodně zvolených parametrech. Správné nastavení velkého množství různých parametrů, spolu velmi obtížným realtime laděním pomocí logů, se však ukázalo být jedním z největších problému při programování AI.
+</p>
+<br>
+<h2><a name="sec4.6">4.6 V3</a></h2>
+<p>
+	<code>V3</code> je třída reprezentující třírozměrný vektor. Používá se v celém projektu AI pro uchování pozic, vekterů rychlosti a dalších údajů. Třída <code>V3</code> obsahuje mnoho užitečných funkcí z analytické geometrie, které zjednodušují výpočty potřebné v AI.
+</p>
+<br>
+<br><br>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>

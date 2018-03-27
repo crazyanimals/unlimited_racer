@@ -1,0 +1,296 @@
+<Dialog>
+	X = 300
+	Y = 100
+	Width = 600
+	Height = 450
+	FontDeclaration = DialogBasic.font
+	BackgroundTexture = GUI\SteelDialogBackground.png
+	TextureDeclarations = GraphicTest.dlgDecl
+	Transparency = 0.25 ; value in range <0,1>, 0 means totally visible
+	ToolTipTransparency = 0.0
+	ControlsTransparency = 0.0
+	BasicTextColor = 0xffd86b1c
+	ActiveTextColor = 0xffffff00
+	Color = 0xff0000a0
+	SliderPosMin = 10
+	SliderPosMax = 109
+	ToolTipDelay = 1000
+</Dialog>
+
+<Control>
+	Name = CDCreditsLabel
+	Type = label
+	X = 0
+	Y = 10
+	Width = 600
+	Height = 30
+	Value = CREDITS
+	FontDeclaration = DialogCaption.font
+	TextFormat = 68
+</Control>
+
+<Control>
+	Name = CDCrazyAnimalsLabel
+	Type = label
+	X = 10
+	Y = 40
+	Width = 600
+	Height = 30
+	Value = Programmed by Crazy Animals  (www.crazyanimals.net):
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = CDPavelCelbaLabel
+	Type = label
+	X = 40
+	Y = 70
+	Width = 600
+	Height = 30
+	Value = Pavel Celba
+	FontDeclaration = DialogBasic.font
+</Control>
+
+
+<Control>
+	Name = CDPavelJandaLabel
+	Type = label
+	X = 40
+	Y = 100
+	Width = 600
+	Height = 30
+	Value = Pavel Janda
+	FontDeclaration = DialogBasic.font
+</Control>
+
+
+<Control>
+	Name = CDRadimKrupickaLabel
+	Type = label
+	X = 40
+	Y = 130
+	Width = 600
+	Height = 30
+	Value = Radim Krupicka
+	FontDeclaration = DialogBasic.font
+</Control>
+
+
+<Control>
+	Name = CDRomanMargoldLabel
+	Type = label
+	X = 40
+	Y = 160
+	Width = 600
+	Height = 30
+	Value = Roman Margold
+	FontDeclaration = DialogBasic.font
+</Control>
+
+
+<Control>
+	Name = CDJiriSofkaLabel
+	Type = label
+	X = 40
+	Y = 190
+	Width = 600
+	Height = 30
+	Value = Jiri Sofka
+	FontDeclaration = DialogBasic.font
+</Control>
+
+
+<Control>
+	Name = CDOthersLabel
+	Type = label
+	X = 10
+	Y = 220
+	Width = 600
+	Height = 30
+	Value = Helpers (graphics & music):
+	FontDeclaration = Dialogcaption.font
+</Control>
+
+
+<Control>
+	Name = CDKarelPrasekLabel
+	Type = label
+	X = 40
+	Y = 250
+	Width = 600
+	Height = 30
+	Value = Karel Prasek
+	FontDeclaration = DialogBasic.font
+</Control>
+
+
+<Control>
+	Name = CDMartinHolecekLabel
+	Type = label
+	X = 40
+	Y = 280
+	Width = 600
+	Height = 30
+	Value = Martin Holecek
+	FontDeclaration = DialogBasic.font
+</Control>
+
+
+<Control>
+	Name = CDTiborPetakLabel
+	Type = label
+	X = 40
+	Y = 310
+	Width = 600
+	Height = 30
+	Value = Tibor Petak
+	FontDeclaration = DialogBasic.font
+</Control>
+
+
+<Control>
+	Name = CDHardlinerRecordingsLabel
+	Type = label
+	X = 40
+	Y = 340
+	Width = 600
+	Height = 30
+	Value = Hardliner Recordings
+	FontDeclaration = DialogBasic.font
+</Control>
+
+
+<Control>
+	Name = CDJakobFischerLabel
+	Type = label
+	X = 40
+	Y = 370
+	Width = 600
+	Height = 30
+	Value = Jakob Fischer
+	FontDeclaration = DialogBasic.font
+</Control>
+
+
+<Control>
+	Name = CDPavelCelbaNoteLabel
+	Type = label
+	X = 300
+	Y = 70
+	Width = 600
+	Height = 30
+	Value = Pavel.CelbaJr@Celba.cz
+	FontDeclaration = DialogBasic.font
+</Control>
+
+
+<Control>
+	Name = CDPavelJandaNoteLabel
+	Type = label
+	X = 300
+	Y = 100
+	Width = 600
+	Height = 30
+	Value = Malapanda@CrazyAnimals.net
+	FontDeclaration = DialogBasic.font
+</Control>
+
+<Control>
+	Name = CDRadimKrupickaNoteLabel
+	Type = label
+	X = 300
+	Y = 130
+	Width = 600
+	Height = 30
+	Value = Pinkqui@CrazyAnimals.net
+	FontDeclaration = DialogBasic.font
+</Control>
+
+<Control>
+	Name = CDRomanMargoldNoteLabel
+	Type = label
+	X = 300
+	Y = 160
+	Width = 600
+	Height = 30
+	Value = Tempicek@CrazyAnimals.net
+	FontDeclaration = DialogBasic.font
+</Control>
+
+<Control>
+	Name = CDJiriSofkaNoteLabel
+	Type = label
+	X = 300
+	Y = 190
+	Width = 600
+	Height = 30
+	Value = JirkaX@Gmail.com
+	FontDeclaration = DialogBasic.font
+</Control>
+
+<Control>
+	Name = CDKarelPrasekNoteLabel
+	Type = label
+	X = 300
+	Y = 250
+	Width = 600
+	Height = 30
+	Value = Nox123@Centrum.cz
+	FontDeclaration = DialogBasic.font
+</Control>
+
+<Control>
+	Name = CDMartinHolecekNoteLabel
+	Type = label
+	X = 300
+	Y = 280
+	Width = 600
+	Height = 30
+	Value = Gaimi.Darai@Seznam.cz
+	FontDeclaration = DialogBasic.font
+</Control>
+
+<Control>
+	Name = CDTiborPetakNoteLabel
+	Type = label
+	X = 300
+	Y = 310
+	Width = 600
+	Height = 30
+	Value = Tybi@Centrum.cz
+	FontDeclaration = DialogBasic.font
+</Control>
+
+<Control>
+	Name = CDHardlinerRecordingsNoteLabel
+	Type = label
+	X = 300
+	Y = 340
+	Width = 600
+	Height = 30
+	Value = www.Hardliner-Recordings.com
+	FontDeclaration = DialogBasic.font
+</Control>
+
+<Control>
+	Name = CDJakobFischerNoteLabel
+	Type = label
+	X = 300
+	Y = 370
+	Width = 600
+	Height = 30
+	Value = www.PizzaDude.dk
+	FontDeclaration = DialogBasic.font
+</Control>
+
+<Control>
+	Name = CDOkButton
+	Type = button
+	X = 220
+	Y = 410
+	Width = 160
+	Height = 30
+	Value = OK
+	FontDeclaration = DialogBasic.font
+	TextFormat = 68
+</Control>

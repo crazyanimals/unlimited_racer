@@ -1,0 +1,6 @@
+<Dialog>
+	Dialog.Background.X = 0
+	Dialog.Background.Y = 0
+	Dialog.Background.Width = 256
+	Dialog.Background.Height = 128
+</Dialog>

@@ -1,0 +1,55 @@
+Name = Tunnel bend
+Icon = tunnel_bend.bmp
+
+[object]
+Model = tunnel_bend.modelDef
+static = 1
+SizeX = 3
+SizeY = 3
+PosX = 0
+PosY = 0
+X = 1500
+Y = 0
+Z = 1500
+Scale.X = 1
+Scale.Y = 1
+Scale.Z = 1
+GrassAllowed = 0
+material = 6
+
+
+[waypoints]
+x = 2500.0
+y = 100.0
+z = 0.0
+
+x = 2200.0
+y = 100.0
+z = 1000.0
+
+x = 1000.0
+y = 100.0
+z = 2200.0
+
+x = 0.0
+y = 100.0
+z = 2500.0
+
+
+
+[waypoints]
+x = 0.0
+y = 100.0
+z = 2500.0
+
+x = 1000.0
+y = 100.0
+z = 2200.0
+
+x = 2200.0
+y = 100.0
+z = 1000.0
+
+x = 2500.0
+y = 100.0
+z = 0.0

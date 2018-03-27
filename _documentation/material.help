@@ -1,0 +1,7 @@
+		// co znamenaji ty konstanty
+wood wood s, e, t, k, c
+s - softness, softnessCoef must be a positive value. It is recommended that softnessCoef be set to value lower or equal to 1.0 A low value for softnessCoef will make the material soft. A typical value for softnessCoef is 0.15
+e - elasticity, elasticCoef must be a positive value. It is recommended that elasticCoef be set to a value lower or equal to 1.0
+t - Static Friction, staticFriction and kineticFriction must be positive values. kineticFriction must be lower than staticFriction. It is recommended that staticFriction and kineticFriction be set to a value lower or equal to 1.0, however because some synthetic materials can have higher than one coeficient of friction Newton allows for the coeficient of friction to be as high as 2.0.
+k - Kinetic Friction
+c - collidable

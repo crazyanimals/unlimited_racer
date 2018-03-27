@@ -1,0 +1,155 @@
+<Dialog>
+	X = 100
+	Y = 100
+	Width = 640
+	Height = 480
+	FontDeclaration = DialogBasic.font
+	BackgroundTexture = GUI\SteelDialogBackground.png
+	TextureDeclarations = WideCombo.dlgDecl
+	Transparency = 0.25 ; value in range <0,1>, 0 means totally visible
+	ToolTipTransparency = 0.0
+	ControlsTransparency = 0.0
+	BasicTextColor = 0xffd86b1c
+	ActiveTextColor = 0xffffff00
+	Color = 0xff0000a0
+	SliderPosMin = 10
+	SliderPosMax = 109
+	ToolTipDelay = 1000
+</Dialog>
+
+<Control>
+	Name = MSPlayerSettingsLabel
+	Type = label
+	X = 10
+	Y = 10
+	Width = 590
+	Height = 30
+	Value = MULTIPLAYER - PLAYER SETTINGS
+	FontDeclaration = DialogCaption.font
+	TextFormat = 68
+</Control>
+
+<Control>
+	Name = MSGameLabel
+	Type = label
+	X = 10
+	Y = 50
+	Width = 590
+	Height = 30
+	Value = Game name:
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = MSGameNameLabel
+	Type = label
+	X = 140
+	Y = 50
+	Width = 590
+	Height = 30
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = MSPlayerNameLabel
+	Type = label
+	X = 10
+	Y = 90
+	Width = 590
+	Height = 30
+	Value = Player name:
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = MSPlayerNameEdit
+	Type = edit
+	X = 140
+	Y = 90
+	Width = 250
+	Height = 32
+	MaxTextLength = 10
+	Value = 
+	ToolTip = Type in player name
+</Control>
+
+<Control>
+	Name = MSCarLabel
+	Type = label
+	X = 10
+	Y = 130
+	Width = 590
+	Height = 30
+	Value = Car:
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = MSCarListBox
+	Type = list
+	X = 140
+	Y = 130
+	Width = 250
+	Value = 0
+	ToolTip = Select player car
+	
+	LineHeight = 20
+	LinesCount = 7
+	TextFormat = 65
+	IconWidth = 20
+	
+	; Value = 1
+</Control>
+
+<Control>
+	Name = MSTeamLabel
+	Type = label
+	X = 10
+	Y = 325
+	Width = 100
+	Height = 30
+	Value = Team:
+	FontDeclaration = DialogCaption.font
+</Control>
+
+<Control>
+	Name = MSTeamComboBox
+	Type = combo
+	X = 140
+	Y = 330
+	Width = 250
+	Height = 25
+	Value = 0
+	ToolTip = Choose your team or select auto assign function
+	LineHeight = 20
+</Control>
+
+<Control>
+	Name = MSOkButton
+	Type = button
+	X = 80
+	Y = 430
+	Width = 160
+	Height = 30
+	Value = OK
+
+	
+	ToolTip = Confirms player setting
+	
+	TextFormat = 68 ; left - 1, right - 2, center - 4, top - 16, bottom - 32, center - 64
+</Control>
+
+<Control>
+	Name = MSCancelButton
+	Type = button
+	X = 400
+	Y = 430
+	Width = 160
+	Height = 30
+	Value = CANCEL
+
+	
+	ToolTip = Cancel player setting
+	
+	TextFormat = 68 ; left - 1, right - 2, center - 4, top - 16, bottom - 32, center - 64
+</Control>

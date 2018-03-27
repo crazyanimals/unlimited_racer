@@ -1,0 +1,310 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+	<link type="text/css" href="mainstyles.css" rel="stylesheet">
+</head>
+<body>
+
+<h1><a name="sec">Limited Editor</a></h1>
+
+<p>
+The Limited Editor is a powerful tool for the Unlimited Racer game. The editor allows to create or modify maps, game objects and other game properties.  
+We wish you a lot of hours of enjoyment with this editor. We look forward to seeing some great maps and new objects.   
+</p>
+
+<br>
+<h5>Contents</h5>
+<div id="contents">
+<ul class="firstlist">
+<li class="mainsection"><a href="#sec1">1 Menus and toolbars</a>
+<ul>
+<li><a href="#sec1.1">1.1 File</a>
+<li><a href="#sec1.2">1.2 View</a>
+<li><a href="#sec1.3">1.3 Edit</a>
+<li><a href="#sec1.4">1.4 Help</a>
+</ul>
+<li class="mainsection"><a href="#sec3">2 Workspace and Controls</a>
+<ul>
+<li><a href="#sec2.1">2.1 Picture preview</a>
+<li><a href="#sec2.2">2.2 Tree view</a>
+<ul>
+<li><a href="#sec2.2.1">2.2.1 Popup menu:</a>
+</ul>
+<li><a href="#sec2.3">2.3 Map view</a>
+    <ul>
+    <li><a href="#sec2.3.1">2.3.1 Terrain edit mode</a>
+    <li><a href="#sec2.3.2">2.3.2 Map edit mode</a>
+    <li><a href="#sec2.3.3">2.3.3 Race course edit mode</a>
+    </ul>
+</ul>
+<li class="mainsection"><a href="#sec3">3 Dialogs</a>
+    <ul>
+        <li><a href="#sec3.1">3.1 New map dialog</a>
+        <li><a href="#sec3.2">3.2 Map properties dialog</a>
+        <li><a href="#sec3.3">3.3 File edit dialog</a>
+    </ul>
+<li class="mainsection"><a href="#sec4">4 Creating new object</a>
+    <ul>
+        <li><a href="#sec4.1">4.1 Importing model</a>
+        <li><a href="#sec4.2">4.2 Creating model definition</a>
+        <li><a href="#sec4.3">4.3 Creating new game object</a>
+    </ul>
+</ul>
+</ul>
+</div>
+<br>
+<hr/>
+
+
+<h2><a name="sec1">1 Menus and toolbars</a></h2>
+<img src="images/toolbar.gif">
+<h3><a name="sec1.1">1.1 File</a></h3>
+<ul>
+<li><i>New (Ctrl+N)</i> - Creates a new map. (toolbar 1)</li>
+<li><i>Load map(Ctrl+O)</i> - Loads a map. (toolbar 2)</li>
+<li><i>Load terrain (Ctrl+T)</i> - Loads a terrain only.</li>
+<li><i>Save (Ctrl+S)</i> - Saves an open map.(toolbar 3)</li>
+<li><i>Save as </i> - Saves an open map. This option allows you to change the map's name.</li>
+<li><i>Map properties </i> - Opens the map properties.(toolbar 4)</li>
+<li><i>Exit </i> - Closes the editor.</li>
+</ul>
+
+<h3><a name="sec1.2">1.2 View</a></h3>
+<ul>
+<li><i>Zoom in</i> - Zooms in a map view.(toolbar 5)</li>
+<li><i>Zoom out</i> - Zooms out a map view.(toolbar 6)</li>
+</ul>
+
+<h3><a name="sec1.3">1.3 Edit</a></h3>
+<ul>
+<li><i>Terrain (Ctrl+1)</i> - Changes the edit mode to the terrain edit mode.  (toolbar 7)</li>
+<li><i>Map (Ctrl+2)</i> -  Changes the edit mode to the map edit. (toolbar 8)</li>
+<li><i>Race course (Ctrl+3)</i> -  Changes the edit mode to the race course edit. (toolbar 9)</li>
+<li><i>Cars</i> - Opens a car file editor. (toolbar 10)</li>
+<li><i>Lights</i> - Opens a light file editor.(toolbar 11)</li>
+<li><i>Model definitions</i> - Opens a model definition file editor. (toolbar 12)</li>
+<li><i>Physical textures</i> - Opens a physical textures file editor.(toolbar 13)</li>
+<li><i>Texture set</i> - Opens a texture set file editor.(toolbar 14)</li>
+<li><i>Sky systems</i> - Opens a sky system file editor.(toolbar 15)</li>
+<li><i>Dialog definitions</i> - Opens a game dialog definition file editor. (toolbar 16)</li>
+<li><i>Dialog declarations</i> - Opens a game dialog declaration file editor.(toolbar 17)</li>
+<li><i>Dialog cursors</i> - Opens a cursor file editor.(toolbar 18)</li>
+<li><i>Grass</i> - Opens a grass file editor.(toolbar 19)</li>
+<li><i>Shrub</i> - Opens a shrub for grass file editor.(toolbar 20)</li>
+<li><i>Edit help</i> - Opens a help editor.</li>
+</ul>
+
+<h3><a name="sec1.4">1.4 Help</a></h3>
+<ul>
+<li><i>Limited Editor Help</i> - Displays this manual.</li>
+<li><i>About</i> - Displays info about the Limited Editor.</li> 
+</ul>
+
+<h2><a name="sec2">2 Workspace and Controls</a></h2>
+<p>
+The Limited Editor has 3 views:</p>
+<ol> 
+<li><i>Picture preview</i> - Shows object icon and displays waypoints with the blue line. The beginning of the waypoints line is marked by circle. If there is no icon,object is not selected in the object tree. If there are red numbers, object has no icon.</li>
+<li><i>Object tree view</i> - Shows game objects in a tree. </li>
+<li><i>The map view</i> - Displays terrain (higher terrain level is displayed by lighter green), objects placed in the map, waypoints and race course. Race course is displayed in the race course edit mode.</li>
+</ol> 
+<img src="images/workspace.gif">
+
+<h3><a name="sec2.1">2.1 Picture preview</a></h3>
+<p>
+There are two buttons with arrows.</p>
+<ol>
+<li><i>Left arrow</i> - By clicking on the left mouse button, object (icon) turns counterclockwise.</li>
+<li><i>Right arrow</i> - By clicking on the left mouse button rotate object (icon) turns clockwise.</li>
+</ol>
+
+<img src="images/pictureview.gif">
+<h3><a name="sec2.2">2.2 Tree view</a></h3>
+<p>
+There is a tree, which contain nodes and map objects (leaves).</p>
+<ul>
+<li><i>Nodes</i> - By clicking on the left mouse button , tree branch is expanded or collapsed.</li>
+<li><i>Leaves</i> - By clicking on the left mouse button a map object is selected.<br>
+By clicking on the right mouse button popup menu is displayed.
+</li>
+</ul>
+
+<h4><a name="sec2.2.1">2.2.1 Popup menu:</a></h4>
+<ol>
+<li><i>Add new item</i> - Adds new item (node or object - depends on properties) to the tree. </li>
+<li><i>Add new subitem</i> - Adds new item (node or object - depends on properties) to the tree as child. Node or Object.</li>
+<li><i>Cut</i> - Cuts an item (branch). Ready to paste.</li>
+<li><i>Paste</i> - Pastes cut item (branch) on selected position.</li>
+<li><i>Delete</i> - Deletes item (branch) from the tree.</li>
+<li><i>Rename</i> - Renames node.</li>
+<li><i>Properties</i> - Displays file edit dialog for selected object.</li>
+</ol>
+<img src="images/treeview.gif">
+
+<h3><a name="sec2.3">2.3 Map view</a></h3>
+
+The behavior of controls depends on selected edit mode. There are 3 edit modes:
+<ol>
+<li><i>Terrain edit mode</i> - Allows to increase and decrease terrain. 
+<li><i>Map edit mode</i> - Allows to set,delete and move objects in the map. 
+<li><i>Race course edit mode</i> - Allows to define race course.
+</ol>
+<h4><a name="sec2.3.1">2.3.1 Terrain edit mode</a></h4>
+
+<ul> 
+<li><i>Left mouse button</i> - Leves up terrain.</li> 
+<li><i>Right mouse button</i> - Leves down terrain.</li>
+</ul>
+<p>
+There are 9 height levels. To increase or decrease the terrain level of a larger area, press the mouse button and move. Yellow frame appears and demarks given area after the mouse button is unpressed. 
+</p>
+
+
+<h4><a name="sec2.3.2">2.3.2 Map edit mode</a></h4>
+<ul> 
+<li><i>Left mouse button</i> - Sets object to the map.</li> 
+<li><i>Left mouse button double click</i> - Picks up object from the map.</li>
+<li><i>Middle mouse button, wheel, space or 'R'</i> - Rotates selected object.</li>
+<li><i>Right mouse button</i> - Deletes object.</li>
+</ul>
+<p>
+When the object is selected in the object tree, it is possible to set the object in the map by mouse left button. To set or delete more objects press the mouse button and move. Yellow frame appears and shows the possible location of objects are placed or will be deleted. Only one object could be placed on one position in the map beside start position, which could be everywhere.     
+</p>
+<h4><a name="sec2.3.3">2.3.3 Race course edit mode</a></h4>
+
+<ul>
+<li><i>Left mouse button</i> - Sets continuation of the path.</li> 
+<li><i>Right mouse button</i> -  Deletes part of the path from the current mouse position to the end of the path .</li>
+</ul>
+<p>
+When switched to the race course editor mode, editor tries to find the way from the start position. The start position should be placed next to the object with waypoints. It is possible go on by pressing the left mouse button on the objects with waypoints. If you want to delete part of path, press right button on the path and the path from the end to the current mouse position will be deleted. <strong> When you change something in the map edit mode, the path will be lost.</strong> The beginning of each part of the path is labeled by number. Path highlighted in blue color.
+</p>
+<img src="images/racecourse.gif">     
+
+<h2><a name="sec3">3 Dialogs</a></h2>
+<h3><a name="sec3.1">3.1 New map dialog</a></h3>
+New map is created by selecting the option New in the File menu. Then "new map dialog" appears with several options from which to choose:
+
+<ul>
+<li><i>Name</i> - Sets the map name.</li> 
+<li><i>Width</i> - Determines the length of your map along its x-axis. This number can be any whole number from 5 to 99.</li>
+<li><i>Height</i> - Determines the length of your map along its y-axis. This number can be any whole number from 5 to 99.</li>
+</ul>
+<img src="images/newdialog.gif">
+<h3><a name="sec3.1.1">3.2 Map properties dialog</a></h3>
+Map properties can be displayed by selecting the option Map properties in the File menu. There are the following options:
+<ul>
+<li><i>Name</i> - Sets the map name.</li> 
+<li><i>Time</i> - Sets the default map time.Time could be changed in the game.</li>
+<li><i>Terrain textures</i> - Sets the terrain texture set defined in the texture set file.</li>
+<li><i>Wall textures</i> - Sets the wall texture defined in the wall texture file.</li>
+<li><i>Grass type</i> - Sets the grass type defined int the grass type file.</li>
+<li><i>Sky system</i> - Sets the skysystem for the map defined in the sky system file.</li>
+</ul>
+
+
+
+<img src="images/mapproperties.gif">
+<h3><a name="sec3.1.2">3.3 File edit dialog</a></h3>
+<p>The file edit dialog is a tool for editing Unlimited Racer's files. In the top window is displayed help.In the bottom is edit window. In the right culom is list of keys of templates.if you double click on an item of list, a selected template will be added to edit window.</p>
+<img src="images/fileedit.gif">
+
+
+<h2><a name="sec4">4 Creating new object</a></h2>
+<p>The true power of Unlimited Racer is not actually "unlimited racing" but "unlimited editing". If the set of game objects offered by Limited Editor is not satisfying for you, you can add your own object.</p>
+<h3><a name="sec4.1">4.1 Importing model</a></h3>
+<p>First of all you have to create a new 3D model of some object. You can use any 3D studio for this, but it is important to be able to export your new model into a <strong>.x</strong> file format used by Unlimited Racer. There are several options you have to obtain model in .x format:</p>
+<ul>
+	<li>Your favourite 3D studio is capable of saving (or exporting) models in .x format (not very likely).</li>
+	<li>Some plugin exists for your software which is capable of exporting models in .x format (for example <a href="http://www.andytather.co.uk/Panda/directxmax_downloads.aspx">Panda Directx Exporter</a> for 3DS MAX).</li>
+	<li>Your software can export models in <strong>.3ds</strong> file format which can be lately transformed into .x format.<li>
+</ul>
+<p>The latest case is the most common, so we will take a closer look at this one. Suppose you already have a 3d model of a tree. You have to export the model to .3ds file format, so lets say the file name is <strong>tree.3ds</strong>. Now you have to use some external tool to convert it to .x format. You can find some on the Internet, for example: <a href="http://www.mikrogen.kobranet.cz/cz/gifts/conv3ds.zip">Conv3ds</a>, <a href="http://www.righthemisphere.com/products/dexp/">Deep Exploration</a> or <a href="http://download.nafura.it/home/pc/download.asp?IDLink=18890&sps=">EZ Conv3DS</a> which internally uses the first mentioned Conv3ds tool. Deep Exploration is a complex powerful tool which we can strongly recommend, however it's not free. So we will describe the procedure on Conv3ds.</p>
+<p>Download <strong>Conv3ds</strong> from the link above so you have a proper version (other versions will probably contain only command line tool). If you start the <strong>shell.exe</strong> program, a window as showed on following image should appear.</p>
+<img src="images/Conv3ds.png"/>
+<p>First, click on Open button and find the tree.3ds file in the Open dialog. When the file is chosen, you have to specify some parameters. The image above shows the most common configuration. You can change scaling factor though. When creating models in your 3d studio, use generic units and assume 1 unit = 1 cm. If you use different measure, you will have to update the scaling factor here by changing the value 1.0 to fit your needs. Then you can click on Convert button which performs the conversion. A new file <strong>tree.x</strong> should appear in the same location as your .3ds file. With a bit of luck this is what you wanted, so copy this model file into <strong>[UnlimitedRacerInstallPath]\Data\Models\</strong> directory.</p>
+<p>Remember, that you can create several models for single game object. Each model can represent the same entity, but in different level of complexity (or detail). Creating more models (up to 10) for single object is a good habit which commonly leads in a better game performance than having just a single complex model. So if you have more models, try to name them tree_1.x, tree_2.x, etc.</p>
+<p>Finally you have to copy all textures used on your model into <strong>[UnlimitedRacerInstallPath]\Data\Textures\</strong> directory. Supported image (texture) formats are .png, .tga, .bmp, .jpg and .gif. You can use as many textures as you want on your model, however we highly recommend to use <strong>only 1</strong> image per model, with both height and width of a size of a power of 2 (e.g. 64, 128, 256,...) and as small as possible.</p>
+
+<h3><a name="sec4.2">4.2 Creating model definition</a></h3>
+<p>Once you have a valid .x model file (or a set of .x files) placed in proper game folder, you need to create a model definition which can be associated with Limited Editor's game objects. Use Limited Editor to create this file. Click on the button which is marked by number 12 on the first figure of this manual. File edit dialog will appear. Doubleclick on <strong>ALL LODS</strong> item in the right panel and it should fill the lower panel with predefined data. 10 sections describes 10 levels of detail of your new object. Each one can use different model and different texture(s).</p>
+<p>Choose the first section (which is LOD0) - level of detail description - and define a 3d model for it. This means you set the <strong>model</strong> property to the name of the .x file (tree_1.x in our case). So the result can be:</p>
+<pre>&lt;LOD0&gt;
+	model = tree_1.x
+	&lt;textures&gt;
+	&lt;/textures&gt;
+&lt;/LOD0&gt;</pre>
+<p>The <strong>textures</strong> section can be used to replace texture usage for this specific model. This is most usual when you create one model and have several different textures available for it. Common example is a single car available in different colors. Lets say the original model uses texture tree.png. You want to create a new snow-covered tree and you have a special texture tree_snow.png available. In <strong>textures</strong> section you define these substitutions by adding <strong>OldTexture = NewTexture</strong> lines into it.</p>
+	<p>You have to repeat the described procedure 10 times to define all 10 levels of detail. Each level can use different model, so you can bind the most simple model to the LOD0 and the most complex one to LOD9. However, you can still use the same model for all levels of detail if you don't have more models. The result of whole procedure can be following:</p>
+<pre>&lt;LOD0&gt;
+  model = tree_1.x
+  &lt;textures&gt;
+    tree.png = tree_snow.png
+  &lt;/textures&gt;
+&lt;/LOD0&gt;
+&lt;LOD1&gt;
+  model = tree_1.x
+  &lt;textures&gt;
+    tree.png = tree_snow.png
+  &lt;/textures&gt;
+&lt;/LOD1&gt;
+&lt;LOD2&gt;
+  model = tree_1.x
+  &lt;textures&gt;
+    tree.png = tree_snow.png
+  &lt;/textures&gt;
+&lt;/LOD2&gt;
+&lt;LOD3&gt;
+  model = tree_2.x
+  &lt;textures&gt;
+    tree.png = tree_snow.png
+  &lt;/textures&gt;
+&lt;/LOD3&gt;
+&lt;LOD4&gt;
+  model = tree_2.x
+  &lt;textures&gt;
+    tree.png = tree_snow.png
+  &lt;/textures&gt;
+&lt;/LOD4&gt;
+&lt;LOD5&gt;
+  model = tree_2.x
+  &lt;textures&gt;
+    tree.png = tree_snow.png
+  &lt;/textures&gt;
+&lt;/LOD5&gt;
+&lt;LOD6&gt;
+  model = tree_3.x
+  &lt;textures&gt;
+    tree.png = tree_snow.png
+  &lt;/textures&gt;
+&lt;/LOD6&gt;
+&lt;LOD7&gt;
+  model = tree_3.x
+  &lt;textures&gt;
+    tree.png = tree_snow.png
+  &lt;/textures&gt;
+&lt;/LOD7&gt;
+&lt;LOD8&gt;
+  model = tree_4.x
+  &lt;textures&gt;
+    tree.png = tree_snow.png
+  &lt;/textures&gt;
+&lt;/LOD8&gt;
+&lt;LOD9&gt;
+  model = tree_4.x
+  &lt;textures&gt;
+    tree.png = tree_snow.png
+  &lt;/textures&gt;
+&lt;/LOD9&gt;</pre>
+<p>The model definition is done, you only have to save it by clicking on Save button and proceed to create a new game object using this model.</p> 
+	
+<h3><a name="sec4.3">4.3 Creating new game object</a></h3>
+<p>Create a new map in Limited Editor or simply open some older one and click with a right mouse button on the <a href="#sec2">Object tree view</a>. From the shown popup menu choose <strong>Add new item</strong> and now a New item should appear in the tree view. Right click on it and choose <strong>Rename</strong> to rename this item to be more familiar (Tree in snow for example).</p>
+<p>Well, you have a new game object which can be placed into map, but it has no visual nor physical representation in the game itself. You have to associate a model to it first. You did a lot of work to create a model definition so it's now the time to use it. Right click on the new item again and choose <strong>Properties</strong>. A <a href="#sec3.1.2">file edit dialog</a> should appear with the lower panel empty. Your job is to fill the lower panel with adequate object properties. You can set its name, associate an icon to this object (if you have one) which will appear in the Map view when placed into map. Of course, the most important is associating a model to your new object, so doubleclick on the <strong>[Object] - whole set</strong> item in the right panel and you will be asked to choose the model definition file. Choose the one you've just created (say tree_snow.modelDef) and the lower panel will be automatically filled with a bunch of unset properties and one (Model) set to the chosen model definition file name. Always remember to watch the upper panel which contains complete description of all available properties so you can configure your new object properly. Setting all (needed) properties can take you a while, but the time spent here is well paid by the result you will see in the game.</p>
+<p>Now it's time to place the object into your map, save it and take a ride! Once you are familiar with this procedure, stop limiting yourself with common objects, you can create anything you want! And remember that we are looking forward for seeing your products, just let us know that you have something by e-mail: <a href="mailto:works@crazyanimals.net">works@crazyanimals.net</a> or share your results and experiences with other player on our forums: <a href="http://forum.crazyanimals.net">forum.crazyanimals.net</a>.</p>
+<p>Finally, the Crazy Animals team wish you a <strong>lot of fun</strong> with the (hardly) Limited Editor and Unlimited Racer!</p>
+
+</body>
+</html>
+
+

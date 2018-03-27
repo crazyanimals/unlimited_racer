@@ -1,0 +1,3001 @@
+Texture = tuft4.png
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 719.443359
+	Y = 0.000000
+	Z = 704.306152
+	Rotation = 16
+	Scale = 0.830595
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 805.505554
+	Y = 0.000000
+	Z = 869.014587
+	Rotation = 153
+	Scale = 1.255339
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 520.798340
+	Y = 0.000000
+	Z = 143.284409
+	Rotation = 191
+	Scale = 1.281506
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 938.749329
+	Y = 0.000000
+	Z = 209.631638
+	Rotation = 143
+	Scale = 0.755647
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 505.020294
+	Y = 0.000000
+	Z = 860.469360
+	Rotation = 100
+	Scale = 0.718494
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 342.234558
+	Y = 0.000000
+	Z = 208.868683
+	Rotation = 215
+	Scale = 1.000723
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 439.558105
+	Y = 0.000000
+	Z = 244.819489
+	Rotation = 111
+	Scale = 0.796811
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 508.346802
+	Y = 0.000000
+	Z = 393.444611
+	Rotation = 49
+	Scale = 1.035240
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 784.905518
+	Y = 0.000000
+	Z = 231.391342
+	Rotation = 177
+	Scale = 1.063842
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 561.937317
+	Y = 0.000000
+	Z = 17.822809
+	Rotation = 34
+	Scale = 1.069225
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 729.636536
+	Y = 0.000000
+	Z = 195.806763
+	Rotation = 130
+	Scale = 0.948958
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 107.882935
+	Y = 0.000000
+	Z = 521.134094
+	Rotation = 34
+	Scale = 1.055180
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 850.672913
+	Y = 0.000000
+	Z = 973.784607
+	Rotation = 164
+	Scale = 0.928413
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 703.939941
+	Y = 0.000000
+	Z = 109.225746
+	Rotation = 133
+	Scale = 0.840519
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 398.358093
+	Y = 0.000000
+	Z = 5.493332
+	Rotation = 14
+	Scale = 1.065160
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 958.128601
+	Y = 0.000000
+	Z = 461.775574
+	Rotation = 14
+	Scale = 1.294928
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 206.701859
+	Y = 0.000000
+	Z = 605.517761
+	Rotation = 34
+	Scale = 1.123627
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 251.625107
+	Y = 0.000000
+	Z = 564.104126
+	Rotation = 319
+	Scale = 1.012607
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 228.492081
+	Y = 0.000000
+	Z = 356.913971
+	Rotation = 294
+	Scale = 1.059703
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 86.367378
+	Y = 0.000000
+	Z = 664.479492
+	Rotation = 186
+	Scale = 1.189785
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 695.364258
+	Y = 0.000000
+	Z = 631.000732
+	Rotation = 151
+	Scale = 1.285479
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 57.588428
+	Y = 0.000000
+	Z = 355.937378
+	Rotation = 291
+	Scale = 1.276891
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 903.164795
+	Y = 0.000000
+	Z = 231.818604
+	Rotation = 97
+	Scale = 0.909058
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 451.673950
+	Y = 0.000000
+	Z = 783.471191
+	Rotation = 299
+	Scale = 1.005960
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 621.814636
+	Y = 0.000000
+	Z = 165.776550
+	Rotation = 160
+	Scale = 1.149556
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 468.581207
+	Y = 0.000000
+	Z = 975.890381
+	Rotation = 23
+	Scale = 0.993051
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 130.832855
+	Y = 0.000000
+	Z = 535.966064
+	Rotation = 267
+	Scale = 0.726753
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 69.704277
+	Y = 0.000000
+	Z = 302.987762
+	Rotation = 343
+	Scale = 0.715473
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 879.207764
+	Y = 0.000000
+	Z = 561.845764
+	Rotation = 340
+	Scale = 1.226115
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 450.392151
+	Y = 0.000000
+	Z = 57.588428
+	Rotation = 16
+	Scale = 1.064245
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 770.531311
+	Y = 0.000000
+	Z = 723.807495
+	Rotation = 169
+	Scale = 0.838469
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 137.730026
+	Y = 0.000000
+	Z = 162.450027
+	Rotation = 99
+	Scale = 1.271270
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 73.427536
+	Y = 0.000000
+	Z = 32.502213
+	Rotation = 166
+	Scale = 1.074975
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 713.065002
+	Y = 0.000000
+	Z = 2.380444
+	Rotation = 243
+	Scale = 1.011875
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 956.511108
+	Y = 0.000000
+	Z = 423.657959
+	Rotation = 96
+	Scale = 1.256932
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 159.703354
+	Y = 0.000000
+	Z = 381.298248
+	Rotation = 210
+	Scale = 1.082043
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 648.457275
+	Y = 0.000000
+	Z = 277.352203
+	Rotation = 43
+	Scale = 1.180593
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 835.657837
+	Y = 0.000000
+	Z = 604.113892
+	Rotation = 37
+	Scale = 0.850774
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 223.426010
+	Y = 0.000000
+	Z = 62.715538
+	Rotation = 174
+	Scale = 1.157027
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 71.169167
+	Y = 0.000000
+	Z = 683.980835
+	Rotation = 332
+	Scale = 0.887451
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 11.017182
+	Y = 0.000000
+	Z = 107.333595
+	Rotation = 170
+	Scale = 1.226994
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 391.521973
+	Y = 0.000000
+	Z = 674.184387
+	Rotation = 243
+	Scale = 1.164150
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 631.458496
+	Y = 0.000000
+	Z = 491.927856
+	Rotation = 310
+	Scale = 0.750722
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 364.421509
+	Y = 0.000000
+	Z = 125.156410
+	Rotation = 155
+	Scale = 0.832957
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 655.781738
+	Y = 0.000000
+	Z = 69.734795
+	Rotation = 150
+	Scale = 0.772842
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 73.000275
+	Y = 0.000000
+	Z = 666.615784
+	Rotation = 281
+	Scale = 0.778463
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 891.018433
+	Y = 0.000000
+	Z = 611.133179
+	Rotation = 167
+	Scale = 0.762130
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 213.232819
+	Y = 0.000000
+	Z = 714.499329
+	Rotation = 78
+	Scale = 1.144923
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 290.292053
+	Y = 0.000000
+	Z = 73.122345
+	Rotation = 20
+	Scale = 1.126429
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 816.736328
+	Y = 0.000000
+	Z = 302.987762
+	Rotation = 286
+	Scale = 1.038664
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 487.990967
+	Y = 0.000000
+	Z = 993.987854
+	Rotation = 148
+	Scale = 0.702435
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 598.193298
+	Y = 0.000000
+	Z = 41.688286
+	Rotation = 113
+	Scale = 1.005502
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 959.990234
+	Y = 0.000000
+	Z = 12.482070
+	Rotation = 226
+	Scale = 1.220640
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 928.342529
+	Y = 0.000000
+	Z = 197.485275
+	Rotation = 293
+	Scale = 1.082977
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 808.679443
+	Y = 0.000000
+	Z = 512.863525
+	Rotation = 332
+	Scale = 0.744972
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 431.348602
+	Y = 0.000000
+	Z = 901.669373
+	Rotation = 154
+	Scale = 1.027769
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 173.192535
+	Y = 0.000000
+	Z = 394.024475
+	Rotation = 85
+	Scale = 1.287933
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 207.647934
+	Y = 0.000000
+	Z = 481.856750
+	Rotation = 237
+	Scale = 0.918012
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 264.656525
+	Y = 0.000000
+	Z = 964.171265
+	Rotation = 27
+	Scale = 1.200131
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 681.539368
+	Y = 0.000000
+	Z = 919.248047
+	Rotation = 333
+	Scale = 0.930647
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 26.154362
+	Y = 0.000000
+	Z = 960.356445
+	Rotation = 314
+	Scale = 1.135401
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 73.702202
+	Y = 0.000000
+	Z = 430.402527
+	Rotation = 249
+	Scale = 0.893750
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 418.042542
+	Y = 0.000000
+	Z = 692.953247
+	Rotation = 255
+	Scale = 0.790439
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 499.160736
+	Y = 0.000000
+	Z = 174.443802
+	Rotation = 240
+	Scale = 0.813895
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 327.982422
+	Y = 0.000000
+	Z = 315.317230
+	Rotation = 101
+	Scale = 0.819791
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 689.596252
+	Y = 0.000000
+	Z = 85.024567
+	Rotation = 255
+	Scale = 1.178524
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 106.204414
+	Y = 0.000000
+	Z = 218.207336
+	Rotation = 131
+	Scale = 0.925556
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 341.257965
+	Y = 0.000000
+	Z = 827.387329
+	Rotation = 303
+	Scale = 1.233183
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 725.669128
+	Y = 0.000000
+	Z = 549.272156
+	Rotation = 244
+	Scale = 0.722394
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 87.527084
+	Y = 0.000000
+	Z = 880.275879
+	Rotation = 284
+	Scale = 1.234007
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 567.033936
+	Y = 0.000000
+	Z = 857.692200
+	Rotation = 13
+	Scale = 0.977230
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 96.591080
+	Y = 0.000000
+	Z = 743.125732
+	Rotation = 319
+	Scale = 0.874963
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 829.096375
+	Y = 0.000000
+	Z = 863.704346
+	Rotation = 307
+	Scale = 1.024161
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 293.984802
+	Y = 0.000000
+	Z = 268.074585
+	Rotation = 85
+	Scale = 1.090246
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 563.676880
+	Y = 0.000000
+	Z = 353.007599
+	Rotation = 59
+	Scale = 0.754274
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 210.455643
+	Y = 0.000000
+	Z = 116.885895
+	Rotation = 142
+	Scale = 0.831584
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 336.039307
+	Y = 0.000000
+	Z = 196.508682
+	Rotation = 312
+	Scale = 1.180593
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 454.451111
+	Y = 0.000000
+	Z = 343.150116
+	Rotation = 126
+	Scale = 0.820652
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 509.781189
+	Y = 0.000000
+	Z = 494.613495
+	Rotation = 153
+	Scale = 1.177718
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 809.869690
+	Y = 0.000000
+	Z = 99.032562
+	Rotation = 328
+	Scale = 1.076293
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 157.200836
+	Y = 0.000000
+	Z = 846.949646
+	Rotation = 352
+	Scale = 1.196854
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 958.616882
+	Y = 0.000000
+	Z = 467.696167
+	Rotation = 142
+	Scale = 1.217014
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 594.347961
+	Y = 0.000000
+	Z = 746.787903
+	Rotation = 244
+	Scale = 0.755574
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 828.424927
+	Y = 0.000000
+	Z = 419.934692
+	Rotation = 306
+	Scale = 1.138148
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 541.154236
+	Y = 0.000000
+	Z = 100.558487
+	Rotation = 207
+	Scale = 1.102698
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 565.294373
+	Y = 0.000000
+	Z = 896.511719
+	Rotation = 152
+	Scale = 0.864397
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 906.735413
+	Y = 0.000000
+	Z = 872.554688
+	Rotation = 281
+	Scale = 1.058074
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 131.382187
+	Y = 0.000000
+	Z = 14.984589
+	Rotation = 130
+	Scale = 0.777053
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 199.346909
+	Y = 0.000000
+	Z = 854.243591
+	Rotation = 355
+	Scale = 1.027494
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 527.451416
+	Y = 0.000000
+	Z = 401.928772
+	Rotation = 59
+	Scale = 1.016361
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 561.723694
+	Y = 0.000000
+	Z = 558.885437
+	Rotation = 173
+	Scale = 0.792471
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 640.675049
+	Y = 0.000000
+	Z = 649.800110
+	Rotation = 84
+	Scale = 1.258855
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 431.104462
+	Y = 0.000000
+	Z = 241.157257
+	Rotation = 129
+	Scale = 1.275207
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 717.215515
+	Y = 0.000000
+	Z = 898.953186
+	Rotation = 322
+	Scale = 0.869707
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 824.488037
+	Y = 0.000000
+	Z = 41.535690
+	Rotation = 109
+	Scale = 1.278228
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 459.852905
+	Y = 0.000000
+	Z = 544.907959
+	Rotation = 270
+	Scale = 1.230143
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 248.664810
+	Y = 0.000000
+	Z = 255.897705
+	Rotation = 205
+	Scale = 1.199417
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 750.755310
+	Y = 0.000000
+	Z = 70.070496
+	Rotation = 131
+	Scale = 1.239647
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 235.572372
+	Y = 0.000000
+	Z = 730.063782
+	Rotation = 159
+	Scale = 1.121796
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 999.084473
+	Y = 0.000000
+	Z = 1.007111
+	Rotation = 180
+	Scale = 0.993435
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 502.212585
+	Y = 0.000000
+	Z = 379.284027
+	Rotation = 21
+	Scale = 1.078326
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 113.498337
+	Y = 0.000000
+	Z = 990.417175
+	Rotation = 195
+	Scale = 1.034745
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 735.984375
+	Y = 0.000000
+	Z = 832.880615
+	Rotation = 214
+	Scale = 1.091821
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 100.161751
+	Y = 0.000000
+	Z = 23.926512
+	Rotation = 139
+	Scale = 0.782125
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 4.699851
+	Y = 0.000000
+	Z = 203.558456
+	Rotation = 269
+	Scale = 0.989718
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 285.012360
+	Y = 0.000000
+	Z = 752.616943
+	Rotation = 239
+	Scale = 0.931910
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 791.985840
+	Y = 0.000000
+	Z = 982.207703
+	Rotation = 297
+	Scale = 1.194034
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 161.626022
+	Y = 0.000000
+	Z = 949.522400
+	Rotation = 137
+	Scale = 0.835429
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 657.063538
+	Y = 0.000000
+	Z = 57.191689
+	Rotation = 323
+	Scale = 0.886023
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 863.887451
+	Y = 0.000000
+	Z = 91.952271
+	Rotation = 340
+	Scale = 1.051463
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 520.310059
+	Y = 0.000000
+	Z = 859.096069
+	Rotation = 196
+	Scale = 0.746254
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 263.527344
+	Y = 0.000000
+	Z = 68.605606
+	Rotation = 170
+	Scale = 0.873443
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 573.107117
+	Y = 0.000000
+	Z = 630.054626
+	Rotation = 332
+	Scale = 1.269274
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 692.953247
+	Y = 0.000000
+	Z = 11.322367
+	Rotation = 207
+	Scale = 1.031999
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 813.165710
+	Y = 0.000000
+	Z = 818.475891
+	Rotation = 84
+	Scale = 0.853484
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 292.672516
+	Y = 0.000000
+	Z = 252.296524
+	Rotation = 172
+	Scale = 0.772109
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 204.504532
+	Y = 0.000000
+	Z = 598.345886
+	Rotation = 141
+	Scale = 0.866063
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 984.191406
+	Y = 0.000000
+	Z = 406.079285
+	Rotation = 189
+	Scale = 0.705548
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 462.935272
+	Y = 0.000000
+	Z = 514.023254
+	Rotation = 150
+	Scale = 0.882726
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 67.384872
+	Y = 0.000000
+	Z = 576.616699
+	Rotation = 3
+	Scale = 1.238218
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 465.865051
+	Y = 0.000000
+	Z = 249.519333
+	Rotation = 290
+	Scale = 0.902649
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 443.586548
+	Y = 0.000000
+	Z = 689.230042
+	Rotation = 162
+	Scale = 0.772457
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 287.636963
+	Y = 0.000000
+	Z = 523.300903
+	Rotation = 199
+	Scale = 0.938191
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 462.752167
+	Y = 0.000000
+	Z = 947.752319
+	Rotation = 84
+	Scale = 0.884429
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 859.645386
+	Y = 0.000000
+	Z = 107.455673
+	Rotation = 177
+	Scale = 0.979885
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 396.465942
+	Y = 0.000000
+	Z = 416.364014
+	Rotation = 205
+	Scale = 1.076458
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 255.500961
+	Y = 0.000000
+	Z = 972.685913
+	Rotation = 301
+	Scale = 0.736146
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 535.416748
+	Y = 0.000000
+	Z = 726.889832
+	Rotation = 309
+	Scale = 1.104309
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 601.184143
+	Y = 0.000000
+	Z = 557.329041
+	Rotation = 166
+	Scale = 0.948225
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 912.167725
+	Y = 0.000000
+	Z = 910.611267
+	Rotation = 185
+	Scale = 1.279620
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 610.217590
+	Y = 0.000000
+	Z = 162.358475
+	Rotation = 43
+	Scale = 0.879962
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 648.701416
+	Y = 0.000000
+	Z = 355.388031
+	Rotation = 338
+	Scale = 0.747188
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 743.797119
+	Y = 0.000000
+	Z = 470.595428
+	Rotation = 135
+	Scale = 0.982723
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 929.197083
+	Y = 0.000000
+	Z = 887.691895
+	Rotation = 76
+	Scale = 0.937385
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 995.880005
+	Y = 0.000000
+	Z = 191.381577
+	Rotation = 264
+	Scale = 1.135163
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 597.552429
+	Y = 0.000000
+	Z = 979.644165
+	Rotation = 272
+	Scale = 0.993362
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 303.537109
+	Y = 0.000000
+	Z = 830.072937
+	Rotation = 105
+	Scale = 1.058074
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 380.169067
+	Y = 0.000000
+	Z = 80.935089
+	Rotation = 283
+	Scale = 0.773537
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 581.926941
+	Y = 0.000000
+	Z = 582.598328
+	Rotation = 176
+	Scale = 1.104309
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 733.542908
+	Y = 0.000000
+	Z = 76.082642
+	Rotation = 261
+	Scale = 1.228898
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 384.502716
+	Y = 0.000000
+	Z = 354.930267
+	Rotation = 224
+	Scale = 1.023557
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 316.904205
+	Y = 0.000000
+	Z = 866.237366
+	Rotation = 147
+	Scale = 0.955257
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 188.207642
+	Y = 0.000000
+	Z = 907.681519
+	Rotation = 144
+	Scale = 0.902155
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 89.938049
+	Y = 0.000000
+	Z = 76.296272
+	Rotation = 86
+	Scale = 0.920740
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 303.628662
+	Y = 0.000000
+	Z = 125.583664
+	Rotation = 10
+	Scale = 1.278063
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 35.340435
+	Y = 0.000000
+	Z = 887.051025
+	Rotation = 57
+	Scale = 1.168050
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 410.016174
+	Y = 0.000000
+	Z = 412.152466
+	Rotation = 245
+	Scale = 1.230528
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 506.607269
+	Y = 0.000000
+	Z = 991.943115
+	Rotation = 206
+	Scale = 0.891754
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 715.689575
+	Y = 0.000000
+	Z = 208.929718
+	Rotation = 75
+	Scale = 1.045091
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 200.537125
+	Y = 0.000000
+	Z = 679.372559
+	Rotation = 346
+	Scale = 1.290789
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 742.973083
+	Y = 0.000000
+	Z = 640.369873
+	Rotation = 172
+	Scale = 1.053349
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 755.058472
+	Y = 0.000000
+	Z = 39.613026
+	Rotation = 252
+	Scale = 0.995596
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 738.425842
+	Y = 0.000000
+	Z = 283.059174
+	Rotation = 298
+	Scale = 0.847771
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 971.709351
+	Y = 0.000000
+	Z = 296.853546
+	Rotation = 131
+	Scale = 0.870696
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 708.059937
+	Y = 0.000000
+	Z = 60.457169
+	Rotation = 347
+	Scale = 1.271654
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 663.441895
+	Y = 0.000000
+	Z = 266.212952
+	Rotation = 101
+	Scale = 0.791812
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 77.364418
+	Y = 0.000000
+	Z = 262.398132
+	Rotation = 129
+	Scale = 0.783828
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 127.170631
+	Y = 0.000000
+	Z = 935.758545
+	Rotation = 192
+	Scale = 0.998398
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 976.714355
+	Y = 0.000000
+	Z = 689.504700
+	Rotation = 341
+	Scale = 1.198611
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 241.523483
+	Y = 0.000000
+	Z = 173.528244
+	Rotation = 141
+	Scale = 0.820798
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 151.097137
+	Y = 0.000000
+	Z = 922.788147
+	Rotation = 24
+	Scale = 1.200589
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 189.458908
+	Y = 0.000000
+	Z = 559.739990
+	Rotation = 0
+	Scale = 0.782803
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 495.742676
+	Y = 0.000000
+	Z = 718.222595
+	Rotation = 353
+	Scale = 1.034471
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 805.841248
+	Y = 0.000000
+	Z = 343.546875
+	Rotation = 185
+	Scale = 0.878826
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 215.948975
+	Y = 0.000000
+	Z = 526.291687
+	Rotation = 250
+	Scale = 0.969979
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 550.187683
+	Y = 0.000000
+	Z = 525.254089
+	Rotation = 230
+	Scale = 1.026286
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 612.384399
+	Y = 0.000000
+	Z = 136.326187
+	Rotation = 43
+	Scale = 0.741603
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 104.342781
+	Y = 0.000000
+	Z = 63.234352
+	Rotation = 143
+	Scale = 1.293005
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 491.195404
+	Y = 0.000000
+	Z = 446.363708
+	Rotation = 197
+	Scale = 1.163582
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 595.141479
+	Y = 0.000000
+	Z = 206.152527
+	Rotation = 168
+	Scale = 1.299487
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 199.163788
+	Y = 0.000000
+	Z = 357.341217
+	Rotation = 272
+	Scale = 0.719520
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 441.846985
+	Y = 0.000000
+	Z = 949.766541
+	Rotation = 291
+	Scale = 1.196304
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 283.974731
+	Y = 0.000000
+	Z = 792.809814
+	Rotation = 69
+	Scale = 0.927515
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 829.187927
+	Y = 0.000000
+	Z = 619.037476
+	Rotation = 211
+	Scale = 1.216428
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 779.137573
+	Y = 0.000000
+	Z = 843.501099
+	Rotation = 237
+	Scale = 1.279784
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 804.681519
+	Y = 0.000000
+	Z = 575.243408
+	Rotation = 218
+	Scale = 1.002554
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 114.352852
+	Y = 0.000000
+	Z = 36.683247
+	Rotation = 144
+	Scale = 1.157594
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 1.434370
+	Y = 0.000000
+	Z = 47.883541
+	Rotation = 12
+	Scale = 1.109491
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 650.624084
+	Y = 0.000000
+	Z = 730.979309
+	Rotation = 223
+	Scale = 0.921088
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 985.839417
+	Y = 0.000000
+	Z = 91.921753
+	Rotation = 170
+	Scale = 1.281469
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 840.296631
+	Y = 0.000000
+	Z = 635.486938
+	Rotation = 43
+	Scale = 0.974172
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 230.048523
+	Y = 0.000000
+	Z = 669.484558
+	Rotation = 216
+	Scale = 0.904462
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 12.359997
+	Y = 0.000000
+	Z = 454.725800
+	Rotation = 203
+	Scale = 1.204270
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 709.952087
+	Y = 0.000000
+	Z = 857.173401
+	Rotation = 303
+	Scale = 1.033592
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 782.586121
+	Y = 0.000000
+	Z = 657.918030
+	Rotation = 42
+	Scale = 0.797232
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 127.384262
+	Y = 0.000000
+	Z = 177.953430
+	Rotation = 284
+	Scale = 0.795437
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 88.534195
+	Y = 0.000000
+	Z = 373.546570
+	Rotation = 87
+	Scale = 0.827207
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 758.293396
+	Y = 0.000000
+	Z = 58.351391
+	Rotation = 263
+	Scale = 0.765352
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 850.001526
+	Y = 0.000000
+	Z = 409.039581
+	Rotation = 43
+	Scale = 1.221427
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 924.924438
+	Y = 0.000000
+	Z = 410.229797
+	Rotation = 245
+	Scale = 0.719868
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 253.730881
+	Y = 0.000000
+	Z = 395.092621
+	Rotation = 79
+	Scale = 1.099988
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 93.783379
+	Y = 0.000000
+	Z = 337.992493
+	Rotation = 246
+	Scale = 0.764016
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 664.082764
+	Y = 0.000000
+	Z = 55.299538
+	Rotation = 171
+	Scale = 1.290899
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 598.254333
+	Y = 0.000000
+	Z = 970.671692
+	Rotation = 255
+	Scale = 1.033628
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 157.780701
+	Y = 0.000000
+	Z = 600.787354
+	Rotation = 239
+	Scale = 1.219706
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 986.053040
+	Y = 0.000000
+	Z = 418.652924
+	Rotation = 217
+	Scale = 1.172719
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 684.377563
+	Y = 0.000000
+	Z = 249.458298
+	Rotation = 70
+	Scale = 0.974465
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 992.156738
+	Y = 0.000000
+	Z = 856.196777
+	Rotation = 249
+	Scale = 0.785842
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 851.130737
+	Y = 0.000000
+	Z = 870.906677
+	Rotation = 110
+	Scale = 0.745576
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 136.204102
+	Y = 0.000000
+	Z = 727.988525
+	Rotation = 222
+	Scale = 0.865441
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 333.292633
+	Y = 0.000000
+	Z = 755.577271
+	Rotation = 242
+	Scale = 1.240599
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 945.493958
+	Y = 0.000000
+	Z = 81.423386
+	Rotation = 206
+	Scale = 0.794101
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 909.390564
+	Y = 0.000000
+	Z = 509.537048
+	Rotation = 88
+	Scale = 0.874029
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 802.179016
+	Y = 0.000000
+	Z = 23.651844
+	Rotation = 353
+	Scale = 1.122053
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 121.097443
+	Y = 0.000000
+	Z = 73.976868
+	Rotation = 236
+	Scale = 1.132307
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 416.333496
+	Y = 0.000000
+	Z = 303.476044
+	Rotation = 132
+	Scale = 0.719318
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 558.671814
+	Y = 0.000000
+	Z = 869.685974
+	Rotation = 307
+	Scale = 0.913507
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 923.398560
+	Y = 0.000000
+	Z = 18.494217
+	Rotation = 328
+	Scale = 0.903253
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 770.958557
+	Y = 0.000000
+	Z = 66.469315
+	Rotation = 56
+	Scale = 0.842241
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 606.830017
+	Y = 0.000000
+	Z = 447.096161
+	Rotation = 8
+	Scale = 0.940736
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 800.531006
+	Y = 0.000000
+	Z = 978.057190
+	Rotation = 250
+	Scale = 0.759548
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 245.948669
+	Y = 0.000000
+	Z = 5.401776
+	Rotation = 207
+	Scale = 1.125623
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 343.943604
+	Y = 0.000000
+	Z = 581.102966
+	Rotation = 76
+	Scale = 1.187680
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 88.351082
+	Y = 0.000000
+	Z = 329.538879
+	Rotation = 103
+	Scale = 0.830979
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 536.820557
+	Y = 0.000000
+	Z = 160.222168
+	Rotation = 100
+	Scale = 0.969887
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 447.676025
+	Y = 0.000000
+	Z = 482.345032
+	Rotation = 275
+	Scale = 1.136573
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 364.024780
+	Y = 0.000000
+	Z = 77.211830
+	Rotation = 292
+	Scale = 1.285443
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 926.328308
+	Y = 0.000000
+	Z = 285.653259
+	Rotation = 198
+	Scale = 1.231059
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 694.814880
+	Y = 0.000000
+	Z = 665.700256
+	Rotation = 20
+	Scale = 1.039286
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 262.947479
+	Y = 0.000000
+	Z = 777.306458
+	Rotation = 346
+	Scale = 1.189438
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 943.052490
+	Y = 0.000000
+	Z = 250.556961
+	Rotation = 302
+	Scale = 1.027000
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 805.352966
+	Y = 0.000000
+	Z = 792.962402
+	Rotation = 298
+	Scale = 0.925300
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 352.183594
+	Y = 0.000000
+	Z = 292.611481
+	Rotation = 97
+	Scale = 1.274657
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 607.837158
+	Y = 0.000000
+	Z = 673.421448
+	Rotation = 40
+	Scale = 0.718293
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 905.728333
+	Y = 0.000000
+	Z = 658.131653
+	Rotation = 303
+	Scale = 1.153493
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 154.148987
+	Y = 0.000000
+	Z = 96.407974
+	Rotation = 176
+	Scale = 0.916401
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 862.025818
+	Y = 0.000000
+	Z = 13.122959
+	Rotation = 279
+	Scale = 1.069994
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 705.008118
+	Y = 0.000000
+	Z = 33.845028
+	Rotation = 194
+	Scale = 0.813218
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 914.700745
+	Y = 0.000000
+	Z = 343.302704
+	Rotation = 331
+	Scale = 0.930555
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 270.668671
+	Y = 0.000000
+	Z = 833.674133
+	Rotation = 84
+	Scale = 0.900433
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 977.721497
+	Y = 0.000000
+	Z = 598.162781
+	Rotation = 339
+	Scale = 0.781429
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 208.746597
+	Y = 0.000000
+	Z = 426.892914
+	Rotation = 286
+	Scale = 1.295056
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 595.477173
+	Y = 0.000000
+	Z = 460.798981
+	Rotation = 264
+	Scale = 1.223533
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 446.852020
+	Y = 0.000000
+	Z = 659.840698
+	Rotation = 349
+	Scale = 1.141829
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 978.118225
+	Y = 0.000000
+	Z = 242.347488
+	Rotation = 194
+	Scale = 1.202237
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 330.118713
+	Y = 0.000000
+	Z = 750.907898
+	Rotation = 209
+	Scale = 0.790512
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 661.488708
+	Y = 0.000000
+	Z = 901.608337
+	Rotation = 59
+	Scale = 0.972304
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 93.935974
+	Y = 0.000000
+	Z = 872.768311
+	Rotation = 222
+	Scale = 0.748341
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 792.474121
+	Y = 0.000000
+	Z = 189.336838
+	Rotation = 242
+	Scale = 1.237706
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 961.668762
+	Y = 0.000000
+	Z = 859.309692
+	Rotation = 190
+	Scale = 1.007224
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 39.033173
+	Y = 0.000000
+	Z = 918.088318
+	Rotation = 136
+	Scale = 0.866393
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 867.183472
+	Y = 0.000000
+	Z = 37.720879
+	Rotation = 13
+	Scale = 0.746144
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 125.400558
+	Y = 0.000000
+	Z = 356.486694
+	Rotation = 174
+	Scale = 0.980288
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 802.636780
+	Y = 0.000000
+	Z = 185.552536
+	Rotation = 68
+	Scale = 0.808567
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 992.309326
+	Y = 0.000000
+	Z = 748.954712
+	Rotation = 221
+	Scale = 1.019950
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 791.039795
+	Y = 0.000000
+	Z = 612.689575
+	Rotation = 328
+	Scale = 1.154738
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 581.926941
+	Y = 0.000000
+	Z = 960.020752
+	Rotation = 77
+	Scale = 1.184567
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 483.932007
+	Y = 0.000000
+	Z = 368.297363
+	Rotation = 296
+	Scale = 1.088928
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 248.329117
+	Y = 0.000000
+	Z = 244.117554
+	Rotation = 15
+	Scale = 1.046702
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 384.075439
+	Y = 0.000000
+	Z = 573.076599
+	Rotation = 194
+	Scale = 1.061937
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 792.443604
+	Y = 0.000000
+	Z = 139.957886
+	Rotation = 3
+	Scale = 0.942201
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 693.105896
+	Y = 0.000000
+	Z = 876.155884
+	Rotation = 110
+	Scale = 1.248399
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 122.165596
+	Y = 0.000000
+	Z = 490.035706
+	Rotation = 234
+	Scale = 0.734974
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 784.081543
+	Y = 0.000000
+	Z = 37.018951
+	Rotation = 312
+	Scale = 1.099017
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 537.736145
+	Y = 0.000000
+	Z = 585.222961
+	Rotation = 261
+	Scale = 0.756948
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 299.264496
+	Y = 0.000000
+	Z = 632.862305
+	Rotation = 3
+	Scale = 1.068035
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 641.651672
+	Y = 0.000000
+	Z = 434.278381
+	Rotation = 76
+	Scale = 0.722761
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 872.829346
+	Y = 0.000000
+	Z = 890.194397
+	Rotation = 65
+	Scale = 1.115534
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 873.989075
+	Y = 0.000000
+	Z = 158.452103
+	Rotation = 328
+	Scale = 0.819736
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 478.286072
+	Y = 0.000000
+	Z = 642.231506
+	Rotation = 244
+	Scale = 0.784725
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 672.475342
+	Y = 0.000000
+	Z = 510.879852
+	Rotation = 10
+	Scale = 0.772622
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 401.409943
+	Y = 0.000000
+	Z = 410.748627
+	Rotation = 49
+	Scale = 0.854418
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 257.728821
+	Y = 0.000000
+	Z = 521.225647
+	Rotation = 217
+	Scale = 1.083544
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 837.641541
+	Y = 0.000000
+	Z = 613.177917
+	Rotation = 112
+	Scale = 1.166219
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 43.336285
+	Y = 0.000000
+	Z = 265.144806
+	Rotation = 312
+	Scale = 1.046739
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 114.902191
+	Y = 0.000000
+	Z = 894.558533
+	Rotation = 181
+	Scale = 1.226975
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 671.041016
+	Y = 0.000000
+	Z = 758.903748
+	Rotation = 101
+	Scale = 0.738453
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 541.337341
+	Y = 0.000000
+	Z = 584.643066
+	Rotation = 1
+	Scale = 1.186087
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 670.796814
+	Y = 0.000000
+	Z = 978.759094
+	Rotation = 292
+	Scale = 0.981863
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 877.681824
+	Y = 0.000000
+	Z = 279.946289
+	Rotation = 57
+	Scale = 0.787857
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 746.147034
+	Y = 0.000000
+	Z = 5.615406
+	Rotation = 234
+	Scale = 1.286743
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 435.132904
+	Y = 0.000000
+	Z = 550.706482
+	Rotation = 294
+	Scale = 1.098816
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 684.224976
+	Y = 0.000000
+	Z = 294.595184
+	Rotation = 74
+	Scale = 1.164425
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 798.089539
+	Y = 0.000000
+	Z = 772.942261
+	Rotation = 323
+	Scale = 1.210092
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 890.896301
+	Y = 0.000000
+	Z = 69.429611
+	Rotation = 219
+	Scale = 1.217673
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 171.452988
+	Y = 0.000000
+	Z = 85.451828
+	Rotation = 251
+	Scale = 0.714722
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 550.950623
+	Y = 0.000000
+	Z = 842.097229
+	Rotation = 160
+	Scale = 1.005411
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 353.709534
+	Y = 0.000000
+	Z = 472.029785
+	Rotation = 105
+	Scale = 0.760042
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 413.342682
+	Y = 0.000000
+	Z = 57.191689
+	Rotation = 7
+	Scale = 0.882672
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 334.299744
+	Y = 0.000000
+	Z = 968.169189
+	Rotation = 134
+	Scale = 1.275005
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 201.178009
+	Y = 0.000000
+	Z = 861.781677
+	Rotation = 307
+	Scale = 1.215439
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 516.312134
+	Y = 0.000000
+	Z = 993.377502
+	Rotation = 214
+	Scale = 0.972451
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 647.053467
+	Y = 0.000000
+	Z = 999.542236
+	Rotation = 250
+	Scale = 0.770351
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 564.287231
+	Y = 0.000000
+	Z = 808.038574
+	Rotation = 43
+	Scale = 0.726643
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 153.019806
+	Y = 0.000000
+	Z = 830.622253
+	Rotation = 239
+	Scale = 0.879723
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 876.705200
+	Y = 0.000000
+	Z = 95.583969
+	Rotation = 232
+	Scale = 0.725416
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 75.930054
+	Y = 0.000000
+	Z = 475.966675
+	Rotation = 57
+	Scale = 0.981313
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 683.736694
+	Y = 0.000000
+	Z = 669.484558
+	Rotation = 271
+	Scale = 0.997610
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 637.470642
+	Y = 0.000000
+	Z = 86.947235
+	Rotation = 274
+	Scale = 1.133131
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 769.890442
+	Y = 0.000000
+	Z = 305.063019
+	Rotation = 244
+	Scale = 1.115387
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 459.334076
+	Y = 0.000000
+	Z = 239.844971
+	Rotation = 241
+	Scale = 0.703314
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 821.588806
+	Y = 0.000000
+	Z = 696.920654
+	Rotation = 152
+	Scale = 0.871612
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 723.410767
+	Y = 0.000000
+	Z = 455.366669
+	Rotation = 217
+	Scale = 1.035057
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 399.945068
+	Y = 0.000000
+	Z = 540.604858
+	Rotation = 87
+	Scale = 0.732154
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 956.907837
+	Y = 0.000000
+	Z = 843.287476
+	Rotation = 336
+	Scale = 1.286285
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 538.407532
+	Y = 0.000000
+	Z = 739.890747
+	Rotation = 186
+	Scale = 0.863280
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 442.548920
+	Y = 0.000000
+	Z = 871.822266
+	Rotation = 64
+	Scale = 1.244609
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 965.239441
+	Y = 0.000000
+	Z = 738.639465
+	Rotation = 13
+	Scale = 1.133955
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 253.730881
+	Y = 0.000000
+	Z = 262.276062
+	Rotation = 17
+	Scale = 0.917133
+</ITEM>
+
+
+<ITEM>
+	File = grass_stripped.shrub
+	X = 951.414551
+	Y = 0.000000
+	Z = 977.996155
+	Rotation = 210
+	Scale = 0.893127
+</ITEM>
+
