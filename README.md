@@ -6,6 +6,8 @@ Tracks with a variety of hurdles you have to (or may want to) manage in a chosen
 Easy-to-use track editor that allows you to create as crazy tracks as you want. 
 The only limit is your imagination.
 
+![Gamplay](http://www.freegame.cz/public/reviews/images/9/98/988/resized/5-unlimited-racer.jpg)
+
 Maximal adjustability of every item in the game. 
 Simple syntax of configuration files gives you the possibility of extending the game by custom models, textures, car properties etc.
 Multiplayer mode allowing you to share the fun with your friends on local network and Internet.
